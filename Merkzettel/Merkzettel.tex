@@ -1,0 +1,89 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+\usepackage[german]{babel}
+\usepackage{fourier}  % Use the Adobe Utopia font for the document
+\usepackage{amsmath,amsthm,amssymb,amscd,color,graphicx}
+
+% Geschwungene Kleinbuchstaben im Mathemodus (benutze \mathpzc)
+\DeclareFontFamily{OT1}{pzc}{}
+\DeclareFontShape{OT1}{pzc}{m}{it}{<-> s * [1.10] pzcmi7t}{}
+\DeclareMathAlphabet{\mathpzc}{OT1}{pzc}{m}{it}
+
+
+%Struktur
+\newcommand{\point}{\vspace{3mm}\par \noindent \refstepcounter{subsection}{\bf \thesubsection.} }
+	\numberwithin{equation}{subsection}
+\newcommand{\tpoint}[1]{\vspace{3mm}\par \noindent \refstepcounter{subsection}{\bf \thesubsection.} 
+  \numberwithin{equation}{subsection} {\em #1. ---} }
+\newcommand{\epoint}[1]{\vspace{3mm}\par \noindent \refstepcounter{subsection}{\bf \thesubsection.} 
+  \numberwithin{equation}{subsection} {\em #1} }
+\newcommand{\bpoint}[1]{\vspace{3mm}\par \noindent \refstepcounter{subsection}{\bf \thesubsection.} 
+  \numberwithin{equation}{subsection} {\bf\em #1} }
+  
+%Abkürzungen
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Cinf}{C^\infty}
+\newcommand{\id}{\text{id}}
+\renewcommand{\O}{\mathcal{O}}
+\renewcommand{\S}{\mathfrak{S}}
+\newcommand{\T}{\mathpzc{T}}
+\newcommand{\E}{\mathpzc{E}}
+\newcommand{\Hom}{\mathpzc{Hom}}
+\newcommand{\End}{\mathpzc{End}}
+\newcommand{\del}{\partial}
+\newcommand{\delbar}{\overline{\partial}}
+\newcommand{\dzbar}{d\overline{z}}
+
+\newcommand{\diff}[1]{\frac{\partial}{\partial #1}}
+\newcommand{\vac}{\left|0\right>}
+
+\binoppenalty=7000
+\relpenalty=5000
+
+% Title Page
+\title{Memo: Interessante Sachen}
+\author{Simon Kapfer}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+Merkzettel zu diversen Sachen und Mottos, die nicht in einen anderen Kontext eingebettet sind.
+\end{abstract}
+\section{Kohomologisches}
+\bpoint{Gruppenkohomologie} einer Gruppe $G$ soll die (singuläre) Kohomologie eines Raumes sein, dessen Fundamentalgruppe gleich $G$ ist und dessen andere Homotopiegruppen trivial sind. Den Raum kann man konstruieren: er heißt 'Eilenberg--MacLane Raum'.
+\bpoint{Tensorprodukt über Gruppenringen} $M,\ N$ seien Links-$G$-Moduln. $M\otimes_G N$ ist so definiert, daß $m g\otimes g n = m \otimes n$. Dann ist $M\otimes_G N \cong (M\otimes N)_G$.
+\bpoint{Welche Kohomologieklassen können als Chernklassen realisiert werden?} Für $X$ eine projektive Kurve kann jede Klasse aus $H^2(X,\Z)$ als erste Chernklasse eines Vektorbündels geschrieben werden. \\Für $X$ eine komplexe Fläche geht das auch für beliebiges $c_1\in H^{1,1}(X)\cap H^2(X,\Z)$ und $c_2 \in H^4(X,\Z)\cong\Z$ (Satz von Schwarzenberger).
+\bpoint{Äquivariante Kohomologie} Wenn eine kompakte Liegruppe $G$ auf einem Raum $X$ wirkt, so wird die Äquivariante Kohomologie $H^*_G(X;\R) := H^*(\frac{X\times EG}{G}; \R)$ über den folgenden (Totalkomplex des Doppel-)Komplex berechnet:
+$$\Omega_G^i(X) \ = \ \bigoplus\left(S^j(\mathfrak{g}^*) \otimes \Omega^{i-2j}(X)\right)^G $$
+\bpoint{Charakteristische Klassen}
+Insbesondere hat man für $X = \{\text{pt}\} $ und $G=U(n)$ 
+$$ H^*_G(X) = H^*(BG) = S^*(\mathfrak{g}^*)^G = \R[c_1,\ldots,c_n], \qquad \det(\lambda - A) = \sum_i(-1)^ic_i(A)\lambda^{n-i}$$
+wobei die $c_i$ die Chernklassen sind. Für $G = O(n)$ erhält man Pontrjagin--Klassen. Für $V$ ein Vektorbündel über einem beliebigen $X$ hat man durch Wahl von lokalen Rahmen die Struktur eines $G$--Hauptfaserbündels und damit eine Abbildung $X\rightarrow BG$. Die charakteristischen Klassen des Bündels ergeben sich dann durch Rückzug von $BG$.
+\section{Algebraisches}
+\bpoint{Lieableitung und Intuition.} Seien $f(x),\ g(x)$ parameterabhängige, lineare Operatoren (z. B. einfach Multiplikation mit Zahlen: $f(x)\in \R$). Differentialoperatoren wie $\frac{d}{dx}$ fallen auch in diese Kategorie. Es gilt 
+\[ \frac{d}{dx} f g = \left(\diff{x}f\right) g + f \frac{d}{dx} g \] 
+Daher macht es Sinn, den abgeleiteten Operator $f' := \left(\diff{x}f\right)$ zu definieren als:
+\[f'\quad =\quad \frac{d}{dx} f - f \frac{d}{dx} \quad=\quad \left[\frac{d}{dx},f \right]\]
+Hier also eine Möglichkeit, die Lieklammer zu verstehen. Die Jacobi-Identität wird dann zu einem Spezialfall der Leibnizregel: 
+\[  {\color{blue}[ } x,{ \color{black} [} y,z { \color{black} ]}{\color{blue}] } =
+{ \color{black} [}{\color{blue}[ } x,y {\color{blue}] }, z{ \color{black} ]} +{ \color{black} [} y, {\color{blue}[ } x,z {\color{blue}] } { \color{black} ]}
+ \]
+Die blauen Klammern stehen jeweils für Ableitung nach $x$, die schwarzen Klammern sind einfach nur eine Bilinearform, die hier zufällig gleich der Lieklammer ist.
+
+\bpoint{} Es gibt keinen Körper, der als $\Z$--Modul frei ist.
+
+\section{Exakte Sequenzen}
+\bpoint{Eulersequenz} Auf $\mathbb{P}^n$ hat man
+\begin{align*} 0 \rightarrow \O \rightarrow \O(1)^{\oplus n+1} \rightarrow \T \rightarrow 0 & \quad \text{bzw.}\\
+0 \rightarrow \Omega \rightarrow \O(-1)^{\oplus n+1} \rightarrow \O \rightarrow 0 &
+\end{align*}
+\bpoint{Exponentialsequenz} Auf komplexen Räumen liefert die exp--Funktion
+$$ 0\rightarrow 2\pi i\Z \rightarrow \O \rightarrow \O^* \rightarrow 0 $$
+\bibliographystyle{alpha}
+\bibliography{bibl}
+\end{document}          

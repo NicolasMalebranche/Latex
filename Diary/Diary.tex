@@ -1,0 +1,61 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+\usepackage[german]{babel}
+\usepackage{fourier}  % Use the Adobe Utopia font for the document
+\usepackage{amsmath,amsthm,amssymb,amscd,color,graphicx}
+
+% Geschwungene Kleinbuchstaben im Mathemodus (benutze \mathpzc)
+\DeclareFontFamily{OT1}{pzc}{}
+\DeclareFontShape{OT1}{pzc}{m}{it}{<-> s * [1.10] pzcmi7t}{}
+\DeclareMathAlphabet{\mathpzc}{OT1}{pzc}{m}{it}
+
+
+%Struktur
+\newcommand{\eintrag}{\subparagraph*}
+  
+%Abkürzungen
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Cinf}{C^\infty}
+\newcommand{\id}{\text{id}}
+\renewcommand{\O}{\mathcal{O}\!}
+\renewcommand{\S}{\mathfrak{S}}
+\newcommand{\T}{\mathcal{T}}
+\newcommand{\E}{\mathcal{E}}
+\newcommand{\A}{\mathcal{A}}
+\newcommand{\Hom}{\mathcal{H}\!\!\!\mathpzc{om}}
+\newcommand{\End}{\mathcal{E}\!\!\mathpzc{nd}}
+\renewcommand{\d}{d\!}
+\newcommand{\del}{\partial}
+\newcommand{\delbar}{\overline{\partial}}
+\newcommand{\dzbar}{\d\overline{z}}
+\newcommand{\diff}[1]{\frac{\partial}{\partial #1}}
+\newcommand{\vac}{\left|0\right>}
+
+%\binoppenalty=7000
+%\relpenalty=5000 
+
+% Title Page
+\title{Tagebuch}
+\author{Simon Kapfer}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+Was mir an mathematisch Interessantem einfällt.
+\end{abstract}
+\eintrag{p-adische Approximation mit erzeugenden Funktionen} Eine Potenzreihe $F(x) = \sum c_n x^n$ konvergiert (wenn die $c_n$ nicht zu schlecht sind, also z.B. ganze Zahlen) im p-adischen Sinne in $\Z_p$ bzw. $\Q_p$ für alle $x$, die Vielfache von $p$ sind. Für $x_0= a_1 p + a_2 p^2 +\ldots $ konvergieren die Koeffizienten der Reihe
+$$\frac{F(a_1pt+a_2p^2t^2+\ldots)}{1-t} $$ 
+gegen $F(x_0)$. Idee dazu kam von folgender Frage: Gegeben ein modulo $p^n\ \forall n$ surjektives Polynom $P$ (vgl. Hensel Lemma), wie kann man eine Folge $(r_n)$ finden, so daß $P(r_n)$ durch $p^n$ teilbar ist? Man muß die Nullstellen von $P$ nämlich p-adisch approximieren, z.B. mittels Newton-Verfahren, oder direkt eine Potenzreihe für die Wurzel nehmen.
+
+\eintrag{Poincaré-Birkhoff-Witt-Theorem} Die universell einhüllende Algebra einer Liealgebra $\mathfrak{g}$ ist der Quotient der freien Tensoralgebra durch die Relationen $\left<a\otimes b - b\otimes a -[a,b] \right>$. Die Aussage des sog. Theorems ist, daß $U(\mathfrak{g})$ als Vektorraum von den (linear unabhängigen) geordneten Tensoren der $\mathfrak{g}$-Basiselemente $e_{i_1} \otimes\ldots\otimes e_{i_k},\ i_1\leq\ldots \leq i_k$ aufgespannt wird. Die lineare Unabhängigkeit ist der nichttriviale Teil. \\ Meine Beweisidee: $U(\mathfrak{g}) = \bigoplus U^k$ wobei $U^k = \left<e_{i_1} \otimes\ldots\otimes e_{i_k},\ i_1\leq \ldots \leq i_k \right>$ und die Erzeuger von $U^k$ sind linear unabhängig. Bleibt zu zeigen, daß $U^k\cap U^l = 0$ für verschiedene $k$ und $l$. Die Relationen der Einhüllenden vermischen nur zwei benachbarte Grade, d. h. es reicht zu zeigen, daß $U^k\cap U^{k-1} = 0$. Mit anderen Worten, die Vertauschung von zwei Basisvektoren in $U^k$ soll sich zu einer Gruppenwirkung von $\S_k$ auf $U^k\oplus U^{k-1}$ fortsetzen lassen. $S_k$ wird von Transpositionen benachbarter Elemente $\sigma_i$ erzeugt, die den Relationen $\sigma_i^2 =1 ,\ \sigma_i\sigma_j = \sigma_j\sigma_i$ falls $ |i-j|>1$ und $ \sigma_i\sigma_{i+1}\sigma_i = \sigma_{i+1}\sigma_i \sigma_{i+1}$ gehorchen. Die erste Gleichung gilt wegen Antikommutativität der Lieklammer, die zweite trivialerweise, die dritte braucht Jacobi. Gezeigt ist nun: egal, in welcher Reihenfolge man ein Element in $U^k$ in Normalform (durch Vertauschen) bringt, man wird stets dieselbe Korrektur in $U^{k-1}$ erhalten. Insbesondere wird Umformen eines Elements in Normalform in sich selbst keine Korrekturterme produzieren.
+
+\eintrag{Dimension von metrischen Graphen} Ein metrischer Raum aus $n+1$ Punkten kann stets als Eckenmenge eines $n$-Simplex dargestellt werden. Dieses Simplex ist manchmal entartet, was eine Reduzierung der Dimension bedeutet. Wie weit kann man die Dimension reduzieren, wenn man für die Abstände einen Fehler von bestimmter Größe zuläßt? Möglicherweise gehts mit einer Eigenraumzerlegung der darstellenden Matrix à la Carina.
+
+\bibliographystyle{alpha}
+\bibliography{bibl}
+\end{document}          

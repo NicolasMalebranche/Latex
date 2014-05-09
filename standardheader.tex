@@ -1,0 +1,77 @@
+%Einstellungen
+%Pakete
+\usepackage[T1]{fontenc} 
+\usepackage[ansinew]{inputenc}
+
+\usepackage[german]{babel}
+\usepackage{amsmath,amssymb,amsfonts,nicefrac,color,xspace,ifthen,longtable}
+\usepackage{lmodern}
+\usepackage[normalem]{ulem}
+\usepackage[babel=true]{microtype}
+\usepackage[automark]{scrpage2}
+\usepackage{setspace}
+\usepackage[numbers]{natbib}
+%\usepackage{graphicx,overpic}
+\usepackage{paralist}
+
+%Kommutative Diagramme
+\usepackage{amscd}
+\usepackage[all,cmtip]{xy}
+
+%Hyperlinks
+\usepackage[colorlinks,pdfpagelabels,pdfstartview = FitH,bookmarksopen = true,bookmarksnumbered = true,linkcolor = black,plainpages = false,hypertexnames = false,citecolor = black]{hyperref}
+
+
+%Schriftbild
+
+\clubpenalty10000
+\widowpenalty10000
+\displaywidowpenalty=10000
+\onehalfspacing
+\renewcommand{\labelitemii}{$\circ$}
+
+%Bilder
+%\graphicspath{{./Bilder/}}
+%\newcommand{\bild}[3]{\begin{figure}[htbp]{\centering\includegraphics{Bilder/#1}\caption{\label{#2}#3}}\end{figure}}
+%\newcommand{\bildd}[6]{\begin{figure}[htbp]
+%\centering
+%  \begin{minipage}{0.4\textwidth}
+%    \includegraphics{Bilder/#1}\caption{\label{#2}#3}
+%  \end{minipage}
+%  \begin{minipage}{0.1\textwidth}{}\end{minipage}
+%  \begin{minipage}{0.4\textwidth}
+%        \includegraphics{Bilder/#4}\caption{\label{#5}#6}
+%  \end{minipage}
+%\end{figure}}
+
+%Abkürzungen
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\A}{\mathbb{A}}
+\renewcommand{\P}{\mathfrak{P}}
+\newcommand{\Spec}{\text{Spec}\,}
+\renewcommand{\O}{\mathcal{O}}
+\newcommand{\Hilb}{\underline{\text{Hilb}}\,}
+\newcommand{\End}{\mathbf{End}}
+\newcommand{\vak}{\left| 0 \right>}
+\newcommand{\e}{\mathbf{e}}
+\newcommand{\ch}{\text{ch}}
+\newcommand{\td}{\text{td}\,}
+%Struktur
+\newcommand{\point}{\vspace{3mm}\par \noindent \refstepcounter{subsection}{\bf \thesubsection.} }
+	\numberwithin{equation}{subsection}
+\newcommand{\tpoint}[1]{\vspace{3mm}\par \noindent \refstepcounter{subsection}{\bf \thesubsection.} 
+  \numberwithin{equation}{subsection} {\em #1. ---} }
+\newcommand{\epoint}[1]{\vspace{3mm}\par \noindent \refstepcounter{subsection}{\bf \thesubsection.} 
+  \numberwithin{equation}{subsection} {\em #1.} }
+\newcommand{\bpoint}[1]{\vspace{3mm}\par \noindent \refstepcounter{subsection}{\bf \thesubsection.} 
+  \numberwithin{equation}{subsection} {\bf\em #1.} }
+  
+% Spezialabkürzungen  
+\newcommand{\hil}[1]{^{\left[ #1 \right]}}
+
+%Silbentrennung
+%\hyphenation{Ver-suchs-pa-ra-me-ter}
+
+
+
