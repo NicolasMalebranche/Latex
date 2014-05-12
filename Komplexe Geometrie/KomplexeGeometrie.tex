@@ -1,0 +1,109 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+\usepackage[german]{babel}
+\usepackage{fourier}  % Use the Adobe Utopia font for the document
+\usepackage{amsmath,amsthm,amssymb,amscd,color,graphicx}
+
+% Geschwungene Kleinbuchstaben im Mathemodus (benutze \mathpzc)
+\DeclareFontFamily{OT1}{pzc}{}
+\DeclareFontShape{OT1}{pzc}{m}{it}{<-> s * [1.10] pzcmi7t}{}
+\DeclareMathAlphabet{\mathpzc}{OT1}{pzc}{m}{it}
+
+
+%Struktur
+\newcommand{\point}{\vspace{3mm}\par \noindent \refstepcounter{subsection}{\bf \thesubsection.} }
+	\numberwithin{equation}{subsection}
+\newcommand{\tpoint}[1]{\vspace{3mm}\par \noindent \refstepcounter{subsection}{\bf \thesubsection.} 
+  \numberwithin{equation}{subsection} {\em #1. ---} }
+\newcommand{\epoint}[1]{\vspace{3mm}\par \noindent \refstepcounter{subsection}{\bf \thesubsection.} 
+  \numberwithin{equation}{subsection} {\em #1.} }
+\newcommand{\bpoint}[1]{\vspace{3mm}\par \noindent \refstepcounter{subsection}{\bf \thesubsection.} 
+  \numberwithin{equation}{subsection} {\bf\em #1.} }
+  
+%Abkürzungen
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Cinf}{C^\infty}
+\newcommand{\id}{\text{id}}
+\renewcommand{\O}{\mathcal{O}\!}
+\renewcommand{\S}{\mathfrak{S}}
+\newcommand{\T}{\mathcal{T}}
+\newcommand{\E}{\mathcal{E}}
+\newcommand{\A}{\mathcal{A}}
+\newcommand{\Hom}{\mathcal{H}\!\!\!\mathpzc{om}}
+\newcommand{\End}{\mathcal{E}\!\!\mathpzc{nd}}
+\renewcommand{\d}{d\!}
+\newcommand{\del}{\partial}
+\newcommand{\delbar}{\overline{\partial}}
+\newcommand{\dzbar}{\d\overline{z}}
+\newcommand{\diff}[1]{\frac{\partial}{\partial #1}}
+\newcommand{\vac}{\left|0\right>}
+
+%\binoppenalty=7000
+%\relpenalty=5000 
+
+% Title Page
+\title{Memo: Komplexe Geometrie}
+\author{Simon Kapfer}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+Merkzettel zu komplexer Geometrie.
+\end{abstract}
+
+\section{Komplexe Strukturen} 
+Sei $X$ eine reelle $\Cinf$--Mannigfaltigkeit der Dimension $2n$.
+\bpoint{Notation} $T_X,\ \Omega_X$ bezeichnet die reellen Tangential--, Kotangentialbündel, $\T_X$ (oder $T^{1,0}_X$) sowie $\Omega^{1,0}_X$ die holomorphen Versionen. Das Subskript--$X$ wird gelegentlich auch weggelassen. Die Garben der $\Cinf$--Schnitte werden mit $\Cinf(\ldots)$ bezeichnet, die Garben holomorpher Schnitte mit $\O(\ldots)$.
+\bpoint{Fast komplexe Struktur} Eine fast komplexe Struktur auf $X$ ist eine lineare (Bündel--)Abbildung $J:T_X\rightarrow T_X$, so daß $J^2 = -\id$ gilt. Alternativ kann man auch $J\in\text{End}_\R(T_X)$ schreiben. $J$ induziert eine duale Abbildung $J:\Omega_X \rightarrow \Omega_X$, deren Quadrat ebenfalls die negative Identität ist. 
+\bpoint{Holomorphe (Ko-)Tangentialbündel} Setzt man $J$ komplex auf $T_X\otimes_\R\C$ fort, so kann man eine Eigenraumzerlegung zu den Eigenwerten $i$ und $-i$ machen:
+\begin{gather*}T\otimes_\R\C\  = \ \T \oplus \overline{\T}\ = \ T^{1,0}\oplus T^{0,1} \\
+\Omega\otimes_\R\C\ = \ \Omega^{1,0} \oplus \Omega^{0,1}\\
+\Omega^k\otimes_\R\C\ =  \bigoplus_{p+q=k} \Lambda^p\Omega^{1,0} \;\wedge\; \Lambda^q\Omega^{0,1} \ =\bigoplus_{p+q=k} \Omega^{p,q}
+\end{gather*} 
+Man kürzt außerdem gern $T_X\otimes_\R\C,\ \Omega_X^k\otimes_\R\C $ durch $T_{X,\C},\ \Omega^k_{X,\C}$ ab.
+\bpoint{Holomorphie} Eine diff'bare Funktion $f:\C\longrightarrow\C,\ (x,y) \longmapsto f(x,y)$ heißt holomorph, falls $\diff{y}f = i\diff{x}f$ und antiholomorph, falls $\diff{y}f = -i\diff{x}f$.\\Die Identität $\id:(x,y)\longmapsto x+iy$ und Polynome in $x+iy$ sind holomorph, die komplexe Konjugation $(x,y)\longmapsto x-iy$ und Polynome darin sind antiholomorph.\\
+Bei einer $\Cinf$--Funktion $f:X\longrightarrow\C$ kann man bei Vorhandensein einer fast komplexen Struktur $J$ auf $X$ ganz entsprechend von Holomorphie reden: $f$ heißt holomorph, falls für jedes Vektorfeld $\diff{w} \in T_X$ gilt: $\left(J\diff{w}\right)f = i\diff{w} f $ und antiholomorph, falls für jedes Vektorfeld $ \left(J\diff{w}\right)f = - i\diff{w} f$ ist. Jedes $f$ kann eindeutig als Summe einer holomorphen und einer antiholomorphen Funktion geschrieben werden. Wenn die Garbe aller holomorphen Funktionen mit $\O_X$ bezeichnet wird und die der komplexwertigen glatten Funktionen mit $\Cinf_{X,\C}$, hat man also
+\[\Cinf_{X,\C} = \O_X\oplus\overline{\O_X} \]
+Definiert man die Dolbeault--Operatoren $\del, \delbar$ durch $\del f =\tfrac{1}{2}( \d f - i \d f\circ J)$ bzw. $\delbar f =\tfrac{1}{2}( \d f + i \d f\circ J)$ (beides lebt in $\Cinf(\Omega_{X,\C})$), so ist $ f$ genau dann holomorph, falls $\delbar f =0$. Diese Definition von läßt sich allerdings nicht auf Formen fortsetzen\footnote{Die Setzung für $k$--Formen $\alpha = f\; \d x^{j_1}\ldots  \d x^{j_k}$, $\del \alpha :=(\del f)\wedge \d x^{j_1}\ldots \d x^{j_k} $ bzw. $\delbar\alpha := (\delbar f)\wedge \d x^{j_1}\ldots \d x^{j_k}$ wäre nicht koordinatenunabhängig, sprich auf Bündeln nicht wohldefiniert, wenn auch in der gewählten Karte die schöne Gleichung $\del^2 = \delbar^2 = \del\delbar+\delbar\del = 0$ gälte. Für eine mögliche Definition, bei der $\delbar^2 = 0$ ohne Integrierbarkeit von $J$ nicht mehr gilt, siehe \ref{pqFormen}.}. Dazu braucht man schon eine 
+\bpoint{Komplexe Struktur} $J$ ist eine komplexe Struktur, d. h. integrierbar, falls eine der folgenden äquivalenten Bedingungen erfüllt ist:
+\begin{itemize}
+\item Es gibt einen Atlas von Karten nach $\C^n$ mit holomorphen Übergangsabbildungen (holomorphe Koordinaten), so daß $J$ auf den Tangentialräumen von $\C^n$ genauso wirkt wie die dort übliche komplexe Struktur, nämlich Multiplikation mit der imaginären Einheit $i$. 
+\item Die Bündel $\T_X$, bzw. $\overline{\T_X}$ sind abgeschlossen unter Lieklammerbildung.
+\item (Satz von Newlander--Nirenberg) Der Nijenhuistensor \begin{center}$ [\diff{v},\diff{w}] + J[J\diff{v},\diff{w}] + J[\diff{v},J\diff{w}] -[J\diff{v},J\diff{w}] $ \end{center} verschwindet für je zwei Vektorfelder $\diff{v}$ und $\diff{w}$.
+\end{itemize}
+Wenn $X$ mit einer komplexen Struktur $J$ ausgestattet ist, heißt $X$ komplexe Mannigfaltigkeit. Das soll ab jetzt der Fall sein.
+\bpoint{(p,q)--Formen}\label{pqFormen} Die Garbe der $\Cinf$--Schnitte von $\Omega^{p,q}$ werde mit $\A^{p,q}$ bezeichnet. Dann ist $\Cinf(\Omega^k_\C) =: \A^k = \bigoplus_{p+q=k} \A^{p,q}$. Definiere darauf nun die Dol-beault--Operatoren $\del: \A^{p,q} \rightarrow \A^{p+1,q}$ und $\delbar: \A^{p,q} \rightarrow \A^{p,q+1}$ durch Projizieren nach Anwenden des Differentials $\d$. Für holomorphe Koordinaten $z^j = x^j + iy^j$ definiere $\d z^j := \d x^j - i\d y^j$ und $\dzbar^j := \d x^j + i\d y^j$. Dann spannen die $\d z^j$ und die $\dzbar^j$ jeweils die Unterbündel $\Omega^{1,0}_X$ und $\Omega^{0,1}_X$ von $\Omega_{X,\C}$ auf und es gilt: $\del\left(f \d z_I\wedge \dzbar_K\right) = \left(\del f\right)\wedge \d z_I\wedge \dzbar_K$ bzw. $\delbar\left(f \d z_I\wedge \dzbar_K\right) = \left(\delbar f\right)\wedge \d z_I\wedge \dzbar_K$. Dann gilt auch $\del^2 = \delbar^2 = \del\delbar+\delbar\del = 0$.
+\bpoint{Dolbeaultkohomologie} Wir können nun auch von holomorphen Schnitten reden.
+\bpoint{Gegenbeispiel} Eine fast komplexe Struktur, welche nicht integrierbar ist: Fasse die $S^6$ als die Menge der imaginären normierten Oktonionen auf. Dann ist $T_{S^6,x} = \left\{h | xh +hx =0\right\}$. Für $J$ nehme die Linksmultiplikation mit $x$.\\
+Auf einer riemannschen Fläche ist jede fast komplexe Struktur integrierbar.
+
+\section{Riemannsche Geometrie}
+Sei $X$ eine reelle $\Cinf$--Mannigfaltigkeit der Dimension $n$.
+\bpoint{Zusammenhang} Für ein Vektorbündel $E$ auf $X$ ist ein Zusammenhang eine $\R$--lineare Abbildung $\nabla: E \rightarrow \Omega^1_X\otimes E$, welche eine Leibnizregel erfüllt: $\nabla f s = f \nabla s + df \otimes s$. Das läßt sich zu einem Differential $d^\nabla: \Omega_X^n\otimes E \rightarrow \Omega_X^{n+1}\otimes E$ ausbauen. Allerdings gilt i. A. $\left(d^\nabla\right)^2 \neq 0$, sondern $\left(d^\nabla\right)^2 \beta = R \dot{\wedge} \beta $ für ein $R\in \Omega_X^2\otimes \text{End}(E)$. $R$ heißt Krümmung des Zusammenhangs. Ein Schnitt $s\in E$ heißt flach\footnote{Beziehung zur Flachheit von Moduln: Es scheint keine zu geben.}, falls $d^\nabla s = 0$.\\
+Sei $\nabla'$ ein Zusammenhang auf $F$. Dann gibt es kanonische Zusammenhänge auf \begin{itemize}
+\item $\E\otimes \mathpzc{F}$: $\ \nabla(s\otimes t) = \nabla s\otimes t + s\otimes \nabla t$
+\item $\Hom(\E,\mathpzc{F})$: $\ (\nabla u)(s) = \nabla' u(s) - u(\nabla(s))$
+\end{itemize}
+Ein Zusammenhang $\nabla$ auf $\Omega_X^1$ oder $T_X$ heißt affin. Für affine Zusammenhänge ist die Torsion $T^\nabla:=d^\nabla \text{id}\ \in\ \Omega_X^2\otimes T_X$ erklärt. 
+\bpoint{Riemannsche Struktur} Wenn $X$ eine riemannsche Metrik, d. h. eine symmetrische, positive, nichtentartete Bilinearform $\left<\ ,\ \right>$ oder $g:S^2T_X\rightarrow \R$ bzw. $g\in\Gamma(X,\Omega^1_X\otimes\Omega^1_X)$ besitzt, so heißt $X$ riemannsche Mannigfaltigkeit.
+\bpoint{Levi--Civita} Es gibt einen eindeutig bestimmten affinen Zusammenhang $\nabla$ auf $T_X$ ($X$ eine riemannsche Mannigfaltigkeit), der $\nabla g = 0$ und $T^\nabla = 0 $ erfüllt. 
+\bpoint{Ricci--Tensor} Der (symmetrische) Ricci-Tensor ist definiert als die Spur der Krümmung: $\text{Ric}:= \sum_i \left< \diff{x^i} R, dx^i \right> \ \in\  \Gamma(X,\Omega^1_X\otimes\Omega^1_X) $
+
+\section{Symplektische Strukturen}
+Sei $X$ eine reelle oder komplexe $\Cinf$--Mannigfaltigkeit der Dimension $2n$.
+\bpoint{Symplektische Gruppe} Ein symplektischer Vektorraum $V$ ist einer von Dimension $2n$ (reell oder komplex), der ausgestattet ist mit einer nichtentarteten antisymmetrischen Bilinearform $\omega$. Die symplektische Gruppe ist die Menge aller Matrizen, die $\omega(M\_,M\_) = \omega(\_,\_)$ erfüllen. Sie ist eine nichtkompakte, zusammenhängende Liegruppe von Dimension $n(2n+1)$. Die zugehörige Liealgebra $\mathfrak{sp}_{2n}$ ist die Menge aller Matrizen $X$, die $\omega(X\_,\_) + \omega(\_,X\_) =0$ erfüllen.\\
+\bpoint{Fast symplektische Struktur} Eine 2--Form $\omega\in\Omega^2_X$, welche überall nichtentartet ist (d.h. $\omega\left(\diff{v},\_\right) =0 \iff \diff{v}=0$), heißt fast symplektische Struktur.
+\bpoint{Volumenform} Aus der Nichtentartung von $\omega$ folgt sofort, daß $\omega^n \in \Omega^{2n}_X$ nirgends verschwindet, d. h. eine Volumenform ist.
+\bpoint{Symplektische Struktur} Gilt $d\omega =0$, so heißt $\omega$  symplektische Form.
+\section{Hodgetheorie}
+
+\section{Kählergeometrie}
+Sei $X$ eine komplexe und riemannsche Mannigfaltigkeit. An diese beiden Strukturen werden im folgenden noch Bedingungen gestellt.
+\bibliographystyle{alpha}
+\bibliography{bibl}
+\end{document}          

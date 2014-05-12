@@ -1,0 +1,74 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+\usepackage[german]{babel}
+\usepackage{fourier}  % Use the Adobe Utopia font for the document
+\usepackage{amsmath,amsthm,amssymb,amscd,color,graphicx}
+
+% Geschwungene Kleinbuchstaben im Mathemodus (benutze \mathpzc)
+\DeclareFontFamily{OT1}{pzc}{}
+\DeclareFontShape{OT1}{pzc}{m}{it}{<-> s * [1.10] pzcmi7t}{}
+\DeclareMathAlphabet{\mathpzc}{OT1}{pzc}{m}{it}
+
+
+%Struktur
+\newcommand{\point}{\vspace{3mm}\par \noindent \refstepcounter{subsection}{\bf \thesubsection.} }
+	\numberwithin{equation}{subsection}
+\newcommand{\tpoint}[1]{\vspace{3mm}\par \noindent \refstepcounter{subsection}{\bf \thesubsection.} 
+  \numberwithin{equation}{subsection} {\em #1. ---} }
+\newcommand{\epoint}[1]{\vspace{3mm}\par \noindent \refstepcounter{subsection}{\bf \thesubsection.} 
+  \numberwithin{equation}{subsection} {\em #1.} }
+\newcommand{\bpoint}[1]{\vspace{3mm}\par \noindent \refstepcounter{subsection}{\bf \thesubsection.} 
+  \numberwithin{equation}{subsection} {\bf\em #1.} }
+  
+%Abkürzungen
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Cinf}{C^\infty}
+\newcommand{\id}{\text{id}}
+\renewcommand{\O}{\mathcal{O}}
+\renewcommand{\S}{\mathfrak{S}}
+\newcommand{\T}{\mathpzc{T}}
+\newcommand{\E}{\mathpzc{E}}
+\newcommand{\Hom}{\mathpzc{Hom}}
+\newcommand{\End}{\mathpzc{End}}
+\newcommand{\Tor}{\mathrm{Tor}}
+\newcommand{\Ext}{\mathrm{Ext}}
+\newcommand{\del}{\partial}
+\newcommand{\delbar}{\overline{\partial}}
+\newcommand{\dzbar}{d\overline{z}}
+
+\newcommand{\diff}[1]{\frac{\partial}{\partial #1}}
+\newcommand{\vac}{\left|0\right>}
+
+\binoppenalty=7000
+\relpenalty=5000
+
+% Title Page
+\title{Memo: Gruppenkohomologie}
+\author{Simon Kapfer}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+Merkzettel zu \cite{brownGroupCoh}.
+\end{abstract}
+\section{Komplexe}
+\bpoint{Inneres Hom} \cite[S. 5, 9]{brownGroupCoh}. Seien $C$ und $C'$ Kettenkomplexe. Dann ist $\Hom(C,C')_n := \prod_q \mathrm{Hom}(C_q, C'_{q+n})$. Der Randoperator ist $D_n(f) := d'f -(-1)^nfd$. Das ist am besten in der Form $d'\left<f,u\right> = \left<Df,u\right> + (-1)^n\left<f,du\right>$ zu merken. Kettenabbildungen zwischen Komplexen sind dann Elemente von $\ker D_0$, nullhomotope Kettenabbildungen sind exakt. Die Homologie des Hom--Komplexes im Grad 0 sind die Homotopieklassen von Kettenabbildungen. \\Eine Konstruktion mit Kokettenkomplexen geht analog.
+\bpoint{Gruppenmoduln} Eine Wirkung von $G$ auf $M$ ist eine $\Z G$--Modulstruktur.  
+$M^G = \ker(g-1) = \mathrm{Hom}_{\Z G}(\Z,M)$ sind die Invarianten, $M_G = M/\left< g - 1\right> = \Z\otimes_{\Z G}M$ sind die Koinvarianten. Der Invariantenfunktor ist linksexakt, der Koinvariantenfunktor ist rechtsexakt.
+In Charakteristik 0 gibt es für endliches $G$ einen Isomorphismus $M_G \longrightarrow M^G$. In diesem Fall haben wir Exaktheit.
+Wenn $M$ ein $G$--Links-- und $N$ ein $G$--Rechtsmodul ist, so ist $M\otimes_G N = M\otimes_{\Z G}N := (M\otimes N)_G$ Einen Linksmodul $M'$ kann man durch $g\mapsto g^{-1}$ künstlich zu einem Rechtsmodul machen. $\mathrm{Hom}_G(M,M') = (\mathrm{Hom}(M,M'))^G$. 
+\bpoint{(Ko-)Skalarerweiterungen}\cite[III.3]{brownGroupCoh} Gegeben ein Ringhomomorphismus $\iota: R\rightarrow S$ und ein $R$-Modul $M$.
+Skalarerweiterung ist der Funktor $M\mapsto S\otimes_R M$, Koskalarerweiterung ist $M\mapsto \mathrm{Hom}_R(S,M)$. Diese Funktoren sind links-- bzw. rechtsadjungiert zur Skalareinschränkung:
+$\mathrm{Hom}_S(S\otimes_R M, N) \cong \mathrm{Hom}_R(M, \iota^*N) $ und $\mathrm{Hom}_R(\iota^*N, M) \cong\mathrm{Hom}_S(N, \mathrm{Hom}_R(S,M))$. Für $R=\Z G$ und $S=\Z$ ist Erweiterung gleich Koinvariantenbildung und Koerweiterung gleich Invariantenbildung.
+\section{Kohomologie}
+\bpoint{Definition} $A$ und $B$ seien Komplexe mit einer $G$--Wirkung. $P$ sei eine $\Z[G]$--projektive Auflösung von $A$. (Projektiv impliziert flach, d. h. $P\otimes_G\_$ ist exakt.) $\Tor^G_*(A,B):=H_*(P\otimes_G B)$ und $\Ext_G^*(A,B) := H^*(\Hom_G(P,B))$. Gruppenhomologie mit Werten in einem Modul $M$ (interpretiert als Komplex im Grad 0) ist definiert als $H_*(G;M) :=\Tor^G_*(\Z,M)$. Gruppenkohomologie entsprechend als $H^*(G;M):=\Ext_G^*(\Z,M)$.
+\bpoint{Abbildungskegel}
+
+\bibliographystyle{alpha}
+\bibliography{../bibl}
+\end{document}          
