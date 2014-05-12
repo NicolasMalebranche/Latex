@@ -1,0 +1,43 @@
+\documentclass[]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+\usepackage[german]{babel}
+\usepackage{amsmath,amsthm,amssymb,amscd,color,graphicx}
+  
+\theoremstyle{remark}
+\newtheorem{satz}{Satz}
+\newtheorem{aufg}{Aufgabe}
+\newtheorem{definition}{Definition}
+
+%opening
+\title{Potenzen von Fibonaccizahlen}
+\author{Simon Kapfer}
+
+\begin{document}
+
+\maketitle
+Die Fibonaccizahlen $f_n$ definiert durch $f_{n+2}=f_{n+1}+f_n,\ f_1=1,\ f_0=0$. Die Lucaszahlen $l_n$ sind so definiert, daß $l_{n+2}=l_{n+1}+l_n,\ l_1=1,\ l_0=2$.
+Definiere die überspringenden Fibonaccireihen ohne konstanten Term:
+\begin{equation}
+F_{(k)}(x) := \frac{f_k}{1-l_kx-x^2}  = \sum_{n\geq 0} f_{k(n+1)}x^n \\
+\end{equation}
+und die modifizierten überspringenden Lucasreihen:
+\begin{equation}
+\tilde{L}_{(k)}(x) := \left\{ \begin{array}{ll} \frac{1}{1-x},& k=0 \\ \\\frac{l_k-2x}{1-l_kx+x^2}, &k>0 \end{array}\right.
+\end{equation}
+Bemerkung: Es gilt für $k\geq 1$:
+\[\tilde{L}_{(2k)}(x) = \sum_{n\geq 0 } l_{k(n+1)}x^n \]
+Definiere die erzeugenden Funktionen der Potenzen der Fibonaccizahlen:
+\[F^p(x) := \sum_{n\geq 0} f^p_{n+1}x^n\]
+
+\begin{satz}
+Es gilt für gerade Fibonacci--Potenzen:
+\begin{equation}
+F^{2p}(x) = \frac{1}{5^p}\sum_{k=0}^p \binom{2p}{p-k}\tilde{L}_{(2k)}((-1)^{p-k}x)
+\end{equation}
+und für ungerade Fibonacci--Potenzen:
+\begin{equation}
+F^{2p+1}(x) =  \frac{1}{5^p}\sum_{k=0}^p \binom{2p+1}{p-k}F_{(2k+1)}((-1)^{p-k}x)
+\end{equation}
+\end{satz}
+\end{document}

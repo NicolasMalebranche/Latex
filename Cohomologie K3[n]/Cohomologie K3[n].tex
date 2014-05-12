@@ -1,0 +1,259 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+\usepackage[french]{babel}
+\usepackage{amsmath,amsthm,amssymb,amscd,color,graphicx}
+
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\q}{\mathfrak{q}}
+\newcommand{\w}{\mathfrak{b}}
+\newcommand{\vac}{\left|0\right>}
+
+%Struktur
+\newcommand{\point}{\vspace{3mm}\par \noindent \refstepcounter{subsection}{\bf \thesubsection.} }
+	\numberwithin{equation}{subsection}
+\newcommand{\tpoint}[1]{\vspace{3mm}\par \noindent \refstepcounter{subsection}{\bf \thesubsection.} 
+  \numberwithin{equation}{subsection} {\em #1. ---} }
+\newcommand{\epoint}[1]{\vspace{3mm}\par \noindent \refstepcounter{subsection}{\bf \thesubsection.} 
+  \numberwithin{equation}{subsection} {\em #1.} }
+\newcommand{\bpoint}[1]{\vspace{3mm}\par \noindent \refstepcounter{subsection}{\bf \thesubsection.} 
+  \numberwithin{equation}{subsection} {\bf\em #1.} }
+
+% Title Page
+\title{Cup-produit pour $H^2(S^{[n]}, \Z)$ \\($S$ une surface K3)}
+\author{Simon Kapfer}
+
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Soit $S$ une surface K3. Soit $S^{[n]}$ son schéma de Hilbert de points. Nous calculons le cup-produit pour les classes de degré 2. En particulier, pour $n=3$, nous obtenons:
+\begin{equation*}
+\frac{H^4(S^{[3]} , \Z)}{\text{Sym}^2\,H^2(S^{[3]} , \Z)} \cong \Z^{\oplus 23} \oplus \left( \frac{\Z}{3\Z} \right)
+\end{equation*}
+\end{abstract}
+
+\section{Base entière de la cohomologie}
+\subsection*{Cohomologie d'une surface K3}
+\bpoint{Théorème (Eléments de la cohomologie K3)}Soit $S$ une surface K3.
+Il est bien connu que sa cohomologie se décompose comme suit:
+\begin{align*}
+H^0(S,\Z) &\ \cong \ 1 \Z \\
+H^2(S,\Z) &\ \cong \ \alpha_1\Z\oplus\ldots\oplus\alpha_{22}\Z \\
+H^4(S,\Z)&\ \cong \ x \Z \\
+H^1(S,\Z) &\ = \ 0 \ = \ H^3(S,\Z)
+\end{align*}
+\bpoint{Théorème (Forme bilinéaire)} La forme bilinéaire, non dégénérée, $B_{H^2}$ sur $H^2(S,\Z)$ est donné par une matrice par blocs diagonales:
+\begin{equation*}
+B_{H^2} = \left(\begin{array}{ccccc}
+U&&&& \\
+&U&&& \\
+&&U&& \\
+&&&E& \\
+&&&&E \end{array}\right)
+\end{equation*}
+\begin{equation*}
+\text{où\ } U = 
+\left(\begin{array}{cc}
+0&1\\1&0 \end{array}\right),
+\ \ E = \left(\begin{array}{cccccccc}
+-2&1&0&0&0&0&0&0\\1&-2&1&0&0&0&0&0\\0&1&-2&1&0&0&0&0\\0&0&1&-2&1&0&0&0\\0&0&0&1&-2&1&1&0\\0&0&0&0&1&-2&0&1\\0&0&0&0&1&0&-2&0\\0&0&0&0&0&1&0&-2
+%-2&-1&0&0&0&0&0&0\\-1&-2&-1&0&0&0&0&0\\0&-1&-2&-1&0&0&0&0\\0&0&-1&-2&-1&0&0&0\\0&0&0&-1&-2&-1&-1&0\\0&0&0&0&-1&-2&0&-1\\0&0&0&0&-1&0&-2&0\\0&0&0&0&0&-1&0&-2
+\end{array}\right)
+\end{equation*}
+On peut étendre cette forme aux degrés 0 et 4. On obtient:
+\begin{equation*}
+B = \left(\begin{array}{ccc}
+0&& 1 \\ & B_{H^2}& \\ 1 && 0 \end{array}\right)
+\end{equation*}
+\bpoint{Proposition (Comultiplication adjointe)} De plus, $B$ induit une forme $B\otimes B$ sur $\text{Sym}^2H^{*}(S,\Z)$. Donc, le cup-produit
+\begin{equation*}
+\mu : \text{Sym}^2H^{*}(S,\Z) \longrightarrow H^{*}(S,\Z) 
+\end{equation*}
+a une comultiplication adjointe:
+\begin{equation*}
+\Delta : H^{*}(S,\Z) \longrightarrow \text{Sym}^2H^{*}(S,\Z),\quad \Delta = (B\otimes B)^{-1}\mu^TB
+\end{equation*}
+On aura besoin de l'image du neutre $\Delta(1)\in\text{Sym}^2H^{*}(S,\Z)$, (écrit comme matrice symétrique):
+\begin{equation*}
+\Delta(1) = \left( \begin{array}{ccccccc}
+0&&&&&&1\\
+&U&&&&&\\
+&&U&&&&\\
+&&&U&&&\\
+&&&&M&&\\
+&&&&&M&\\
+1&&&&&&0
+\end{array}\right) 
+\end{equation*}
+où
+\begin{equation*}
+M = \left(\begin{array}{cccccccc}
+-2&-3&-4&-5&-6&-4&-3&-2\\-3&-6&-8&-10&-12&-8&-6&-4\\-4&-8&-12&-15&-18&-12&-9&-6\\-5&-10&-15&-20&-24&-16&-12&-8\\-6&-12&-18&-24&-30&-20&-15&-10\\-4&-8&-12&-16&-20&-14&-10&-7\\-3&-6&-9&-12&-15&-10&-8&-5\\-2&-4&-6&-8&-10&-7&-5&-4
+%-2&3&-4&5&-6&4&3&-2\\3&-6&8&-10&12&-8&-6&4\\-4&8&-12&15&-18&12&9&-6\\5&-10&15&-20&24&-16&-12&8\\-6&12&-18&24&-30&20&15&-10\\4&-8&12&-16&20&-14&-10&7\\3&-6&9&-12&15&-10&-8&5\\-2&4&-6&8&-10&7&5&-4
+\end{array}\right)
+\end{equation*}
+
+\subsection*{Cohomologie des schémas de Hilbert de points}
+\bpoint{Théorème/Définition} \label{baseentiere} Qin et Wang \cite[Thm 1.1]{qinintegral2004} proposent qu'une base entière de $H^2(S^{[n]},\Z)$ en termes des opérateurs de création est 
+\begin{gather*}
+\w_{2}:=\frac{1}{2\,(n-2)!}\,\q_2(1)q_1(1)^{n-2}\vac,\ n\geq 2,\\
+\w_{\alpha_i}:=\frac{1}{(n-1)!}\,\q_1(\alpha_i)\q_1(1)^{n-1}\vac, \ i=1\ldots 22,\  n\geq 1
+\end{gather*}
+et une base entière de $H^4(S^{[n]},\Z)$ est donnée par
+\begin{gather*}
+\w_{2^2}:=\frac{1}{8\,(n-4)!}\,\q_2(1)^2\q_1(1)^{n-4}\vac,\ n\geq 4, \\
+\w_{3}:=\frac{1}{3\,(n-3)!}\,\q_3(1)\q_1(1)^{n-3}\vac,\ n\geq 3, \\
+\w_{2,\alpha_i}:=\frac{1}{2\,(n-3)!}\,\q_2(1)\q_1(\alpha_i)\q_1(1)^{n-3}\vac,\ i = 1\ldots 22,\  n\geq 3,\\
+\w_{2\odot\alpha_i}:=\frac{1}{(n-2)!}\,\q_2(\alpha_i)\q_1(1)^{n-2}\vac,\ i = 1\ldots 22,\  n\geq 2,\\
+\w_{\alpha_i,\alpha_j}:=\frac{1}{(n-2)!}\q_1(\alpha_i)\q_1(\alpha_j)\q_1(1)^{n-2}\vac,\ i,j= 1\ldots 22,\ i<j,\ n\geq 2\\
+\w_{\alpha_i^2}:=\frac{1}{2\,(n-2)!}\left(\q_1(\alpha_i)^2-\q_2(\alpha_i)\right)\q_1(1)^{n-2}\vac,\ i = 1\ldots 22,\  n\geq 2,\\
+\w_x:=\frac{1}{(n-1)!}\q_1(x)\q_1(1)^{n-1}\vac,\ n\geq 1
+\end{gather*}
+\section{Le modèle algébrique}
+Lehn et Sorger associent dans \cite{lehnsorger} à l'algebre des operateurs de création un modèle algebrique pour calculer le cup-produit.
+\bpoint{Définition (Centre de l'algèbre du groupe symétrique)}
+Dénotera $S_n$ le groupe symétrique sur $n$ éléments et $\Z[ S_n]$ l'algèbre du groupe symétrique. Dans $\Z [S_n]$, on a trois éléments intéressants qui restent invariants sous conjugaison avec chaque permutation (pour $n$ trop pétit, ils deviennent nuls):
+\begin{align*}
+\sigma_2 &:= (12)+(13)+\ldots +(1n) + \ldots (n-1\ n) \\
+\sigma_3 &:= (123) +(132) + (124) + \ldots \\
+\sigma_{2,2} &:= (12)(34) + (13)(24) + \ldots
+\end{align*}
+Dedans, une seule multiplication est rélévante pour nous:
+\begin{equation*}
+\sigma_2 \cdot \sigma_2\ =\ \tfrac{n(n-1)}{2}\text{id} + 3\sigma_3 + 2 \sigma_{2,2}
+\end{equation*}
+Pour l'amour de concison, on introduit la notation suivante pour le nombre de termes dans les sommes:
+\begin{equation*}
+\left|\sigma_2\right| := \tfrac{n(n-1)}{2},\quad 
+\left|\sigma_3\right| := \tfrac{n(n-1)(n-2)}{3},\quad
+\left|\sigma_{2,2}\right| := \tfrac{n(n-1)(n-2)(n-3)}{8}
+\end{equation*}
+
+\bpoint{Théorème (Identification des anneaus)} \label{identification}
+A chaque cycle d'une permutation on met un facteur de $H^2(S,\Z)$. Ainsi on construit un espace tensoriel, dépendant au nombre de cycles. S'il y a plusieurs cycles de la même longueur, il faut prendre le quotient symétrique. La construction précise se trouve dans \cite[Chap. 2]{lehnsorger}. Alors  on identifie:
+\begin{gather*}
+\frac{1}{n!}\,\q_2(1)q_1(1)^{n-2}\vac \;=\; \frac{1}{\left|\sigma_2\right|} \, \sigma_2\, [1\otimes 1^{\otimes n-2}] \\
+\frac{1}{n!}\,\q_1(\alpha_i)q_1(1)^{n-1}\vac \;=\;\text{id} \left[(\alpha_i\otimes 1^{\otimes n-1})^{\text{\tiny Sym}}\right]\\
+\\
+\frac{1}{n!}\,\q_2(1)^2q_1(1)^{\otimes n-4}\vac \;=\; \frac{1}{\left|\sigma_{2,2}\right|}\,\sigma_{2,2}\,[1^2\otimes 1^{\otimes n-4}] \\
+\frac{1}{n!}\,\q_3(1)q_1(1)^{n-3}\vac \;=\; \frac{1}{\left|\sigma_3\right|} \, \sigma_3\, [1\otimes 1^{\otimes n-3}] \\
+\frac{1}{n!}\,\q_2(\alpha_i)\q_1(1)^{n-2}\vac \;=\; \frac{1}{\left|\sigma_2\right|} \, \sigma_2\, [\alpha_i\otimes 1^{\otimes n-2}] \\
+\frac{1}{n!}\,\q_2(1)\q_1(\alpha_i)\q_1(1)^{n-3}\vac \;=\; \frac{1}{\left|\sigma_2\right|} \, \sigma_2 \left[1\otimes (\alpha_i\otimes 1^{\otimes n-3})^{\text{\tiny Sym}}\right] \\
+\frac{1}{n!}\,\q_1(\alpha_i)\q_1(\alpha_j)\q_1(1)^{n-2}\vac \;=\; \text{id} \left[(\alpha_i\otimes \alpha_j\otimes 1^{\otimes n-2})^{\text{\tiny Sym}}\right] \\
+\frac{1}{n!}\,\q_1(\alpha_i)^2\q_1(1)^{n-2}\vac \;=\; \text{id} \left[(\alpha_i^{\otimes  2}\otimes 1^{\otimes n-2})^{\text{\tiny Sym}}\right] \\
+\frac{1}{n!}\,\q_1(x)q_1(1)^{n-1}\vac \;=\;\text{id} \left[(x\otimes 1^{\otimes n-1})^{\text{\tiny Sym}}\right]
+\end{gather*}
+Notons que cettes équations sont vraies seulement dans l'anneau $H^*(S^{[n]},\mathbb{Q})$, car les éléments à gauche ne forment pas une base du résau $H^*(S^{[n]},\Z)$, mais ils peuvent encore être utlilisées pour calculer le cup-produit. Notons aussi que l'isomorphisme entre l'espace des tenseurs symétriques et le quotient symétrique n'existe pas sur $\Z$. Cependant, il fonctionne sur $\mathbb{Q}$. 
+
+\subsection*{Cup-produits}
+\bpoint{Proposition (Multiplications dans le modèle)} \label{model} Avec l'identification susmentionnée, on peut faire les multiplications:
+\begin{align*}
+\left(\sigma_2\, [1\otimes 1^{\otimes n-2}] \right)^2 \,&=\, 2\,\sigma_{2,2}\,[1^2\otimes 1^{\otimes n-4}]\,+\,3\, \sigma_3\, [1\otimes 1^{\otimes n-3}] \\
+& +\, \left|\sigma_2\right| \sum_{1\leq i < j \leq 22} 2\Delta(1)_{ij}\;\text{id} \left[(\alpha_i\otimes \alpha_j\otimes 1^{\otimes n-2})^{\text{\tiny Sym}}\right]\\
+& +\, \left|\sigma_2\right| \sum_{1\leq i\leq 22} \Delta(1)_{ii}\; \text{id} \left[(\alpha_i^{\otimes  2}\otimes 1^{\otimes n-2})^{\text{\tiny Sym}}\right] \\
+& +\, 2\, \left|\sigma_2\right| \,\text{id} \left[(x\otimes 1^{\otimes n-1})^{\text{\tiny Sym}}\right]
+\end{align*}
+\begin{align*}
+\sigma_2\, [1\otimes 1^{\otimes n-2}]&\,\cup\;\text{id} \left[(\alpha_i\otimes 1^{\otimes n-1})^{\text{\tiny Sym}}\right] =\\
+= \tfrac{2}{n} \, &\sigma_2\, [\alpha_i\otimes 1^{\otimes n-2}]
++ \tfrac{n-2}{n} \, \sigma_2 \left[1\otimes (\alpha_i\otimes 1^{\otimes n-3})^{\text{\tiny Sym}}\right]
+\end{align*}
+\begin{align*}
+\text{id}&\left[(\alpha_i \otimes 1^{\otimes n-1})^{\text{\tiny Sym}}\right]\,\cup\;\text{id} \left[(\alpha_j\otimes 1^{\otimes n-1})^{\text{\tiny Sym}}\right] =\qquad \qquad\\
+=& \;B(\alpha_i, \alpha_j)\,\text{id} \left[(x\otimes 1^{\otimes n-1})^{\text{\tiny Sym}}\right]\\&+
+\left\{ \begin{array}{ll}
+\tfrac{n-1}{n}\,\text{id} \left[(\alpha_i^{\otimes  2}\otimes 1^{\otimes n-2})^{\text{\tiny Sym}}\right], & i=j \\\\
+\tfrac{n-1}{n}\,\text{id} \left[(\alpha_i\otimes \alpha_j\otimes 1^{\otimes n-2})^{\text{\tiny Sym}}\right], & i\neq j
+\end{array} \right.
+\end{align*}
+\bpoint{Théorème (Multiplications dans $H^2(S^{[n]},\Z)$)}
+\label{Formules} Combinant \ref{baseentiere} avec \ref{identification} et \ref{model}, on obtient le cup-produit pour la base entière de $H^2(S^{[n]},\Z)$ (pour $n$ petit, quelques classes sont nuls, parce qu'elles n'existent pas):
+\begin{align*}
+\left(\w_2\right)^2=&\Big(\tfrac{1}{2\,(n-2)!}\q_2(1)q_1(1)^{n-2}\vac\Big)^2 \\
+=&\;2\cdot \tfrac{1}{8\,(n-4)!}\,\q_2(1)^2\q_1(1)^{n-4}\vac\,+\,
+3\cdot\tfrac{1}{3\,(n-3)!}\,\q_3(1)\q_1(1)^{n-3}\vac \\
+&\ +\, \sum_{1\leq i<j \leq 22} \Delta(1)_{ij}\cdot \tfrac{1}{(n-2)!}\q_1(\alpha_i)\q_1(\alpha_j)\q_1(1)^{n-2}\vac\\
+&\ +\,\sum_{1\leq i\leq 22} \Delta(1)_{ii}\cdot\tfrac{1}{2\,(n-2)!}\left(\q_1(\alpha_i)^2-\q_2(\alpha_i)\right)\q_1(1)^{n-2}\vac\\
+&\ +\, (n-1)\cdot\tfrac{1}{(n-1)!}\q_1(x)\q_1(1)^{n-1}\vac \\
+=&\; 2\w_{2^2} + 3\w_{3}+ (n-1) \w_x + \sum_{1\leq i<j \leq 22} \Delta(1)_{ij}\,\w_{\alpha_i,\alpha_j} + \sum_{1\leq i\leq 22} \Delta(1)_{ii}\w_{\alpha_i^2} 
+\end{align*}
+\begin{align*}
+\w_2\cup\w_{\alpha_i}&=\tfrac{1}{2\,(n-2)!}\,\q_2(1)q_1(1)^{n-2}\vac\;\cup\;
+\tfrac{1}{(n-1)!}\,\q_1(\alpha_j)\q_1(1)^{n-1}\vac  \\
+&=\tfrac{1}{2\,(n-3)!}\,\q_2(1)\q_1(\alpha_i)\q_1(1)^{n-3}\vac \,+\,
+\tfrac{1}{(n-2)!}\,\q_2(\alpha_i)\q_1(1)^{n-2}\vac \\
+&= \w_{2,\alpha_i} + \w_{2\odot\alpha_i}
+\end{align*}
+\begin{align*}
+\w_{\alpha_i}\cup\w_{\alpha_j} =&\; \tfrac{1}{(n-1)!}\,\q_1(\alpha_i)\q_1(1)^{n-1}\vac  \;\cup\;
+\tfrac{1}{(n-1)!}\,\q_1(\alpha_j)\q_1(1)^{n-1}\vac  \\
+=& \; B(\alpha_i,\alpha_j)\tfrac{1}{(n-1)!}\q_1(x)\q_1(1)^{n-1}\vac\\
+&+\left\{ \begin{array}{ll}
+\tfrac{1}{(n-2)!}\q_1(\alpha_i)^2\q_1(1)^{n-2}\vac, & i=j \\
+\frac{1}{(n-2)!}\q_1(\alpha_i)\q_1(\alpha_j)\q_1(1)^{n-2}\vac, & i\neq j
+\end{array}\right.\\
+=&\;B(\alpha_i,\alpha_j)\w_x + \delta_{ij}(2\w_{\alpha_i^2} +\w_{2\odot\alpha_i}) + (1-\delta_{ij})\w_{\alpha_i,\alpha_j}
+\end{align*}
+
+\section{Torsion du quotient}
+
+\bpoint{Théorème} Avec l'aide d'un ordinateur, on peut calculer la réduction de la matrice après Smith pour gagner la torsion du quotient.
+En particulier, pour $n=2$, on obtient le même résultat que \cite[Rem. 5.6, 5.7]{boissiereniepersarti}.
+\begin{equation} \label{iso2}
+\frac{H^4(S^{[2]} , \Z)}{\textbf{im}_\cup\left(\text{Sym}^2\,H^2(S^{[2]} , \Z)\right)} \cong \left( \frac{\Z}{2\Z} \right)^{\oplus 22} \oplus \left( \frac{\Z}{10\Z} \right).
+\end{equation}
+Pour $n=3$, on obtient
+\begin{equation} \label{iso3}
+\frac{H^4(S^{[3]} , \Z)}{\textbf{im}_\cup\left(\text{Sym}^2\,H^2(S^{[3]} , \Z)\right)} \cong \Z^{\oplus 23} \oplus \left( \frac{\Z}{3\Z} \right).
+\end{equation}
+Pour $n\geq 4$, on a
+\begin{equation} \label{iso4}
+\frac{H^4(S^{[n]} , \Z)}{\textbf{im}_\cup\left(\text{Sym}^2\,H^2(S^{[n]} , \Z)\right)} \cong \Z^{\oplus 24}.
+\end{equation}
+\emph{Démonstration. }
+Rappelons les formules de cup-produit du théorème \ref{Formules} :
+\begin{align}
+\w_2\cup \w_2 &= 2\w_{2^2} + 3\w_{3}+ (n-1) \w_x \nonumber \\
+&\ + \sum_{1\leq i<j \leq 22}  \Delta(1)_{ij}\,\w_{\alpha_i,\alpha_j} + \sum_{1\leq i\leq 22} \Delta(1)_{ii}\w_{\alpha_i^2} \label{qsq} \\
+\w_2\cup\w_{\alpha_i}&=\w_{2,\alpha_i} + \w_{2\odot\alpha_i} \label{qmix}\\ 
+\w_{\alpha_i}\cup\w_{\alpha_j}&=\;B(\alpha_i,\alpha_j)\w_x + \delta_{ij}(2\w_{\alpha_i^2} +\w_{2\odot\alpha_i}) + (1-\delta_{ij})\w_{\alpha_i,\alpha_j} \label{qaa}
+\end{align}
+L'observation cruciale est que presque tous les coefficients de la matrice du cup-produit sont independants de $n$. L'exception est le coefficient $n-1$ devant $\w_x$ dans (\ref{qsq}).\\
+
+Pour prouver l'isomorphisme (\ref{iso4}) dans le cas $n\geq 4$, nous montrerons que chaque classe du degré 4 (cf. théorème \ref{baseentiere}) est représentée par une combinaison linéaire de quelques classes dans l'image de cup-produit et les 24 classes complémentaires suivantes:
+\[
+ \w_{\alpha_i^2}, \quad i=1\ldots..22, \qquad \w_x,\qquad \w_{2^2}+\w_3.
+\]
+En effet, si on met
+\begin{align}
+R\  :=\;& \w_2\cup\w_2 - \sum_{i<j}\Delta(1)_{ij}(\w_{\alpha_i}\cup\w_{\alpha_j}) -\sum_{i} \Delta(1)_{ii} \w_{\alpha_i^2} \nonumber
+\\ =\;&2\w_{2^2} + 3\w_3 + (180 + n)\w_x
+\end{align}
+pour simplifier $\w_2\cup\w_2$, on obtient les classes manquantes:
+\begin{align}
+\w_{2^2} &= {-}R  +(180+n)\w_x+ 3(\w_{2^2}+\w_3)  \\
+\w_3     &= R-(180+n)\w_x - 2(\w_{2^2}+\w_3)  \\
+\w_{2,\alpha_i} &= \w_2\cup\w_{\alpha_i} - \w_{\alpha_i}\cup\w_{\alpha_i} + 2\w_{\alpha_i^2} + B(\alpha_i,\alpha_i)\w_x \label{reprb2a}\\
+\w_{2\odot\alpha_i} &= \w_{\alpha_i}\cup\w_{\alpha_i} - 2\w_{\alpha_i^2} - B(\alpha_i,\alpha_i)\w_x \\
+\w_{\alpha_i,\alpha_j} &= \w_{\alpha_i}\cup\w_{\alpha_j} - B(\alpha_i, \alpha_j)\w_x,\quad i<j \label{reprbaa}
+\end{align}
+En résumant, 
+\begin{align*}
+H^4(S^{[n]},\Z) &=\; \textbf{im}_\cup\left(\text{Sym}^2\,H^2(S^{[n]},\Z)\right) \oplus  \Z\left<\w_{\alpha_i^2}, \ \w_x,\ \w_{2^2}+\w_3\right> \\
+&\cong\; \textbf{im}_\cup\left(\text{Sym}^2\,H^2(S^{[n]},\Z)\right) \oplus \Z^{\oplus 24}
+\end{align*} 
+qui complète la démonstration . C'est à dire, on a obtenue une preuve arithmétique de ce fait déjà montré par Markman (\cite[Thm. 1.10]{markman}). \\
+
+Dans le cas $n=3$, on comprend la 3-torsion d'une fa\c{c}on similaire: \\
+Nous maintenons qu'une base complémentaire à l'image de cup-produit est donnée par les 23 éléments $\w_{\alpha_i^2},\ \w_x$ (sans torsion). Alors, on obtient toujours les équations (\ref{reprb2a}) à (\ref{reprbaa}). Pour la classe $\w_3$, on a seulement
+\begin{equation*}
+3 \w_3 = R - 183\w_x
+\end{equation*}
+Il est impossible d'éliminer le facteur 3. Vue technique, cela résulte du calcul de la réduction après Smith. Pour donner une raison plus intuitive, nous observons que le choix de la base complémentaire était impératif dans le sens suivant: Toutes les facteurs devant $\w_{\alpha_i^2}$ dans (\ref{qsq}) et (\ref{qaa}) sont pairs. Ainsi, il serait impossible de résoudre selon $\w_{\alpha_i^2}$, si nous enlèverions ces classes de la base complémentaire. Puis, en cherchant la classe complémentaire numéro 23, nous observons que $R = 3(\w_3 + 61\w_x)$. Comme multiplier $\w_2\cup\w_2$ est la seule possibilité de produire l'élément $\w_3$, il est préférable de choisir $\w_x$ pour classe complémentaire. De fait, choisir $\w_3$ au lieu de $\w_x$ implique représentabilité de $9\w_x$ comme multiple le plus petit. \\\\
+Une discussion du cas $n=2$ se trouve dans \cite[Rem. 5.7]{boissiereniepersarti}.
+
+\bibliographystyle{alpha}
+\bibliography{../bibl}
+\end{document}          

@@ -1,0 +1,56 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+\usepackage[german]{babel}
+\usepackage{fourier}  % Use the Adobe Utopia font for the document
+\usepackage{amsmath,amsthm,amssymb,amscd,color,graphicx}
+
+% Geschwungene Kleinbuchstaben im Mathemodus (benutze \mathpzc)
+\DeclareFontFamily{OT1}{pzc}{}
+\DeclareFontShape{OT1}{pzc}{m}{it}{<-> s * [1.10] pzcmi7t}{}
+\DeclareMathAlphabet{\mathpzc}{OT1}{pzc}{m}{it}
+
+
+%Struktur
+\newcommand{\point}{\vspace{3mm}\par \noindent \refstepcounter{subsection}{\bf \thesubsection.} }
+	\numberwithin{equation}{subsection}
+\newcommand{\tpoint}[1]{\vspace{3mm}\par \noindent \refstepcounter{subsection}{\bf \thesubsection.} 
+  \numberwithin{equation}{subsection} {\em #1. ---} }
+\newcommand{\epoint}[1]{\vspace{3mm}\par \noindent \refstepcounter{subsection}{\bf \thesubsection.} 
+  \numberwithin{equation}{subsection} {\em #1.} }
+\newcommand{\bpoint}[1]{\vspace{3mm}\par \noindent \refstepcounter{subsection}{\bf \thesubsection.} 
+  \numberwithin{equation}{subsection} {\bf\em #1.} }
+  
+%Abkürzungen
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Cinf}{C^\infty}
+\newcommand{\id}{\text{id}}
+
+
+%\binoppenalty=7000
+%\relpenalty=5000 
+
+% Title Page
+\title{Divisibilität durch $2^n$ unter affinen Abbildungen}
+\author{Simon Kapfer}
+\date{\today}
+\begin{document}
+\maketitle
+\noindent Betrachte die Mengen $B_0,\;B_1,\;B_2,\;\ldots$, gegeben durch 
+$$ B_n := \left\{ z\in \Z\; | \;z \equiv 2^{n} \ \text{mod}\ 2^{n+1} \right\}, \quad n\geq 0
+$$
+Da $B_n$ nichts anderes ist als die Teilmenge der ganzen Zahlen, deren Binärdarstellung auf genau $n$ Nullen endet, zerfällt
+die Menge $\Z \backslash \{0\}$ offensichtlich in die disjunkte Vereinigung dieser $B_n$. Da $2^n\in B_n$, ist $\frac{1}{1-2x} = \sum 2^n x^n$ eine erzeugende Funktion einer Folge von Elementen dieser Mengen $B_n$.
+\\
+Betrachte die affine, injektive Abbildung 
+$$f: \Z\rightarrow \Z,\  \ x\mapsto ax + 1, \quad \text{für ein ungerades, positives } a.$$ 
+Nun suchen wir eine Folge $(r_n)$ mit $f\left(r_n\right) \in B_n $. \\
+\textbf{Vermutung:} Sei $a = 1 + 2 a_1 + 4a_2 +8a_3 +\ldots $ die Binärdarstellung von $a$. Dann ist eine mögliche Folge $(r_n)$ durch folgende erzeugende Funktion gegeben:
+$$
+\sum r_n x^n \ = \ \frac{1}{1-2x} - \frac{1}{(1-x)(1+2a_1x+4a_2x^2+8a_3x^3 + \ldots)}
+$$
+\end{document}          

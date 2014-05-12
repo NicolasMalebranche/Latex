@@ -1,0 +1,56 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+\usepackage[german]{babel}
+\usepackage{fourier}  % Use the Adobe Utopia font for the document
+\usepackage{amsmath,amsthm,amssymb,amscd,color,graphicx}
+
+% Geschwungene Kleinbuchstaben im Mathemodus (benutze \mathpzc)
+\DeclareFontFamily{OT1}{pzc}{}
+\DeclareFontShape{OT1}{pzc}{m}{it}{<-> s * [1.10] pzcmi7t}{}
+\DeclareMathAlphabet{\mathpzc}{OT1}{pzc}{m}{it}
+
+
+%Struktur
+\newcommand{\point}{\vspace{3mm}\par \noindent \refstepcounter{subsection}{\bf \thesubsection.} }
+	\numberwithin{equation}{subsection}
+\newcommand{\tpoint}[1]{\vspace{3mm}\par \noindent \refstepcounter{subsection}{\bf \thesubsection.} 
+  \numberwithin{equation}{subsection} {\em #1. ---} }
+\newcommand{\epoint}[1]{\vspace{3mm}\par \noindent \refstepcounter{subsection}{\bf \thesubsection.} 
+  \numberwithin{equation}{subsection} {\em #1.} }
+\newcommand{\bpoint}[1]{\vspace{3mm}\par \noindent \refstepcounter{subsection}{\bf \thesubsection.} 
+  \numberwithin{equation}{subsection} {\bf\em #1.} }
+  
+%Abkürzungen
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Cinf}{C^\infty}
+\newcommand{\id}{\text{id}}
+
+
+%\binoppenalty=7000
+%\relpenalty=5000 
+
+% Title Page
+\title{Ein Satz über Teilbarkeit}
+\author{Simon Kapfer}
+\date{\today}
+\begin{document}
+\maketitle
+\noindent 
+Gegeben eine beliebige natürliche Zahl, deren letzte Ziffer gleich 1 ist, etwa 5821. Definiere die Folge $(c_n)_n$ über die erzeugende Funktion
+$$ \sum_{n\geq 0} c_n x^n \ = \ \frac{1}{1-x}\;\left(\;\frac{5821}{1+20x+800x^2+5000x^3} - 1 \;\right)
+$$
+Dann gilt: $c_n$ ist durch $10^{n+1}$ teilbar. \\\\Wie die Aussage für andere Zahlen als 5821 lauten muß, sollte klar sein.\\ Statt dem Dezimalsystem kann man auch ein beliebiges anderes nehmen, wenn man $10^{n+1}$ durch das Entsprechende ersetzt.
+\\\\
+\emph{Beweis: (Peter Uebele sei Dank)} \begin{align*}
+\sum c_nx^n &= \frac{1}{1-x}\left(\frac{\sum_{i\geq 1}^Na_i d^i +1}{\sum_{i\geq 1}^Na_id^ix^i + 1 } -1  \right) \\
+&= \frac{1}{1-x}\frac{\sum_{i\geq 1}^Na_i d^i -\sum_{i\geq 1}^Na_i d^ix^i}{\sum_{i\geq 1}^Na_id^ix^i + 1 }  \\
+&= \frac{1}{1-x}\frac{\sum_{i\geq 1}^Na_i d^i \left(1-x^i\right)}{\sum_{i\geq 1}^Na_id^ix^i + 1 }  \\
+&=\frac{\sum_{i\geq 1}^Na_i d^i \left(x^{i-1}+x^{i-2}+\ldots +1 \right)}{\sum_{i\geq 1}^Na_id^ix^i + 1 } \\
+&= \sum_{i\geq 1}^Na_i d^i \left(x^{i-1}+x^{i-2}+\ldots +1 \right)\cdot\sum_{m\geq 0} \left(-\sum_{i=1}^N a_id^ix^i\right)^m
+\end{align*}
+\end{document}          
