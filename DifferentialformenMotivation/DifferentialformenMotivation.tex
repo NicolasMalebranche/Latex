@@ -1,0 +1,85 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+\usepackage[german]{babel}
+\usepackage{fourier}  % Use the Adobe Utopia font for the document
+\usepackage{amsmath,amsthm,amssymb,amscd,color,graphicx}
+
+% Geschwungene Kleinbuchstaben im Mathemodus (benutze \mathpzc)
+\DeclareFontFamily{OT1}{pzc}{}
+\DeclareFontShape{OT1}{pzc}{m}{it}{<-> s * [1.10] pzcmi7t}{}
+\DeclareMathAlphabet{\mathpzc}{OT1}{pzc}{m}{it}
+
+
+%Struktur
+\newcommand{\point}{\vspace{3mm}\par \noindent \refstepcounter{subsection}{\bf \thesubsection.} }
+	\numberwithin{equation}{subsection}
+\newcommand{\tpoint}[1]{\vspace{3mm}\par \noindent \refstepcounter{subsection}{\bf \thesubsection.} 
+  \numberwithin{equation}{subsection} {\em #1. ---} }
+\newcommand{\epoint}[1]{\vspace{3mm}\par \noindent \refstepcounter{subsection}{\bf \thesubsection.} 
+  \numberwithin{equation}{subsection} {\em #1.} }
+\newcommand{\bpoint}[1]{\vspace{3mm}\par \noindent \refstepcounter{subsection}{\bf \thesubsection.} 
+  \numberwithin{equation}{subsection} {\bf\em #1.} }
+  
+%Abkürzungen
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Cinf}{C^\infty}
+\newcommand{\id}{\text{id}}
+\renewcommand{\O}{\mathcal{O}\!}
+\renewcommand{\S}{\mathfrak{S}}
+\newcommand{\T}{\mathcal{T}}
+\newcommand{\E}{\mathcal{E}}
+\newcommand{\A}{\mathcal{A}}
+\newcommand{\Hom}{\mathcal{H}\!\!\!\mathpzc{om}}
+\newcommand{\End}{\mathcal{E}\!\!\mathpzc{nd}}
+\renewcommand{\d}{d\!}
+\newcommand{\del}{\partial}
+\newcommand{\delbar}{\overline{\partial}}
+\newcommand{\dzbar}{\d\overline{z}}
+\newcommand{\diff}[1]{\frac{\partial}{\partial #1}}
+\newcommand{\vac}{\left|0\right>}
+
+%\binoppenalty=7000
+%\relpenalty=5000 
+
+% Title Page
+\title{Warum definiert man das äußere Differential so wie man es tut?}
+\author{Simon Kapfer}
+
+\begin{document}
+\maketitle
+
+%TODO: für die Vorstellung: wir machen multilineare Algebra mit einem Extra-Parameter (dem Punkt auf der Mannigfaltigkeit)
+%TODO: Koordinatenunabhängigkeit im Sinne von "bis auf Diffeomorphie"
+\section{Koordinatenunabhängigkeit}
+Eine glatte Mannigfaltigkeit $M$ wird in der Umgebung eines Punktes $p\in M$ (\glq lokal\grq) durch \emph{Koordinaten} beschrieben. Koordinaten sind nichts weiter als glatte Funktionen nach $\R$, so daß jeder Punkt in der Nähe von $p$ durch seine Koordinatenwerte eindeutig bestimmt ist. Außerdem sollen die Differentiale der Koordinaten den Kotangentialraum aufspannen. Die Wahl solcher Koordinaten ist keineswegs eindeutig, so daß wir verschiedene Wahlen als gleichwertig ansehen müssen. Für $M$ eine offene Menge im $\R^2$, die hier stets als Beispiel dienen wird, sollen die kartesischen Koordinaten $x,\ y$ gegenüber anderen, etwa $u,\ v$ gleichberechtigt sein. Das bedeutet, uns interessiert von $\R^2$ lediglich die Eigenschaft, glatte Mannigfaltigkeit zu sein.
+
+\section{Koordinatentransformationen}
+Glatte (lokale) Automorphismen $\phi: M \rightarrow M$ induzieren durch Verkettung Koordinatentransformationen. Es ist sinnvoll, wenn eine Koordinate $u$ durch $u = x\circ \phi = \phi^*x)$ gegeben ist, die Einsformen mitzutransformieren. Diese Transformation wird an jeder Stelle linear sein, da auch die induzierten Abbildungen zwischen den Tangentialräumen linear sind (Darstellung in Koordinaten durch die Jacobi--Matrix von $\phi$). So läßt sich die Definition des Pullbacks für Einsformen rechtfertigen.
+
+\section{Wie kann man Formen ableiten?}
+Aus Analysis II sollte klar sein, daß die totale Ableitung einer $\Cinf$--Funktion eine Einsform ergibt. Wie geht es nun weiter?
+\\Sei der Einfachheit halber $M=\R^2$. Wir definieren eine kleine Verschiebung 
+$$ \phi_\epsilon:M \longrightarrow M,\quad p\longmapsto p +\epsilon v $$
+für eine beliebige Richtung $v \in \R^2$. Die Richtungsableitung einer 1--Form $\omega$ nach $v$ definieren wir (ganz klassisch) durch Differenzenquotienten:
+$$ \diff{v} \omega\ :=\  \lim\limits_{\epsilon\rightarrow 0} \frac{\phi_\epsilon^*(\omega) - \omega}{\epsilon}$$
+wobei der Pullback für $\omega =f \d x + g\d y$ gegeben ist durch:
+$$\phi_\epsilon^*(\omega) \ :=\ (f\circ \phi_\epsilon) d(x\circ \phi_\epsilon) + (g\circ \phi_\epsilon)d(y\circ \phi_\epsilon)$$
+Für die kartesischen Koordinaten $x$ und $y$ stellen wir $d(x\circ \phi_\epsilon)= \phi_\epsilon^* (\d x) = \d x$ fest und damit $\diff{v} \d x = 0 = \diff{v} \d y $ für beliebiges $v$. Das liegt daran, daß $\phi_\epsilon$ bezüglich $x$ und $y$ eine \emph{Parallelverschiebung} ist. \\
+Außerdem sieht man ein, daß $\diff{v}\omega$ linear von der Richtung $v$ abhängt. Beim Übergang von der Richtungs-- zur totalen Ableitung werden wir deshalb etwas erhalten, was bilinear von zwei Tangentialvektoren abhängt. Man rechnet nach:
+$$ d\omega = \frac{\del f}{\del x} \d x \odot \d x + \frac{\del f}{\del y}\d y \odot \d x +  \frac{\del g}{\del x} \d x \odot \d y +\frac{\del g}{\del y} \d y \odot \d y $$
+(Es steht $\odot$ dabei für eine bilineare Verknüpfung, die wir gleich genauer bestimmen werden.)
+
+\section{Die Gleichung $d^2 = 0$}
+Die zweite Ableitung der (kartesischen) Koordinatenfunktion $x$ ist offensichtlich konstant Null, d. h. es gilt $d (\d x) =0$. Allerdings hatten wir vorher ja vereinbart, daß Koordinatenwahlen keine Rolle spielen dürfen. Wenn wir verlangen, daß Koordinatentransformationen (Pullbacks) auch für 2--Formen linear sein sollen, müssen wir die Gleichung $d(\d u)=0$ für beliebige Koordinaten $u$ fordern. Da eine Koordinate nichts anderes ist als eine $\Cinf$--Funktion, muß die Gleichung $d^2=0$ von allen $\Cinf$--Funktionen erfüllt werden. \\
+\textbf{Bemerkung:} Wenn wir die Information, die die zweite Ableitung aus Analyis II enthält, nicht verlieren wollen, so müssen wir entweder die Forderung nach Linearität des Pullbacks auf 2--Formen fallen lassen oder die Menge der zulässigen Transformationen einschränken. 
+
+\section{Antikommutativität}
+Beispielsweise könnte man $u$ und $v$ so wählen, daß $u = xy$. Dann ist $\d u = y\d x + x \d y$ und dementsprechend 
+$$0\ \ =\ \  d^2 u \ \ =\ \  \d y\odot \d x + \d x \odot \d y$$
+Analog erhält man für die Wahl $u = \frac{1}{2}x^2$ die Bedingung $\d x \odot \d x =0$. \\Die Definition der äußeren Ableitung, $"\odot = \wedge"$ ergibt sich daher aus der Forderung, nur den Teil zu betrachten, der koordinatenunabhängig ist, sowie der Gleichung $d^2 =0$. Für die Definition des Differentials für höhere Formen fährt man in analoger Weise fort.
+\end{document}          
