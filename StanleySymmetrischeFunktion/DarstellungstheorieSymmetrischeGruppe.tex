@@ -1,0 +1,231 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+\usepackage[german]{babel}
+\usepackage{fourier}  % Use the Adobe Utopia font for the document
+\usepackage{amsmath,amsthm,amssymb,amscd,color,graphicx}
+%Struktur
+\newcommand{\point}{\vspace{3mm}\par \noindent \refstepcounter{subsection}{\bf \thesubsection.} }
+	\numberwithin{equation}{subsection}
+\newcommand{\tpoint}[1]{\vspace{3mm}\par \noindent \refstepcounter{subsection}{\bf \thesubsection.} 
+  \numberwithin{equation}{subsection} {\em #1. ---} }
+\newcommand{\epoint}[1]{\vspace{3mm}\par \noindent \refstepcounter{subsection}{\bf \thesubsection.} 
+  \numberwithin{equation}{subsection} {\em #1.} }
+\newcommand{\bpoint}[1]{\vspace{3mm}\par \noindent \refstepcounter{subsection}{\bf \thesubsection.} 
+  \numberwithin{equation}{subsection} {\bf\em #1.} }
+  
+%Abkürzungen
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+\renewcommand{\O}{\mathcal{O}}
+\renewcommand{\S}{\mathfrak{S}}
+\newcommand{\e}{\mathbf{e}}
+\newcommand{\p}{\mathbf{p}}
+\newcommand{\h}{\mathbf{h}}
+\newcommand{\m}{\mathbf{m}}
+\newcommand{\s}{\mathbf{s}}
+\newcommand{\diff}[1]{\frac{\partial}{\partial #1}}
+\newcommand{\End}{\mathrm{End}}
+\newcommand{\Sym}{\mathrm{Sym}}
+\newcommand{\Hom}{\mathrm{Hom}}
+\newcommand{\sgn}{\mathrm{sgn}}
+\newcommand{\Schur}{\mathbb{S}}
+\newcommand{\LR}{N}
+\newcommand{\Ko}{K}
+\renewcommand{\i}{\mathbf{i}}
+\newcommand{\ch}{\mathrm{ch}}
+\newcommand{\z}{\mathrm{z}}
+
+% Title Page
+\title{Memo: Symmetrische Darstellungstheorie}
+\author{Simon Kapfer}
+
+\begin{document}
+\maketitle
+\part{Symmetrische Funktionen}
+Was im Stanley \cite{stanley2} drüber steht.
+\section{Definitionen}
+Wir arbeiten über $\Q[x_1,x_2,\ldots, x_n]$. Dabei ist $n$ beliebig, aber hinreichend groß. Es sollen $\lambda, \nu, \mu$ Partitionen sein. Partitionen in Multiindex--Schreibweise werden fett $\i,\mathbf{j}$ notiert. Permutationen werden mit $\sigma, \tau \in \S_n$ bezeichnet. 
+\bpoint{Sonstige Bezeichnungen}\label{notation}
+\begin{gather*}
+\delta := (n-1,n-2,\ldots, 0), \quad \text{$n$ ist Anzahl der Variablen} \\
+\z_\lambda \; :=\; \z_\i \; :=\; \prod_k k^{i_k} i_k! \\
+\Delta_\lambda(x) := \det(x_i^{\lambda_j})_{ij} \quad\text{(schiefsymmetrisch in $x_i$)}\\
+\Delta(x):=\Delta_\delta(x)=\prod_{i<j}(x_i-x_j) \quad\text{Vandermonde--Determinante}\\
+\Ko_{\lambda\mu}\quad\text{Kostka-Zahlen} \\
+\LR_{\lambda\mu}^\nu \quad\text{Littlewood-Richardson Zahlen}
+\end{gather*}
+
+\bpoint{Standardbasen} 
+\begin{itemize}
+\item \textbf{Monomial} symmetrische Funktionen werden über $\m_\lambda = (x^\lambda)^\text{Sym}$ definiert. 
+\item \textbf{Schurpolynome} sind über Determinanten definiert, \cite[7.15]{stanley2}:
+$$\s_\lambda :=\frac{\Delta_{\lambda+\delta}}{\Delta_\delta}$$
+\end{itemize}
+Die anderen Basen werden über Produkte definiert:
+$$ \e_\lambda = \prod_i \e_{\lambda_i}, \quad
+ \h_\lambda = \prod_i \h_{\lambda_i}, \quad
+  \p_\lambda = \prod_i \p_{\lambda_i}.
+$$
+\begin{itemize}
+\item \textbf{Elementar--} und \textbf{vollständige} symmetrische Funktionen $\e_k$ und $\h_k$:
+$$\e_k = \sum_{i_1<i_2<\ldots <i_k} x_{i_1}x_{i_2}\ldots x_{i_k}, \qquad \h_k = \sum_{i_1\leq i_2\leq\ldots \leq i_k} x_{i_1}x_{i_2}\ldots x_{i_k}$$
+\item \textbf{Potenzsummen} $\p_k := x_1^k + x_2^k+\ldots$
+\end{itemize}
+\bpoint{Erzeugende Funktionen} 
+\begin{gather*}
+\sum_{k\geq 0}{\e_kt^k} = \prod_i(1+x_it) =\exp\left(
+\sum_{k\geq 1}\tfrac{-(-1)^k}{k}\p_kt^k \right)\\
+\sum_{k\geq 0}{\h_kt^k}= \prod_i\frac{1}{1-x_it} =\exp\left(
+\sum_{k\geq 1}\tfrac{1}{k}\p_kt^k \right)
+\end{gather*}
+
+\section{Skalarprodukt und Involution}
+\bpoint{Skalarprodukt} Das Skalarprodukt wird so definiert, daß gilt:
+\begin{gather*}\left<\m_\lambda,\h_\mu\right> = \delta_{\lambda\mu} = \left<\s_\lambda,\s_\mu\right> \\
+\left<\p_\lambda,\p_\mu\right> = \delta_{\lambda\mu} \z_\lambda 
+\end{gather*}
+\bpoint{Adjungierte Multiplikationsperatoren} (7.15.2, und \cite{macdonald}, S. 44.)
+\[\left<\s_\nu f,\s_\lambda\right>=\left<f,\s_{\lambda/\nu}\right> \]
+Bezeichne mit $D(\_)$ den adjungierten Operator zur Multiplikation. Dann: 
+\[ D(\p_n)\  =\ \sum_{r\geq 0}\h_r \diff{\h_{n+r}}\ =\ (-1)^{n-1} \sum_{r\geq 0}\e_r \diff{\e_{n+r}}\ =\ n\diff{\p_n}
+\]
+\bpoint{Involution} Definiere eine Involution $\omega$ durch 
+\[\omega\, \e_\lambda = \h_\lambda. \] Dann hat $\omega$ folgende Eigenschaften:
+\begin{align*}
+\omega^2 &= \text{id}\\
+\left<\omega f,\omega g\right> &=\left<f, g\right>  \\
+\omega\,\p_\lambda &= \deg(\lambda) \p_\lambda & (7.7.5)\\
+\omega\,\s_{\lambda/\nu} &= \s_{\lambda'/\nu'} & (7.15.6)
+\end{align*}
+\bpoint{Duale Basen} $\{\mathbf{u}_\lambda\},\ \{\mathbf{v}_\lambda\}$ seien zwei duale Basen für symmetrische Funktionen, d. h. 
+$ \left<\mathbf{u}_\lambda ,\mathbf{v}_\nu\right> = \delta_{\lambda\nu} $.
+Dann gilt:
+\begin{gather*}  \sum_\lambda \mathbf{u}_\lambda(x)\mathbf{v}_\lambda(y) = \prod_{i,j}\frac{1}{1-x_iy_j} \\
+\sum_\lambda \mathbf{u}_\lambda(x)\,\omega_y\mathbf{v}_\lambda(y) = \prod_{i,j}{1+x_iy_j}
+\end{gather*}
+
+\section{Beziehungen zwischen den Basen}
+\bpoint{Darstellung durch $\m_\lambda$} Siehe \cite[7.4.1, 7.5.1., 7.7.1.]{stanley2}
+\begin{gather}
+\s_\lambda = \sum_{\mu} K_{\lambda\mu}\m_\mu
+\end{gather}
+\bpoint{Durch Potenzsummen} Siehe \cite[7.7.6.]{stanley2}
+\bpoint{Durch Schur} \cite[7.12.4, 7.15.3, 7.17.3]{stanley2}
+\begin{gather}
+\s_\nu\h_\mu = \sum_{\lambda}K_{\lambda/\nu\,\mu}\;\s_\lambda \\
+\s_\nu\e_\mu = \sum_{\lambda}K_{\lambda'/\nu'\,\mu}\;\s_\lambda \\
+\label{Murnagham}\s_\nu\p_\mu = \sum_{\lambda}\chi^{\lambda/\nu}(\mu)\;\s_\lambda\\
+\s_\nu\s_\mu = \sum_{\lambda}C_{\nu\mu}^\lambda\s_\lambda
+\end{gather}
+Gleichung \ref{Murnagham} heißt Murnagham-Nakayama Regel. $\chi$ wird in \cite[7.17.3]{stanley2} definiert. Dort auch Border-Strip-Tableaus.
+\bpoint{Durch Matrizen}\label{matrizen} Siehe \cite{macdonald} S. 56. $\Ko$ ist die Matrix aus Kostka--Zahlen. $M^\top$ bedeutet Transposition, $M^{-\top}$ bedeutet Transposition plus Inversion. $J_{\lambda\mu}=\delta_{\lambda'\mu}$.
+$$
+\renewcommand\arraystretch{1.4}
+\begin{tabular}{|c|c|c|c|c|}
+\hline     & $\e$ & $\h$ & $\m$ & $\s$ \\
+\hline $\e$& $1 $ & $\Ko^{\top}J\Ko^{-\top}$&$\Ko^{\top}J\Ko $&$\Ko^{\top}J$  \\ 
+\hline $\h$&$\Ko^{\top}J\Ko^{-\top}$&$ 1 $&$\Ko^{\top}\Ko$&$\Ko^{\top}$\\ 
+\hline $\m$&$\Ko^{-1}J\Ko^{-\top}$&$\Ko^{-1}\Ko^{-\top}$&$1$&$\Ko^{-1}$\\ 
+\hline $\s$&$J\Ko^{-\top}$&$ \Ko^{-\top} $&$ \Ko $&$ 1 $\\ 
+\hline 
+\end{tabular} 
+$$
+\bpoint{Jacobi-Trudy} (Stanley 7.16.1)
+\[\s_{\lambda/\mu} = \det\left(\h_{\lambda_i-\mu_j+i-j}\right)
+\]
+\section{Plethysmen}
+\bpoint{Definition} Für $f$ eine symmetrische Funktion ist der Plethysmus mit einer Potenzsumme definiert durch: $f[\p_n](x_1,x_2,\ldots) = f(x_1^n,x_2^n,\ldots) = \p_n[f](x_1,x_2,\ldots)$ und der Forderung, daß $f[g]$ ein Ringhomomorphismus in $f$ ist. In $g$ hat man nicht mal Linearität. Plethysmen haben was mit Verkettung zu tun.
+\bpoint{Plethystische Identitäten} Siehe \cite[S. 447ff]{stanley2}.
+\begin{gather}
+\h_n[-\p_1] = (-1)^n \e_n \\
+f[-\p_1] = (-1)^n \omega(f)\\
+\sum_n \h_n[\e_1+\e_2] = \sum_{\lambda}\s_\lambda
+\end{gather}
+
+\part{Darstellungstheorie}
+Orientiert sich an Fulton--Harris, \cite{fh}. Im Stanley, \cite[7.18, 7.A2]{stanley2}, steht auch was.
+\section{Allgemeines über Charaktere}
+Folgendes gilt für beliebige (endliche) Gruppen $G$, welche auf $\C$--Vektorräumen wirken.
+\bpoint{Definition} Eine Darstellung ist ein Algebrenhomomorphismus: $\C[G] \longrightarrow \End{V}$. Der Charakter $\chi_V$ ist die Verkettung der Darstellung mit der Spurbildung, also eine lineare Abbildung: $\C[G]\longrightarrow \C$.
+\\
+Charaktere sind Klassenfunktionen, d.~h.~ der Wert des Charakters hängt nur von der Konjugationsklasse ab. Zwei Darstellungen sind gleich, falls ihre Charaktere gleich sind.
+\bpoint{Rechenregeln für Charaktere} Für die induzierten Darstellungen gilt:
+\begin{gather}
+\chi_{V\oplus W} = \chi_V +\chi_W\\
+\chi_{V\otimes W} = \chi_V\chi_W \\
+\chi_{\Hom(V,W)} = \overline{\chi_V}\chi_W \\
+\sum_{k\geq 0} \chi_{\Sym^kV}(g)t^k = \exp\left(\sum_{j\geq 1}\tfrac{1}{j}\chi_V(g^j)t^j\right)\\
+\sum_{k\geq 0} \chi_{\Lambda^kV}(g)t^k = \exp\left(\sum_{j\geq 1}\tfrac{(-1)^{j+1}}{j}\chi_V(g^j)t^j\right)
+\end{gather}
+Man beweist das mit Potenzsummen, vollständigen und elementarsymmetrischen Polynomen in den Eigenwerten der darstellenden Matrizen.
+\bpoint{Komposition von Darstellungen} Wirkt eine Gruppe $G$ auf $V$ und die Gruppe $\mathrm{GL}(V)$ auf $W$, so gilt für die induzierte Wirkung auf $W$ (siehe \cite[S. 448]{stanley2}):
+$$ \chi_{G,W} = \chi_{\mathrm{GL}(V), W }[\chi_{G,V}]$$
+\bpoint{Ring der Darstellungen} Durch Hinzufügen formaler additiver Inverser werden die Darstellungen einer festen Gruppe mit $\oplus,\;\otimes$ ein Ring mit der trivialen Darstellung als 1. Die Abbildungen $\chi_V(g)\mapsto\chi_V(g^k)$ sind Ringhomomorphismen und heißen auch Adams--Operationen.
+\bpoint{Irreduzible Darstellungen} Es gibt genauso viele irreduzible Darstellungen wie Konjugationsklassen. Die Charaktere der irreduziblen Darstellungen bilden eine Orthonormalbasis der Klassenfunktionen bezüglich des Skalarprodukts:
+$$ \left<\alpha,\beta\right> := \frac{1}{|G|}\sum_{g\in G} \overline{\alpha(g)}\beta(g) $$
+Jede Darstellung von $G$ zerfällt in eine direkte Summe von irreduziblen. \cite[2.13]{fh}
+\bpoint{Darstellungen, die Namen haben und Konstruktionen} \begin{itemize}
+\item Die \textbf{triviale} Darstellung: Eindimensional, irreduzibel, jedes Gruppenelement wirkt wie die Identität. $V^G$ ist isomorph zu einer direkten Summe trivialer Darstellungen.
+\item Die \textbf{reguläre} Darstellung ist $\C[G]$ mit Linksmultiplikation. Jede irreduzible Darstellung taucht in der Zerlegung der regulären mit einer Vielfachheit auf, die gleich ihrer Dimension ist.
+\item Wirkt $H$ auf $W$ und $G$ auf $V$, so wirkt $H\times G$ auf $W\otimes V$. Diese Konstruktion heißt äußeres Tensorprodukt und wird $W \boxtimes V$ geschrieben.
+\item Sei $H\leq G$ eine Untergruppe, $W$ eine Darstellung von $H$. Die \textbf{induzierte} Darstellung von $G$ ist 
+\begin{equation}
+\mathrm{Ind}_H^G W = \bigoplus_{\gamma \in G/H} \gamma\cdot W
+\end{equation} und ist adjungiert zur Einschränkung der Darstellung bezüglich $\Hom_G,\Hom_H$, sowie des Skalarprodukts von Klassenfunktionen im Sinne von \cite[3.20]{fh}:
+\begin{equation}\left<\chi_{\mathrm{Ind}_H^G W }\,,\,\chi_V\right>\;=\;
+\left<\chi_W\,,\,\chi_{\mathrm{Res}_H^G V }\right> \end{equation}
+\end{itemize}
+\bpoint{Invarianten} Der Mittelungs--Operator $$\frac{1}{|G|}\sum_{g\in G} g$$ projiziert $V$ auf $V^G$, den Teil der unter $G$--Wirkung invariant bleibt. Das entspricht dem Summand, der von der trivialen (irreduziblen) Darstellung kommt.
+
+\section{Irreduzible Darstellungen von $\S_d$}
+\bpoint{Young--Symmetrisierer} Die Projektion auf die irreduzible Darstellung, die einer (beliebig numerierten) Partition $\lambda$ zugeordnet wird, lautet: $c_\lambda = a_\lambda b_\lambda \in \C[\S_d]$ wobei
+$a_\lambda = \sum \sigma$ und $b_\lambda = \sum \sgn(\sigma)\sigma$. Die erste Summe durchläuft die Permutationen, die die Reihen, die zweite die, die die Spalten auf sich abbilden. \\
+Wenn man die Reihenfolge von $a_\lambda$ und $b_\lambda$ vertauscht, so erhält man für jeden Summanden sein Inverses (Antipode).
+\bpoint{Frobenius Abbildung} \cite[S. 351]{stanley2} Bilde Klassenfunktionen auf symmetrische Polynome ab durch: 
+\begin{gather*}
+\ch:\; \bigoplus\text{CF}(\S_n) \longrightarrow \Lambda \\\
+\ch f = \frac{1}{n!} \sum_{\sigma\in\S_n} f(\sigma) \,\p_{\lambda(\sigma)} = \sum_{\lambda}\frac{1}{\z_\lambda}f(\lambda)\,\p_\lambda
+\end{gather*}
+Diese Abbildung ist linear und bezüglich der Skalarprodukte eine Isometrie. Für Darstellungen $V,\;W$ von $\S_n,\;\S_m$ definiert  $(V,W)\mapsto \mathrm{Ind}_{\S_n\times\S_m}^{\S_{n+m}}(V\boxtimes W)$ eine Multiplikation auf $\bigoplus \text{CF}(\S_n)$, bezüglich der $\ch$ ein Isomorphismus von Ringen wird.
+\bpoint{Frobenius Formel} Bezeichnen $\lambda=(\lambda_1\geq\lambda_2\geq\ldots)$ und $\mathbf{i}$ Partitionen, wobei $\mathbf{i}$ durch Multiplizitäten gegeben ist. Dann gilt mit den Bezeichnungen aus \ref{notation}:
+$$ \p_\mathbf{i}=\sum_\lambda\chi_\lambda(C_\mathbf{i})\,\s_\lambda 
+\quad\text{bzw.}\quad \chi_\lambda(C_\mathbf{i})\ =\  \left[x^{\lambda+\delta}\right]\ \Delta(x)\p_\mathbf{i}(x)$$
+\bpoint{Hakenlängenformel} Für die irreduzible Darstellung zur Partition $\lambda$ gilt:
+$$\dim V_\lambda = \frac{d!}{\prod(\text{Längen der Haken})}$$
+\bpoint{Standard--Darstellung} $\C^d = 1 + V_{(d-1,1)}$, direkte Summe aus trivialer Darstellung und sog.~Standarddarstellung. Die äußere Potenz $\Lambda^kV_{(d-1,1)} = V_{(d-k,1,1,\ldots)}$ ergibt die Darstellung, die zu einem Haken gehört. \cite[4.6]{fh} \\
+Siehe auch \cite{marin}.
+\bpoint{Regel von Young} Seien $U_\lambda = \C[\S_d]a_\lambda,\ V_\lambda =\C[\S_d]c_\lambda$. Dann ist $V_\lambda$ irreduzibel und (vergleiche mit \ref{matrizen}): 
+$$U_\lambda = \sum_{\mu}\Ko_{\mu\lambda} V_\mu$$
+
+\section{Schur--Funktoren}
+\bpoint{Definition} Auf $V^{\otimes d}$ wirkt $\S_d$ durch Vertauschung der Faktoren. Dann ist der Schurfunktor definiert durch $\Schur^\lambda V:= c_\lambda (V^{\otimes d}) $. Insbesondere also: $\Schur^{(1^d)} = \Lambda^d$ und $\Schur^{(d)} = \Sym^d$. Man hat:
+$$ V^{\otimes d} = \bigoplus\; (\Schur^\lambda V)^{\oplus \dim V_\lambda}$$
+\bpoint{Link zu symmetrischen Funktionen} Sei $G$ Gruppe, die auf $V$ wirkt. Dann ist $\chi_{\Schur^\lambda V} $ das Schurpolynom $s_\lambda$ in den Eigenwerten der korrespondierenden Matrix. Insbesondere hat man die Formeln:
+\begin{gather}
+\dim\Schur^\lambda V = s_\lambda(1,1,\ldots) = \prod_{1\leq i<j\leq\dim V} \frac{\lambda_i-\lambda_j + j-i}{j-i} \\
+\Schur^\lambda V\otimes \Schur^\mu V = \bigoplus_\nu \LR_{\lambda\mu}^\nu\Schur^\nu V
+\end{gather} 
+\bpoint{Weitere Analogien} Die Funktoren
+\begin{align*}
+V \longmapsto a_\lambda(V^{\otimes d}) =& \Sym^{\lambda_1}V\otimes\Sym^{\lambda_2}V\otimes\ldots \\
+V \longmapsto b_{\lambda'}(V^{\otimes d}) =& \Lambda^{\lambda_1}V\otimes\Lambda^{\lambda_2}V\otimes\ldots
+\end{align*}
+verhalten sich wie die vollständigen und elementarsymmetrischen Polynome:
+\begin{gather}
+\Lambda^{\lambda_1}V\otimes \ldots\otimes\Lambda^{\lambda_r}V = \bigoplus\; \Ko_{\mu\lambda}\Schur^{\mu '}V
+\end{gather}
+und die analogen Identitäten gelten auch.
+\bpoint{Plethysmen} Es gilt (?): Die Charaktere von $\Schur^\lambda(\Schur^{\mu}V)$ sind als symmetrische Funktionen in den Eigenwerten gleich $\s_\lambda[\s_\mu]$.
+\bpoint{Andere Rechenregeln} Siehe \cite[S. 79ff]{fh}. Für das äußere Produkt von Darstellungen hat man:
+\begin{gather}
+\Schur^\nu(V\oplus W) = \bigoplus\; \LR_{\lambda\mu}^\nu \left(\Schur^\lambda V \boxtimes \Schur^\mu W\right) \\
+\Schur^\nu(V\boxtimes W) = \bigoplus\; C_{\lambda\mu\nu} \left(\Schur^\lambda V \boxtimes \Schur^\mu W\right)\\
+\Sym^d(V\boxtimes W) = \bigoplus_{\lambda\vdash d} \Schur^\lambda V\boxtimes\Schur^\lambda W 
+\end{gather}
+
+
+\bibliography{bibl}
+\end{document}          

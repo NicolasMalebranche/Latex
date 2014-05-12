@@ -1,0 +1,110 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+\usepackage[german]{babel}
+\usepackage{fourier}  % Use the Adobe Utopia font for the document
+\usepackage{amsmath,amsthm,amssymb,amscd,color,graphicx}
+
+%Struktur
+\newcommand{\point}{\vspace{3mm}\par \noindent \refstepcounter{subsection}{\bf \thesubsection.} }
+	\numberwithin{equation}{subsection}
+\newcommand{\tpoint}[1]{\vspace{3mm}\par \noindent \refstepcounter{subsection}{\bf \thesubsection.} 
+  \numberwithin{equation}{subsection} {\em #1. ---} }
+\newcommand{\epoint}[1]{\vspace{3mm}\par \noindent \refstepcounter{subsection}{\bf \thesubsection.} 
+  \numberwithin{equation}{subsection} {\em #1.} }
+\newcommand{\bpoint}[1]{\vspace{3mm}\par \noindent \refstepcounter{subsection}{\bf \thesubsection.} 
+  \numberwithin{equation}{subsection} {\bf\em #1.} }
+  
+%Abkürzungen
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+\renewcommand{\O}{\mathcal{O}}
+\renewcommand{\S}{\mathfrak{S}}
+\newcommand{\e}{\mathbf{e}}
+\newcommand{\p}{\mathbf{p}}
+\newcommand{\h}{\mathbf{h}}
+\newcommand{\m}{\mathbf{m}}
+\newcommand{\s}{\mathbf{s}}
+\newcommand{\diff}[1]{\frac{\partial}{\partial #1}}
+\newcommand{\vac}{\left|0\right>}
+
+
+% Title Page
+\title{Memo: Eigenschaften symmetrischer Funktionen}
+\author{Simon Kapfer}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+Was im Stanley \cite{stanley2} dazu steht.
+\end{abstract}
+\section{Definitionen}
+Wir arbeiten über $\Q[x_1,x_2,\ldots, x_n]$. Dabei ist $n$ beliebig, aber groß. Es sollen $\lambda, \nu, \mu$ Partitionen oder auch Multi-Indizes sein. Die Darstellungen werden munter gemixt. Permutationen werden mit $\sigma, \tau \in \S_n$ bezeichnet.
+\bpoint{Sonstige Bezeichnungen}
+\begin{gather*}
+\delta := (n-1,n-2,\ldots, 0) \\
+z_\lambda := \prod i^{\lambda_i} \lambda_i!\\
+K_{\lambda\mu}\quad\text{Kostka-Zahlen}
+\end{gather*}
+
+\bpoint{Monomial symmetrische Funktionen} Werden als einzige über $\m_\lambda = (x^\lambda)^\text{Sym}$ definiert. Die anderen alle über Produkte.
+
+\bpoint{Schur-Funktionen und Determinanten}. 
+\begin{gather*}a_\lambda := \sum_{\sigma\in\S_n} (-1)^{\sigma} \sigma(x^\lambda) = \det\left(x_i^{\lambda_j}\right)\quad\text{(antisymmetrisch)}\\
+\s_\lambda :=\frac{a_{\lambda+\delta}}{a_\delta}\quad\text{(symmetrisch)}
+\end{gather*}
+Insbesondere ist $a_\delta$ die Vandermonde-Determinante.
+
+\bpoint{Erzeugende Funktionen} 
+\begin{gather*}
+\sum_k{\e_kt^k} = \prod_i(1+x_it) \\
+\sum_k{\h_kt^k}= \prod_i\frac{1}{1-x_it} =\exp\left(
+\sum_k\tfrac{1}{k}\p_kt^k \right)
+\end{gather*}
+
+\section{Skalarprodukt und Involution}
+\bpoint{Skalarprodukt} Das Skalarprodukt wird so definiert, daß gilt:
+\begin{gather*}\left<\m_\lambda,\h_\mu\right> = \delta_{\lambda\mu} = \left<\s_\lambda,\s_\mu\right> \\
+\left<\p_\lambda,\p_\mu\right> = \delta_{\lambda\mu} z_\lambda 
+\end{gather*}
+\bpoint{Adjungierte Multiplikationsperatoren} (7.15.2, und \cite{macdonald}, S. 44.)
+\[\left<\s_\nu f,\s_\lambda\right>=\left<f,\s_{\lambda/\nu}\right> \]
+Bezeichne mit $D(\_)$ den adjungierten Operator zur Multiplikation. Dann: 
+\[ D(\p_n)\  =\ \sum_{r\geq 0}\h_r \diff{\h_{n+r}}\ =\ (-1)^{n-1} \sum_{r\geq 0}\e_r \diff{\e_{n+r}}\ =\ n\diff{\p_n}
+\]
+\bpoint{Involution} Definiere eine Involution $\omega$ durch 
+\[\omega\, \e_\lambda = \h_\lambda. \] Dann hat $\omega$ folgende Eigenschaften:
+\begin{align*}
+\omega^2 &= \text{id}\\
+\left<\omega f,\omega g\right> &=\left<f, g\right>  \\
+\omega\,\p_\lambda &= \deg(\lambda) \p_\lambda & (7.7.5)\\
+\omega\,\s_{\lambda/\nu} &= \s_{\lambda'/\nu'} & (7.15.6)
+\end{align*}
+\bpoint{Duale Basen} $\{\mathbf{u}_\lambda\},\ \{\mathbf{v}_\lambda\}$ seien zwei duale Basen für symmetrische Funktionen, d. h. 
+$ \left<\mathbf{u}_\lambda ,\mathbf{v}_\nu\right> = \delta_{\lambda\nu} $.
+Dann gilt:
+\begin{gather*}  \sum_\lambda \mathbf{u}_\lambda(x)\mathbf{v}_\lambda(y) = \prod_{i,j}\frac{1}{1-x_iy_j} \\
+\sum_\lambda \mathbf{u}_\lambda(x)\,\omega_y\mathbf{v}_\lambda(y) = \prod_{i,j}{1+x_iy_j}
+\end{gather*}
+
+\section{Beziehungen zwischen den Basen}
+\bpoint{Darstellung durch $\m_\lambda$} Siehe 7.4.1, 7.5.1., 7.7.1.
+\bpoint{Durch Potenzsummen} Siehe 7.7.6.
+\bpoint{Durch Schur} (7.12.4, 7.15.3, 7.17.3)
+\begin{gather*}
+\s_\nu\h_\mu = \sum_{\lambda}K_{\lambda/\nu\,\mu}\;\s_\lambda \\
+\s_\nu\e_\mu = \sum_{\lambda}K_{\lambda'/\nu'\,\mu}\;\s_\lambda \\
+\s_\nu\p_\mu = \sum_{\lambda}\chi^{\lambda/\nu}(\mu)\;\s_\lambda
+\end{gather*}
+Die letzte Gleichung heißt Murnagham-Nakayama Regel. $\chi$ wird in 7.17.3 definiert. Dort auch Border-Strip-Tableaus.
+\bpoint{Durch Matrizen} Siehe \cite{macdonald} S. 56.
+\bpoint{Jacobi-Trudy} (Stanley 7.16.1)
+\[\s_{\lambda/\mu} = \det\left(\h_{\lambda_i-\mu_j+i-j}\right)
+\]
+
+
+\bibliographystyle{alpha}
+\bibliography{bibl}
+\end{document}          
