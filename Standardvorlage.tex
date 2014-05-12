@@ -1,0 +1,44 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+\usepackage[german]{babel}
+\usepackage{fourier}  % Use the Adobe Utopia font for the document
+\usepackage{amsmath,amsthm,amssymb,amscd,color,graphicx}
+
+%Struktur
+\newcommand{\point}{\vspace{3mm}\par \noindent \refstepcounter{subsection}{\bf \thesubsection.} }
+	\numberwithin{equation}{subsection}
+\newcommand{\tpoint}[1]{\vspace{3mm}\par \noindent \refstepcounter{subsection}{\bf \thesubsection.} 
+  \numberwithin{equation}{subsection} {\em #1. ---} }
+\newcommand{\epoint}[1]{\vspace{3mm}\par \noindent \refstepcounter{subsection}{\bf \thesubsection.} 
+  \numberwithin{equation}{subsection} {\em #1.} }
+\newcommand{\bpoint}[1]{\vspace{3mm}\par \noindent \refstepcounter{subsection}{\bf \thesubsection.} 
+  \numberwithin{equation}{subsection} {\bf\em #1.} }
+  
+%Abkürzungen
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+\renewcommand{\O}{\mathcal{O}}
+
+\newcommand{\vac}{\left|0\right>}
+
+
+
+% Title Page
+\title{Ein Titel}
+\author{Simon Kapfer}
+
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+
+\end{abstract}
+
+
+\bibliographystyle{alpha}
+\bibliography{../bibl}
+\end{document}          
