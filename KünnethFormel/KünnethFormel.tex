@@ -1,0 +1,46 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{a4wide, amsmath, german}
+\usepackage[arrow, matrix, curve]{xy}
+
+\newcommand{\Tor}{\mathrm{Tor}}
+%opening
+\title{Künneth Formel}
+\author{Simon Kapfer}
+
+\begin{document}
+
+\maketitle
+
+\emph{Künneth Formel} Seien $C,\ C'$ Komplexe aus Projektiven / Freien übre einem Hauptidealbereich. Dann hat man eine exakte Sequenz:
+$$
+0 \longrightarrow HC \otimes HC' \longrightarrow H(C\otimes C') \longrightarrow \Tor (HC,HC')[-1] \longrightarrow 0 
+$$
+\emph{Beweis:} Bezeichne $ZC'$ und $BC'$ den geschlossenen, bzw.~exakten Subkomplex von $C'$ (Kern und Bild vom Differential). 
+Dann hat man (per Definition von $H$) eine kurze exakte Sequenz
+$$
+0 \longrightarrow BC' \longrightarrow ZC' \longrightarrow HC' \longrightarrow 0
+$$ 
+Als Unterkomplexe sind $ZC'$ und $BC'$ auch frei und damit flach. Da Tensorieren rechtsexakt ist und $\Tor(\ ,BC') = \Tor(\ ,ZC') =0$, hat man:
+$$ 
+0\longrightarrow \Tor(HC,HC') \longrightarrow HC\otimes BC' \longrightarrow HC\otimes ZC' \longrightarrow HC\otimes HC' \longrightarrow 0
+$$
+Da $H$ ein Deltafunktor ist, hat man eine lange exakte Sequenz:
+$$
+\longrightarrow(C\otimes ZC') \longrightarrow H(C\otimes HC') \longrightarrow H(C \otimes BC)[-1] \longrightarrow H(C \otimes ZC')[-1]\longrightarrow 
+$$
+Da $C$, $ZC'$ und $BC'$ Komplexe aus frei sind und damit flach, sind isomorph:
+$$
+H(C\otimes C') \cong H(C\otimes HC'),\quad H(C\otimes ZC') \cong HC \otimes ZC' \quad \text {und} \quad H(C\otimes BC') \cong HC\otimes BC' 
+$$
+Kombiniert man nun beide Sequenzen, und benutzt, daß $H(C\otimes C') = H(C\otimes HC')$, erhält man Faktorisierungen
+$$
+\xymatrix@C=1em{
+HC \otimes BC'\ar[r]\ar@{=}[d] &  HC \otimes ZC'  \ar[r] \ar@{=}[d]    &  HC \otimes HC'  \ar@^{(->}[d] \ar[r]  & 0  &\\
+HC \otimes BC'  \ar[r]         &  H(C\otimes ZC') \ar[r] \ar@{->>}[ru] &  H(C\otimes HC') \ar[r]\ar@{->>}[d] & 
+H(C\otimes BC')[-1] \ar[r]\ar@{=}[d] & H(C\otimes ZC')[-1] \ar@{=}[d] \\
+                               &          0\ar[r]            & \Tor(HC,HC')[-1] \ar[r]\ar@^{(->}[ru] & HC\otimes BC'[-1] \ar[r] & HC\otimes ZC'[-1]
+  }
+$$
+Betrachte nun die mittlere vertikale Sequenz.
+\end{document}
