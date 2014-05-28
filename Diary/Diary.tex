@@ -56,6 +56,20 @@ gegen $F(x_0)$. Idee dazu kam von folgender Frage: Gegeben ein modulo $p^n\ \for
 
 \eintrag{Dimension von metrischen Graphen} Ein metrischer Raum aus $n+1$ Punkten kann stets als Eckenmenge eines $n$-Simplex dargestellt werden. Dieses Simplex ist manchmal entartet, was eine Reduzierung der Dimension bedeutet. Wie weit kann man die Dimension reduzieren, wenn man für die Abstände einen Fehler von bestimmter Größe zuläßt? Möglicherweise gehts mit einer Eigenraumzerlegung der darstellenden Matrix à la Carina.
 
+\eintrag{Faktorisierungen in der Symmetrischen Gruppe} Bezeichne mit $f_{n,k}$ die Anzahl der Möglichkeiten, die Identität in $\S_n$ als $k$-faches Produkt $n$-Zykeln zu schreiben (unter Berücksichtigung der Reihenfolge). Dann gilt für die erzeugenden Funktionen $F_n(x):= \sum_{k\geq 0}f_{n,k}x^k$:
+\begin{align*}
+F_0(x)=& 1 \\
+F_1(x)=& \frac{1}{1-x} \\
+F_2(x)=& \frac{1}{1-x^2} \\
+F_3(x)=& \frac{1-x}{1-x-2x^2}\\
+F_4(x)=& \frac{1-34x^2+24x^4}{1-40x^2+144x^4}  \\
+F_5(x)=& \frac{1-22x-72x^2+384x^3+384x^4}{1-22x-96x^2+432x^3+1536x^4}\\
+F_6(x)=& \frac{1-19320x^2+43720704x^4-18345277440x^6+300589056000x^8}{1-19440x^2+42418944x^4-16334438400x^6+303906816000x^8}\\
+F_7(x)=&\frac{\text{Polynom vom Grad 7}}{\text{Polynom vom Grad 7}},\quad
+F_8(x)=\frac{\text{Polynom vom Grad 14}}{\text{Polynom vom Grad 14}}
+\end{align*}
+Vermutlich haben wir immer rationale Funktionen, auch wenn deren Koeffizienten mit wachsendem $n$ regelrecht explodieren. Die Frage, $f_{n,k}$ zu bestimmen, kam von Kai. Mit dem Paper von Goupil und Schaeffer kommt man an eine Berechnungsmethode dafür. Die Tatsache, daß für gerade $n$ nur gerade Funktionen auftauchen, sieht man, sobald man das Signum der Permutationen anschaut.
+
 \bibliographystyle{alpha}
 \bibliography{bibl}
 \end{document}          
