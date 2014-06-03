@@ -69,13 +69,14 @@ F_7(x)=&\frac{\text{Polynom vom Grad 7}}{\text{Polynom vom Grad 7}},\quad
 F_8(x)=\frac{\text{Polynom vom Grad 14}}{\text{Polynom vom Grad 14}}
 \end{align*}
 Wir haben immer rationale Funktionen, auch wenn die Koeffizienten mit wachsendem $n$ regelrecht explodieren. Die Frage, $f_{n,k}$ zu bestimmen, kam von Kai. Mit dem Paper von Goupil und Schaeffer kommt man an eine Berechnungsmethode dafür über Matrixpotenzen. Damit bekommt man auch obere Schranken für den Nennergrad der $F_n$, nämlich die Partitionszahlen $1, 1, 2, 3, 5, 7, 11, 15, 22, \ldots$. Die Tatsache, daß für gerade $n$ nur gerade Funktionen auftauchen, sieht man, sobald man das Signum der Permutationen anschaut. $\deg F_{2n} = 2\deg F_{2n-1}$ folgt möglicherweise auch daraus.
-\eintrag{Charakteristische Polynome von Matrixpotenzen} Die Koeffizienten $c_i$ des charakteristischen Polynoms einer $d\times d$-Matrix $A$ sind bis aufs Vorzeichen die elementarsymmetrischen Funktionen in den Eigenwerten: $\mathrm{e}_k = (-1)^{d-k} c_k$. Was sind die charakteristischen Polynome von $A^n$?
+
+\eintrag{Charakteristische Polynome von Matrixpotenzen} Die Koeffizienten $c_k$ des charakteristischen Polynoms einer $d\times d$-Matrix $A$ sind bis aufs Vorzeichen die elementarsymmetrischen Funktionen in den Eigenwerten: $\mathrm{e}_k = (-1)^{k} c_k$. Was sind die charakteristischen Polynome von $A^n$?
 $$
 S_A(x) := \sum_n\text{Spur}(A^n)x^n = \frac{\text{Rev}\left(\diff{x}\chi_A(x)\right)}{\text{Rev}\left(\chi_A(x)\right)}
 $$
 Dabei steht $\text{Rev}: P(x) \longmapsto x^{\deg P}P\left(\frac{1}{x}\right)$ für das rückwärts gelesene Polynom. $S_A$ ist natürlich eine symmetrische Funktion in den Eigenwerten, daher kann man von Plethysmus sprechen und es gilt:
-$$(-1)^{d-k} \sum_n c_k(A^n)x^n = S_A[\mathrm{e}_k](x) $$
-Falls $\det A =1$, hat man eine nette Dualität, die man durch Betrachtung der Eigenwerte beweist, nämlich
+$$(-1)^{k} \sum_n c_k(A^n)x^n = S_A[\mathrm{e}_k](x) $$
+Also braucht man, um $\chi_{A^ n}$ auszurechnen, nichts weiter als $\chi_A$ und die plethystischen Formeln für $\mathrm{e}_j[\mathrm{e}_k]$. Falls $\det A =1$, hat man außerdem eine nette Dualität, die man durch Betrachtung der Eigenwerte beweist, nämlich
 $$ (-1)^{d-1} \sum_n c_{d-1}(A^n)x^n = \frac{\text{Rev}\left(\diff{x} \text{Rev}\left(\chi_A(x)\right)\right)}{\chi_A(x)}
 $$
 Diese Dualität wird von Plethysmen respektiert, und so haben dann die erzeugenden Funktionen von $c_k(A^n)$ und $c_{d-k}(A^n)$ jeweils rückwärts gelesene Nenner.
