@@ -90,9 +90,12 @@ Sei $\nabla'$ ein Zusammenhang auf $F$. Dann gibt es kanonische Zusammenhänge au
 \item $\Hom(\E,\mathpzc{F})$: $\ (\nabla u)(s) = \nabla' u(s) - u(\nabla(s))$
 \end{itemize}
 Ein Zusammenhang $\nabla$ auf $\Omega_X^1$ oder $T_X$ heißt affin. Für affine Zusammenhänge ist die Torsion $T^\nabla:=d^\nabla \text{id}\ \in\ \Omega_X^2\otimes T_X$ erklärt. 
+\bpoint{Paralleltransport} Gegeben eine stückweis glatte Kurve $\gamma:[0,1]\rightarrow X$ und ein Vektor $e\in E_{\gamma(0)}$. Dann gibt es einen Schnitt $s\in \gamma^*E$ mit $s(0) =e$ und $\nabla_{\dot{\gamma}} s = 0$, mit dem man $e$ entlang $\gamma$ parallel transportieren kann. 
+\bpoint{Holonomiegruppe} Paralleltransport entlang geschlossener Kurven ergibt eine Gruppenwirkung auf den Fasern von $E$. Diese Gruppe heißt Holonomiegruppe mit Liealgebra $\mathfrak{hol}$. Für die Krümmung gilt: $R\in \Omega^2_X\otimes \mathfrak{hol}$. Bergers Theorem klassifiziert die Holonomiegruppen von Levi-Civita-Zusammenhängen.
 \bpoint{Riemannsche Struktur} Wenn $X$ eine riemannsche Metrik, d. h. eine symmetrische, positive, nichtentartete Bilinearform $\left<\ ,\ \right>$ oder $g:S^2T_X\rightarrow \R$ bzw. $g\in\Gamma(X,\Omega^1_X\otimes\Omega^1_X)$ besitzt, so heißt $X$ riemannsche Mannigfaltigkeit.
 \bpoint{Levi--Civita} Es gibt einen eindeutig bestimmten affinen Zusammenhang $\nabla$ auf $T_X$ ($X$ eine riemannsche Mannigfaltigkeit), der $\nabla g = 0$ und $T^\nabla = 0 $ erfüllt. 
 \bpoint{Ricci--Tensor} Der (symmetrische) Ricci-Tensor ist definiert als die Spur der Krümmung: $\text{Ric}:= \sum_i \left< \diff{x^i} R, dx^i \right> \ \in\  \Gamma(X,\Omega^1_X\otimes\Omega^1_X) $
+
 
 \section{Symplektische Strukturen}
 Sei $X$ eine reelle oder komplexe $\Cinf$--Mannigfaltigkeit der Dimension $2n$.
@@ -100,10 +103,15 @@ Sei $X$ eine reelle oder komplexe $\Cinf$--Mannigfaltigkeit der Dimension $2n$.
 \bpoint{Fast symplektische Struktur} Eine 2--Form $\omega\in\Omega^2_X$, welche überall nichtentartet ist (d.h. $\omega\left(\diff{v},\_\right) =0 \iff \diff{v}=0$), heißt fast symplektische Struktur.
 \bpoint{Volumenform} Aus der Nichtentartung von $\omega$ folgt sofort, daß $\omega^n \in \Omega^{2n}_X$ nirgends verschwindet, d. h. eine Volumenform ist.
 \bpoint{Symplektische Struktur} Gilt $d\omega =0$, so heißt $\omega$  symplektische Form.
-\section{Hodgetheorie}
 
-\section{Kählergeometrie}
-Sei $X$ eine komplexe und riemannsche Mannigfaltigkeit. An diese beiden Strukturen werden im folgenden noch Bedingungen gestellt.
+\section{Kählergeometrie und Hodgetheorie}
+Sei $(X, J, g)$ eine komplexe und riemannsche Mannigfaltigkeit, so daß $J$ bezüglich $g$ orthogonal ist.
+\bpoint{Hermitesche Metrik und Kählerform} Setze $\omega := g(J\underline{\ \ },\underline{\ \ })\in \Omega^{1,1}_X$ (Kählerform) und $h := g -i\omega$ (Hermitesche Metrik). Falls $ \d\omega=0$, oder, was äquivalent ist, $\nabla J = J\nabla$, so heißt $X$ Kählermannigfaltigkeit.
+
+\section{Hyperkähler vs. holomorph symplektisch}
+\bpoint{Hyperkählersche Definition} $(X,g)$ riem. Mnf. von Dim. $4m$ heißt Hyperkähler, wenn die Holonomiegruppe $\text{Hol}(g) = \text{Sp}(m)$ gleich der symplektischen Gruppe ist.
+\bpoint{HS-Definition} Eine holomorph symplektische Struktur auf einer komplexen Mannigfaltigkeit $X$ ist eine geschlossene Form $\sigma \in \Omega^{2,0}$, so daß $\sigma^m$ nirgends verschwindet.
+
 \bibliographystyle{alpha}
 \bibliography{bibl}
 \end{document}          
