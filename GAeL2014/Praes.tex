@@ -1,0 +1,319 @@
+\documentclass[12pt,utf8,notheorems,compress,handout]{beamer}
+\usepackage{Kurier}
+\usepackage{nicefrac}
+\usepackage[english]{babel} % german
+\usepackage{amsmath,amssymb}
+\usepackage[protrusion=true,expansion=false]{microtype}
+%\usepackage[framed,amsmath,thmmarks,hyperref]{ntheorem}
+
+\usepackage{booktabs}
+\usepackage{tabto}
+\usepackage{tikz}
+\usepackage{array}
+\usepackage{textpos}
+%\usepackage[all]{xy}
+
+%\usepackage[natbib=true,style=numeric]{biblatex}
+%\usepackage[babel]{csquotes}
+%\bibliography{lit}
+
+%\usepackage{hyperref}
+
+\setlength\parskip{\medskipamount}
+\setlength\parindent{0pt}
+
+%\theoremseparator{:}
+\theoremstyle{plain}  %nonumberplain
+%\newtheorem{beh}{Behauptung}
+\newtheorem{proposition}{Proposition}
+\newtheorem{corollary}{Corollary}
+\newtheorem{question}{Question}
+\newtheorem{theorem}{Theorem}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\newtheorem{example}{Example}
+%\newtheorem{kor}{Korollar}
+%\newtheorem{satz}{Satz}
+%\newtheorem{lemma}{Lemma}
+%\newtheorem{hilfsaussage}{Hilfsaussage}
+%\theorembodyfont{\normalfont}
+\newtheorem{observation}{Observation}
+%\newtheorem{defnprop}{Definition/Proposition}
+%\newtheorem{bem}{Bemerkung}
+%\newtheorem{bsp}{Beispiel}
+%\theoremsymbol{\ensuremath{\openbox}}
+%\newtheorem{proof}{Beweis}
+%\newtheorem{defn}{Definition}
+
+\newcommand{\lra}{\longrightarrow}
+\newcommand{\lhra}{\ensuremath{\lhook\joinrel\relbar\joinrel\rightarrow}}
+\newcommand{\thlra}{\relbar\joinrel\twoheadrightarrow}
+
+\newcommand{\Z}{\mathbb{Z}}
+\renewcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Hom}{\mathrm{Hom}}
+\newcommand{\id}{\mathrm{id}}
+\newcommand{\Aut}[1]{\operatorname{Aut}(#1)}
+\newcommand{\GL}[1]{\operatorname{GL}(#1)}
+\newcommand{\freist}{\_{}\_{}}
+\newcommand{\Set}{\mathrm{Set}}
+\newcommand{\Grp}{\mathrm{Grp}}
+\newcommand{\Vect}{\mathrm{Vect}}
+\newcommand{\e}{\'{e}}
+
+\def\longleadsto{\mathrel{-}\joinrel\leadsto}
+\DeclareMathOperator{\ggT}{ggT}
+\DeclareMathOperator{\Ob}{Ob}
+\newcommand{\op}{\mathrm{op}}
+
+\title{Integer cohomology of compact Hyperkähler manifolds}
+\author[Simon Kapfer,\ \ University of Augsburg]{Simon Kapfer\vspace{-0.5cm}}
+\institute{University of Augsburg}
+\date{Géométrie Algébrique en Liberté\\Trieste, 27 June 2014\vspace{0.6cm}\\
+\includegraphics[scale=0.07]{LogoInstitut}}
+
+%\usetheme{Warsaw}  %Warsaw, Berkeley?
+\usetheme{Darmstadt}
+\useoutertheme{split}
+\usecolortheme{whale}
+%\usecolortheme[named=Peach]{structure}
+\usefonttheme{serif}
+%\usepackage{palatino}
+\useinnertheme{rectangles}
+%\usepackage{bookman}
+%\setbeamercovered{transparent}
+
+\setbeamertemplate{navigation symbols}{}
+%\setbeamertemplate{footline}{}
+%\setbeamertemplate{headline}{}
+
+%\beamertemplateboldcenterframetitle
+%\setbeamerfont{frametitle}{size={\Large}}
+
+\newcommand*\oldmacro{}%
+\let\oldmacro\insertshorttitle%
+
+
+\newenvironment{changemargin}[2]{%
+  \begin{list}{}{%
+    \setlength{\topsep}{0pt}%
+    \setlength{\leftmargin}{#1}%
+    \setlength{\rightmargin}{#2}%
+    \setlength{\listparindent}{\parindent}%
+    \setlength{\itemindent}{\parindent}%
+    \setlength{\parsep}{\parskip}%
+  }%
+  \item[]}{\end{list}}
+
+\newcommand{\slogan}[1]{%
+  \begin{center}%
+    \setlength{\fboxrule}{2pt}%
+    \setlength{\fboxsep}{-3pt}%
+    {\usebeamercolor[fg]{item}\fbox{\usebeamercolor[fg]{normal
+    text}\parbox{0.9\textwidth}{\begin{center}#1\end{center}}}}%
+  \end{center}%
+}
+
+\makeatletter
+    \newenvironment{withoutheadline}{
+        \setbeamertemplate{headline}[default]
+        \def\beamer@entrycode{\vspace*{-\headheight}}
+    }{}
+\makeatother
+
+\newcommand{\hil}[1]{{\usebeamercolor[fg]{item}{#1}}}
+
+\begin{document}
+
+\setbeameroption{show notes}
+\setbeamertemplate{note page}[plain]
+\begin{withoutheadline}
+\frame{\vspace{4mm}
+\titlepage
+}
+\end{withoutheadline}
+\addtobeamertemplate{frametitle}{}{%
+\begin{textblock*}{100mm}(0.88\textwidth,-1.52cm)
+\includegraphics[scale=0.18]{UniLogoNeg}
+\end{textblock*}}
+\addtocounter{framenumber}{-1}
+\renewcommand*\insertshorttitle{%
+  \oldmacro\hfill\insertframenumber\,/\,\inserttotalframenumber\hfill}
+\section{General IHSM}
+
+\frame[t]{\frametitle{Motivation}
+Let $X$ be a compact Hyperkähler manifold of complex dimension $2m$ or, equivalently, an IHS manifold. Why should we be interested in $ H^*(X,\Z) $?
+\pause
+\begin{itemize}
+\item It feels more geometric.
+\pause
+\item Comparing $ H^*(X,\Z) $ with $ H^*(X,\C) $ gives us information about $X$, e.g.\ on projectivity.
+\pause
+\item We obtain restrictions to possible automorphisms of our manifold $X$.
+\item \dots
+\end{itemize}
+\pause
+\begin{question}
+Which constructions in $H^*(X,\R/\C)$ carry over to $H^*(X,\Z)$?
+\end{question}
+}
+\frame[t]{\frametitle{Beauville--Bogomolov form}
+As an example, consider the quadratic Beauville--Bogomolov form $q_X : H^*(X,\R) \rightarrow \R$
+\pause
+\begin{theorem}[Fujiki]
+$q_X(\alpha)^m = c \int_X \alpha^{2m}$ for some $c\in\R$.
+\end{theorem}
+\pause
+\begin{corollary}
+$q_X$ can be renormalized to yield a primitive integral quadratic form: $H^*(X,\Z) \rightarrow \Z $.
+\end{corollary}
+}
+
+
+\frame[t]{\frametitle{Hodge numbers for K3 surfaces}
+\pause
+For $S$ a compact Hyperkähler manifold of complex dimension two, i.e.\ a K3 surface, we have 
+$$
+\begin{array}{c@{\hspace{3cm}}c}
+\ h^{p,q}(S) & h^k(S,\Z)\vspace{0.3cm}\\
+\setlength{\arraycolsep}{0.13cm}
+\begin{array}{ccccc}
+  &  &1 &  & \\
+  & 0&  &0 &  \\
+ 1&  &20&  &1  \\
+  & 0&  &0 &   \\
+  &  & 1&  & 
+\end{array} & 
+\begin{array}{c}
+1\\0\\22\\0\\1
+\end{array}
+\end{array}
+$$
+and the intersection pairing on $H^2$ is isomorphic to $U^{\oplus3}\oplus E_8(-1)^{\oplus 2}$, where $U$ and $E_8$ are the bilinear forms corresponding to the hyperbolic resp. $E_8$ lattice.
+}
+
+\section{Hilbert schemes of K3 surfaces}
+
+\frame[t,shrink=11]{\frametitle{Hodge numbers for Hilbert schemes}
+Denote $S^{[n]}$ the Hilbert scheme of $n$ points on the K3 surface $S$.\\
+Then, the Hodge decomposition for $S^{[2]}$ is given by: 
+$$
+\begin{array}{c@{\hspace{3cm}}c}
+\ h^{p,q}(S^{[2]}) & h^k(S^{[2]},\Z)\vspace{0.3cm}\\
+\setlength{\arraycolsep}{0.13cm}
+\begin{array}{ccccccccc}
+ & & & & 1 & & &  &\\
+ & & &0&   &0& &  &\\
+ & &1& & 21& &1& & \\
+ &0& &0&   &0& &0& \\
+1&&21& &\hspace{-1mm}232\hspace{-1mm}& &21&&1\\
+ &0& &0&   &0& &0& \\
+ & &1& & 21& &1& & \\
+ & & &0&   &0& &  &\\
+ & & & & 1 & & &  &  
+\end{array} & 
+\begin{array}{c}
+1\\0\\23\\0\\276\\0\\23\\0\\1
+\end{array}
+\end{array}
+$$
+and there are formulae for all $S^{[n]}$ due to Göttsche.
+}
+
+\frame[t]{\frametitle{Betti numbers}
+\begin{center}
+
+\begin{tabular}{r|rrrrrr}
+%\toprule
+k & $S^{[1]}$ & $S^{[2]}$& $S^{[3]}$& $S^{[4]}$ & $S^{[5]}$ & $S^{[6]}$ \\ \midrule
+0 &	1 &	1&	1&	1&	1&	1 \\
+2 & 22&	23&	23&	23&	23&	23 \\
+4 & 1& 276&299&300&300&300\\
+6 & & 23 & 2554 & 2852 & 2875 & 2876\\
+8 & & 1 &299 & 19298&22127& 22426 \\
+10& & & 23 &2852&125604&147431\\
+12 & & & 1 & 300 &22127 &727606
+%\\\bottomrule
+\end{tabular}
+\end{center}
+For $k$ fixed, these numbers stabilize for $n$ big enough.
+
+}
+
+\frame[t]{\frametitle{Cohomology of Hilbert schemes}
+\begin{theorem}[Nakajima]
+For each $m\geq 1$ and each $\alpha \in H^j(S,\,\Q)$, there is an operator
+$$ \mathfrak{a}_{-m}(\alpha) : H^i(S^{[n]},\,\Q) \longrightarrow H^{i+j+2m-2}(S^{[n+m]},\,\Q)$$
+and these operators, applied to $H^*(S^{[0]},\,\Q)\cong\Q$, span the entire cohomology of all Hilbert schemes $S^{[n]}$.
+\end{theorem}
+\pause 
+Construction of the operators: Use the incidence scheme 
+$$ \mathcal{I} \ \subset \ S^{[n]}\times S \times S^{[n+m]} $$
+and define, using Poincaré duality,
+ $$\mathfrak{a}_{-m}(\alpha) \beta \;\stackrel{\text{P.D.}}{=}\; p_{3\ast}\left( (p_1^*\beta\cup p_2^*\alpha)\cap \left[\mathcal{I}\right] \right).$$
+}
+\frame[t]{\frametitle{Integral basis for $H^*(S^{[n]},\Z)$}
+This also works in integer cohomology!
+\begin{theorem}[Qin, Wang]
+Let $1\in H^0(S,\,\Z)$ be the canonical generator. The operators 
+$$
+\frac{1}{z_\lambda}\mathfrak{a}_{-\lambda}(1) :  H^i(S^{[n]},\,\Z) \longrightarrow H^{i+2m-2k}(S^{[n+m]},\,\Z)  $$
+$$\quad\mathfrak{a}_{-m}(\alpha) : H^i(S^{[n]},\,\Z) \longrightarrow H^{i+j+2m-2k}(S^{[n+m]},\,\Z)$$
+span the integer cohomologies $H^*(S^{[n]},\,\Z)$. Here, the composition of several operators $\mathfrak{a}_{-m_i}(1)$ is denoted via a partition $\lambda$ and $z_\lambda$ denotes some constant depending on $\lambda$.
+\end{theorem}
+}
+\frame[t]{\frametitle{Algebra generated by $H^2(S^{[n]},\C)$}
+\begin{theorem}[Verbitsky]
+The subalgebra generated by $H^2(S^{[n]}, \, \C)$ in $H^*(S^{[n]}, \, \C)$ is equal to $$\frac{\operatorname{Sym}^*H^2(S^{[n]}, \, \C) }{ \left< \alpha^{n+1}\ |\ q(\alpha)=0\right>},$$ where $q$ is the Beauville-Bogomolov Form. In fact, this holds for any compact Hyperkähler manifold of complex dimension $2n$.
+\end{theorem}
+\pause 
+What about cohomology with integral coefficients?\vspace{2mm}\\
+\pause
+Lehn, Sorger and Vasserot developed formulae for the cup product on $H^*(S^{[n]},\,\Q)$. We can use them also for computations in $H^*(S^{[n]},\,\Z)$.
+}
+\frame[t, shrink=10]{\frametitle{Ring structure of $H^*(S^{[n]},\,\Q)$}
+Rough idea of the algebraic model:
+\begin{itemize}
+\item To any composition of operators $\mathfrak{a}_{-m_1}(\alpha_1)\ldots \mathfrak{a}_{-m_k}(\alpha_k)$ one associates a conjugacy class of the symmetric group $\S_n$, given by the partition $\lambda = (m_1,\ldots,m_k)$
+\pause
+\item The cup product is built with the product in $\S_n$:
+\pause
+\item E.g.\ $(1\,2\,3)(4\,5)\cdot(1\,4) = (1\,2\,3\,4\,5)$, but $(1\,2\,3)(4\,5)\cdot (1\,2) = (1)(2\,3)(4\,5)$.
+\pause
+\item If two cycles $\nu_i, \nu_j$ are joined together by a transposition, multiply the corresponding classes, e.g. $(1\,2\,3)_{\alpha_i}(4\,5)_{\alpha_j}\cdot(1\,4)_{\alpha_l} = (1\,2\,3\,4\,5)_{\alpha_i\cdot\alpha_j\cdot\alpha_l}$
+\pause
+\item If a cycle is split in two by a transposition, use a map adjoint to the multiplication in $H^*(S)$.
+\pause
+\item Sum up all such possibilities and put the constants in the right way.
+
+\end{itemize}
+}
+\frame[t]{\frametitle{Algebra generated by $H^2(S^{[n]},\Z)$}
+For integer cohomology, we get torsion for small $n$, e.g.\ 
+\begin{itemize}
+\item $H^4(S^{[2]},\Z)\;=\;\operatorname{Sym}^2H^2(S^{[2]}, \Z)  \oplus \Z_{ 2^{46}\cdot 5^2}$
+\item $H^4(S^{[3]},\Z)\;=\;\operatorname{Sym}^2H^2(S^{[3]}, \Z) \oplus \Z^{23} \oplus \Z_{3}$
+\item $H^4(S^{[n]},\Z)\;=\;\operatorname{Sym}^2H^2(S^{[n]}, \Z) \oplus \Z^{24}, \qquad\qquad n\geq 4.$
+\end{itemize}
+\begin{question}
+Is there a geometric interpretation, e.g.\ for $n=3$?
+\end{question}
+\pause
+\vspace{0.7cm}
+\slogan{Thank you for your attention!}
+}
+\appendix
+  \addtocounter{framenumber}{-1}
+%\backupstart
+\renewcommand*\insertshorttitle{%
+  \oldmacro\hfill}
+
+\frame[t,shrink=8]{\frametitle{References}
+%\cite{qinintegral2004}\cite{lehnsorger}\cite{gross2003calabi}\cite{boissiereniepersarti}
+\bibliographystyle{plain}
+\bibliography{bibl}
+}
+\end{document}

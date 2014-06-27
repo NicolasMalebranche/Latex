@@ -7,6 +7,9 @@
 *.synctex.gz
 *.out
 *.idx
+*.nav
+*.snm
+*.toc
 CandidatureAuto
 DAAD_Bewerbung
 Lebenslauf
