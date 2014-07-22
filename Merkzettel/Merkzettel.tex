@@ -89,7 +89,7 @@ Die blauen Klammern stehen jeweils für Ableitung nach $x$, die schwarzen Klammer
 \item Die gruppenartigen Elemente einer 
 Bialgebra (d. h. $\Delta g = g\otimes g$) sind alle linear unabhängig. Ihr Spann bildet eine Unterbialgebra. 
 \item Die primitiven Elemente einer Bialgebra (d. h. $\Delta c = c\otimes 1 +1\otimes c$) bilden eine Liealgebra mit dem Kommutator als Lieklammer.
-\item Auf den linearen Endomorphismen einer Bialgebra wird eine Algebrenstruktur erklärt durch $f\ast g := \mu \circ t\otimes g) \circ \Delta$. Die Bialgebra ist eine Hopfalgebra, wenn eine Antipode $S$ mit $S\ast \id = \id\ast S = \eta\circ \epsilon $ existiert.
+\item Auf den linearen Endomorphismen einer Bialgebra wird eine Algebrenstruktur (Faltung) erklärt durch $f\ast g := \mu \circ (t\otimes g) \circ \Delta$. Die Bialgebra ist eine Hopfalgebra, wenn eine Antipode $S$ mit $S\ast \id = \id\ast S = \eta\circ \epsilon $ existiert.
 \end{itemize}
 \bpoint{} Es gibt keinen Körper, der als $\Z$--Modul frei ist.
 \bpoint{Klassifikation von indefiniten unimodularen Gittern} \cite{milnor_symmetric_1973}  Wenn es einen Gitterpunkt $x$ gibt, so daß $\left< x,x\right> $ ungerade ist, so heißt das Gitter ungerade und ist isomorph zu $(1)\oplus(-1)^n$, ansonsten heißt das Gitter gerade und ist isomorph zu $E_8(\pm 1)^m \oplus U^n$.
@@ -109,8 +109,11 @@ $H^1(X, \O^\times)$ ist die Picardgruppe. Der erste Pfeil ist die erste Chernkla
 \bpoint{Koszul-Komplex}
 Angenommen, ein Ideal $I\subset A$, wird von einer regulären Sequenz $(a_1,\ldots,a_n)$ aufgespannt (d.~h.~$a_i$ ist kein Nullteiler in $A/(a_1,\ldots,a_{i-1})$) und $d:A^n \rightarrow A$ schickt die kanonische Basis auf die Erzeuger, dann ist
 $$ 0\rightarrow \Lambda^n A^n \rightarrow \ldots \rightarrow \Lambda^1A^n \rightarrow A \rightarrow 0$$ 
-eine Auflösung von $A/I$, die (außer bei $A$) exakt ist.
+eine Auflösung von $A/I$, die (außer bei $A$) exakt ist.\\
+Analog sei $Y\rightarrow X$ eine reguläre Einbettung mit Idealgarbe $\mathcal{I}$. Dann ist $\Lambda^\ast\left(\mathcal{I}/\mathcal{I}^2\right) $ eine lokal freie Auflösung von $\O_Y = \O_X/\mathcal{I}$. Die Idee ist, daß man zum Auflösen von $\O_Y$ nur das Konormalenbündel / eine tubulare Umgebung von $Y$ braucht.
+
+\bpoint{Beilinson Auflösung}
 
 \bibliographystyle{alpha}
-\bibliography{../bibl}
+%\bibliography{../bibl}
 \end{document}          
