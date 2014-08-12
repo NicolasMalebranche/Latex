@@ -107,7 +107,13 @@ Die 12 Klassen, wo nur die Dreifachen getroffen werden, sind: $\m_{1^3,\alpha_i}
 $$ 2 \arctan x = \arctan\left(\frac{2x}{1-x^2}\right)$$
 läßt er sich jedoch für Primzahlen $p\in \{2\}\cup\{2^n - 1\}$ auf ganz $\Q_p \backslash \{\pm 1\}$ fortsetzen. Dort ist er nicht mehr injektiv, es gilt z. B. in $\Q_2$: $\arctan\left(8n\pm 1 \right) = \arctan\left(\pm\frac{4n}{4n\pm 1} \right)$.
 Die Machinsche Formel für $\frac{\pi}{4}$ entartet zu: $4\arctan\frac{1}{5} - \arctan\frac{1}{239} = 0$.
-
+\\
+Nachtrag: Man hat allgemein die Formel: $ \arctan(x)=\Im \log (1+ix)$ und daher:
+$$ \arctan(x) = \frac{1}{m}\Im \log((1+ix)^m) =  \frac{1}{m}\Im\log \left(1+ i \frac{\sum_k (-1)^k \binom{m}{2k+1}x^{2k+1}}{\sum_k (-1)^k \binom{m}{2k}x^{2k}}\right)
+$$
+bis auf Addition von $\pi$-Vielfachen. So lassen sich für $p=2$ oder $p= 4n - 1$ alle Argumente in etwas transformieren, wo die Potenzreihe konvergiert. Für $p= 4n +1$ geht es auch fast überall gut, mit Ausnahme von $\pm i \in \Q_p$. Da kann man aber auch gleich 
+$ \arctan(x) := \frac{1}{2i}\log\left(\frac{x-i}{x+i}\right) $
+definieren, so daß die beiden Definitionslücken offensichtlich werden.
 
 \bibliographystyle{alpha}
 \bibliography{bibl}
