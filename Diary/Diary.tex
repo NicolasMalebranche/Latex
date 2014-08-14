@@ -115,7 +115,8 @@ bis auf Addition von $\pi$-Vielfachen. So lassen sich für $p=2$ oder $p= 4n - 1$
 $ \arctan(x) := \frac{1}{2i}\log\left(\frac{x-i}{x+i}\right) $
 setzen, so daß die beiden Definitionslücken offensichtlich werden.
 
-\eintrag{Monotonie und Stetigkeit} Seien $f,g : \R\rightarrow \R$ so, daß $g\circ f=\id$, $g$ monoton und $f$ streng monoton sind. Dann ist $g$ stetig. \\
+\eintrag{Monotonie und Stetigkeit} Seien $f,g : \R\rightarrow \R$ monotone Funktionen, so daß $g\circ f=\id$. Dann ist $g$ stetig. Es reicht für die Stetigkeit von $g$ sogar: $g$ ist monoton und surjektiv. \\
+\emph{Beweis.} Seien $a,b\in\R$ beliebig. Wegen Monotonie von $g$ ist $g^{-1}([a,b])$ ein Intervall. Setze $I:=\inf(g^{-1}([a,b]))$. Falls $I> -\infty$ und $g(I)<a$ wäre, so wäre $g$ nicht surjektiv. Also $g(I)=a\in[a,b]$. Also ist $g^{-1}([a,b])$ abgeschlossen. Also ist $g$ stetig.
 
 
 \bibliographystyle{alpha}
