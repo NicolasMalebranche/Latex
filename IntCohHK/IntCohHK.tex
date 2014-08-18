@@ -1,0 +1,175 @@
+\documentclass{amsart}
+
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[all]{xy}
+
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\trace}{tr}
+\DeclareMathOperator{\Tor}{Tor}
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\im}{Im}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\Hilb}{Hilb}
+
+\newcommand{\hilb}[1]{^{[#1]}}
+\newcommand{\ie}{{\it i.e. }}
+\newcommand{\eg}{{\it e.g. }}
+\newcommand{\loccit}{{\it loc. cit. }}
+\newcommand{\ii}{{\rm i}}
+\newcommand{\dual}[1]{{#1}\spcheck}
+\newcommand{\abs}[1]{|{#1}|}
+\newcommand{\Kummer}[2]{{#2}^{\llbracket#1\rrbracket}}
+\newcommand{\vac}{|0\rangle}
+\newcommand{\odd}{{\rm{odd}}}
+\newcommand{\even}{{\rm{even}}}
+\newcommand{\tors}{{\rm{tors}}}
+
+\newcommand{\aG}{{\rm{a}}_G}
+\newcommand{\mG}{{\rm{m}}_G}
+
+% for spectral sequences
+
+\newcommand{\coloneqq}{:=}
+
+\makeatletter
+\newcommand{\rmnum}[1]{\romannumeral #1}
+\newcommand{\Rmnum}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\makeatother
+
+
+\newcommand{\FI}{F_{\text{\Rmnum{1}}}}
+\newcommand{\FII}{F_{\text{\Rmnum{2}}}}
+\newcommand{\EI}{\text{}^{\text{\Rmnum{1}}}\!E}
+\newcommand{\EII}{\text{}^{\text{\Rmnum{2}}}\!E}
+\newcommand{\dI}{\text{}^{\text{\Rmnum{1}}}\!d}
+\newcommand{\dII}{\text{}^{\text{\Rmnum{2}}}\!d}
+
+% for total derived functors and hypercohomology
+
+\newcommand{\HH}{\mathbf{H}}
+\newcommand{\LL}{\mathbf{L}}
+\newcommand{\RR}{\mathbf{R}}
+
+% for equivariant cohomology
+
+\newcommand{\BG}{BG}
+\newcommand{\EG}{EG}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\IC}{\mathbb{C}}
+\newcommand{\IR}{\mathbb{R}}
+\newcommand{\IQ}{\mathbb{Q}}
+\newcommand{\IZ}{\mathbb{Z}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\kS}{\mathfrak{S}}
+
+\newcommand{\km}{\mathfrak{m}}
+\newcommand{\kq}{\mathfrak{q}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\lra}{\longrightarrow}
+\newcommand{\ra}{\rightarrow}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{example}[theorem]{Example}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\title[Multiplicative structure of $H^\ast(\Hilb^n(K3), \IZ)$]{Multiplicative structure of integer cohomology of Hilbert schemes of points on K3 surfaces}
+
+
+\author{Simon Kapfer}
+\address{Simon Kapfer, Lehrstuhl f\"ur Algebra und Zahlentheorie, Universit\"ats\-stra{\ss}e~14, D-86159 Augsburg}
+\email{simon.kapfer@math.uni-augsburg.de}
+%\urladdr{http://www.math.uni-augsburg.de/alg/}
+
+
+\date{\today}
+
+%\subjclass{Primary 14J50, Secondary 14C50, 55T10}
+
+%\keywords{}
+
+\begin{abstract} 
+We study the cokernels of the cup product in integer cohomology of the Hilbert scheme of $n$ points on a K3 surface. The main difference to cohomology with rational coefficients is the presence of torsion, depending on $n$. We particularly discuss the case $n=3$.
+\end{abstract}
+
+\maketitle
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Preliminaries}
+Let $S$ be a K3 surface. We fix integral bases $1$ of $H^0(S,\IZ)$, $x$ of $H^4(X,\IZ)$ and $\alpha_1,\ldots ,\alpha_{22}$ of $H^2(S,\IZ)$ such that the cup product pairing on $H^2(X,\IZ)$, written as a symmetric matrix with respect to this basis, looks like
+$$
+\left(\begin{array}{ccccc}
+U&&&& \\
+&U&&& \\
+&&U&& \\
+&&&E& \\
+&&&&E \end{array}\right),
+$$
+where $U$ stands for the intersection matrix of the hyperbolic lattice and $E$ stands for the negative matrix of the $E_8$ lattice, \ie 
+\begin{equation*}
+U = 
+\left(\begin{array}{cc}
+0&1\\1&0 \end{array}\right),
+\ \ E = \left(\begin{array}{cccccccc}
+-2&1&0&0&0&0&0&0\\1&-2&1&0&0&0&0&0\\0&1&-2&1&0&0&0&0\\0&0&1&-2&1&0&0&0\\0&0&0&1&-2&1&1&0\\0&0&0&0&1&-2&0&1\\0&0&0&0&1&0&-2&0\\0&0&0&0&0&1&0&-2
+\end{array}\right).
+\end{equation*}
+We denote by $S\hilb{n}$ the Hilbert scheme of $n$ points on $S$. An integral basis for $H^\ast(S\hilb{n},\IZ)$ was given by Qin--Wang:
+\begin{theorem} \cite[Thm. 5.4.]{QinWang} The classes
+$$ \frac{1}{z_\lambda} \kq_\lambda(1)\kq_\mu(x)\km_{\nu^1,\alpha_1}\ldots\km_{\nu^{22},\alpha_{22}}\vac,\quad |\lambda| + |\mu| + \sum_{i=1}^{22}|\nu^i| = n
+$$ 
+form an integral basis for $H^\ast(S\hilb{n},\IZ)$. Here,
+$\lambda,\; \mu,\; \nu^i$ are partitions, $|\cdot|$ means the weight of a partition and 
+
+\end{theorem}
+\section{Introduction}
+
+The ring structure of $H^\ast(S\hilb{n}, \IQ)$ has been studied in \cite{LehnSorger}. 
+Since $H^\text{odd}(S\hilb{n},\IZ) = 0$ and $H^\text{even}(S\hilb{n},\IZ)$ is torsion-free by \cite{Markman}, we can also apply these results to  $H^\ast(S\hilb{n}, \IZ)$. A basis for cohomology with integer coefficients was given by Qin--Wang in \cite{QinWang} which allows us to compute explicitly the image of $H^k(S\hilb{n}, \IZ) \cup H^l(S\hilb{n}, \IZ)$ in $H^{k+l}(S\hilb{n}, \IZ)$. We obtain:
+\begin{theorem}
+If X is deformation equivalent to $S\hilb{3}$, then:
+\begin{align*}
+\frac{H^4(X,\IZ)}{\Sym^2 H^2(X,\IZ)} &\cong \frac{\IZ}{3\IZ} \oplus \IZ^ {\oplus 23} \\
+\frac{H^6(X,\IZ)}{H^2(X,\IZ)\cup H^4(X,\IZ)} &\cong \left(\frac{\IZ}{3\IZ}\right)^{\oplus 12} \\
+\frac{H^6(X,\IZ)}{\Sym^3 H^2(X,\IZ)} &\cong  \left(\frac{\IZ}{2\IZ}\right)^{\oplus 2}\oplus \left(\frac{\IZ}{4\IZ}\right)^{\oplus 21} \oplus \IZ^{\oplus  2278}
+\end{align*}
+\end{theorem}
+
+
+
+\bibliographystyle{amsplain}
+\bibliography{BiblioAutIHS}
+
+
+\end{document}
