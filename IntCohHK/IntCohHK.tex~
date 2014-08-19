@@ -1,0 +1,166 @@
+\documentclass{amsart}
+
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[all]{xy}
+
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\trace}{tr}
+\DeclareMathOperator{\Tor}{Tor}
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Pic}{Pic}
+\DeclareMathOperator{\im}{Im}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\NS}{NS}
+\DeclareMathOperator{\Trans}{T}
+\DeclareMathOperator{\Inv}{T}
+\DeclareMathOperator{\Orth}{S}
+\DeclareMathOperator{\disc}{disc}
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\gr}{gr}
+\DeclareMathOperator{\Tot}{Tot}
+\DeclareMathOperator{\td}{td}
+
+\newcommand{\ie}{{\it i.e. }}
+\newcommand{\eg}{{\it e.g. }}
+\newcommand{\loccit}{{\it loc. cit. }}
+\newcommand{\ii}{{\rm i}}
+\newcommand{\dual}[1]{{#1}\spcheck}
+\newcommand{\abs}[1]{|{#1}|}
+\newcommand{\Kummer}[2]{{#2}^{\llbracket#1\rrbracket}}
+\newcommand{\vac}{|0\rangle}
+\newcommand{\odd}{{\rm{odd}}}
+\newcommand{\even}{{\rm{even}}}
+\newcommand{\tors}{{\rm{tors}}}
+
+\newcommand{\aG}{{\rm{a}}_G}
+\newcommand{\mG}{{\rm{m}}_G}
+
+% for spectral sequences
+
+\newcommand{\coloneqq}{:=}
+
+\makeatletter
+\newcommand{\rmnum}[1]{\romannumeral #1}
+\newcommand{\Rmnum}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\makeatother
+
+
+\newcommand{\FI}{F_{\text{\Rmnum{1}}}}
+\newcommand{\FII}{F_{\text{\Rmnum{2}}}}
+\newcommand{\EI}{\text{}^{\text{\Rmnum{1}}}\!E}
+\newcommand{\EII}{\text{}^{\text{\Rmnum{2}}}\!E}
+\newcommand{\dI}{\text{}^{\text{\Rmnum{1}}}\!d}
+\newcommand{\dII}{\text{}^{\text{\Rmnum{2}}}\!d}
+
+% for total derived functors and hypercohomology
+
+\newcommand{\HH}{\mathbf{H}}
+\newcommand{\LL}{\mathbf{L}}
+\newcommand{\RR}{\mathbf{R}}
+
+% for equivariant cohomology
+
+\newcommand{\BG}{BG}
+\newcommand{\EG}{EG}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\IC}{\mathbb{C}}
+\newcommand{\IF}{\mathbb{F}}
+\newcommand{\IK}{\mathbb{K}}
+\newcommand{\IN}{\mathbb{N}}
+\newcommand{\IP}{\mathbb{P}}
+\newcommand{\IR}{\mathbb{R}}
+\newcommand{\IQ}{\mathbb{Q}}
+\newcommand{\IZ}{\mathbb{Z}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\cA}{\mathcal{A}}
+\newcommand{\cB}{\mathcal{B}}
+\newcommand{\cF}{\mathcal{F}}
+\newcommand{\cI}{\mathcal{I}}
+\newcommand{\cL}{\mathcal{L}}
+\newcommand{\cO}{\mathcal{O}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\kS}{\mathfrak{S}}
+
+\newcommand{\km}{\mathfrak{m}}
+\newcommand{\kq}{\mathfrak{q}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\lra}{\longrightarrow}
+\newcommand{\ra}{\rightarrow}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{example}[theorem]{Example}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\title[Smith theory and irreducible holomorphic symplectic manifolds]{Smith theory and irreducible holomorphic symplectic manifolds}
+
+\author{Samuel Boissi\`ere}
+\address{Samuel Boissi\`ere, Laboratoire de Math\'ematiques et Applications, UMR CNRS 6086, Universit\'e de Poitiers, T\'el\'eport 2, Boulevard Marie et Pierre Curie, F-86962 Futuroscope Chasseneuil}
+\email{samuel.boissiere@math.univ-poitiers.fr}
+\urladdr{http://www-math.sp2mi.univ-poitiers.fr/$\sim$sboissie/}
+
+\author{Marc Nieper-Wi{\ss}kirchen}
+\address{Marc Nieper-Wi{\ss}kirchen, Lehrstuhl f\"ur Algebra und Zahlentheorie, Universit\"ats\-stra{\ss}e~14, D-86159 Augsburg}
+\email{marc.nieper-wisskirchen@math.uni-augsburg.de}
+\urladdr{http://www.math.uni-augsburg.de/alg/}
+
+\author{Alessandra Sarti}
+\address{Alessandra Sarti, Laboratoire de Math\'ematiques et Applications, UMR CNRS 6086, Universit\'e de Poitiers, T\'el\'eport 2, Boulevard Marie et Pierre Curie, F-86962 Futuroscope Chasseneuil}
+\email{alessandra.sarti@math.univ-poitiers.fr}
+\urladdr{http://www-math.sp2mi.univ-poitiers.fr/$\sim$sarti/}
+
+\date{\today}
+
+%\subjclass{Primary 14J50; Secondary 14C50, 55T10}
+
+%\keywords{}
+
+\begin{abstract} 
+\end{abstract}
+
+\maketitle
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Introduction}
+
+
+
+
+\bibliographystyle{amsplain}
+\bibliography{BiblioAutIHS}
+
+
+\end{document}
