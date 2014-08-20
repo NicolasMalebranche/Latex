@@ -145,7 +145,7 @@ U =
 -2&1&0&0&0&0&0&0\\1&-2&1&0&0&0&0&0\\0&1&-2&1&0&0&0&0\\0&0&1&-2&1&0&0&0\\0&0&0&1&-2&1&1&0\\0&0&0&0&1&-2&0&1\\0&0&0&0&1&0&-2&0\\0&0&0&0&0&1&0&-2
 \end{array}\right).
 \end{equation*}
-We denote by $S\hilb{n}$ the Hilbert scheme of $n$ points on $S$. An integral basis for $H^\ast(S\hilb{n},\IZ)$ was given by Qin--Wang:
+We denote by $S\hilb{n}$ the Hilbert scheme of $n$ points on $S$. An integral basis for $H^\ast(S\hilb{n},\IZ)$ in terms of Nakajima's operators was given by Qin--Wang:
 \begin{theorem} \cite[Thm. 5.4.]{QinWang} The classes
 $$ \frac{1}{z_\lambda} \kq_\lambda(1)\kq_\mu(x)\km_{\nu^1,\alpha_1}\ldots\km_{\nu^{22},\alpha_{22}}\vac,\quad |\lambda| + |\mu| + \sum_{i=1}^{22}|\nu^i| = n
 $$ 
@@ -154,9 +154,10 @@ $\lambda,\; \mu,\; \nu^i$ are partitions, $|\cdot|$ means the weight of a partit
 The relation of $\km_{\nu,\alpha}$ to $\kq_{\tilde{\nu}}(\alpha)$ is the same as the monomial symmetric functions
 $m_\nu$ to the power sum symmetric functions 
 $p_{\tilde{\nu}}$.
-
 \end{theorem}
-\section{Introduction}
+Using the algebraic model for computing cup-products in rational cohomology described in \cite{LehnSorger},
+
+\section{Computational results}
 
 The ring structure of $H^\ast(S\hilb{n}, \IQ)$ has been studied in \cite{LehnSorger}. 
 Since $H^\text{odd}(S\hilb{n},\IZ) = 0$ and $H^\text{even}(S\hilb{n},\IZ)$ is torsion-free by \cite{Markman}, we can also apply these results to  $H^\ast(S\hilb{n}, \IZ)$. A basis for cohomology with integer coefficients was given by Qin--Wang in \cite{QinWang} which allows us to compute explicitly the image of $H^k(S\hilb{n}, \IZ) \cup H^l(S\hilb{n}, \IZ)$ in $H^{k+l}(S\hilb{n}, \IZ)$. We obtain:
@@ -175,10 +176,9 @@ $$
 $$
 \end{proposition}
 \begin{proposition}
-If X is deformation equivalent to $S\hilb{4}$, then:
 \begin{align*}
-\frac{H^4(X,\IZ)}{\Sym^2 H^2(X,\IZ)} &\cong \IZ^{\oplus 24} \\
-\frac{H^6(X,\IZ)}{H^2(X,\IZ)\cup H^4(X,\IZ)} &\cong \left(\frac{\IZ}{2\IZ}\right)^{\oplus 11} \oplus \left(\frac{\IZ}{6\IZ}\right)^{\oplus 12} \\
+\frac{H^6(S\hilb{4},\IZ)}{H^2(S\hilb{4},\IZ)\cup H^4(S\hilb{4},\IZ)} &\cong \left(\frac{\IZ}{2\IZ}\right)^{\oplus 11} \oplus \left(\frac{\IZ}{6\IZ}\right)^{\oplus 12} \\
+\frac{H^6(S\hilb{5},\IZ)}{H^2(S\hilb{5},\IZ)\cup H^4(S\hilb{5},\IZ)} &\cong \left(\frac{\IZ}{2\IZ}\right)^{\oplus 11} \oplus \left(\frac{\IZ}{6\IZ}\right)^{\oplus 9} \oplus \left(\frac{\IZ}{30\IZ}\right)^{\oplus 3} 
 \end{align*}
 \end{proposition}
 
