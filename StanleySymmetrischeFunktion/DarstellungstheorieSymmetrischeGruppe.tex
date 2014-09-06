@@ -3,7 +3,7 @@
 \usepackage[latin1]{inputenc}
 \usepackage[german]{babel}
 \usepackage{fourier}  % Use the Adobe Utopia font for the document
-\usepackage{amsmath,amsthm,amssymb,amscd,color,graphicx}
+\usepackage{amsmath,amsthm,amssymb,amscd,color,graphicx,hyperref}
 %Struktur
 \newcommand{\point}{\vspace{3mm}\par \noindent \refstepcounter{subsection}{\bf \thesubsection.} }
 	\numberwithin{equation}{subsection}
@@ -136,6 +136,7 @@ $$
 \bpoint{Jacobi-Trudy} (Stanley 7.16.1)
 \[\s_{\lambda/\mu} = \det\left(\h_{\lambda_i-\mu_j+i-j}\right)
 \]
+
 \section{Plethysmen}
 \bpoint{Definition} Für $f$ eine symmetrische Funktion ist der Plethysmus mit einer Potenzsumme definiert durch: $f[\p_n](x_1,x_2,\ldots) = f(x_1^n,x_2^n,\ldots) = \p_n[f](x_1,x_2,\ldots)$ und der Forderung, daß $f[g]$ ein Ringhomomorphismus in $f$ ist. In $g$ hat man nicht mal Linearität. Plethysmen haben was mit Verkettung zu tun. Man kann sich auch den Plethysmus mit  $\e_n$ bzw. $\h_n$ so vorstellen, daß man die Variablen $x_1,x_2,\ldots$ durch die Monome ersetzt, die in $\e_n,\ \h_n$ vorkommen. Das gilt nicht für jede beliebige symmetrische Funktion, nur wenn man einen Funktor von Darstellungen finden kann, welcher die Charaktere entsprechend transformiert, siehe auch \ref{SPleth}.
 \bpoint{Plethystische Identitäten} Siehe \cite[S. 447ff]{stanley2}.
@@ -145,6 +146,27 @@ f[-\p_1] = (-1)^n \omega(f)\\
 \sum_n \h_n[\e_1+\e_2] = \sum_{\lambda}\s_\lambda
 \end{gather}
 
+\section{Hopfalgebren}
+Der Ring der symmetrischen Funktionen trägt mehrere Hopfalgebren-Strukturen.
+\bpoint{Klassische Hopfalgebrenstruktur} \cite{hopfSym} Mit den Setzungen
+$$ \Delta(\e_n) := \sum \e_i \otimes \e_{n-i}, \qquad \varepsilon(\e_n) := \delta_{0,n} $$ 
+und der bekannten Involution als Antipode. Man hat für die Komultiplikation:
+$$ \Delta(\h_n)= \sum \h_i \otimes \h_{n-i}, \quad \Delta(\s_\mu) = \sum \s_\lambda\otimes \s_{\mu/\lambda}, \quad
+\Delta(\p_n)=1\otimes \p_n + \p_n\otimes 1  
+$$
+Die $\p_n$ spannen die primitiven Elemente der Komultiplikation. S. \cite[Kap. 10]{hazewinkel}.
+Außerdem hat man die Adjunktionsformel $\left<x\otimes y, \Delta(z)\right> = \left<x y, z\right>$.
+\bpoint{Produkt--Bialgebra} \cite[1]{hazewinkel}
+Mit der Setzung 
+$$ \Delta(\p_n) := \p_n\otimes\p_n,\ \ \text{bzw.} \ \  \Delta(\h_n)=\sum_{\|\lambda\|=n} \h_\lambda\otimes\m_\lambda=\sum_{\|\lambda\|=n} \s_\lambda\otimes\s_\lambda
+$$
+ist eine andere Bialgebren-Struktur erklärt.
+
+\bpoint{Faà di Bruno Algebra} \cite{bultel} Auch die Setzung
+$$
+\Delta(\h_n):=\sum_k \h_k\otimes\h_{n-k}\left[(1+k)\p_1\right], \quad \varepsilon(\h_n) := \delta_{0,n}, \quad \psi(\h_n) := \frac{\h_n\left[-(1+n)\p_n\right]}{1+n}
+$$
+definiert eine Hopfalgebra.
 \part{Darstellungstheorie}
 Orientiert sich an Fulton--Harris, \cite{fh}. Im Stanley, \cite[7.18, 7.A2]{stanley2}, steht auch was.
 \section{Allgemeines über Charaktere}
@@ -226,6 +248,6 @@ und die analogen Identitäten gelten auch.
 \Sym^d(V\boxtimes W) = \bigoplus_{\lambda\vdash d} \Schur^\lambda V\boxtimes\Schur^\lambda W 
 \end{gather}
 
-
+\bibliographystyle{plain}
 \bibliography{bibl}
 \end{document}          
