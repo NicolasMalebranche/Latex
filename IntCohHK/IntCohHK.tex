@@ -130,7 +130,10 @@ products in integer cohomology of the Hilbert scheme of $n$ points on a K3 surfa
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Preliminaries}
 \begin{definition}
-Let $S$ be a projective K3 surface. We fix integral bases $1$ of $H^0(S,\IZ)$, $x$ of $H^4(X,\IZ)$ and $\alpha_1,\ldots ,\alpha_{22}$ of $H^2(S,\IZ)$. The cup product induces a symmetric bilinear form $B_{H^2}$ on $H^2(X,\IZ)$, written as a symmetric matrix with respect to this basis, looks like
+Let $n$ be a natural number. A partition of $n$ is a sequence $\lambda = (\lambda_1\geq\ldots\geq\lambda_k>0)$ of natural numbers such that $\sum_i \lambda_i =n$. It is convenient to write $\lambda = (1^{m_1},2^{m_2},\ldots)$ as a sequence of multiplicities. We define the weight $\|\lambda\| :=\sum m_i i =n$ and the length $|\lambda| := \sum_i m_i =k$. We also define $z_\lambda \coloneqq\prod_i i^{m_i} m_i!$. 
+\end{definition}
+\begin{definition}
+Let $S$ be a projective K3 surface. We fix integral bases $1$ of $H^0(S,\IZ)$, $x$ of $H^4(X,\IZ)$ and $\alpha_1,\ldots ,\alpha_{22}$ of $H^2(S,\IZ)$. The cup product induces a symmetric bilinear form $B_{H^2}$ on $H^2(X,\IZ)$. Written as a symmetric matrix with respect to this basis, $B_{H^2}$ looks like
 $$ B_{H^2} =
 \left(\begin{array}{ccccc}
 U&&&& \\
@@ -171,7 +174,7 @@ An integral basis for $H^\ast(S\hilb{n},\IZ)$ in terms of Nakajima's operators w
 $$ \frac{1}{z_\lambda} \kq_\lambda(1)\kq_\mu(x)\km_{\nu^1,\alpha_1}\ldots\km_{\nu^{22},\alpha_{22}}\vac,\quad \|\lambda\| +\|\mu\| + \sum_{i=1}^{22}\|\nu^i\| = n
 $$ 
 form an integral basis for $H^\ast(S\hilb{n},\IZ)$. Here,
-$\lambda,\; \mu,\; \nu^i$ are partitions, $\|\cdot\|$ means the weight of a partition \ie $\|\lambda\| = \sum_i m_i i$ and $z_\lambda \coloneqq\prod_i i^{m_i} m_i!$, if $\lambda = (1^{m_1},2^{m_2},\ldots)$. The symbol $\kq$ stands for Nakajima's creation operator. 
+$\lambda,\; \mu,\; \nu^i$ are partitions. The symbol $\kq$ stands for Nakajima's creation operator. 
 The relation of $\km_{\nu,\alpha}$ to $\kq_{\tilde{\nu}}(\alpha)$ is the same as the monomial symmetric functions
 $m_\nu$ to the power sum symmetric functions 
 $p_{\tilde{\nu}}$.
