@@ -1,0 +1,42 @@
+\begin{thebibliography}{1}
+
+\bibitem{bultel}
+Jean-Paul Bultel.
+\newblock A one-parameter deformation of the farahat-higman algebra.
+\newblock {\em Europ. J. of Combinatorics}, 2011.
+
+\bibitem{hopfSym}
+Grinberg Dari.
+\newblock mathoverflow.
+\newblock
+  \url{http://mathoverflow.net/questions/85985/symmetric-polynoms-are-hopf-algebra-what-for-one-needs-co-product},
+  2012.
+
+\bibitem{fh}
+William Fulton and Joe Harris.
+\newblock {\em Representation Theory}.
+\newblock GTM 129. Springer, 1991.
+
+\bibitem{hazewinkel}
+M.~{Hazewinkel}.
+\newblock {Witt vectors. Part 1}.
+\newblock {\em ArXiv e-prints}.
+
+\bibitem{macdonald}
+Ian~G. Macdonald.
+\newblock {\em Symmetric functions and Hall polynomials}.
+\newblock Clarendon Press, Oxford, 1979.
+
+\bibitem{marin}
+Ivan Marin.
+\newblock Hooks generate the representation ring of the symmetric group.
+\newblock 2010.
+
+\bibitem{stanley2}
+Richard~P. Stanley.
+\newblock {\em Enumerative combinatorics. Volume 2}.
+\newblock Cambridge studies in advanced mathematics. Cambridge university
+  press, Cambridge, New York, 1999.
+\newblock Errata et addenda : p. 583-585.
+
+\end{thebibliography}
