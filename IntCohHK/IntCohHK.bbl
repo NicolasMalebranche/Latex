@@ -7,10 +7,13 @@
 \begin{thebibliography}{10}
 
 
-\bibitem{BNWS}
-S.~Boissi\`ere, M.~Nieper-Wi{\ss}kirchen, and A.~Sarti, \emph{Higher
-  dimensional {E}nriques varieties and automorphisms of generalized kummer
-  varieties}, J. Math. Pures Appl. \textbf{95} (2011), 553--563.
+\bibitem{BNS}
+S.~Boissi\`ere, M.~Nieper-Wi{\ss}kirchen, and A.~Sarti, \emph{Smith theory and 
+  Irreducible Holomorphic Symplectic Manifolds}, eprint arXiv:1204.4118 (2012).
+
+\bibitem{Lascoux}
+A.~Lascoux, \emph{Symmetric functions}, Notes of the course given at Nankai University, 2001,
+  http://www.mat.univie.ac.at/~slc/wpapers/s68vortrag/ALCoursSf2.pdf .
 
 \bibitem{LehnSorger}
 M.~Lehn and C.~Sorger, \emph{The cup product of {H}ilbert schemes for {$K3$}
