@@ -32,6 +32,8 @@
 \newcommand{\aG}{{\rm{a}}_G}
 \newcommand{\mG}{{\rm{m}}_G}
 
+\newcommand{\One}{1}
+
 % for spectral sequences
 
 \newcommand{\coloneqq}{:=}
@@ -136,8 +138,8 @@ Let $n$ be a natural number. A partition of $n$ is a sequence $\lambda = (\lambd
 Let $\Lambda$ be the ring of symmetric functions. Let $m_\lambda$ and $p_\lambda$ denote the monomial and the power sum symmetric functions. They are both indexed by partitions and form a basis of $\Lambda$. They are linearly related by $p_\lambda = \sum_{\mu} \psi_{\lambda\mu}m_\mu$, the sum being over partitions with the same weight as $\lambda$, hence finite. The base change matrix $(\psi_{\lambda\mu})$ has integral entries, but its inverse $(\psi_{\lambda\mu}^{-1)}$ has not. For example, $p_{(2,1,1)} = 2m_{(2,1,1)} + 2m_{(2,2)}+2m_{(3,1)}+m_{(4)} $ but $ m_{(2,1,1)} = \frac{1}{2}p_{(2,1,1)} -\frac{1}{2}m_{(2,2)} -p_{(3,1)}+p_{(4)}$. A method to determine the coefficients $(\psi_{\lambda\mu})$ is given in \cite[Sect. 3.7]{Lascoux}.
 \end{definition}
 \begin{definition}
-Let $S$ be a projective K3 surface. We fix integral bases $1$ of $H^0(S,\IZ)$, $x$ of $H^4(X,\IZ)$ and $\alpha_1,\ldots ,\alpha_{22}$ of $H^2(S,\IZ)$. The cup product induces a symmetric bilinear form $B_{H^2}$ on $H^2(X,\IZ)$ and thus the structure of a lattive isomorphic to $U^{\oplus 3}\oplus E_8(-1)^{\oplus 2}$, \ie three times the hyperbolic lattice and two times the negative $E_8$ lattice.
-We may extend $B_{H^2}$ to a symmetric non-degenerate bilinear form on $H^\ast(S,\IZ)$ by setting $ B(1,1) = 0,\ B(1,\alpha_i) = 0,\ B(1,x) = 1, \ B(x,x) = 0$.
+Let $S$ be a projective K3 surface. We fix integral bases $\One$ of $H^0(S,\IZ)$, $x$ of $H^4(S,\IZ)$ and $\alpha_1,\ldots ,\alpha_{22}$ of $H^2(S,\IZ)$. The cup product induces a symmetric bilinear form $B_{H^2}$ on $H^2(S,\IZ)$ and thus the structure of a lattice. It turns out, that $H^2(S,\IZ)$ is isomorphic to $U^{\oplus 3}\oplus E_8(-1)^{\oplus 2}$, \ie three times the hyperbolic lattice and two times the negative $E_8$ lattice.
+We may extend $B_{H^2}$ to a symmetric non-degenerate bilinear form $B$ on $H^\ast(S,\IZ)$ by setting $ B(\One,\One) = 0,\ B(\One,\alpha_i) = 0,\ B(\One,x) = 1, \ B(x,x) = 0$.
 \end{definition}
 \begin{definition}
 $B$ induces a form $B\otimes B$ on $\Sym^2H^\ast(S,\IZ)$. So the cup-product 
@@ -148,7 +150,7 @@ has an adjoint comultiplication $\Delta$ that is coassociative, given by:
 \begin{equation*}
 \Delta : H^\ast(S,\IZ) \longrightarrow \Sym^2H^\ast(S,\IZ),\quad \Delta = (B\otimes B)^{-1}\mu^TB
 \end{equation*}
-The image of 1 under the composite map $\mu(\Delta(1)) = B(\Delta(1),\Delta(1)) = 24 x$, denoted by $e$ is called the Euler Class.
+The image of $\One$ under the composite map $\mu(\Delta(\One)) = B(\Delta(\One),\Delta(\One)) = 24 x$, denoted by $e$ is called the Euler Class.
 \end{definition}
 We denote by $S\hilb{n}$ the Hilbert scheme of $n$ points on $S$, \ie the classifying space of all zero-dimensional closed subschemes of length $n$, which is smooth. 
 A classical result by Nakajima gives an explicit description of $H^\ast(S\hilb{n},\IQ)$ in terms of creation operators
@@ -165,13 +167,13 @@ $\lambda,\; \mu,\; \nu^i$ are partitions.
 \begin{notation}
 To enumerate the basis of $H^\ast(S\hilb{n},\IZ)$, we introduce the following abbreviation:
 $$ 
-1^\lambda \alpha_1^{\nu^1}\ldots\alpha_{22}^{\nu^{22}}x^\mu :=
+\One^\lambda \alpha_1^{\nu^1}\ldots\alpha_{22}^{\nu^{22}}x^\mu :=
 \frac{1}{z_{\tilde{\lambda}} }
-\kq_{\tilde{\lambda}}(1)\kq_\mu(x)\km_{\nu^1,\alpha_1}\ldots\km_{\nu^{22},\alpha_{22}}\vac
+\kq_{\tilde{\lambda}}(\One)\kq_\mu(x)\km_{\nu^1,\alpha_1}\ldots\km_{\nu^{22},\alpha_{22}}\vac
 $$
-where the partition $\tilde{\lambda}$ is built from $\lambda$ by appending sufficiently many Ones, such that $\|\tilde{\lambda}\| +\|\mu\| + \sum\|\nu^i\| = n $. If $\|\lambda\| +\|\mu\| + \sum\|\nu^i\| > n, $ we put $1^\lambda \alpha_1^{\nu^1}\ldots\alpha_{22}^{\nu^{22}}x^\mu =0$.
+where the partition $\tilde{\lambda}$ is built from $\lambda$ by appending sufficiently many Ones, such that $\|\tilde{\lambda}\| +\|\mu\| + \sum\|\nu^i\| = n $. If $\|\lambda\| +\|\mu\| + \sum\|\nu^i\| > n, $ we put $\One^\lambda \alpha_1^{\nu^1}\ldots\alpha_{22}^{\nu^{22}}x^\mu =0$.
 \end{notation}
-The ring structure of $H^\ast(S\hilb{n}, \IQ)$ has been studied in \cite{LehnSorger}, where an explicit algebraic model is constructed, which we recall briefly:
+The ring structure of $H^\ast(S\hilb{n}, \IQ)$ has been studied by Lehn and Sorger in \cite{LehnSorger}, where an explicit algebraic model is constructed, which we recall briefly:
 \begin{definition} \cite[Sect. 2]{LehnSorger}
 Let $\pi$ be a permutation of $n$ letters, written as a sum of disjoint cycles. To each cycle we may associate an element of $A:=H^\ast(S,\IQ)$. This defines an element in $A^{\otimes m}$, $m$ being the number of cycles. So these mappings span a vector space over $\IQ$. The space obtained by taking the direct sum over all $\pi \in S_n$ will be denoted by $A\{S_n\}$. 
 
@@ -180,7 +182,7 @@ Afterwards, apply the comultiplication $\Delta$ repeatedly on the product to get
 Here the "graph defect" $g$ is defined as follows: Let $u,v,w$ be the number of cycles contained in $B$ of $\pi,\;\tau,\;\pi\tau$, respectively. Then $g:=\frac{1}{2}\left(|B| + 2- u-v-w\right)$. Now follow this procedure for each orbit $B$. 
 
 \end{definition}
-The symmetric group $S_n$ acts on $A\{S_n\}$ by conjugation. This action preserves the ring structure. Therefore the space of invariants $A\hilb{n} := \left(A\{S_n\} \right)^{S_n}$ becomes a subring. The main theorem of Lehn and Sorger can now be stated:
+The symmetric group $S_n$ acts on $A\{S_n\}$ by conjugation. This action preserves the ring structure. Therefore the space of invariants $A\hilb{n} := \left(A\{S_n\} \right)^{S_n}$ becomes a subring. The main theorem of \cite{LehnSorger} can now be stated:
 \begin{theorem} \cite[Thm. 3.2.]{LehnSorger}
 The following map is an isomorphism of rings:
 \begin{align*}
@@ -212,7 +214,7 @@ This was already known to Boissi\`{e}re, Nieper-Wi\ss kirchen and Sarti, \cite[P
 $$
 \frac{H^4(S\hilb{3},\IZ)}{\Sym^2 H^2(S\hilb{3},\IZ)} \cong \frac{\IZ}{3\IZ} \oplus \IZ^ {\oplus 23} 
 $$
-The torsion part of the quotient is generated by the integral class $1^{(3)}$.
+The torsion part of the quotient is generated by the integral class $\One^{(3)}$.
 $$
 \frac{H^4(S\hilb{n},\IZ)}{\Sym^2 H^2(S\hilb{n},\IZ)} \cong  \IZ^ {\oplus 24}, \quad \text{for }n\geq 4.
 $$
@@ -223,7 +225,7 @@ $$
 \frac{H^6(S\hilb{2},\IZ)}{\Sym^3 H^2(S\hilb{2},\IZ)} \cong 
 \frac{\IZ}{2\IZ}
 $$
-The quotient is generated by the integral class $1^{(2)}$.
+The quotient is generated by the integral class $\One^{(2)}$.
 $$
 \frac{H^6(S\hilb{3},\IZ)}{\Sym^3 H^2(S\hilb{3},\IZ)} \cong  \left(\frac{\IZ}{2\IZ}\right)^{\oplus 230}\oplus \left(\frac{\IZ}{36\IZ}\right)^{\oplus 22}\oplus \frac{\IZ}{72\IZ} \oplus \IZ^{\oplus 507}
 $$
@@ -232,7 +234,7 @@ $$
 $$
 For $n\geq 5$, the quotient is free.
 \end{proposition}
-We study now cup products between classes of degree 2 and 4. The case of $S\hilb{n}$ is of particular interest.
+We study now cup products between classes of degree 2 and 4. The case of $S\hilb{3}$ is of particular interest.
 \begin{proposition} Comparing $H^2(S\hilb{n},\IZ) \cup H^4(S\hilb{n},\IZ) $ with $H^6(S\hilb{n},\IZ) $, we obtain:
 \begin{align} 
 \frac{H^6(S\hilb{2},\IZ) }{H^2(S\hilb{2},\IZ)\cup H^4(S\hilb{2},\IZ)} &= 0 
@@ -249,17 +251,17 @@ We study now cup products between classes of degree 2 and 4. The case of $S\hilb
 \end{align}
 In each case, the first 22 parts of the quotient are generated by the integral classes 
  $$
-\alpha_i^{(1,1,1)} -3\cdot \alpha_i^{(2,1)} + 3\cdot \alpha_i^{(3)}+ 3 \cdot 1^{(2)}\alpha_i^{(1,1)} -6\cdot 1^{(2)}\alpha_i^{(2)}+6\cdot 1^{(2,2)}\alpha_i^{(1)}-3\cdot 1^{(3)}\alpha_i^{(1)},
+\alpha_i^{(1,1,1)} -3\cdot \alpha_i^{(2,1)} + 3\cdot \alpha_i^{(3)}+ 3 \cdot \One^{(2)}\alpha_i^{(1,1)} -6\cdot \One^{(2)}\alpha_i^{(2)}+6\cdot \One^{(2,2)}\alpha_i^{(1)}-3\cdot \One^{(3)}\alpha_i^{(1)},
 $$ 
 for $ i=1\ldots 22$. Now define an integral class
 \begin{align*}
-K:=&\;\sum_{i\neq j} B(\alpha_i,\alpha_j)\left[\alpha_i^{(1,1)}\alpha_j^{(1)} - 2\cdot\alpha_i^{(2)}\alpha_j^{(1)}+\frac{3}{2}\cdot 1^{(2)}\alpha_i^{(1)}\alpha_j^{(1)} \right] +\\
-+&\;\sum_{i}B(\alpha_i,\alpha_i)\left[\alpha_i^{(1,1,1)} - 2\cdot\alpha_i^{(2,1)} + \frac{3}{2}\cdot 1^{(2)}\alpha_i^{(1,1)} \right]+  x^{(2)}-1^{(2)}x^{(1)}.
+K:=&\;\sum_{i\neq j} B(\alpha_i,\alpha_j)\left[\alpha_i^{(1,1)}\alpha_j^{(1)} - 2\cdot\alpha_i^{(2)}\alpha_j^{(1)}+\frac{3}{2}\cdot \One^{(2)}\alpha_i^{(1)}\alpha_j^{(1)} \right] +\\
++&\;\sum_{i}B(\alpha_i,\alpha_i)\left[\alpha_i^{(1,1,1)} - 2\cdot\alpha_i^{(2,1)} + \frac{3}{2}\cdot \One^{(2)}\alpha_i^{(1,1)} \right]+  x^{(2)}-\One^{(2)}x^{(1)}.
 \end{align*} 
 In the case $n=3$, the last part of the quotient is generated by $K$. 
-\\In the case $n=4$, the class $ 1^{(4)}$ generates the 2-torsion part and $K+38\cdot1^{(4)}$ generates the 108-torsion part.
-\\In the case $n=5$, the last part of the quotient is generated by $K + 16\cdot 1^{(4)} - 21\cdot 1^{(3,2)}$.\\
-If $n\geq 6$, the two last parts of the quotient are generated by some multiples of $K -\frac{4}{3}(45-n)1^{(2,2,2)} + (48-n)1^{(3,2)}$ and $K-\frac{1}{2}(40-n)1^{(2,2,2)}+ \frac{1}{4}(48-n)1^{(4)}$.
+\\In the case $n=4$, the class $ \One^{(4)}$ generates the 2-torsion part and $K+38\cdot\One^{(4)}$ generates the 108-torsion part.
+\\In the case $n=5$, the last part of the quotient is generated by $K + 16\cdot \One^{(4)} - 21\cdot \One^{(3,2)}$.\\
+If $n\geq 6$, the two last parts of the quotient are generated by some multiples of $K -\frac{4}{3}(45-n)\One^{(2,2,2)} + (48-n)\One^{(3,2)}$ and $K-\frac{1}{2}(40-n)\One^{(2,2,2)}+ \frac{1}{4}(48-n)\One^{(4)}$.
 \end{proposition}
 
 
