@@ -138,21 +138,23 @@ Let $n$ be a natural number. A partition of $n$ is a sequence $\lambda = (\lambd
 Let $\Lambda$ be the ring of symmetric functions. Let $m_\lambda$ and $p_\lambda$ denote the monomial and the power sum symmetric functions. They are both indexed by partitions and form a basis of $\Lambda$. They are linearly related by $p_\lambda = \sum_{\mu} \psi_{\lambda\mu}m_\mu$, the sum being over partitions with the same weight as $\lambda$. It turns out that the base change matrix $(\psi_{\lambda\mu})$ has integral entries, but its inverse $(\psi_{\lambda\mu}^{-1})$ has not. For example, $p_{(2,1,1)} = 2m_{(2,1,1)} + 2m_{(2,2)}+2m_{(3,1)}+m_{(4)} $ but $ m_{(2,1,1)} = \frac{1}{2}p_{(2,1,1)} -\frac{1}{2}m_{(2,2)} -p_{(3,1)}+p_{(4)}$. A method to determine the coefficients $(\psi_{\lambda\mu})$ is given in \cite[Sect. 3.7]{Lascoux}.
 \end{definition}
 \begin{definition}
-Let $S$ be a projective K3 surface. We fix integral bases $\One$ of $H^0(S,\IZ)$, $x$ of $H^4(S,\IZ)$ and $\alpha_1,\ldots ,\alpha_{22}$ of $H^2(S,\IZ)$. The cup product induces a symmetric bilinear form $B_{H^2}$ on $H^2(S,\IZ)$ and thus the structure of a lattice. It turns out that $H^2(S,\IZ)$ is isomorphic to $U^{\oplus 3}\oplus E_8(-1)^{\oplus 2}$, \ie three times the hyperbolic lattice and two times the negative $E_8$ lattice.
+Let $S$ be a projective K3 surface. We fix integral bases $\One$ of $H^0(S,\IZ)$, $x$ of $H^4(S,\IZ)$ and $\alpha_1,\ldots ,\alpha_{22}$ of $H^2(S,\IZ)$. The cup product induces a symmetric bilinear form $B_{H^2}$ on $H^2(S,\IZ)$ and thus the structure of a unimodular lattice.
 We may extend $B_{H^2}$ to a symmetric non-degenerate bilinear form $B$ on $H^\ast(S,\IZ)$ by setting $ B(\One,\One) = 0,\ B(\One,\alpha_i) = 0,\ B(\One,x) = 1, \ B(x,x) = 0$.
 \end{definition}
+It turns out that $H^2(S,\IZ)$ has signature $(3,19)$ and, by the classification theorem for indefinite unimodular lattices, is isomorphic to $U^{\oplus 3}\oplus E_8(-1)^{\oplus 2}$, \ie three times the hyperbolic lattice and two times the negative $E_8$ lattice.
 \begin{definition}
 $B$ induces a form $B\otimes B$ on $\Sym^2H^\ast(S,\IZ)$. So the cup-product 
 \begin{equation*}
 \mu : \Sym ^2H^{*}(S,\IZ) \longrightarrow H^\ast(S,\IZ) 
 \end{equation*}
-has an adjoint comultiplication $\Delta$ that is coassociative, given by:
+induces an adjoint comultiplication $\Delta$ that is coassociative, given by:
 \begin{equation*}
 \Delta : H^\ast(S,\IZ) \longrightarrow \Sym^2H^\ast(S,\IZ),\quad \Delta = (B\otimes B)^{-1}\mu^TB
 \end{equation*}
+Note that this does not define a bialgebra structure.
 The image of $\One$ under the composite map $\mu(\Delta(\One)) = B(\Delta(\One),\Delta(\One)) = 24 x$, denoted by $e$ is called the Euler Class.
 \end{definition}
-We denote by $S\hilb{n}$ the Hilbert scheme of $n$ points on $S$, \ie the classifying space of all zero-dimensional closed subschemes of length $n$, which is smooth. 
+We denote by $S\hilb{n}$ the Hilbert scheme of $n$ points on $S$, \ie the classifying space of all zero-dimensional closed subschemes of length $n$. Fogarty proved, 
 A classical result by Nakajima gives an explicit description of $H^\ast(S\hilb{n},\IQ)$ in terms of creation operators
 $\kq_l(\beta)$, 
 $\beta\in H^\ast(S,\IQ)$, acting on the direct sum 
