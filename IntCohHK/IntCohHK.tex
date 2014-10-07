@@ -175,13 +175,18 @@ $\lambda,\; \mu,\; \nu^i$ are partitions.
 \end{theorem}
 \begin{notation}
 To enumerate the basis of $H^\ast(S\hilb{n},\IZ)$, we introduce the following abbreviation:
-$$ 
-\One^\lambda \alpha_1^{\nu^1}\ldots\alpha_{22}^{\nu^{22}}x^\mu :=
-\frac{1}{z_{\tilde{\lambda}} }
-\kq_{\tilde{\lambda}}(\One)\kq_\mu(x)\km_{\nu^1,\alpha_1}\ldots\km_{\nu^{22},\alpha_{22}}\vac
+$$ \boldsymbol\alpha^{\boldsymbol\lambda} :=
+\One^{\lambda^0} \alpha_1^{\lambda^1}\ldots\alpha_{22}^{\lambda^{22}}x^{\lambda^{23}} :=
+\frac{1}{z_{\widetilde{\lambda^0}} }
+\kq_{\widetilde{\lambda^0}}(\One)\kq_{\lambda^{23}}(x)\km_{\lambda^1,\alpha_1}\ldots\km_{\lambda^{22},\alpha_{22}}\vac
 $$
-where the partition $\tilde{\lambda}$ is built from $\lambda$ by appending sufficiently many Ones, such that $\|\tilde{\lambda}\| +\|\mu\| + \sum\|\nu^i\| = n $. If $\|\lambda\| +\|\mu\| + \sum\|\nu^i\| > n, $ we put $\One^\lambda \alpha_1^{\nu^1}\ldots\alpha_{22}^{\nu^{22}}x^\mu =0$.
+where the partition $\widetilde{\lambda^0}$ is built from $\lambda^0$ by appending sufficiently many Ones, such that $\left\|\widetilde{\lambda^0}\right\| +\sum_{i\geq 1}\left\|\lambda^i\right\| = n $. If $\sum_{n\geq 0}\left\|\lambda^i\right\| > n, $ we put $\boldsymbol\alpha^{\boldsymbol\lambda}=0$. Thus we can interpret $\boldsymbol\alpha^{\boldsymbol\lambda}$ as an element of $H^\ast(S\hilb{n},\IZ)$ for arbitrary $n$. We say that the symbol $\boldsymbol\alpha^{\boldsymbol\lambda}$ is reduced, if $\lambda^0$ contains no Ones. We define also $\left\|\boldsymbol\lambda\right\| := \sum_{n\geq 0}\left\|\lambda^i\right\|$. 
 \end{notation}
+\begin{lemma}
+Let $\boldsymbol\alpha^{\boldsymbol\lambda}$ represent a class of cohomological degree $2k$. If $\boldsymbol\alpha^{\boldsymbol\lambda}$ is reduced, then $\frac{k}{2}\leq\left\|\boldsymbol{\lambda}\right\| \leq 2k$.
+\begin{proof} This is a simple combinatorial observation. The lower bound is witnessed by $x^{(\lfloor\frac{k}{2}\rfloor)}$ and the upper bound is witnessed by $\One^{(2^k)}$.
+\end{proof}
+\end{lemma}
 The ring structure of $H^\ast(S\hilb{n}, \IQ)$ has been studied by Lehn and Sorger in \cite{LehnSorger}, where an explicit algebraic model is constructed, which we recall briefly:
 \begin{definition} \cite[Sect. 2]{LehnSorger}
 Let $\pi$ be a permutation of $n$ letters, written as a sum of disjoint cycles. To each cycle we may associate an element of $A:=H^\ast(S,\IQ)$. This defines an element in $A^{\otimes m}$, $m$ being the number of cycles. So these mappings span a vector space over $\IQ$. The space obtained by taking the direct sum over all $\pi \in S_n$ will be denoted by $A\{S_n\}$. 
