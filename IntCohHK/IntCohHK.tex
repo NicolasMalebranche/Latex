@@ -182,9 +182,9 @@ $$ \boldsymbol\alpha^{\boldsymbol\lambda} :=
 $$
 where the partition $\widetilde{\lambda^0}$ is built from $\lambda^0$ by appending sufficiently many Ones, such that $\left\|\widetilde{\lambda^0}\right\| +\sum_{i\geq 1}\left\|\lambda^i\right\| = n $. If $\sum_{n\geq 0}\left\|\lambda^i\right\| > n, $ we put $\boldsymbol\alpha^{\boldsymbol\lambda}=0$. Thus we can interpret $\boldsymbol\alpha^{\boldsymbol\lambda}$ as an element of $H^\ast(S\hilb{n},\IZ)$ for arbitrary $n$. We say that the symbol $\boldsymbol\alpha^{\boldsymbol\lambda}$ is reduced, if $\lambda^0$ contains no Ones. We define also $\left\|\boldsymbol\lambda\right\| := \sum_{n\geq 0}\left\|\lambda^i\right\|$. 
 \end{notation}
-\begin{lemma}
+\begin{lemma}\label{degBound}
 Let $\boldsymbol\alpha^{\boldsymbol\lambda}$ represent a class of cohomological degree $2k$. If $\boldsymbol\alpha^{\boldsymbol\lambda}$ is reduced, then $\frac{k}{2}\leq\left\|\boldsymbol{\lambda}\right\| \leq 2k$.
-\begin{proof} This is a simple combinatorial observation. The lower bound is witnessed by $x^{(\lfloor\frac{k}{2}\rfloor)}$ and the upper bound is witnessed by $\One^{(2^k)}$.
+\begin{proof} This is a simple combinatorial observation. The lower bound is witnessed by $x^{(\frac{k}{2})}$ (if $k$ is even)  and the upper bound is witnessed by $\One^{(2^k)}$.
 \end{proof}
 \end{lemma}
 The ring structure of $H^\ast(S\hilb{n}, \IQ)$ has been studied by Lehn and Sorger in \cite{LehnSorger}, where an explicit algebraic model is constructed, which we recall briefly:
@@ -211,19 +211,23 @@ Let $Q_1,\ldots,Q_s$ be products of creation operators, \ie $Q_i = \prod_j \kq_{
 Then the cup product 
 $ \prod_{i=1}^s \left(\frac{1}{(n-n_i)!} \kq_{n-n_i}(1) \,Q_i \,\vac \right)$ is equal to a finite linear combination of classes of the form $\frac{1}{(n-m)!}\kq_{n-m}(1)\prod_j \kq_{\mu_{j}}(\gamma_{j})\vac$, with $\gamma\in H^\ast(S,\IZ)$, $m=\sum_j\left\|\mu_j\right\|$, whose coefficients are independent of $n$. We have the upper bound $m\leq\sum_i n_i$. 
 \end{theorem}
-\begin{corollary} \label{stabCor} Let $\lambda^0,\mu^0,\nu^0$ be partitions containing no Ones. Then the coefficients $c_i$ of the cup product in $H^\ast(S\hilb{n},\IZ)$
-$$
-\One^{\lambda^0}\alpha_1^{\lambda^1}\ldots\alpha_{22}^{\lambda^{22}}x^{\lambda^{23}} \;\smile \;
-\One^{\mu^0}\alpha_1^{\mu^1}\ldots\alpha_{22}^{\mu^{22}}x^{\mu^{23}}
-= \sum_i c_i\cdot \One^{\nu^0_i}\alpha_1^{\nu^1_i}\ldots\alpha_{22}^{\nu^{22}_i}x^{\nu^{23}_i}
+\begin{corollary} \label{stabCor} Let $\boldsymbol{\alpha}^{\boldsymbol{\lambda}},\boldsymbol{\alpha}^{\boldsymbol{\mu}},\boldsymbol{\alpha}^{\boldsymbol{\nu}}$ be reduced. Assume $n\geq\left\|\boldsymbol\lambda\right\|,\left\|\boldsymbol\mu\right\| $. Then the coefficients $c^{\boldsymbol{\lambda\mu}}_{\boldsymbol{\nu}}$ of the cup product in $H^\ast(S\hilb{n},\IZ)$
+$$\boldsymbol{\alpha}^{\boldsymbol{\lambda}} \smile
+\boldsymbol{\alpha}^{\boldsymbol{\mu}}
+= \sum_{\boldsymbol{\nu}} c^{\boldsymbol{\lambda\mu}}_{\boldsymbol{\nu}} \boldsymbol{\alpha}^{\boldsymbol{\nu}}
 $$  
-are polynomials in $n$ of degree at most $\sum_{j=0}^{23} \left\|\lambda^j\right\|+\left\|\mu^j\right\|-\left\|\nu^j_i\right\|$.
+are polynomials in $n$ of degree at most $ \left\|\boldsymbol\lambda\right\|+\left\|\boldsymbol\mu\right\|-\left\|\boldsymbol\nu\right\|$.
 \end{corollary}
-\emph{Proof.} Assume $n\geq \sum \|\lambda^j\|, \sum \|\mu^j\| $. Set $Q_1:=  \kq_{\lambda^0}(1)\kq_{\lambda^{23}}(x)\prod_{1\leq j\leq 22}\kq_{\lambda^j}(\alpha_j),$ $ Q_2:= \kq_{\mu^0}(1)\kq_{\mu^{23}}(x)\prod_{1\leq j\leq 22}\kq_{\mu^j}(\alpha_j),$ $ Q_3:=  \kq_{\nu_i^0}(1)\kq_{\nu_i^{23}}(x)\prod_{1\leq j\leq 22}\kq_{\nu_i^j}(\alpha_j)$. Let $n_1,n_2,n_3$ be defined as above. Then:
-$ \One^{\lambda^0}\alpha_1^{\lambda^1}\ldots\alpha_{22}^{\lambda^{22}}x^{\lambda^{23}} \smile 
-\One^{\mu^0}\alpha_1^{\mu^1}\ldots\alpha_{22}^{\mu^{22}}x^{\mu^{23}}
-= \frac{1}{(n-n_1)!\,z_{\lambda^0}}\kq_{n-n_1}(1)Q_1\vac\smile\frac{1}{(n-n_2)!\,z_{\mu^0}}\kq_{n-n_2}(1)Q_2\vac $. Thus the coefficient $c_i$ in the product expansion is some multiple of $\frac{(n-n_3)!}{(n-m)!}$ for a certain $n\leq n_1+n_2$. This is a polynomial of degree $m-n_3\leq n_1+n_2-n_3$.
-
+\begin{proof} Set $Q_{\boldsymbol{\lambda}}:=  \kq_{\lambda^0}(1)\kq_{\lambda^{23}}(x)\prod_{1\leq j\leq 22}\kq_{\lambda^j}(\alpha_j)$ and $n_{\boldsymbol\lambda}:=\left\|\boldsymbol\lambda\right\|$. Then we have:
+$\boldsymbol{\alpha}^{\boldsymbol{\lambda}} \smile
+\boldsymbol{\alpha}^{\boldsymbol{\mu}}= \frac{1}{(n-n_1)!\,z_{\lambda^0}}\kq_{n-n_1}(1)Q_1\vac\smile\frac{1}{(n-n_2)!\,z_{\mu^0}}\kq_{n-n_2}(1)Q_2\vac $. 
+Thus the coefficient $c^{\boldsymbol{\lambda\mu}}_{\boldsymbol{\nu}}$ in the product expansion is a constant, dependent on $ \left\|\boldsymbol\lambda\right\|,\left\|\boldsymbol\mu\right\|,\left\|\boldsymbol\nu\right\|$, but independent of $n$, multiplied with $\frac{(n-n_3)!}{(n-m)!}$ for a certain $m\leq n_1+n_2$. 
+This is a polynomial of degree $m-n_3\leq n_1+n_2-n_3 =\left\|\boldsymbol\lambda\right\|+\left\|\boldsymbol\mu\right\|-\left\|\boldsymbol\nu\right\| $.
+\end{proof}
+\begin{remark}
+The above condition  $n\geq\left\|\boldsymbol\lambda\right\|,\left\|\boldsymbol\mu\right\| $
+seems to be unnecessary. This means, that if $n<\left\|\boldsymbol\lambda\right\|$ or $n<\left\|\boldsymbol\nu\right\|$ but $n\geq\left\|\boldsymbol\nu\right\|$, the polynomial $ c^{\boldsymbol{\lambda\mu}}_{\boldsymbol{\nu}}$ is zero at $n$.
+\end{remark}
 \section{Computational results} 
 We now give some results in low degrees, obtained by computing multiplication matrices with respect to the integral basis and a then reducing to Smith normal form (both done by a computer).
 \begin{remark}
@@ -290,7 +294,8 @@ In the case $n=3$, the last part of the quotient is generated by $K$.
 \\In the case $n=5$, the last part of the quotient is generated by $K + 16\cdot \One^{(4)} - 21\cdot \One^{(3,2)}$.\\
 If $n\geq 6$, the two last parts of the quotient are generated by some multiples of $K -\frac{4}{3}(45-n)\One^{(2,2,2)} + (48-n)\One^{(3,2)}$ and $K-\frac{1}{2}(40-n)\One^{(2,2,2)}+ \frac{1}{4}(48-n)\One^{(4)}$.
 \end{proposition}
-\begin{proof} The last assertion for arbitrary $n$ follows from \ref{stabCor}. First, observe that if $\One^{\lambda^0}\alpha_1^{\lambda^1}\ldots\alpha_{22}^{\lambda^{22}}x^{\lambda^{23}}$ has cohomological degree $2k$, then $\frac{k}{2}\leq\sum \|\lambda^j\|\leq 2k$. The coefficients of the cup product martix are polynomials of degree at most $2+4-2 =4$ and it suffices to compute only a finite number of instances for $n$. It turns out, that the maximal degree is 1 and its cokernel is given as stated.
+\begin{proof} The last assertion for arbitrary $n$ follows from Corollary \ref{stabCor}. First observe that for $\boldsymbol{\alpha}^{\boldsymbol{\lambda}}\!\in\! H^2,\  \boldsymbol{\alpha}^{\boldsymbol{\mu}}\!\in\! H^4,\  \boldsymbol{\alpha}^{\boldsymbol{\nu}}\!\in\! H^6 $, we have $\left\| \boldsymbol\lambda\right\| \leq 2$, $\left\| \boldsymbol\mu\right\| \leq 4$ and $\left\| \boldsymbol\nu\right\| \geq 2,$ according to Lemma \ref{degBound}.
+The coefficient of the cup product martix are thus polynomials of degree at most $2+4-2 =4$ and it suffices to compute only a finite number of instances for $n$. It turns out, that the maximal degree is 1 and its cokernel is given as stated.
 \end{proof}
 \begin{remark}
 Observe that the generators of the quotients are independent of the choice of the base of $H^2(S,\IZ)$.
