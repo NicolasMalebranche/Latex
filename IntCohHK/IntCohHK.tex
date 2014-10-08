@@ -205,7 +205,7 @@ H^\ast(S\hilb{n},\IQ) & \longrightarrow A\hilb{n} \\
 with $n_1+\ldots + n_k =n$ and $a\in A\{S_n\} $ corresponds to an arbitrary permutation with $k$ cycles of lengths $n_1,\ldots,n_k$ that are associated to the classes $\beta_1,\ldots,\beta_k \in H^\ast(S,\IQ)$, respectively.
 \end{theorem}
 
-Since $H^\text{odd}(S\hilb{n},\IZ) = 0$ and $H^\text{even}(S\hilb{n},\IZ)$ is torsion-free by \cite{Markman}, we can apply these results to $H^\ast(S\hilb{n}, \IZ)$ to determine the multiplicative structure of cohomology with integer coefficients. It turns out, that it is somehow independent of $n$. More precisely, we have the following stability theorem due to Li, Qin and Wang:
+Since $H^\text{odd}(S\hilb{n},\IZ) = 0$ and $H^\text{even}(S\hilb{n},\IZ)$ is torsion-free by \cite{Markman}, we can apply these results to $H^\ast(S\hilb{n}, \IZ)$ to determine the multiplicative structure of cohomology with integer coefficients. It turns out, that it is somehow independent of $n$. More precisely, we have the following stability theorem, derived from Li, Qin and Wang:
 \begin{theorem} \cite[Thm.~2.1]{QinWang}
 Let $Q_1,\ldots,Q_s$ be products of creation operators, \ie $Q_i = \prod_j \kq_{\lambda_{i,j}}(\beta_{i,j}) $ for some partitions $\lambda_{i,j}$ and classes $\beta_{i,j}\in H^\ast(S,\IZ)$. Set $n_i := \sum_j \left\|\lambda_{i,j}\right\|$.
 Then the cup product 
@@ -219,15 +219,22 @@ $$
 are polynomials in $n$ of degree at most $ \left\|\boldsymbol\lambda\right\|+\left\|\boldsymbol\mu\right\|-\left\|\boldsymbol\nu\right\|$.
 \end{corollary}
 \begin{proof} Set $Q_{\boldsymbol{\lambda}}:=  \kq_{\lambda^0}(1)\kq_{\lambda^{23}}(x)\prod_{1\leq j\leq 22}\kq_{\lambda^j}(\alpha_j)$ and $n_{\boldsymbol\lambda}:=\left\|\boldsymbol\lambda\right\|$. Then we have:
-$\boldsymbol{\alpha}^{\boldsymbol{\lambda}} \smile
-\boldsymbol{\alpha}^{\boldsymbol{\mu}}= \frac{1}{(n-n_1)!\,z_{\lambda^0}}\kq_{n-n_1}(1)Q_1\vac\smile\frac{1}{(n-n_2)!\,z_{\mu^0}}\kq_{n-n_2}(1)Q_2\vac $. 
-Thus the coefficient $c^{\boldsymbol{\lambda\mu}}_{\boldsymbol{\nu}}$ in the product expansion is a constant, dependent on $ \left\|\boldsymbol\lambda\right\|,\left\|\boldsymbol\mu\right\|,\left\|\boldsymbol\nu\right\|$, but independent of $n$, multiplied with $\frac{(n-n_3)!}{(n-m)!}$ for a certain $m\leq n_1+n_2$. 
-This is a polynomial of degree $m-n_3\leq n_1+n_2-n_3 =\left\|\boldsymbol\lambda\right\|+\left\|\boldsymbol\mu\right\|-\left\|\boldsymbol\nu\right\| $.
+$\boldsymbol{\alpha}^{\boldsymbol{\lambda}} = \frac{1}{(n-n_{\boldsymbol\lambda})!\,z_{\lambda^0}}\kq_{n-n_{\boldsymbol\lambda}}(1)Q_{\boldsymbol\lambda}\vac$ and $
+\boldsymbol{\alpha}^{\boldsymbol{\mu}}=\frac{1}{(n-n_{\boldsymbol\mu})!\,z_{\mu^0}}\kq_{n-n_{\boldsymbol\mu}}(1)Q_{\boldsymbol\mu}\vac $. 
+Thus the coefficient $c^{\boldsymbol{\lambda\mu}}_{\boldsymbol{\nu}}$ in the product expansion is a constant, which depends on $ \left\|\boldsymbol\lambda\right\|,\left\|\boldsymbol\mu\right\|,\left\|\boldsymbol\nu\right\|$, but not on $n$, multiplied with $\frac{(n-n_{\boldsymbol\nu})!}{(n-m)!}$ for a certain $m\leq n_{\boldsymbol\lambda}+n_{\boldsymbol\mu}$. 
+This is a polynomial of degree $m-n_{\boldsymbol\nu}\leq n_{\boldsymbol\lambda}+n_{\boldsymbol\mu}-n_{\boldsymbol\nu} =\left\|\boldsymbol\lambda\right\|+\left\|\boldsymbol\mu\right\|-\left\|\boldsymbol\nu\right\| $.
 \end{proof}
 \begin{remark}
-The above condition  $n\geq\left\|\boldsymbol\lambda\right\|,\left\|\boldsymbol\mu\right\| $
-seems to be unnecessary. This means, that if $n<\left\|\boldsymbol\lambda\right\|$ or $n<\left\|\boldsymbol\nu\right\|$ but $n\geq\left\|\boldsymbol\nu\right\|$, the polynomial $ c^{\boldsymbol{\lambda\mu}}_{\boldsymbol{\nu}}$ is zero at $n$.
+The above condition,  $n\geq\left\|\boldsymbol\lambda\right\|,\left\|\boldsymbol\mu\right\| $,
+seems to be unnecessary. This implies, that if $n<\left\|\boldsymbol\lambda\right\|$ or $n<\left\|\boldsymbol\nu\right\|$ but $n\geq\left\|\boldsymbol\nu\right\|$, the polynomial $ c^{\boldsymbol{\lambda\mu}}_{\boldsymbol{\nu}}$ is zero at $n$.
 \end{remark}
+\begin{example}\label{example} We now give some explicit examples for illustration.
+\begin{enumerate} \item $
+\One^{(2,2)}\smile \alpha_i^{(2)} = 2\cdot \One^{(2)}\alpha_i^{(1)}x^{(1)} + \One^{(2,2)}\alpha_i^{(2)} + 2\cdot\One^{(2)}\alpha_i^{(3)} +\alpha_i^{(4)} $
+\item \label{oddWitness} Let $i,j$ be indices, such that $B(\alpha_i,\alpha_j)=1,\ B(\alpha_i,\alpha_i)=0=B(\alpha_j,\alpha_j)$ and let $k\geq 0$. Set $\boldsymbol{\alpha}^{\boldsymbol{\lambda}} := \alpha_i^{(1)}\alpha_j^{(1)}x^{(1^k)}$ 
+and $\boldsymbol{\alpha}^{\boldsymbol{\nu}}:= x^{(1^{2k})}$. Then $c^{\boldsymbol{\lambda\lambda}}_{\boldsymbol{\nu}} =1$.
+\end{enumerate}
+\end{example}
 \section{Computational results} 
 We now give some results in low degrees, obtained by computing multiplication matrices with respect to the integral basis and a then reducing to Smith normal form (both done by a computer).
 \begin{remark}
@@ -238,7 +245,6 @@ Denote $h^k(S\hilb{n})$ the rank of $H^k(S\hilb{n},\IZ)$. We have:
 \item $h^6(S\hilb{n}) = 23,\; 2554,\; 2852,\; 2875,\; 2876$ for $n=2,3,4,5,\geq6$ resp.
 \end{itemize}
 \end{remark}
-
 The algebra generated by classes of degree 2 is an interesting object to study. For cohomology with complex coefficients, Verbitsky has proven in \cite{Verbitsky} that the cup product mapping from $\Sym^k H^2(S\hilb{n},\IC)$ to $H^{2k}(S\hilb{n},\IC)$ is injective for $k\leq n$. One concludes that this also holds for integral coefficients.
 \begin{proposition} We identify $\Sym^2H^2(S\hilb{n},\IZ)$ with its image in $H^4(S\hilb{n},\IZ)$ under the cup product mapping. Then: 
 \begin{align}
@@ -253,7 +259,7 @@ The torsion in the case $n=2$ was also computed by Boissi\`{e}re, Nieper-Wi\ss k
 The result for $n=3$ seems to be new.
 The freeness result for $n\geq 4$ was already proven by Markman, \cite[Thm. 1.10]{Markman2}, using a completely different method. 
 \end{remark}
-\begin{proposition} Studying triple products of $H^2(S\hilb{n},\IZ)$, we get:
+\begin{proposition} For triple products of $H^2(S\hilb{n},\IZ)$, we have:
 $$
 \frac{H^6(S\hilb{2},\IZ)}{\Sym^3 H^2(S\hilb{2},\IZ)} \cong 
 \frac{\IZ}{2\IZ}
@@ -308,6 +314,7 @@ We give now some computational results for the middle cohomology group. Since $S
 \item For $n=3$, $L$ is an even lattice of rank 2554 and signature -640.
 \item For $n=4$, $L$ is an odd lattice of rank 19298 and signature ...
 \end{enumerate}
+The oddity of the lattice for $n$ even is witnessed by Example \ref{example} (\ref{oddWitness}).
 \end{proposition}
 \bibliographystyle{amsplain}
 \bibliography{BiblioAutIHS}
