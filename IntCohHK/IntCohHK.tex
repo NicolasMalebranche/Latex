@@ -104,7 +104,7 @@
 
 \begin{document}
 
-\title[Products in $H^\ast(\Hilb^n(K3), \IZ)$]{Computing Cup-Products in integer cohomology of Hilbert schemes of points on K3 surfaces}
+\title[Products in $H^\ast(\Hilb^n(K3), \IZ)$]{Computing Cup-Products in integral cohomology of Hilbert schemes of points on K3 surfaces}
 
 
 \author{Simon Kapfer}
@@ -122,30 +122,49 @@
 \begin{abstract} 
 
 We study the images of cup 
-products in integer cohomology of the Hilbert scheme of $n$ points on a K3 surface. 
+products in integral cohomology of the Hilbert scheme of $n$ points on a K3 surface. 
 \end{abstract}
 
 \maketitle
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+The Hilbert schemes of $n$ points on a complex surface parametrize all subschemes of length $n$. Studying their rational cohomology, Nakajima \cite{Nakajima} was able to give an explicit description of the vector space structure in terms of the action of a Heisenberg algebra.
+The Hilbert schemes of points on a K3 surface are one of the few known classes of Irreducible Holomorphic Symplectic Manifolds. Lehn and Sorger \cite{LehnSorger} developed an algebraic model to describe the cohomological ring structure. On the other hand, Qin and Wang \cite{QinWang} found a base for integral cohomology in the projective case. By combining these results, we are able to determine the structure of the cohomology rings of Hilbert schemes of $n$ points on a projective K3 with integral coefficients. When $n$ is increasing, these rings become very large, so we need to use a computer. Our goal here is to give some characteristics for low degrees. For the particular case $n=3$, we get the following results:
+\begin{theorem}
+Denote $S\hilb{3}$ the Hilbert scheme of 3 points on a projective K3 surface. We identify $\Sym^2H^2(S\hilb{3},\IZ)$ with its image in $H^4(S\hilb{3},\IZ)$ under the cup product mapping. Then we have the following quotients: 
+\begin{gather}
+\frac{H^4(S\hilb{3},\IZ)}{\Sym^2 H^2(S\hilb{3},\IZ)}  \cong \frac{\IZ}{3\IZ} \oplus \IZ^ {\oplus 23}\\
+\frac{H^6(S\hilb{3},\IZ)}{H^2(S\hilb{3},\IZ)\smile H^4(S\hilb{3},\IZ)} \cong \left(\frac{\IZ}{3\IZ}\right)^{\oplus 23}
+\end{gather}
+\end{theorem}
+\begin{theorem}
+Let $U$ denote the hyperbolic lattice and $-E_8$ the negative $E_8$ lattice. Then the middle cohomology group $H^6(S\hilb{3},\IZ)$, with the lattice structure induced by the Poincar\'{e} pairing is isometric to $U^{\oplus 957}\oplus (-E_8)^{\oplus 80}$.
+\end{theorem}
+
+\emph{Acknowledgements.} The author thanks Samuel~Boissi\`ere, and Marc~Nieper-Wi{\ss}kirchen for their supervision and many helpful comments. He also thanks Gr\'{e}goire~Menet for stimulating proposals.
 \section{Preliminaries}
 \begin{definition}
 Let $n$ be a natural number. A partition of $n$ is a sequence $\lambda = (\lambda_1\geq\ldots\geq\lambda_k>0)$ of natural numbers such that $\sum_i \lambda_i =n$. It is convenient to write $\lambda = (1^{m_1},2^{m_2},\ldots)$ as a sequence of multiplicities. We define the weight $\|\lambda\| :=\sum m_i i =n$ and the length $|\lambda| := \sum_i m_i =k$. We also define $z_\lambda \coloneqq\prod_i i^{m_i} m_i!$. 
 \end{definition}
 \begin{definition} \label{SymFun}
-Let $\Lambda$ be the ring of symmetric functions. Let $m_\lambda$ and $p_\lambda$ denote the monomial and the power sum symmetric functions. They are both indexed by partitions and form a basis of $\Lambda$. They are linearly related by $p_\lambda = \sum_{\mu} \psi_{\lambda\mu}m_\mu$, the sum being over partitions with the same weight as $\lambda$. It turns out that the base change matrix $(\psi_{\lambda\mu})$ has integral entries, but its inverse $(\psi_{\lambda\mu}^{-1})$ has not. For example, $p_{(2,1,1)} = 2m_{(2,1,1)} + 2m_{(2,2)}+2m_{(3,1)}+m_{(4)} $ but $ m_{(2,1,1)} = \frac{1}{2}p_{(2,1,1)} -\frac{1}{2}m_{(2,2)} -p_{(3,1)}+p_{(4)}$. A method to determine the coefficients $(\psi_{\lambda\mu})$ is given in \cite[Sect. 3.7]{Lascoux}.
+Let $\Lambda$ be the ring of symmetric functions. Let $m_\lambda$ and $p_\lambda$ denote the monomial and the power sum symmetric functions. They are both indexed by partitions and form a basis of $\Lambda$. They are linearly related by $p_\lambda = \sum_{\mu} \psi_{\lambda\mu}m_\mu$, the sum being over partitions with the same weight as $\lambda$. It turns out that the base change matrix $(\psi_{\lambda\mu})$ has integral entries, but its inverse $(\psi_{\lambda\mu}^{-1})$ has not. For example, $p_{(2,1,1)} = 2m_{(2,1,1)} + 2m_{(2,2)}+2m_{(3,1)}+m_{(4)} $ but $ m_{(2,1,1)} = \frac{1}{2}p_{(2,1,1)} -\frac{1}{2}m_{(2,2)} -p_{(3,1)}+p_{(4)}$. A method to determine the $(\psi_{\lambda\mu})$ is given by Lascoux in \cite[Sect. 3.7]{Lascoux}.
 \end{definition}
 \begin{definition}
-For our purposes, a lattice $L$ is a free $\IZ$-module of finite rank, equipped with a non-degenerate symmetric integral bilinear form $B$. The lattice $L$ is called odd, if there exists a $v\in L$, such that $B(v,v)$ is odd, otherwise it is called even. If there exists a $0\neq v \in L$, such that $B(v,v)= 0$, the lattice is called indefinite. Choosing a base $\{e_i\}_i$ of our lattice, we can write $B$ as a symmetric matrix. $L$ is called unimodular, if the matrix $B$ has determinant $\pm 1$. The difference between the number of positive eigenvalues and the number of negative eigenvalues of $B$ (regarded as a matrix over $\IR$) is called the signature. For a classification theorem for indefinite unimodular lattices, see \cite{milnor1973symmetric}.
+For our purposes, a lattice $L$ is a free $\IZ$-module of finite rank, equipped with a non-degenerate symmetric integral bilinear form $B$. The lattice $L$ is called odd, if there exists a $v\in L$, such that $B(v,v)$ is odd, otherwise it is called even. If there exists a $0\neq v \in L$, such that $B(v,v)= 0$, the lattice is called indefinite. Choosing a base $\{e_i\}_i$ of our lattice, we can write $B$ as a symmetric matrix. $L$ is called unimodular, if the matrix $B$ has determinant $\pm 1$. The difference between the number of positive eigenvalues and the number of negative eigenvalues of $B$ (regarded as a matrix over $\IR$) is called the signature.
 \end{definition}
+There is the following classification theorem. See \cite[Chap. II]{milnor1973symmetric} for reference.
+\begin{theorem}
+Any two indefinite unimodular lattices $L$, $L'$ are isometric, iff they have the same rank, signature and parity. 
+In particular, if $L$ is odd, then $L$ posseses an orthogonal basis and is hence isometric to $\left<1\right>^{\oplus k}\oplus\left<-1\right>^{\oplus l}$ for some $k,l\geq 0$. If $L$ is even, then $L$ is isometric to $U^{\oplus k}\oplus (\pm E_8)^{\oplus l}$ for some $k,l\geq 0$.
+\end{theorem}
 \begin{definition}
 Let $S$ be a projective K3 surface. We fix integral bases $\One$ of $H^0(S,\IZ)$, $x$ of $H^4(S,\IZ)$ and $\alpha_1,\ldots ,\alpha_{22}$ of $H^2(S,\IZ)$. The cup product induces a symmetric bilinear form $B_{H^2}$ on $H^2(S,\IZ)$ and thus the structure of a unimodular lattice.
 We may extend $B_{H^2}$ to a symmetric non-degenerate bilinear form $B$ on $H^\ast(S,\IZ)$ by setting $ B(\One,\One) = 0,\ B(\One,\alpha_i) = 0,\ B(\One,x) = 1, \ B(x,x) = 0$.
 \end{definition}
-It turns out that $H^2(S,\IZ)$ has signature -16 and, by the classification theorem for indefinite unimodular lattices, is isomorphic to $U^{\oplus 3}\oplus E_8(-1)^{\oplus 2}$, \ie three times the hyperbolic lattice and two times the negative $E_8$ lattice.
+It turns out that $H^2(S,\IZ)$ has signature -16 and, by the classification theorem for indefinite unimodular lattices, is isomorphic to $U^{\oplus 3}\oplus (-E_8)^{\oplus 2}$, \ie three times the hyperbolic lattice and two times the negative $E_8$ lattice.
 \begin{definition}
 $B$ induces a form $B\otimes B$ on $\Sym^2H^\ast(S,\IZ)$. So the cup-product 
 \begin{equation*}
@@ -206,8 +225,8 @@ H^\ast(S\hilb{n},\IQ) & \longrightarrow A\hilb{n} \\
 with $n_1+\ldots + n_k =n$ and $a\in A\{S_n\} $ corresponds to an arbitrary permutation with $k$ cycles of lengths $n_1,\ldots,n_k$ that are associated to the classes $\beta_1,\ldots,\beta_k \in H^\ast(S,\IQ)$, respectively.
 \end{theorem}
 
-Since $H^\text{odd}(S\hilb{n},\IZ) = 0$ and $H^\text{even}(S\hilb{n},\IZ)$ is torsion-free by \cite{Markman}, we can apply these results to $H^\ast(S\hilb{n}, \IZ)$ to determine the multiplicative structure of cohomology with integer coefficients. It turns out, that it is somehow independent of $n$. More precisely, we have the following stability theorem, derived from Li, Qin and Wang:
-\begin{theorem} \cite[Thm.~2.1]{QinWang}
+Since $H^\text{odd}(S\hilb{n},\IZ) = 0$ and $H^\text{even}(S\hilb{n},\IZ)$ is torsion-free by \cite{Markman}, we can apply these results to $H^\ast(S\hilb{n}, \IZ)$ to determine the multiplicative structure of cohomology with integer coefficients. It turns out, that it is somehow independent of $n$. More precisely, we have the following stability theorem, by Li, Qin and Wang:
+\begin{theorem} \emph{(Derived from \cite[Thm.~2.1]{QinWang}).}
 Let $Q_1,\ldots,Q_s$ be products of creation operators, \ie $Q_i = \prod_j \kq_{\lambda_{i,j}}(\beta_{i,j}) $ for some partitions $\lambda_{i,j}$ and classes $\beta_{i,j}\in H^\ast(S,\IZ)$. Set $n_i := \sum_j \left\|\lambda_{i,j}\right\|$.
 Then the cup product 
 $ \prod_{i=1}^s \left(\frac{1}{(n-n_i)!} \kq_{n-n_i}(1) \,Q_i \,\vac \right)$ is equal to a finite linear combination of classes of the form $\frac{1}{(n-m)!}\kq_{n-m}(1)\prod_j \kq_{\mu_{j}}(\gamma_{j})\vac$, with $\gamma\in H^\ast(S,\IZ)$, $m=\sum_j\left\|\mu_j\right\|$, whose coefficients are independent of $n$. We have the upper bound $m\leq\sum_i n_i$. 
@@ -227,7 +246,7 @@ This is a polynomial of degree $m-n_{\boldsymbol\nu}\leq n_{\boldsymbol\lambda}+
 \end{proof}
 \begin{remark}
 The above condition,  $n\geq\left\|\boldsymbol\lambda\right\|,\left\|\boldsymbol\mu\right\| $,
-seems to be unnecessary. In particular, if $\left\|\boldsymbol\nu\right\|\leq n<\max\left\{\left\|\boldsymbol\lambda\right\|,\left\|\boldsymbol\nu\right\|\right\}$, the polynomial $ c^{\boldsymbol{\lambda\mu}}_{\boldsymbol{\nu}}$ is has a root at $n$.
+seems to be unnecessary. In particular, if $\left\|\boldsymbol\nu\right\|\leq n<\max\left\{\left\|\boldsymbol\lambda\right\|,\left\|\boldsymbol\nu\right\|\right\}$, the polynomial $ c^{\boldsymbol{\lambda\mu}}_{\boldsymbol{\nu}}$ has a root at $n$.
 \end{remark}
 \begin{example}\label{example} Here are some explicit examples for illustration.
 \begin{enumerate} \item $
@@ -308,7 +327,7 @@ In the case $n=3$, the last part of the quotient is generated by $K$.
 If $n\geq 6$, the two last parts of the quotient are generated by some multiples of $K -\frac{4}{3}(45-n)\One^{(2,2,2)} + (48-n)\One^{(3,2)}$ and $K-\frac{1}{2}(40-n)\One^{(2,2,2)}+ \frac{1}{4}(48-n)\One^{(4)}$.
 \end{proposition}
 \begin{proof} The last assertion for arbitrary $n$ follows from Corollary \ref{stabCor}. First observe that for $\boldsymbol{\alpha}^{\boldsymbol{\lambda}}\!\in\! H^2,\  \boldsymbol{\alpha}^{\boldsymbol{\mu}}\!\in\! H^4,\  \boldsymbol{\alpha}^{\boldsymbol{\nu}}\!\in\! H^6 $, we have $\left\| \boldsymbol\lambda\right\| \leq 2$, $\left\| \boldsymbol\mu\right\| \leq 4$ and $\left\| \boldsymbol\nu\right\| \geq 2,$ according to Lemma \ref{degBound}.
-The coefficient of the cup product martix are thus polynomials of degree at most $2+4-2 =4$ and it suffices to compute only a finite number of instances for $n$. It turns out, that the maximal degree is 1 and its cokernel is given as stated.
+The coefficient of the cup product martix are thus polynomials of degree at most $2+4-2 =4$ and it suffices to compute only a finite number of instances for $n$. It turns out, that the maximal degree is 1 and the cokernel of the multiplication map is given as stated.
 \end{proof}
 \begin{remark}
 Observe that the generators of the quotients are independent of the choice of the base of $H^2(S,\IZ)$.
