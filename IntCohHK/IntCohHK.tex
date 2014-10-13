@@ -121,8 +121,8 @@
 
 \begin{abstract} 
 
-We study the images of cup 
-products in integral cohomology of the Hilbert scheme of $n$ points on a K3 surface. 
+We study cup 
+products in integral cohomology of the Hilbert scheme of $n$ points on a K3 surface and present a computer program for this purpose. In particular, we deal with the question, which classes can be represented by products of lower degrees.
 \end{abstract}
 
 \maketitle
@@ -131,20 +131,25 @@ products in integral cohomology of the Hilbert scheme of $n$ points on a K3 surf
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-The Hilbert schemes of $n$ points on a complex surface parametrize all subschemes of length $n$. Studying their rational cohomology, Nakajima \cite{Nakajima} was able to give an explicit description of the vector space structure in terms of the action of a Heisenberg algebra.
-The Hilbert schemes of points on a K3 surface are one of the few known classes of Irreducible Holomorphic Symplectic Manifolds. Lehn and Sorger \cite{LehnSorger} developed an algebraic model to describe the cohomological ring structure. On the other hand, Qin and Wang \cite{QinWang} found a base for integral cohomology in the projective case. By combining these results, we are able to determine the structure of the cohomology rings of Hilbert schemes of $n$ points on a projective K3 with integral coefficients. When $n$ is increasing, these rings become very large, so we need to use a computer. Our goal here is to give some characteristics for low degrees. For the particular case $n=3$, we get the following results:
+The Hilbert schemes of $n$ points on a complex surface parametrize all zero-dimensional subschemes of length $n$. Studying their rational cohomology, Nakajima \cite{Nakajima} was able to give an explicit description of the vector space structure in terms of the action of a Heisenberg algebra.
+The Hilbert schemes of points on a K3 surface are one of the few known classes of Irreducible Holomorphic Symplectic Manifolds. Lehn and Sorger \cite{LehnSorger} developed an algebraic model to describe the cohomological ring structure. On the other hand, Qin and Wang \cite{QinWang} found a base for integral cohomology in the projective case. By combining these results, we are able to determine the structure of the cohomology rings of Hilbert schemes of $n$ points on a projective K3 with integral coefficients. 
+For $n=2$, this was done by Boissi\`ere, Nieper-Wi{\ss}kirchen and Sarti \cite{BNS}, who applied their results to automorphism groups of prime order. When $n$ is increasing, the cohomology rings become very large, so we need the help of a computer. Our goal here is to give some characteristics for low degrees.
+
+Denote $S\hilb{3}$ the Hilbert scheme of 3 points on a projective K3 surface. We identify $\Sym^2H^2(S\hilb{3},\IZ)$ with its image in $H^4(S\hilb{3},\IZ)$ under the cup product mapping. 
 \begin{theorem}
-Denote $S\hilb{3}$ the Hilbert scheme of 3 points on a projective K3 surface. We identify $\Sym^2H^2(S\hilb{3},\IZ)$ with its image in $H^4(S\hilb{3},\IZ)$ under the cup product mapping. Then we have the following quotients: 
+The cup product mappings for the Hilbert scheme of 3 points on a projective K3 surface have the following cokernels:
 \begin{gather}
 \frac{H^4(S\hilb{3},\IZ)}{\Sym^2 H^2(S\hilb{3},\IZ)}  \cong \frac{\IZ}{3\IZ} \oplus \IZ^ {\oplus 23}\\
 \frac{H^6(S\hilb{3},\IZ)}{H^2(S\hilb{3},\IZ)\smile H^4(S\hilb{3},\IZ)} \cong \left(\frac{\IZ}{3\IZ}\right)^{\oplus 23}
 \end{gather}
 \end{theorem}
+Let $U$ denote the hyperbolic lattice and $-E_8$ the negative $E_8$ lattice.
 \begin{theorem}
-Let $U$ denote the hyperbolic lattice and $-E_8$ the negative $E_8$ lattice. Then the middle cohomology group $H^6(S\hilb{3},\IZ)$, with the lattice structure induced by the Poincar\'{e} pairing is isometric to $U^{\oplus 957}\oplus (-E_8)^{\oplus 80}$.
+The middle cohomology group $H^6(S\hilb{3},\IZ)$, with the lattice structure induced by the Poincar\'{e} pairing is isometric to $U^{\oplus 957}\oplus (-E_8)^{\oplus 80}$.
 \end{theorem}
+Although the case $n=3$ is most interesting for us, our computer program allows computations for arbitrary $n$. We give some numerical results results in Section \ref{CompSection}.\vspace{5pt}
 
-\emph{Acknowledgements.} The author thanks Samuel~Boissi\`ere, and Marc~Nieper-Wi{\ss}kirchen for their supervision and many helpful comments. He also thanks Gr\'{e}goire~Menet for stimulating proposals.
+\emph{Acknowledgements.} The author thanks Samuel~Boissi\`ere and Marc~Nieper-Wi{\ss}kirchen for their supervision and many helpful comments. He also thanks Gr\'{e}goire~Menet for stimulating proposals.
 \section{Preliminaries}
 \begin{definition}
 Let $n$ be a natural number. A partition of $n$ is a sequence $\lambda = (\lambda_1\geq\ldots\geq\lambda_k>0)$ of natural numbers such that $\sum_i \lambda_i =n$. It is convenient to write $\lambda = (1^{m_1},2^{m_2},\ldots)$ as a sequence of multiplicities. We define the weight $\|\lambda\| :=\sum m_i i =n$ and the length $|\lambda| := \sum_i m_i =k$. We also define $z_\lambda \coloneqq\prod_i i^{m_i} m_i!$. 
@@ -153,18 +158,21 @@ Let $n$ be a natural number. A partition of $n$ is a sequence $\lambda = (\lambd
 Let $\Lambda$ be the ring of symmetric functions. Let $m_\lambda$ and $p_\lambda$ denote the monomial and the power sum symmetric functions. They are both indexed by partitions and form a basis of $\Lambda$. They are linearly related by $p_\lambda = \sum_{\mu} \psi_{\lambda\mu}m_\mu$, the sum being over partitions with the same weight as $\lambda$. It turns out that the base change matrix $(\psi_{\lambda\mu})$ has integral entries, but its inverse $(\psi_{\lambda\mu}^{-1})$ has not. For example, $p_{(2,1,1)} = 2m_{(2,1,1)} + 2m_{(2,2)}+2m_{(3,1)}+m_{(4)} $ but $ m_{(2,1,1)} = \frac{1}{2}p_{(2,1,1)} -\frac{1}{2}m_{(2,2)} -p_{(3,1)}+p_{(4)}$. A method to determine the $(\psi_{\lambda\mu})$ is given by Lascoux in \cite[Sect. 3.7]{Lascoux}.
 \end{definition}
 \begin{definition}
-For our purposes, a lattice $L$ is a free $\IZ$-module of finite rank, equipped with a non-degenerate symmetric integral bilinear form $B$. The lattice $L$ is called odd, if there exists a $v\in L$, such that $B(v,v)$ is odd, otherwise it is called even. If there exists a $0\neq v \in L$, such that $B(v,v)= 0$, the lattice is called indefinite. Choosing a base $\{e_i\}_i$ of our lattice, we can write $B$ as a symmetric matrix. $L$ is called unimodular, if the matrix $B$ has determinant $\pm 1$. The difference between the number of positive eigenvalues and the number of negative eigenvalues of $B$ (regarded as a matrix over $\IR$) is called the signature.
+A lattice $L$ is a free $\IZ$-module of finite rank, equipped with a non-degenerate symmetric integral bilinear form $B$. The lattice $L$ is called odd, if there exists a $v\in L$, such that $B(v,v)$ is odd, otherwise it is called even. 
+If there exists a $0\neq v \in L$, such that $B(v,v)= 0$, the lattice is called indefinite. 
+Choosing a base $\{e_i\}_i$ of our lattice, we can write $B$ as a symmetric matrix. $L$ is called unimodular, if the matrix $B$ has determinant $\pm 1$. 
+The difference between the number of positive eigenvalues and the number of negative eigenvalues of $B$ (regarded as a matrix over $\IR$) is called the signature.
 \end{definition}
 There is the following classification theorem. See \cite[Chap. II]{milnor1973symmetric} for reference.
 \begin{theorem}
-Any two indefinite unimodular lattices $L$, $L'$ are isometric, iff they have the same rank, signature and parity. 
+Any two indefinite unimodular lattices $L$, $L'$ are isometric, iff they have the same rank, signature and parity. Evenness implies, that the signature is divisible by 8. 
 In particular, if $L$ is odd, then $L$ posseses an orthogonal basis and is hence isometric to $\left<1\right>^{\oplus k}\oplus\left<-1\right>^{\oplus l}$ for some $k,l\geq 0$. If $L$ is even, then $L$ is isometric to $U^{\oplus k}\oplus (\pm E_8)^{\oplus l}$ for some $k,l\geq 0$.
 \end{theorem}
 \begin{definition}
 Let $S$ be a projective K3 surface. We fix integral bases $\One$ of $H^0(S,\IZ)$, $x$ of $H^4(S,\IZ)$ and $\alpha_1,\ldots ,\alpha_{22}$ of $H^2(S,\IZ)$. The cup product induces a symmetric bilinear form $B_{H^2}$ on $H^2(S,\IZ)$ and thus the structure of a unimodular lattice.
 We may extend $B_{H^2}$ to a symmetric non-degenerate bilinear form $B$ on $H^\ast(S,\IZ)$ by setting $ B(\One,\One) = 0,\ B(\One,\alpha_i) = 0,\ B(\One,x) = 1, \ B(x,x) = 0$.
 \end{definition}
-It turns out that $H^2(S,\IZ)$ has signature -16 and, by the classification theorem for indefinite unimodular lattices, is isomorphic to $U^{\oplus 3}\oplus (-E_8)^{\oplus 2}$, \ie three times the hyperbolic lattice and two times the negative $E_8$ lattice.
+By the Hirzebruch index theorem, we know that $H^2(S,\IZ)$ has signature -16 and, by the classification theorem for indefinite unimodular lattices, is isomorphic to $U^{\oplus 3}\oplus (-E_8)^{\oplus 2}$.
 \begin{definition}
 $B$ induces a form $B\otimes B$ on $\Sym^2H^\ast(S,\IZ)$. So the cup-product 
 \begin{equation*}
@@ -261,7 +269,7 @@ and $\boldsymbol{\alpha}^{\boldsymbol{\nu}}= x^{(1^{2k})}$. Then $c^{\boldsymbol
 \end{enumerate}
 \end{example}
 
-\section{Computational results} 
+\section{Computational results} \label{CompSection}
 We now give some results in low degrees, obtained by computing multiplication matrices with respect to the integral basis. To get their cokernels, one has to reduce them to Smith normal form. Both was done using a computer.
 \begin{remark}
 Denote $h^k(S\hilb{n})$ the rank of $H^k(S\hilb{n},\IZ)$. We have:
@@ -282,7 +290,7 @@ The 3-torsion part is generated by the integral class $1^{(3)}$.
 \end{proposition}
 \begin{remark}
 The torsion in the case $n=2$ was also computed by Boissi\`{e}re, Nieper-Wi\ss kirchen and Sarti, \cite[Prop. 3]{BNS} using similar techniques.
-The result for $n=3$ seems to be new.
+For all the author knews, the result for $n=3$ is new.
 The freeness result for $n\geq 4$ was already proven by Markman, \cite[Thm. 1.10]{Markman2}, using a completely different method. 
 \end{remark}
 \begin{proposition} For triple products of $H^2(S\hilb{n},\IZ)$, we have:
@@ -340,9 +348,10 @@ We give now some computational results for the middle cohomology group. Since $S
 \item For $n=3$, $L$ is an even lattice of rank 2554 and signature -640.
 \item For $n=4$, $L$ is an odd lattice of rank 19298 and signature ...
 \end{enumerate}
-The oddity of the lattice for $n$ even is witnessed by Example \ref{example} (\ref{oddWitness}).
-\end{proposition}
-
+For $n$ even, $L$ is always odd. 
+\end{proposition} 
+\begin{proof}The numerical results come from an explicit calculation. For $n$ even, we always have the norm-1-vector given by Example \ref{example} (\ref{oddWitness}), so $L$ is odd.
+\end{proof}
 \bibliographystyle{amsplain}
 \bibliography{BiblioAutIHS}
 
