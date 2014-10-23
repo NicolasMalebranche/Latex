@@ -136,7 +136,7 @@ The Hilbert schemes of $n$ points on a complex surface parametrize all zero-dime
 The Hilbert schemes of points on a K3 surface are one of the few known classes of Irreducible Holomorphic Symplectic Manifolds. Lehn and Sorger \cite{LehnSorger} developed an algebraic model to describe the cohomological ring structure. On the other hand, Qin and Wang \cite{QinWang} found a base for integral cohomology in the projective case. By combining these results, we are able to determine the structure of the cohomology rings of Hilbert schemes of $n$ points on a projective K3 with integral coefficients. 
 For $n=2$, this was done by Boissi\`ere, Nieper-Wi{\ss}kirchen and Sarti \cite{BNS}, who applied their results to automorphism groups of prime order. When $n$ is increasing, the cohomology rings become very large, so we need the help of a computer. Our goal here is to give some characteristics for low degrees.
 
-Denote $S\hilb{3}$ the Hilbert scheme of 3 points on a projective K3 surface. We identify $\Sym^2H^2(S\hilb{3},\IZ)$ with its image in $H^4(S\hilb{3},\IZ)$ under the cup product mapping. 
+Denote by $S\hilb{3}$ the Hilbert scheme of 3 points on a projective K3 surface. We identify $\Sym^2H^2(S\hilb{3},\IZ)$ with its image in $H^4(S\hilb{3},\IZ)$ under the cup product mapping. 
 \begin{theorem}
 The cup product mappings for the Hilbert scheme of 3 points on a projective K3 surface have the following cokernels:
 \begin{gather}
@@ -346,16 +346,18 @@ The coefficient of the cup product martix are thus polynomials of degree at most
 Observe that the generators of the quotients are independent of the choice of the base of $H^2(S,\IZ)$.
 
 \end{remark}
-We give now some computational results for the middle cohomology group. Since $S\hilb{n}$ is a projective variety of complex dimension $2n$, Poincar\'{e} duality gives $H^{2n}(S\hilb{n},\IZ)$ the structure of an unimodular lattice.  
+
+In what follows, we compare some well-known facts about Hilbert schemes of points on K3 surfaces with our numerical calculations. This means, we have some tests that may justify the correctness of our computer program.
+We start with computational results for the middle cohomology group. Since $S\hilb{n}$ is a projective variety of complex dimension $2n$, Poincar\'{e} duality gives $H^{2n}(S\hilb{n},\IZ)$ the structure of an unimodular lattice.  
 \begin{proposition} Let $L$ denote the unimodular lattice $H^{2n}(S\hilb{n},\IZ)$. We have:
 \begin{enumerate}
-\item For $n=2$, $L$ is an odd lattice of rank $276$ and signature $124$.
-\item For $n=3$, $L$ is an even lattice of rank $2554$ and signature $-640$.
-\item For $n=4$, $L$ is an odd lattice of rank $19298$ and signature $2574$.
+\item For $n=2$, $L$ is an odd lattice of rank $276$ and signature $156$.
+\item For $n=3$, $L$ is an even lattice of rank $2554$ and signature $-1152$.
+\item For $n=4$, $L$ is an odd lattice of rank $19298$ and signature $7082$.
 \end{enumerate}
 For $n$ even, $L$ is always odd. 
 \end{proposition} 
-\begin{proof}The numerical results come from an explicit calculation. For $n$ even, we always have the norm-1-vector given by Example \ref{example} (\ref{oddWitness}), so $L$ is odd.
+\begin{proof}The numerical results come from an explicit calculation. For $n$ even, we always have the norm-1-vector given by Example \ref{example} (\ref{oddWitness}), so $L$ is odd. To obtain the signature, we could equivalently use Hirzebruch's signature theorem and compute the L-genus of $S\hilb{n}$. For the signature, we need nothing but the Pontryagin numbers, which can be derived from the Chern numbers of $S\hilb{n}$. These in turn are known by Ellingsrud, G\"ottsche and Lehn, \cite[Rem. 5.5]{EGL}. 
 \end{proof}
 
 \input{IntCode}
