@@ -6,13 +6,16 @@
 }
 \appendix
 \section{Source Code}
-We give the source code for our computer program. It is available online under BLABLABLA. We used the language Haskell. Our code is divided into 4 modules.
-\subsection{Module for cup product structure of K3 surfaces} $\ $
+We give the source code for our computer program. It is available online under BLABLABLA. We used the language Haskell. The project is divided into 4 modules.
+\subsection{Module for cup product structure of K3 surfaces} 
+Here the hyperbolic and the $E_8$ lattice and the bilinear form on the cohomology of a K3 surface are defined. Furthermore, cup products and their adjoints are implemented.
 \input{Sexy/K3.tex}
-\subsection{Module for handling partitions}$\ $
+\subsection{Module for handling partitions} 
+This module defines the data structures and elementary methods to handle partitions. We define both partitions written as descending sequences of integers ($\lambda$-notation) and as sequences of multiplicities ($\alpha$-notation).
 \input{Sexy/Partitions.tex}
-\subsection{Module for coefficients on Symmetric Functions}$\ $
-\input{Sexy/SymmetricFunctions.tex}
-\subsection{Module implementing cup products for Hilbert schemes}$\ $
+\subsection{Module for coefficients on Symmetric Functions} 
+This module provides nothing but the base change matrices $\psi_{\lambda\mu}$ and $\psi^{-1}_{\mu\lambda}$ from Definition \ref{SymFun}.
+\input{Sexy/SymmetricFunctions.tex} 
+\subsection{Module implementing cup products for Hilbert schemes} This is our main module. We implement the algebraic model developped by Lehn and Sorger and the change of base due to Qin and Wang. The cup product on the Hilbert scheme is computed by the function \texttt{cupInt}.
 \input{Sexy/HilbK3.tex}
  
