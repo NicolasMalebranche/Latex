@@ -2,7 +2,7 @@
 
 \usepackage{amsmath,amssymb,amsfonts}
 \usepackage[all]{xy}
-\usepackage{appendix,listings}
+\usepackage{appendix,listings,hyperref}
 
 \DeclareMathOperator{\rank}{rank}
 \DeclareMathOperator{\trace}{tr}
@@ -21,47 +21,14 @@
 \newcommand{\ie}{{\it i.e. }}
 \newcommand{\eg}{{\it e.g. }}
 \newcommand{\loccit}{{\it loc. cit. }}
-\newcommand{\ii}{{\rm i}}
-\newcommand{\dual}[1]{{#1}\spcheck}
-\newcommand{\abs}[1]{|{#1}|}
-\newcommand{\Kummer}[2]{{#2}^{\llbracket#1\rrbracket}}
 \newcommand{\vac}{|0\rangle}
 \newcommand{\odd}{{\rm{odd}}}
 \newcommand{\even}{{\rm{even}}}
 \newcommand{\tors}{{\rm{tors}}}
 
-\newcommand{\aG}{{\rm{a}}_G}
-\newcommand{\mG}{{\rm{m}}_G}
-
 \newcommand{\One}{1}
 
-% for spectral sequences
-
 \newcommand{\coloneqq}{:=}
-
-\makeatletter
-\newcommand{\rmnum}[1]{\romannumeral #1}
-\newcommand{\Rmnum}[1]{\expandafter\@slowromancap\romannumeral #1@}
-\makeatother
-
-
-\newcommand{\FI}{F_{\text{\Rmnum{1}}}}
-\newcommand{\FII}{F_{\text{\Rmnum{2}}}}
-\newcommand{\EI}{\text{}^{\text{\Rmnum{1}}}\!E}
-\newcommand{\EII}{\text{}^{\text{\Rmnum{2}}}\!E}
-\newcommand{\dI}{\text{}^{\text{\Rmnum{1}}}\!d}
-\newcommand{\dII}{\text{}^{\text{\Rmnum{2}}}\!d}
-
-% for total derived functors and hypercohomology
-
-\newcommand{\HH}{\mathbf{H}}
-\newcommand{\LL}{\mathbf{L}}
-\newcommand{\RR}{\mathbf{R}}
-
-% for equivariant cohomology
-
-\newcommand{\BG}{BG}
-\newcommand{\EG}{EG}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -99,8 +66,6 @@
 \newtheorem{example}[theorem]{Example}
 
 
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
@@ -115,8 +80,6 @@
 
 
 \date{\today}
-
-%\subjclass{Primary 14J50, Secondary 14C50, 55T10}
 
 %\keywords{}
 
@@ -133,10 +96,11 @@ products in integral cohomology of the Hilbert scheme of $n$ points on a K3 surf
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 The Hilbert schemes of $n$ points on a complex surface parametrize all zero-dimensional subschemes of length $n$. Studying their rational cohomology, Nakajima \cite{Nakajima} was able to give an explicit description of the vector space structure in terms of the action of a Heisenberg algebra.
-The Hilbert schemes of points on a K3 surface are one of the few known classes of Irreducible Holomorphic Symplectic Manifolds. Lehn and Sorger \cite{LehnSorger} developed an algebraic model to describe the cohomological ring structure. On the other hand, Qin and Wang \cite{QinWang} found a base for integral cohomology in the projective case. By combining these results, we are able to determine the structure of the cohomology rings of Hilbert schemes of $n$ points on a projective K3 with integral coefficients. 
-For $n=2$, this was done by Boissi\`ere, Nieper-Wi{\ss}kirchen and Sarti \cite{BNS}, who applied their results to automorphism groups of prime order. When $n$ is increasing, the cohomology rings become very large, so we need the help of a computer. Our goal here is to give some characteristics for low degrees.
+The Hilbert schemes of points on a K3 surface are one of the few known classes of Irreducible Holomorphic Symplectic Manifolds. Lehn and Sorger \cite{LehnSorger} developed an algebraic model to describe the cohomological ring structure. On the other hand, Qin and Wang \cite{QinWang} found a base for integral cohomology in the projective case. By combining these results, we are able to compute everything explicitely in the cohomology rings of Hilbert schemes of $n$ points on a projective K3 with integral coefficients. 
+For $n=2$, this was done by Boissi\`ere, Nieper-Wi{\ss}kirchen and Sarti \cite{BNS}, who applied their results to automorphism groups of prime order. When $n$ is increasing, the cohomology rings become very large, so we need the help of a computer. The source code is available under \url{https://github.com/s--kapfer/HilbK3}
 
-Denote by $S\hilb{3}$ the Hilbert scheme of 3 points on a projective K3 surface. We identify $\Sym^2H^2(S\hilb{3},\IZ)$ with its image in $H^4(S\hilb{3},\IZ)$ under the cup product mapping. 
+Our goal here is to give some characteristics for low degrees.
+Denote by $S\hilb{3}$ the Hilbert scheme of 3 points on a projective K3 surface (or a deformation equivalent space). We identify $\Sym^2H^2(S\hilb{3},\IZ)$ with its image in $H^4(S\hilb{3},\IZ)$ under the cup product mapping. 
 \begin{theorem}
 The cup product mappings for the Hilbert scheme of 3 points on a projective K3 surface have the following cokernels:
 \begin{gather}
@@ -156,7 +120,7 @@ Let $\Lambda$ be the ring of symmetric functions. Let $m_\lambda$ and $p_\lambda
 \end{definition}
 \begin{definition}
 A lattice $L$ is a free $\IZ$-module of finite rank, equipped with a non-degenerate symmetric integral bilinear form $B$. The lattice $L$ is called odd, if there exists a $v\in L$, such that $B(v,v)$ is odd, otherwise it is called even. 
-If there exists a nonzero $v \in L$, such that $B(v,v)= 0$, the lattice is called indefinite. 
+If the map $v \mapsto B(v,v)$ takes both negative and positive values on $L$, the lattice is called indefinite. 
 Choosing a base $\{e_i\}_i$ of our lattice, we can write $B$ as a symmetric matrix. $L$ is called unimodular, if the matrix $B$ has determinant $\pm 1$. 
 The difference between the number of positive eigenvalues and the number of negative eigenvalues of $B$ (regarded as a matrix over $\IR$) is called the signature.
 \end{definition}
@@ -214,11 +178,10 @@ Let $\boldsymbol\alpha^{\boldsymbol\lambda}$ represent a class of cohomological 
 \end{lemma}
 The ring structure of $H^\ast(S\hilb{n}, \IQ)$ has been studied by Lehn and Sorger in \cite{LehnSorger}, where an explicit algebraic model is constructed, which we recall briefly:
 \begin{definition} \cite[Sect. 2]{LehnSorger}
-Let $\pi$ be a permutation of $n$ letters, written as a sum of disjoint cycles. To each cycle we may associate an element of $A:=H^\ast(S,\IQ)$. This defines an element in $A^{\otimes m}$, $m$ being the number of cycles. For example, a term like $(1\,2\,3)_{\alpha_1}(4\,5)_{\alpha_2}$ may describe a permutation consisting of two cycles with associated classes $\alpha_1,\alpha_2\in A$. Thus we define a vector space $A\{S_n\}:=\bigoplus_{\pi\in S_n} A^{\otimes(\left<\pi\right>\backslash[n])}$. 
+Let $\pi$ be a permutation of $n$ letters, written as a sum of disjoint cycles. To each cycle we may associate an element of $A:=H^\ast(S,\IQ)$. This defines an element in $A^{\otimes m}$, $m$ being the number of cycles. For example, a term like $(1\,2\,3)_{\alpha_1}(4\,5)_{\alpha_2}$ may describe a permutation consisting of two cycles with associated classes $\alpha_1,\alpha_2\in A$. Thus we construct a vector space $A\{S_n\}:=\bigoplus_{\pi\in S_n} A^{\otimes(\left<\pi\right>\backslash[n])}$. 
 
 To define a ring structure, take two permutations $\pi,\tau$ with associated elements of $A$. The result of the multiplication will be the permutation $\pi\tau$, together with a mapping of cycles. To construct the mappings to $A$, look first at the orbit space of the group of permutations $\left<\pi,\tau\right>$, generated by $\pi$ and $\tau$. For each cycle of $\pi, \tau$ contained in one orbit $B$ of $\left<\pi,\tau\right>$, multiply with the associated element of $A$. Also multiply with a certain power of the Euler class $e^g$. Afterwards, apply the comultiplication $\Delta$ repeatedly on the product to get a mapping from the cycles of $\pi\tau$ contained in $B$ to $A$. 
 Here the "graph defect" $g$ is defined as follows: Let $u,v,w$ be the number of cycles contained in $B$ of $\pi,\;\tau,\;\pi\tau$, respectively. Then $g:=\frac{1}{2}\left(|B| + 2- u-v-w\right)$. Now follow this procedure for each orbit $B$. 
-
 \end{definition}
 The symmetric group $S_n$ acts on $A\{S_n\}$ by conjugation. This action preserves the ring structure. Therefore the space of invariants $A\hilb{n} := \left(A\{S_n\} \right)^{S_n}$ becomes a subring. The main theorem of \cite{LehnSorger} can now be stated:
 \begin{theorem} \cite[Thm. 3.2.]{LehnSorger}
@@ -278,6 +241,7 @@ Denote $h^k(S\hilb{n})$ the rank of $H^k(S\hilb{n},\IZ)$. We have:
 \end{remark}
 The algebra generated by classes of degree 2 is an interesting object to study. For cohomology with complex coefficients, Verbitsky has proven in \cite{Verbitsky} that the cup product mapping from $\Sym^k H^2(S\hilb{n},\IC)$ to $H^{2k}(S\hilb{n},\IC)$ is injective for $k\leq n$. Since there is no torsion, one concludes that this also holds for integral coefficients.
 \begin{proposition} We identify $\Sym^2H^2(S\hilb{n},\IZ)$ with its image in $H^4(S\hilb{n},\IZ)$ under the cup product mapping. Then: 
+\setcounter{equation}{0} 
 \begin{align}
 \frac{H^4(S\hilb{2},\IZ)}{\Sym^2 H^2(S\hilb{2},\IZ)} & \cong \left(\frac{\IZ}{2\IZ}\right)^{\oplus 23} \oplus \frac{\IZ}{5\IZ},\\
 \label{sym23}
@@ -310,6 +274,7 @@ For the freeness result, it is enough to check the case $n=5$, since we have the
 \end{proof}
 We study now cup products between classes of degree 2 and 4. The case of $S\hilb{3}$ is of particular interest.
 \begin{proposition} \label{p24}The cup product mapping $ : H^2(S\hilb{n},\IZ)\otimes H^4(S\hilb{n},\IZ) \rightarrow H^6(S\hilb{n},\IZ) $ is neither injective (unless $n=0$) nor surjective (unless $n\leq 2$). We have:
+\setcounter{equation}{0} 
 \begin{align} 
 \frac{H^6(S\hilb{3},\IZ)}{H^2(S\hilb{3},\IZ)\smile H^4(S\hilb{3},\IZ)} &\cong \left(\frac{\IZ}{3\IZ}\right)^{\oplus 22} \oplus \frac{\IZ}{3\IZ}
 \\
@@ -340,7 +305,7 @@ The coefficient of the cup product martix are thus polynomials of degree at most
 \end{proof}
 
 In what follows, we compare some well-known facts about Hilbert schemes of points on K3 surfaces with our numerical calculations. This means, we have some tests that may justify the correctness of our computer program.
-We start with computational results for the middle cohomology group. Since $S\hilb{n}$ is a projective variety of complex dimension $2n$, Poincar\'{e} duality gives $H^{2n}(S\hilb{n},\IZ)$ the structure of an unimodular lattice.  
+We state now computational results for the middle cohomology group. Since $S\hilb{n}$ is a projective variety of complex dimension $2n$, Poincar\'{e} duality gives $H^{2n}(S\hilb{n},\IZ)$ the structure of an unimodular lattice.  
 \begin{proposition} Let $L$ denote the unimodular lattice $H^{2n}(S\hilb{n},\IZ)$. We have:
 \begin{enumerate}
 \item For $n=2$, $L$ is an odd lattice of rank $276$ and signature $156$.
@@ -351,9 +316,9 @@ For $n$ even, $L$ is always odd.
 \end{proposition} 
 \begin{proof}The numerical results come from an explicit calculation. For $n$ even, we always have the norm-1-vector given by Example \ref{example} (\ref{oddWitness}), so $L$ is odd. To obtain the signature, we could equivalently use Hirzebruch's signature theorem and compute the L-genus of $S\hilb{n}$. For the signature, we need nothing but the Pontryagin numbers, which can be derived from the Chern numbers of $S\hilb{n}$. These in turn are known by Ellingsrud, G\"ottsche and Lehn, \cite[Rem. 5.5]{EGL}. 
 \end{proof}
-Another test is to compute the lattice structure of $H^2(S\hilb{2},\IZ)$, with bilinear form given by $(a,b)\longmapsto \int \left(a\smile b\smile \One^{(2)}\smile \One^{(2)}\right)$. The signature of this lattice is $17$, as shown by \cite[Lemma 6.9]{BNS}.
+Another test is to compute the lattice structure of $H^2(S\hilb{2},\IZ)$, with bilinear form given by $(a,b)\longmapsto \int \left(a\smile b\smile \One^{(2)}\smile \One^{(2)}\right)$. The signature of this lattice is $17$, as shown by Boissi\`ere, Nieper-Wi{\ss}kirchen and Sarti \cite[Lemma 6.9]{BNS}.
 
-\input{IntCode}
+%\input{IntCode}
 
 \bibliographystyle{amsplain}
 \bibliography{BiblioAutIHS}
