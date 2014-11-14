@@ -25,7 +25,7 @@
 \renewcommand{\O}{\mathcal{O}\!}
 \renewcommand{\S}{\mathfrak{S}}
 \newcommand{\T}{\mathcal{T}}
-\newcommand{\E}{\mathcal{E}}
+\newcommand{\E}{\mathbb{E}}
 \newcommand{\A}{\mathcal{A}}
 \renewcommand{\a}{\mathfrak{a}}
 \newcommand{\m}{\mathfrak{m}}
@@ -127,6 +127,11 @@ $$ Zum Beweis kann man eine Formel von Ellingsrud/Göttsche/Lehn für das $\chi_y$
 \eintrag{Partitionszahlen und 5, 7, 11} Unter den Partitionszahlen $\{p_0,\ldots, p_N\}$ kommen (für große $n$) solche, welche durch 5, 7 oder 11 teilbar sind, deutlich häufiger vor als man erwarten würde. Bezeichne $D_{p,N}$ die Anzahl aller Partitionszahlen $p_0$ bis $p_N$, welche durch $p$ teilbar sind. 
 Existiert $L_p:=\lim \frac{1}{N} D_{p,N}$ und wenn ja, wie groß ist er? $D_{5,150k}\approx 0.36$, $D_{7,150k} \approx 0.27$, $D_{11,150k}\approx 0.174$. Siehe auch \url{ericaklarreich.com/pieces%20of%20numbers%20b&w%20compressed.PDF}.
 
-\bibliographystyle{alpha}
-\bibliography{bibl}
+\eintrag{Differenzieren mit Zufallsvariablen über $\Z$} Um eine $\R$-wertige Koordinatenfunktion auf $\Z$ zu beschränken, gleichzeitig aber das Gefühl des Kontinuums nicht aufzugeben, ersetzen wir Koordinaten durch Zufallsvariablen mit Werten in $\Z$. Wir definieren für jede derartige Zufallsvariable $X$ und jeden Parameter $\alpha\in\R$ affine Translationen $T_\alpha$ derart, daß $T_\alpha T_\beta X = T_{\alpha+\beta} X$ und, falls $\alpha\in\Z$, $T_\alpha X = X+\alpha$ gelten sollen. Vielleicht ist es auch gut, $\E[T_\alpha X] = \E[X] + \alpha$ im Falle der Existenz zu fordern.
+Das Differential $\frac{dY}{dX}$ soll dann was wie 
+$ \lim\limits_{h\rightarrow 0}\frac{T_hY-Y}{T_hX-X} $ sein. Vielleicht sollte man besser $ \lim\limits_{h\rightarrow 0} \frac{1}{h} \E \left[\left\| \frac{dY}{dX}\cdot (T_hX-X) - (T_hY-Y) \right\|\right]=0$ verlangen.
+Für ein Polynom $f$ und $Y = f(X)$ hat man dann $\frac{dY}{dX} = f'(X)$.
+
+
+
 \end{document}          
