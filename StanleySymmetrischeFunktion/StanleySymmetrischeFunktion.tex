@@ -30,9 +30,9 @@ $$\e_k = \sum_{i_1<i_2<\ldots <i_k} x_{i_1}x_{i_2}\ldots x_{i_k}, \qquad \h_k = 
 \end{itemize}
 \bpoint{Erzeugende Funktionen} 
 \begin{gather*}
-\sum_{k\geq 0}{\e_kt^k} = \prod_i(1+x_it) =\exp\left(
+\E(t)=\sum_{k\geq 0}{\e_kt^k} = \prod_i(1+x_it) =\exp\left(
 \sum_{k\geq 1}\tfrac{-(-1)^k}{k}\p_kt^k \right)\\
-\sum_{k\geq 0}{\h_kt^k}= \prod_i\frac{1}{1-x_it} =\exp\left(
+\H(t)=\sum_{k\geq 0}{\h_kt^k}= \prod_i\frac{1}{1-x_it} =\exp\left(
 \sum_{k\geq 1}\tfrac{1}{k}\p_kt^k \right)
 \end{gather*}
 
@@ -46,6 +46,10 @@ $$\e_k = \sum_{i_1<i_2<\ldots <i_k} x_{i_1}x_{i_2}\ldots x_{i_k}, \qquad \h_k = 
 Bezeichne mit $D(\_)$ den adjungierten Operator zur Multiplikation. Dann: 
 \[ D(\p_n)\  =\ \sum_{r\geq 0}\h_r \diff{\h_{n+r}}\ =\ (-1)^{n-1} \sum_{r\geq 0}\e_r \diff{\e_{n+r}}\ =\ n\diff{\p_n}
 \]
+\bpoint{Differentialoperatoren} Man kann alternativ auch schreiben:
+$$ 
+\diff{\p_n} \H(t) = \frac{1}{k}t^n \H(t)\quad \text{und} \quad \diff{\p_n} \E(t) = (-1)^{n-1}t^n \E(t)
+$$
 \bpoint{Involution} Definiere eine Involution $\omega$ durch 
 \[\omega\, \e_\lambda = \h_\lambda. \] Dann hat $\omega$ folgende Eigenschaften:
 \begin{align*}

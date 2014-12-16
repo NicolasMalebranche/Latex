@@ -136,4 +136,8 @@ Für ein Polynom $f$ und $Y = f(X)$ hat man dann $\frac{dY}{dX} = f'(X)$.
 
 Elementarer kann man zeigen, daß, falls $n\geq 3$ und eine nichttriviale orthogonale Zerlegung $\R^n = V_1\oplus V_2$ existiert, die von $A$ respektiert wird, Flächentreue gleich Orthogonalität ist. Wähle dazu normierte Vektoren $v_1 \in V_1,\ v_2,v_3\in V_2$. Dann muß wegen Flächentreue $\|Av_1\|\|Av_2\| = 1 = \|Av_1\|\|Av_3\| $ sein, also insbesondere $\|Av_2\| = \|Av_3\|$. Also ist $\left. A\right|_{V_2}$ ein Vielfaches einer orthogonalen Matrix, also orthogonal. Also ist $A$ orthogonal.
 
+\eintrag{Multiplikative Sequenzen, Differentiale} Seien $p_n$ Potenzsummen und $(u_n)$ eine multiplikative Sequenz symmetrischer Polynome in Variablen $\{x_i\}$, d. h. $$U(t):=\sum_{n}u_n t^n = \exp\left(\sum_i f(x_it)\right)\quad\text{mit}\quad f(t) = \sum_{k\geq 1} a_kt^k .$$
+Dann ist die Wirkung des Differentialoperators $\frac{\del}{\del p_m}u_n = a_mu_{n-m} $, bzw.
+$$ \text{mit}\ D(q):= \sum_{m\geq 1}\frac{\del}{\del p_m}q^m \quad\text{ist}\quad D(q)U(t) = f(qt)U(t). $$
+
 \end{document}          
