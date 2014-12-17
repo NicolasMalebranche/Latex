@@ -136,8 +136,14 @@ Für ein Polynom $f$ und $Y = f(X)$ hat man dann $\frac{dY}{dX} = f'(X)$.
 
 Elementarer kann man zeigen, daß, falls $n\geq 3$ und eine nichttriviale orthogonale Zerlegung $\R^n = V_1\oplus V_2$ existiert, die von $A$ respektiert wird, Flächentreue gleich Orthogonalität ist. Wähle dazu normierte Vektoren $v_1 \in V_1,\ v_2,v_3\in V_2$. Dann muß wegen Flächentreue $\|Av_1\|\|Av_2\| = 1 = \|Av_1\|\|Av_3\| $ sein, also insbesondere $\|Av_2\| = \|Av_3\|$. Also ist $\left. A\right|_{V_2}$ ein Vielfaches einer orthogonalen Matrix, also orthogonal. Also ist $A$ orthogonal.
 
-\eintrag{Multiplikative Sequenzen, Differentiale} Seien $p_n$ Potenzsummen und $(u_n)$ eine multiplikative Sequenz symmetrischer Polynome in Variablen $\{x_i\}$, d. h. $$U(t):=\sum_{n}u_n t^n = \exp\left(\sum_i f(x_it)\right)\quad\text{mit}\quad f(t) = \sum_{k\geq 1} a_kt^k .$$
+\eintrag{Multiplikative Sequenzen, Differentiale} Seien $p_n$ Potenzsummen und $(u_n)$ eine multiplikative Sequenz symmetrischer Polynome in Variablen $\{x_i\}$, d. h. $$U(t):=\sum_{n}u_n t^n = \exp\left(\sum_i f(x_it)\right)\quad\text{mit}\quad f(t) = \sum_{k\geq 1} a_kt^k.$$
 Dann ist die Wirkung des Differentialoperators $\frac{\del}{\del p_m}u_n = a_mu_{n-m} $, bzw.
 $$ \text{mit}\ D(q):= \sum_{m\geq 1}\frac{\del}{\del p_m}q^m \quad\text{ist}\quad D(q)U(t) = f(qt)U(t). $$
-
+Sei nun $V(t):=\sum_{n}v_n t^n = \exp\left(\sum_i g(x_it)\right)$ mit $g(t) = \sum_{k\geq 1} b_kt^k $ eine weitere multiplikative Sequenz. Wenn nun $a_1\neq 0\neq b_1$, so sind $f$ und $g$ durch eine lineare Transformation $L$ miteinander verwandt, d. h. es gibt Koeffizienten $\gamma_i$, so da\ss\ 
+$ L\left[ f\right] := \sum_k\gamma_k t^k\frac{\del^k}{\del t^k} f = g$. Damit haben wir offensichtlich eine Formel,
+$$V(t) = \exp\left(L\left[\log\left(U(t)\right)\right]\right),$$
+die uns die Basen ineinander umrechnet. Mit $\overline{U}(q):= \sum_{m\geq 1}\frac{\del}{\del u_m}q^m$ folgt:
+$$ \overline{U}(q)V(t)\ =\ L\left[\frac{1}{U(t)(1-qt)}\right]V(t)\ =\ L\left[\frac{\exp\left(-L^{-1}\left[\log(V(t))\right]\right)}{1-qt}\right]V(t),
+$$
+so da\ss\ wir auch $v_n$ nach $u_m$ ableiten k\"onnen.
 \end{document}          
