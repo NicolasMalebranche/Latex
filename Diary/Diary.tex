@@ -149,4 +149,10 @@ so da\ss\ wir auch $v_n$ nach $u_m$ ableiten k\"onnen.
 
 \eintrag{Quadratsummen} Sei $Q=\{n^2 - 1\; | \; n \geq 1 \}$ die Menge der Quadratzahlen minus $1$. Die Zahlen, welche sich nicht als Summe von Elementen aus $Q$ darstellen lassen, sind $ \{1,2,4,5,7,10,13\}$.
 Allgemeiner kann man definieren $Q(a):= \{n^2 - a^2\; | \; n \geq a \}$ und die Zahlen betrachten, die sich nicht als Summen von Elementen aus $Q(a)$ schreiben lassen. Sie scheinen durch $(a+7)^2$ beschränkt zu sein und ihre Anzahl durch $(a+3)^2$. 
+
+\eintrag{Aufgabe von Nikulin} Sei $A$ endliche abelsche Gruppe, $H\subset A$ eine Untergruppe und $b:A\times A\longrightarrow \frac{\Q}{\Z}$ eine symmetrische Bilinearform, so da\ss\ $\left.b\right|_H$ nichtdegeneriert ist. Dann ist $A=H\oplus H^\perp$.\\
+\emph{Beweis: } Da\ss\ $H\cap H^\perp = \{0\}$, ist klar. Nach einem Theorem von Wall ist $A$ die Diskriminantengruppe eines Gitters $L$  mit Bilinearform $\tilde{b}$, also $A= \frac{L^*}{L}$. Sei $\tilde{H}$ das Urbild von $H$ unter der Quotientenabbildung. Dann ist auch $\left.\tilde{b}\right|_{\tilde{H}}$ nichtdegeneriert. 
+Damit ist die von $\tilde{b}$ induzierte Einbettung $\tilde{H}\otimes\Q\rightarrow \left(\tilde{H}\otimes\Q\right)^*$ wegen der endlichen Dimensionen ein Isomorphismus und wir haben 
+$L^*\otimes\Q=(\tilde{H}\otimes\Q)\oplus(\tilde{H}^\perp\otimes\Q$).
+Andererseits ist $\tilde{H}\subset L^*$ eine primitive Einbettung, da sonst $\left.b\right|_H$ degeneriert wäre. Damit gilt $L^*=\tilde{H}\oplus\tilde{H}^\perp$ und entsprechend auch $A=H\oplus H^\perp$.
 \end{document}          
