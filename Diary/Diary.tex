@@ -37,6 +37,7 @@
 \newcommand{\dzbar}{\d\overline{z}}
 \newcommand{\diff}[1]{\frac{\partial}{\partial #1}}
 \newcommand{\vac}{\left|0\right>}
+\newcommand{\vectline}[1]{\underline{\smash{ #1 }}} 
 
 %\binoppenalty=7000
 %\relpenalty=5000 
@@ -62,4 +63,10 @@ $L^*\otimes\Q=(\tilde{H}\otimes\Q)\oplus(\tilde{H}^\perp\otimes\Q$).
 Andererseits ist $\tilde{H}\subset L^*$ eine primitive Einbettung, da sonst $\left.b\right|_H$ degeneriert wäre. Damit gilt $L^*=\tilde{H}\oplus\tilde{H}^\perp$ und entsprechend auch $A=H\oplus H^\perp$.
 \eintrag{Maximale Ordnung} (Danke an Fran\c ois Courtes.) Sei $X$ eine (nicht unbedingt abz\"ahlbare) Menge und $\leq\; \subset X \times X$ eine partielle Ordnung. Dann existiert eine totale Ordnung $\preceq\;\subset X\times X$ mit $\leq\;\subset\; \preceq$. \\
 \emph{Beweis:} (Transfinite) Induktion. Sei $\leq\; \subset\; R$ schon eine Erweiterung der Relation und $(x,y),(y,x)\notin R$. Dann enth\"alt h\"ochstens eines von $R\cup\{(x,y)\}$ und $R\cup\{(y,x)\}$ einen gerichteten Kreis. Wir machen mit einer kreisfreien Relation weiter.
+\eintrag{Ein alter Hut} Sei $\vectline{x} = \vectline{x}\left(\vectline{y}\right)$ eine glatte Koordinatentransformation. Dann:
+$$
+\del\vectline{x} = \mathbf{M}\; \del\vectline{y}, \qquad \frac{\del}{\del\vectline{x}} = \mathbf{M}^{-\mathbf{T}} \frac{\del}{\del\vectline{y}} 
+$$
+
+
 \end{document}          
