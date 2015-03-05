@@ -37,6 +37,7 @@
 \newcommand{\dzbar}{\d\overline{z}}
 \newcommand{\diff}[1]{\frac{\partial}{\partial #1}}
 \newcommand{\vac}{\left|0\right>}
+\DeclareMathOperator{\Sym}{Sym}
 \newcommand{\vectline}[1]{\underline{\smash{ #1 }}} 
 
 %\binoppenalty=7000
@@ -61,12 +62,22 @@ Allgemeiner kann man definieren $Q(a):= \{n^2 - a^2\; | \; n \geq a \}$ und die 
 Damit ist die von $\tilde{b}$ induzierte Einbettung $\tilde{H}\otimes\Q\rightarrow \left(\tilde{H}\otimes\Q\right)^*$ wegen der endlichen Dimensionen ein Isomorphismus und wir haben 
 $L^*\otimes\Q=(\tilde{H}\otimes\Q)\oplus(\tilde{H}^\perp\otimes\Q$).
 Andererseits ist $\tilde{H}\subset L^*$ eine primitive Einbettung, da sonst $\left.b\right|_H$ degeneriert wäre. Damit gilt $L^*=\tilde{H}\oplus\tilde{H}^\perp$ und entsprechend auch $A=H\oplus H^\perp$.
-\eintrag{Maximale Ordnung} (Danke an Fran\c ois Courtes.) Sei $X$ eine (nicht unbedingt abz\"ahlbare) Menge und $\leq\; \subset X \times X$ eine partielle Ordnung. Dann existiert eine totale Ordnung $\preceq\;\subset X\times X$ mit $\leq\;\subset\; \preceq$. \\
+\eintrag{Maximale Ordnung} (Danke an François Courtes.) Sei $X$ eine (nicht unbedingt abz\"ahlbare) Menge und $\leq\; \subset X \times X$ eine partielle Ordnung. Dann existiert eine totale Ordnung $\preceq\;\subset X\times X$ mit $\leq\;\subset\; \preceq$. \\
 \emph{Beweis:} (Transfinite) Induktion. Sei $\leq\; \subset\; R$ schon eine Erweiterung der Relation und $(x,y),(y,x)\notin R$. Dann enth\"alt h\"ochstens eines von $R\cup\{(x,y)\}$ und $R\cup\{(y,x)\}$ einen gerichteten Kreis. Wir machen mit einer kreisfreien Relation weiter.
 \eintrag{Ein alter Hut} Sei $\vectline{x} = \vectline{x}\left(\vectline{y}\right)$ eine glatte Koordinatentransformation. Dann:
 $$
 \del\vectline{x} = \mathbf{M}\; \del\vectline{y}, \qquad \frac{\del}{\del\vectline{x}} = \mathbf{M}^{-\mathbf{T}} \frac{\del}{\del\vectline{y}} 
 $$
-
+\eintrag{Skalarprodukt auf symmetrischen Potenzen} Sei auf einem Vektorraum $V$ der Dimension $n$ eine symmetrische Bilinearform erkl\"art. Definiere eine induzierte symmetrische Bilinearform auf $\Sym^k V$ durch 
+$$ 
+\left< a_1\ldots a_k\,,\, b_1\ldots b_k \right>:=\sum_{\mathcal{P}}\prod_{(x,y)\in\mathcal{P}}\left<x,y\right>
+$$
+wobei $\mathcal{P}$ alle Partitionen der Menge $\{a_1,\ldots,a_k,b_1,\ldots,b_k\}$ in Paare durchl\"auft. Sei $d_n$ die Diskriminante der Bilinearform auf $V$ und $d_{n,k}$ diejenige der induzierten Bilinearform. Dann gilt $$d_{n,k}=(-d_n)^{\binom{n+k-1}{k}}\,a_{n,k}.$$ 
+\"Uber die Konstanten $a_{n,k}$ denke ich:
+\begin{gather*}
+a_{n,1} =1,\qquad a_{n,2} = 2^{n-1}(n+2), \\
+a_{n,3} = b_n^n,\quad \text{wobei }\ \sum_n b_{n}x^n = \frac{6-9x}{(1-2x)^2}, \\
+a_{1,k} = (2k-1)!!, \qquad a_{2,k} = (k!)^{k+1}
+\end{gather*}
 
 \end{document}          
