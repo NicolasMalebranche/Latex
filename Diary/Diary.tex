@@ -68,16 +68,29 @@ Andererseits ist $\tilde{H}\subset L^*$ eine primitive Einbettung, da sonst $\le
 $$
 \del\vectline{x} = \mathbf{M}\; \del\vectline{y}, \qquad \frac{\del}{\del\vectline{x}} = \mathbf{M}^{-\mathbf{T}} \frac{\del}{\del\vectline{y}} 
 $$
-\eintrag{Skalarprodukt auf symmetrischen Potenzen} Sei auf einem Vektorraum $V$ der Dimension $n$ eine symmetrische Bilinearform erkl\"art. Definiere eine induzierte symmetrische Bilinearform auf $\Sym^k V$ durch 
+
+\eintrag{Skalarprodukt auf symmetrischen Potenzen} Sei auf einem Vektorraum $V$ der Dimension $n$ eine symmetrische Bilinearform mit Signatur $(p,q)$ erkl\"art. Definiere eine symmetrische Bilinearform auf $\Sym^k V$ durch 
 $$ 
-\left< a_1\ldots a_k\,,\, b_1\ldots b_k \right>:=\sum_{\mathcal{P}}\prod_{(x,y)\in\mathcal{P}}\left<x,y\right>
+\left( a_1\ldots a_k\,,\, b_1\ldots b_k \right):=\sum_{\mathcal{P}}\prod_{(x,y)\in\mathcal{P}}\left(x,y\right)
 $$
-wobei $\mathcal{P}$ alle Partitionen der Menge $\{a_1,\ldots,a_k,b_1,\ldots,b_k\}$ in Paare durchl\"auft. Sei $d_n$ die Diskriminante der Bilinearform auf $V$ und $d_{n,k}$ diejenige der induzierten Bilinearform. Dann gilt $$d_{n,k}=(-d_n)^{\binom{n+k-1}{k}}\,a_{n,k}.$$ 
+wobei $\mathcal{P}$ alle Partitionen der Menge $\{a_1,\ldots,a_k,b_1,\ldots,b_k\}$ in Paare durchl\"auft. F\"ur den Index $i_k$ gilt dann, wie es sich geh\"ort:
+$$
+\sum_{k\geq 0} i_k x^k = \frac{1}{(1-x)^p(1+x)^q}
+$$
+ Sei $d_n$ die Diskriminante der Bilinearform auf $V$ und $d_{n,k}$ diejenige der induzierten Bilinearform. Dann gilt $$d_{n,k}=(-d_n)^{\binom{n+k-1}{k}}\,a_{n,k}.$$ 
 \"Uber die Konstanten $a_{n,k}$ denke ich:
 \begin{gather*}
 a_{n,1} =1,\qquad a_{n,2} = 2^{n-1}(n+2), \\
 a_{n,3} = b_n^n,\quad \text{wobei }\ \sum_n b_{n}x^n = \frac{6-9x}{(1-2x)^2}, \\
 a_{1,k} = (2k-1)!!, \qquad a_{2,k} = (k!)^{k+1}
 \end{gather*}
+\eintrag{\"Au\ss eres Skalarprodukt auf symmetrischen Potenzen} Alternativ kann man auch definieren:
+$$ 
+\left< a_1\ldots a_k\,,\, b_1\ldots b_k \right> :=\sum_{\pi\in\S_k}\prod_{i\in\{1\ldots k\}}\left<a_i,b_{\pi(i)}\right>
+$$
+Dann hat man kurioserweise die selbe Formel f\"ur den Index: $\hat{i}_k = i_k$. F\"ur die Konstanten $\hat{a}_{n,k}$ jedoch:
+$$
+\hat{a}_{n,k} = \left( \prod_{i=0}^{k-1} (k-i)!^{\binom{i+n-2}{i}} \right)^n
+$$
 
 \end{document}          
