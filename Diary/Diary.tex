@@ -81,10 +81,13 @@ $$
 \"Uber die Konstanten $a_{n,k}$ denke ich:
 \begin{gather*}
 a_{n,1} =1,\qquad a_{n,2} = 2^{n-1}(n+2), \\
-a_{n,3} = b_n^n,\quad \text{wobei }\ \sum_n b_{n}x^n = \frac{6-9x}{(1-2x)^2}, \\
 a_{1,k} = (2k-1)!!, \qquad a_{2,k} = (k!)^{k+1},\\
-a_{3,k} = \prod_{\substack{i=-k\ldots k \\ i=k \mod{2}}} (k+1+i)^{\binom{i}{2}} \prod_{i=0}^k (k+1-i)^{i(i+1)}, \\
-a_{4,k} = \prod_{i=1}^{k+1} i^{4\binom{i+1}{3}-i\binom{k+1}{1}-2i\binom{k+2}{2} + 3\binom{k+3}{3}}
+a_{n,k} = \left\{
+\begin{array}{*2{l}p{5cm}}
+ \displaystyle\prod_{i=1}^k i^{(n-1)\binom{k-i+n-1}{n-1}}\prod_{\substack{i=1 \\ i\ \text{ungerade}\\\ }}^{2k-2+n}i^{\binom{k-i+n-1}{n-1}} &\text{für ungerades }n, \\
+ \displaystyle\prod_{i=1}^k i^{(n-1)\binom{k-i+n-1}{n-1}}\prod_{i=1}^{k-1+\frac{n}{2}} i^{\binom{k-i+n-1}{n-1} - \binom{k-2i+n-1}{n-1}} &\text{für gerades }n.
+\end{array}
+\right.
 \end{gather*}
 \eintrag{\"Au\ss eres Skalarprodukt auf symmetrischen Potenzen} Alternativ kann man auch definieren:
 $$ 
