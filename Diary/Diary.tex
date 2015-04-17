@@ -103,4 +103,18 @@ $$
 \hat{a}_{n,k} = \left( \prod_{i=0}^{k-1} (k-i)!^{\binom{i+n-2}{i}} \right)^n
 $$
 
+\eintrag{Orthogonale homogene Polynome auf der Sph\"are} Sei eine Familie von Polynomen $p^{m}_n$, mit $0\leq 2n\leq m+1$ definiert durch:
+\begin{align*}
+p^{m}_0(x) &= 1, \qquad p^{m}_1(x) = x, \\
+p^{m}_{n+1}(x) &= xp^{m}_n(x)-\frac{n(m-n+1)}{(m-2n)(m-2n+2)}p^{m}_{n-1}(x)
+\end{align*}
+Dann erf\"ullt $p^{m}_n$ die folgende Differentialgleichung:
+$$ (x^2+1)xf'(x) = (nx^2-m+n-1)f(x) +(m-n+1)(m-n+2)\int_0^1f\left(\tfrac{x}{s}\right)s^{m-n+1}ds
+$$
+Seien $\alpha = (\alpha_0,\ldots,\alpha_d)$ und $\alpha' = (\alpha_0,\ldots,\alpha_{d-1})$ Multiindizes. Setze $r := \sqrt{x_0^2 +\ldots+x_{d-1}^2}$. Definiere homogene Polynome $h_\alpha$ durch $h_{(\alpha_0)}=x_0^{\alpha_0}$ und
+$$ h_\alpha := p_{\alpha_d}^{2|\alpha|+d}\left(\tfrac{x_d}{r}\right)r^{\alpha_d}h_{\alpha'}. $$
+Dann bilden die $h_\alpha$, f\"ur festes $|\alpha|$, eine Orthogonalbasis bzgl. des Skalarprodukts
+$$ \left<f,g\right> =\int_{S^d} fg ,
+$$
+die durch einen Gram-Schmidt-Proze\ss , angewandt auf die Monomialbasis in lexikographischer Reihenfolge, entsteht. Es gilt: $\left<h_\alpha,h_\alpha\right> =\left<h_\alpha,x^\alpha\right> $.
 \end{document}          
