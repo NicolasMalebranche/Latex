@@ -108,7 +108,10 @@ $$
 p^{m}_0(x) &= 1, \qquad p^{m}_1(x) = x, \\
 p^{m}_{n+1}(x) &= xp^{m}_n(x)-\frac{n(m-n+1)}{(m-2n)(m-2n+2)}p^{m}_{n-1}(x)
 \end{align*}
-Dann erf\"ullt $p^{m}_n$ die folgende Differentialgleichung:
+Sei $(x)_k := x(x-1)\ldots(x-k+1)$ und $(x)_{!k}:= x(x-2)\ldots(x-2k+2)$. Dann ist 
+$$p_n^m(x) = \sum_{k=0}^{\lfloor \frac{n}{2} \rfloor}(-1)^k\frac{(n)_{2k}}{(m-2n+2k)_{!k}(2k)!!} x^{n-2k}
+$$
+und $p^{m}_n$ erf\"ullt die folgende Differentialgleichung:
 $$ (x^2+1)xf'(x) = (nx^2-m+n-1)f(x) +(m-n+1)(m-n+2)\int_0^1f\left(\tfrac{x}{s}\right)s^{m-n+1}ds
 $$
 Seien $\alpha = (\alpha_0,\ldots,\alpha_d)$ und $\alpha' = (\alpha_0,\ldots,\alpha_{d-1})$ Multiindizes. Setze $r := \sqrt{x_0^2 +\ldots+x_{d-1}^2}$. Definiere homogene Polynome $h_\alpha$ durch $h_{(\alpha_0)}=x_0^{\alpha_0}$ und
