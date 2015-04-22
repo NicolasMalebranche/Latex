@@ -114,10 +114,17 @@ $$
 und $p^{m}_n$ erf\"ullt die folgende Differentialgleichung:
 $$ (x^2+1)xf'(x) = (nx^2-m+n-1)f(x) +(m-n+1)(m-n+2)\int_0^1f\left(\tfrac{x}{s}\right)s^{m-n+1}ds
 $$
+und folgende Orthogonalrelation:
+\begin{align*}
+\int_0^\infty \int_{-\infty}^\infty y^{m-1}&p_n^m\left(\frac{x}{y}\right)p_{n'}^m\left(\frac{x}{y}\right) e^{-\frac{x^2+y^2}{2}}dxdy \ = \\  &=\  \delta_{n\,n'}\;\frac{\Gamma\left(\frac{m}{2}-n\right)\Gamma\left(\frac{m}{2}-n+1\right)\Gamma\left(n+1\right)\Gamma\left(\frac{m+1}{2}\right)}{\Gamma\left(m-n+1\right)}2^{\frac{3m-1}{2}-2n} 
+\end{align*}
 Seien $\alpha = (\alpha_0,\ldots,\alpha_d)$ und $\alpha' = (\alpha_0,\ldots,\alpha_{d-1})$ Multiindizes. Setze $r := \sqrt{x_0^2 +\ldots+x_{d-1}^2}$. Definiere homogene Polynome $h_\alpha$ durch $h_{(\alpha_0)}=x_0^{\alpha_0}$ und
 $$ h_\alpha := p_{\alpha_d}^{2|\alpha|+d}\left(\tfrac{x_d}{r}\right)r^{\alpha_d}h_{\alpha'}. $$
 Dann bilden die $h_\alpha$, f\"ur festes $|\alpha|$, eine Orthogonalbasis bzgl. des Skalarprodukts
-$$ \left<f,g\right> =\int_{S^d} fg ,
+$$ \left<f,g\right> =\frac{1}{\sqrt{2\pi}^{d+1}}\int_{\R^{d+1}}f(x)g(x)e^{-\frac{\|x\|^2}{2}}dx \propto \int_{S^d} fg ,
 $$
-die durch einen Gram-Schmidt-Proze\ss , angewandt auf die Monomialbasis in lexikographischer Reihenfolge, entsteht. Es gilt: $\left<h_\alpha,h_\alpha\right> =\left<h_\alpha,x^\alpha\right> $.
+die durch einen Gram-Schmidt-Proze\ss , angewandt auf die Monomialbasis in lexikographischer Reihenfolge, entsteht. Es gilt: 
+$$\left<h_\alpha,x^\alpha\right>=\left<h_\alpha,h_\alpha\right> = 
+\frac{\Gamma\left(|\alpha '|+\frac{d}{2}+1\right)\Gamma\left(|\alpha |+\frac{d+1}{2}\right)\alpha_d!}{\sqrt{\pi}\,\left(|\alpha '|+|\alpha |+d\right)!}2^{|\alpha '|+|\alpha |+d}\left<h_{\alpha '},h_{\alpha '}\right>
+.$$
 \end{document}          
