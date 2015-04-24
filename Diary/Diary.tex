@@ -110,6 +110,7 @@ p^{m}_{n+1}(x) &= xp^{m}_n(x)-\frac{n(m-n+1)}{(m-2n)(m-2n+2)}p^{m}_{n-1}(x)
 \end{align*}
 Sei $(x)_k := x(x-1)\ldots(x-k+1)$ und $(x)_{!k}:= x(x-2)\ldots(x-2k+2)$. Dann ist 
 $$p_n^m(x) = \sum_{k=0}^{\lfloor \frac{n}{2} \rfloor}(-1)^k\frac{(n)_{2k}}{(m-2n+2k)_{!k}(2k)!!} x^{n-2k}
+= \sum_{\substack{l=0\\ n-l\ \text{gerade}}}^n \frac{n!\,(m-2n)!!\,(-1)^{\frac{n-l}{2}}}{l!\,(m-n-l)!!\,(n-l)!!}x^l
 $$
 und $p^{m}_n$ erf\"ullt die folgende Differentialgleichung:
 $$ (x^2+1)xf'(x) = (nx^2-m+n-1)f(x) +(m-n+1)(m-n+2)\int_0^1f\left(\tfrac{x}{s}\right)s^{m-n+1}ds
