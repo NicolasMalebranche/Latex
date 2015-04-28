@@ -22,7 +22,7 @@
 \newcommand{\even}{{\rm{even}}}
 \newcommand{\tors}{{\rm{tors}}}
 
-\newcommand{\p}{p}
+\newcommand{\p}[2]{p_{#1}^{#2}\;\!\!}
 \renewcommand{\L}{\mathcal{L}}
 
 \newcommand{\coloneqq}{:=}
@@ -89,46 +89,39 @@ We do technical stuff!
 
 \section{Homogeneous Orthogonal Polynomials}
 \subsection{A polynomial family}
-\begin{definition} Let $n,\ m$ integers with $0\leq 2n\leq m+1$. We define polynomials $\p_n^m$ of degree $n$:
+\begin{definition} Let $n,\ m$ be integers with $0\leq 2n\leq m+1$. We define polynomials $\p{n}{m}$ of degree $n$:
 \begin{equation}
-\p_n^m(x) \coloneqq \sum_{\substack{l=0\\ n-l\ \text{even}}}^n \frac{n!\,(m-2n)!!\,(-1)^{\frac{n-l}{2}}}{l!\,(m-n-l)!!\,(n-l)!!}\;x^l.
+\p{n}{m}(x) \coloneqq \sum_{\substack{l=0\\ n-l\ \text{even}}}^n \frac{n!\,(m-2n)!!\,(-1)^{\frac{n-l}{2}}}{l!\,(m-n-l)!!\,(n-l)!!}\;x^l.
 \end{equation}
 \end{definition}
 It is straightforward to check that the following two identities hold.
-\begin{proposition} \label{threeterm} Let $d_n^m\coloneqq \frac{n(m-n+1)}{(m-2n)(m-2n+2)}.$ Then, for $0\leq 2n\leq m+1$:
-\begin{equation}
-\p_0^m(x) = 1,\qquad \p_1^m(x) = x, \qquad \p_{n+1}^m(x) = x\p_n^m(x) -d_n^m \p_{n-1}^m(x). 
-\end{equation} \qed
-\end{proposition}
 \begin{lemma} \label{trigonometric}
-We have the following differential identity for $n\geq 1$:
+For $n\geq 1$, we have a trigonometric differential relation:
 \begin{equation}
-\frac{d}{d\omega} \Big[p_{n-1}^{m-2}\big(\tan(\omega)\big)\cos(\omega)^{m-1} \Big]= (n-m) p_{n}^{m}\big(\tan(\omega)\big)\cos(\omega)^{m-1}
-\end{equation}
+\frac{d}{d\omega} \Big[\p{n-1}{m-2}\big(\tan(\omega)\big)\cos(\omega)^{m-1} \Big]= (n-m)\, \p{n}{m}\big(\tan(\omega)\big)\cos(\omega)^{m-1}
+\end{equation} \qed
 \end{lemma}
-\begin{proof}
-From $\frac{d}{d\omega}\sin^l\cos^{m-l-1} = l\sin^{l-1}\cos^{m-l} - (m-l-1)\sin^{l+1}\cos^{m-l-2}$ (omitting the argument $\omega$) it follows that
-\begin{align*}
-\frac{d}{d\omega}&\p_{n-1}^{m-2}(\tan)\cos^{m-1}  = \sum_{\substack{l=0\\ n-l\ \text{odd}}}^n \tfrac{(n-1)!(m-2n)!!(-1)^{\frac{n-l-1}{2}}}{l!(m-n-l-1)!!(n-l-1)!!}\frac{d}{d\omega}\sin^l\cos^{m-l-1} \\
-&= \sum_{\substack{l=1\\ n-l\ \text{odd}}}^{n+1} \tfrac{(n-1)!(m-2n)!!(-1)^{\frac{n-l-1}{2}}}{(l-1)!(m-n-l+1)!!(n-l+1)!!}\Big[(m\!-\!n\!-\!l\!+\!1)(n\!-\!l\!+\!1)+(l\!+\!1)(m\!-\!l\!+\!1) \Big]\sin^{l-1}\cos^{m-l}\\
-&= (n-m)\,\p_n^m(\tan)\cos^{m-1}
-\end{align*}
-\end{proof}
+\begin{proposition} \label{threeterm} For $0\leq 2n\leq m+1$, we have a three-term recurrence:
+\begin{equation}
+\p{0}{m}(x) = 1,\qquad \p{1}{m}(x) = x, \qquad \p{n+1}{m}(x) = x\p{n}{m}(x) -d_n^m \p{n-1}{m}(x),
+\end{equation} 
+where $d_n^m\coloneqq \frac{n(m-n+1)}{(m-2n)(m-2n+2)}$.\qed
+\end{proposition}
 \begin{theorem} We define, for $m\geq 1$, a linear functional $\L$ on the vector space of polynomials of degree less than $m$, by setting
 \begin{equation}
 \L: f \longmapsto \int_0^\infty\!\!\! \int_{-\infty}^\infty y^{m-1}f\left(\frac{x}{y}\right)dxdy.
 \end{equation}
-Then the $\p_n^m$ form a set of orthogonal polynomials with respect to the induced bilinear form, \ie $\L(\p_{n}^m\p_{n'}^m)=0$ for $n\neq n'$ and 
+Then the $\p{n}{m}$ form a set of orthogonal polynomials with respect to the induced bilinear form, \ie $\L(\p{n}{m}\p{n'}{m})=0$ for $n\neq n'$ and 
 \begin{equation}
-\L(\p_{n}^m\p_{n}^m) = 2^{\frac{3}{2}m-\frac{1}{2}-2n}  \frac{n!}{(m-n)!}
+\L(\p{n}{m}\p{n}{m}) = 2^{\frac{3}{2}m-\frac{1}{2}-2n}  \frac{n!}{(m-n)!}
 \Gamma\left(\frac{m}{2}-n\right)\Gamma\left(\frac{m}{2}-n+1\right)\Gamma\left(\frac{m+1}{2}\right).
 \end{equation}
 \end{theorem}
 \begin{proof}
-Since $\p_n^m$ satisfies the three-term relation in Prop.~\ref{threeterm}, by Favard's theorem, there exists a unique functional $\L'$ with $\L'(1)=1$, such that the $\p_n^m$ form an orthogonal basis with respect to the bilinear form induced by $\L'$. We will show that $\L$ is a scalar multiple of $\L'$. Since $(\p_n^m)_{n\leq\frac{m-1}{2}} $ is a basis of our vector space, all we must do is showing that, for $n\geq 1$, $\L(\p_n^m) = \L(\p_n^m\p_0^m) =0$.
+Since $\p{n}{m}$ satisfies the three-term relation in Prop.~\ref{threeterm}, by Favard's theorem, there exists a unique functional $\L'$ with $\L'(1)=1$, such that the $\p{n}{m}$ form an orthogonal basis with respect to the bilinear form induced by $\L'$. We will show that $\L$ is a scalar multiple of $\L'$, namely $\L=2^{\frac{m-1}{2}}\Gamma\left(\frac{m+1}{2}\right) \L'$. Since $(\p{n}{m})_{n\leq\frac{m-1}{2}} $ is a basis of our vector space, all we must do is showing that, for $n\geq 1$, $\L(\p{n}{m}) = \L(\p{n}{m}\p{0}{m}) =0$.
 Using polar coordinates $(x,y) = (r\cos\omega,r\sin\omega)$ and Lemma \ref{trigonometric}, we get:
 \begin{align*}
-\L(\p_n^m) &= \int_0^\infty r^m e^{-\frac{r^2}{2}}dr \int_{\frac{\pi}{2}}^{\frac{3\pi}{2}} \cos(\omega)^{m-1} p_{n}^{m}\big(\tan(\omega)\big)d\omega\\
+\L(\p{n}{m}) &= \int_0^\infty r^m e^{-\frac{r^2}{2}}dr \int_{\frac{\pi}{2}}^{\frac{3\pi}{2}} \cos(\omega)^{m-1} p_{n}^{m}\big(\tan(\omega)\big)d\omega\\
 &= \Gamma\left(\tfrac{m+1}{2}\right)2^{\frac{m-1}{2}}\Big[p_{n-1}^{m-2}\big(\tan(\omega)\big)\cos(\omega)^{m-1} \Big]_{\frac{\pi}{2}}^{\frac{3\pi}{2}} =0.
 \end{align*}
 \end{proof}
