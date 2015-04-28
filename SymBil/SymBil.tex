@@ -1,0 +1,142 @@
+\documentclass{amsart}
+
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[all]{xy}
+\usepackage{appendix,listings,hyperref}
+
+\DeclareMathOperator{\rank}{rk}
+\DeclareMathOperator{\trace}{tr}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\Hilb}{Hilb}
+
+\newcommand{\hilb}[1]{^{[#1]}}
+\newcommand{\ie}{{\it i.e. }}
+\newcommand{\eg}{{\it e.g. }}
+\newcommand{\loccit}{{\it loc. cit. }}
+\newcommand{\vac}{|0\rangle}
+\newcommand{\odd}{{\rm{odd}}}
+\newcommand{\even}{{\rm{even}}}
+\newcommand{\tors}{{\rm{tors}}}
+
+\newcommand{\p}{p}
+\renewcommand{\L}{\mathcal{L}}
+
+\newcommand{\coloneqq}{:=}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\renewcommand{\H}{\mathbb{H}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\kS}{\mathfrak{S}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\lra}{\longrightarrow}
+\newcommand{\ra}{\rightarrow}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{notation}[theorem]{Notation}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{example}[theorem]{Example}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\title[Symmetric Powers, Hom.~Orth.~Polynomials, Hyperk\"ahlers]{Symmetric Powers of Symmetric Bilinear Forms, Homogeneous Orthogonal Polynomials on the Sphere and an Application in Compact Hyperk\"ahler Manifolds}
+
+
+\author{Simon Kapfer}
+\address{Simon Kapfer, Laboratoire de Math\'ematiques et Applications, UMR CNRS 6086, Universit\'e de Poitiers, T\'el\'eport 2, Boulevard Marie et Pierre Curie, F-86962 Futuroscope Chasseneuil}
+\email{simon.kapfer@math.univ-poitiers.fr}
+%\urladdr{http://www.math.uni-augsburg.de/alg/}
+
+
+\date{\today}
+
+%\keywords{}
+
+\begin{abstract} 
+We do technical stuff!
+\end{abstract}
+
+\maketitle
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Homogeneous Orthogonal Polynomials}
+\subsection{A polynomial family}
+\begin{definition} Let $n,\ m$ integers with $0\leq 2n\leq m+1$. We define polynomials $\p_n^m$ of degree $n$:
+\begin{equation}
+\p_n^m(x) \coloneqq \sum_{\substack{l=0\\ n-l\ \text{even}}}^n \frac{n!\,(m-2n)!!\,(-1)^{\frac{n-l}{2}}}{l!\,(m-n-l)!!\,(n-l)!!}\;x^l.
+\end{equation}
+\end{definition}
+It is straightforward to check that the following two identities hold.
+\begin{proposition} \label{threeterm} Let $d_n^m\coloneqq \frac{n(m-n+1)}{(m-2n)(m-2n+2)}.$ Then, for $0\leq 2n\leq m+1$:
+\begin{equation}
+\p_0^m(x) = 1,\qquad \p_1^m(x) = x, \qquad \p_{n+1}^m(x) = x\p_n^m(x) -d_n^m \p_{n-1}^m(x). 
+\end{equation} \qed
+\end{proposition}
+\begin{lemma} \label{trigonometric}
+We have the following differential identity for $n\geq 1$:
+\begin{equation}
+\frac{d}{d\omega} \Big[p_{n-1}^{m-2}\big(\tan(\omega)\big)\cos(\omega)^{m-1} \Big]= (n-m) p_{n}^{m}\big(\tan(\omega)\big)\cos(\omega)^{m-1}
+\end{equation}
+\end{lemma}
+\begin{proof}
+From $\frac{d}{d\omega}\sin^l\cos^{m-l-1} = l\sin^{l-1}\cos^{m-l} - (m-l-1)\sin^{l+1}\cos^{m-l-2}$ (omitting the argument $\omega$) it follows that
+\begin{align*}
+\frac{d}{d\omega}&\p_{n-1}^{m-2}(\tan)\cos^{m-1}  = \sum_{\substack{l=0\\ n-l\ \text{odd}}}^n \tfrac{(n-1)!(m-2n)!!(-1)^{\frac{n-l-1}{2}}}{l!(m-n-l-1)!!(n-l-1)!!}\frac{d}{d\omega}\sin^l\cos^{m-l-1} \\
+&= \sum_{\substack{l=1\\ n-l\ \text{odd}}}^{n+1} \tfrac{(n-1)!(m-2n)!!(-1)^{\frac{n-l-1}{2}}}{(l-1)!(m-n-l+1)!!(n-l+1)!!}\Big[(m\!-\!n\!-\!l\!+\!1)(n\!-\!l\!+\!1)+(l\!+\!1)(m\!-\!l\!+\!1) \Big]\sin^{l-1}\cos^{m-l}\\
+&= (n-m)\,\p_n^m(\tan)\cos^{m-1}
+\end{align*}
+\end{proof}
+\begin{theorem} We define, for $m\geq 1$, a linear functional $\L$ on the vector space of polynomials of degree less than $m$, by setting
+\begin{equation}
+\L: f \longmapsto \int_0^\infty\!\!\! \int_{-\infty}^\infty y^{m-1}f\left(\frac{x}{y}\right)dxdy.
+\end{equation}
+Then the $\p_n^m$ form a set of orthogonal polynomials with respect to the induced bilinear form, \ie $\L(\p_{n}^m\p_{n'}^m)=0$ for $n\neq n'$ and 
+\begin{equation}
+\L(\p_{n}^m\p_{n}^m) = 2^{\frac{3}{2}m-\frac{1}{2}-2n}  \frac{n!}{(m-n)!}
+\Gamma\left(\frac{m}{2}-n\right)\Gamma\left(\frac{m}{2}-n+1\right)\Gamma\left(\frac{m+1}{2}\right).
+\end{equation}
+\end{theorem}
+\begin{proof}
+Since $\p_n^m$ satisfies the three-term relation in Prop.~\ref{threeterm}, by Favard's theorem, there exists a unique functional $\L'$ with $\L'(1)=1$, such that the $\p_n^m$ form an orthogonal basis with respect to the bilinear form induced by $\L'$. We will show that $\L$ is a scalar multiple of $\L'$. Since $(\p_n^m)_{n\leq\frac{m-1}{2}} $ is a basis of our vector space, all we must do is showing that, for $n\geq 1$, $\L(\p_n^m) = \L(\p_n^m\p_0^m) =0$.
+Using polar coordinates $(x,y) = (r\cos\omega,r\sin\omega)$ and Lemma \ref{trigonometric}, we get:
+\begin{align*}
+\L(\p_n^m) &= \int_0^\infty r^m e^{-\frac{r^2}{2}}dr \int_{\frac{\pi}{2}}^{\frac{3\pi}{2}} \cos(\omega)^{m-1} p_{n}^{m}\big(\tan(\omega)\big)d\omega\\
+&= \Gamma\left(\tfrac{m+1}{2}\right)2^{\frac{m-1}{2}}\Big[p_{n-1}^{m-2}\big(\tan(\omega)\big)\cos(\omega)^{m-1} \Big]_{\frac{\pi}{2}}^{\frac{3\pi}{2}} =0.
+\end{align*}
+\end{proof}
+
+
+
+\bibliographystyle{amsplain}
+\bibliography{SymBil.tex}
+
+
+\end{document}

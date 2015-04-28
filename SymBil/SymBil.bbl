@@ -1,0 +1,41 @@
+\providecommand{\MR}{\relax\ifhmode\unskip\space\fi MR }
+% \MRhref is called by the amsart/book/proc definition of \MR.
+\providecommand{\MRhref}[2]{%
+  \href{http://www.ams.org/mathscinet-getitem?mr=#1}{#2}
+}
+\providecommand{\href}[2]{#2}
+\begin{thebibliography}{10}
+
+\bibitem{BNS}
+S.~Boissi\`ere, M.~Nieper-Wi{\ss}kirchen, and A.~Sarti, \emph{Smith theory and 
+  Irreducible Holomorphic Symplectic Manifolds}, eprint arXiv:1204.4118 (2012).
+
+\bibitem{Dunkl}
+Charles~F.~Dunkl and Yuan~Xu, \emph{Orthogonal Polynomials of Several Variables},
+  Encyclopedia of Mathematics and its Applications, Vol.~81, Cambridge University Press (2001)
+
+\bibitem{Folland}
+Gerald~B.~Folland, \emph{How to Integrate a Polynomial over a Sphere}, The American
+  Mathematical Monthly, Vol.~108, No.~5, (May,~2001)
+
+\bibitem{Kapfer}
+Simon~Kapfer, \emph{Computing Cup-Products in integral cohomology of Hilbert schemes 
+  of points on K3 surfaces}, eprint arXiv:1410.8398 (2014)
+
+\bibitem{LehnSorger}
+M.~Lehn and C.~Sorger, \emph{The cup product of {H}ilbert schemes for {$K3$}
+  surfaces}, Invent. Math. \textbf{152} (2003), no.~2, 305--329.
+
+\bibitem{milnor1973symmetric}
+J.W. Milnor and D. Husem{\"o}ller, \emph{Symmetric bilinear forms}, 
+  Ergebnisse der Mathematik und ihrer Grenzgebiete, Springer (1973).
+
+\bibitem{QinWang}
+Z.~Qin and W.~Wang, \emph{Integral operators and integral cohomology classes of
+  {H}ilbert schemes}, Math. Ann. \textbf{331} (2005), no.~3, 669--692.
+
+\bibitem{Verbitsky}
+M.~Verbitsky, \emph{Cohomology of compact hyper-{K}\"ahler manifolds and its
+  applications}, Geom. Funct. Anal. \textbf{6} (1996), no.~4, 601--611.
+
+\end{thebibliography}
