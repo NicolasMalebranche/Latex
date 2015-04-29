@@ -26,6 +26,8 @@
 \renewcommand{\L}{\mathcal{L}}
 
 \newcommand{\coloneqq}{:=}
+\newcommand{\bra}{\left<\!\!\!\:\left<}
+\newcommand{\ket}{\right>\!\!\!\:\right>}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -34,6 +36,7 @@
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\Z}{\mathbb{Z}}
+\renewcommand{\S}{\mathbb{S}}
 \renewcommand{\H}{\mathbb{H}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -87,7 +90,76 @@ We do technical stuff!
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\section{Symmetric Bilinear Forms on Symmetric Powers}
+Let $V$ be a vector space (or, more generally, a free module) over $K$ of rank $d$ with basis $\{e_0,\ldots,e_{d-1}\}$, equipped with a symmetric bilinear form $\left<\,\ ,\ \right>: V\times V \rightarrow K$. There are
+are at least two possibilities to define an induced bilinear form on the symmetric product $\Sym^kV$. The first one is to define on the induced basis of $\Sym^kV$
+\begin{equation}\label{Garr}
+\left< e_{i_1}\ldots e_{i_k}, e_{j_1}\ldots e_{i_k}\right>_k \coloneqq \sum_\sigma  
+\prod_{n=1}^k \left< e_{i_n},e_{j_{\sigma(n)}}\right>,
+\end{equation}
+the sum being over all permutations of $\{1,\ldots,k\}$, as studied by McGarraghy in \cite{McGarr}. However, we will \emph{not} consider 
+this construction. Instead, we make the following
+\begin{definition} On the basis $\{e_{i_1}\ldots e_{i_k}\;|\;0\leq i_1\leq\ldots\leq i_k<d\}$ of $\Sym^kV$, we define a symmetric bilinear form $\bra\ \,,\ \ket_k$ by: 
+\begin{equation}
+\label{mydef}
+\bra e_{i_1}\ldots e_{i_k}\,,\,e_{i_{k+1}}\ldots e_{i_{2k}} \ket_k \coloneqq \sum_{\mathcal{P}} \prod_{\{n,m\}\in\mathcal{P}} \left<e_{i_n},e_{i_m}\right>,
+\end{equation}
+where the sum is over all partitions $\mathcal{P}$ of $\{1,\ldots,2k\}$ in pairs.
+\end{definition}
+\begin{example}
+To contrast the two definitions, observe that 
+\begin{align}
+\left<ab,cd\right>_2 &= \left<a,c\right>\left<b,d\right>+\left<a,d\right>\left<b,c\right> \\
+\bra ab,cd\ket_2 &= \left<a,c\right>\left<b,d\right>+\left<a,d\right>\left<b,c\right> + \left<a,b\right>\left<c,d\right> 
+\end{align}
+\end{example}
+\begin{remark}
+Note that (\ref{Garr}) does not require symmetry of the bilinear form $\left<\,\ ,\ \right>$ on $V$. Indeed, the definition would equally be valid for a completely arbitrary bilinear form~$: V\times W \rightarrow K$, yielding a bilinear form $:\Sym^kV\times\Sym^kW\rightarrow K$. On the other hand, if the form on $V$ is not symmetric, then (\ref{mydef}) is not well-defined.
+\end{remark}
+
+
+
+
 \section{Homogeneous Orthogonal Polynomials}
+In this section we will construct a basis for the space of homogeneous polynomials of degree $k$ in $d+1$ variables, $\R[x_0,\ldots,x_d]$, that is orthogonal with respect to the bilinear form given by
+\begin{equation*}
+ f\,,\,g\, \longmapsto \int_{\R^{d+1}}f(x)g(x)e^{-\frac{1}{2}\|x\|^2} dx.
+\end{equation*}
+In view of Lemma \ref{homosphere}, we could equivalently integrate the homogeneous polynomials over the unit sphere $\S^d$. That is the reason why we call them orthogonal on the sphere.
+\begin{remark}
+ If the homogeneity constraint was dropped, the answer to the problem would be much simpler: A basis of polynomials orthogonal with respect to that form is given by products $H_{\alpha_0}\!(x_0)\ldots H_{\alpha_d}\!(x_d)$ of Hermite polynomials in one variable.
+\end{remark}
+\subsection{Some formulas}
+We give a few basic definitions and recall some facts on elementary calculus. The reader may also consult \cite{Folland}.
+
+Denote $\Gamma(x)$ the gamma function.
+\begin{lemma}
+We have $n!=\Gamma(n+1)$ and $(2n-1)!! = 2^{n}\pi^{-\frac{1}{2}}\Gamma\left(n+\frac{1}{2}\right)$. Furthermore,
+\begin{equation}
+ \int_0^\infty r^se^{-\frac{1}{2}r^2} dr = 2^{\frac{s-1}{2}}\Gamma\left(\tfrac{s+1}{2}\right).
+\end{equation}
+\end{lemma}
+It follows immediately, using multi-index notation: $x^\alpha = x_0^{\alpha_0}\ldots x_d^{\alpha_d}$, that:
+\begin{align}    
+ \int_{\R^{d+1}}x^\alpha x^\beta e^{-\frac{1}{2}\|x\|^2} dx &= \ \ 
+\displaystyle \prod_{i=0}^d \int_{-\infty}^\infty x_i^{\alpha_i+\beta_i} e^{-\frac{1}{2}x_i^2} dx_i \\
+ &= \left\{
+\begin{array}{*2{l}p{5cm}}
+ \prod_{i=0}^d (\alpha_i+\beta_i-1)!! &\text{if all }\alpha_i+\beta_i\text{ are even}, \vspace{0.2cm} \\ 
+ 0 &\text{otherwise}.
+\end{array}
+  \right.\nonumber
+\end{align}
+
+\begin{lemma}\label{homosphere}
+Let $f:\R^{n+1}\rightarrow\R$ be an integrable homogeneous function of degree $k$, that is $f(sx) = s^kf(x)$. Using polar coordinates $(r,\omega) = (\|x\|,\frac{x}{\|x\|})$, we get:
+\begin{align*}
+\int_{\R^{d+1}}f(x)e^{-\frac{1}{2}\|x\|^2} dx &= \int_{\S^d}\!\int_0^\infty\! f(r\omega) r^d e^{-\frac{1}{2}r^2}dr d\omega \\
+&= 2^{\frac{k+d-1}{2}}\Gamma\left(\tfrac{k+d+1}{2}\right)\int_{\S^d}f(\omega)d\omega .
+\end{align*}
+\end{lemma}
+
+
 \subsection{A polynomial family}
 \begin{definition} Let $n,\ m$ be integers with $0\leq 2n\leq m+1$. We define polynomials $\p{n}{m}$ of degree $n$:
 \begin{equation}
