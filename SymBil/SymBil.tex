@@ -28,6 +28,7 @@
 \newcommand{\coloneqq}{:=}
 \newcommand{\bra}{\left<\!\!\!\:\left<}
 \newcommand{\ket}{\right>\!\!\!\:\right>}
+\newcommand{\myeq}[1]{\mathrel{\overset{\makebox[0pt]{\text{\tiny #1}}}{=}}}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -102,9 +103,9 @@ this construction. Instead, we make the following
 \begin{definition} On the basis $\{e_{i_1}\ldots e_{i_k}\;|\;0\leq i_1\leq\ldots\leq i_k<d\}$ of $\Sym^kV$, we define a symmetric bilinear form $\bra\ \,,\ \ket_k$ by: 
 \begin{equation}
 \label{mydef}
-\bra e_{i_1}\ldots e_{i_k}\,,\,e_{i_{k+1}}\ldots e_{i_{2k}} \ket_k \coloneqq \sum_{\mathcal{P}} \prod_{\{n,m\}\in\mathcal{P}} \left<e_{i_n},e_{i_m}\right>,
+\bra e_{i_1}\ldots e_{i_k}\,,\,e_{i_{k+1}}\ldots e_{i_{2k}} \ket_k \coloneqq \sum_{\mathcal{P}} \prod_{\{a,b\}\in\mathcal{P}} \left<e_{i_a},e_{i_b}\right>,
 \end{equation}
-where the sum is over all partitions $\mathcal{P}$ of $\{1,\ldots,2k\}$ in pairs.
+where the sum is over all partitions $\mathcal{P}$ of $\{1,\ldots,2k\}$ into pairs.
 \end{definition}
 \begin{example}
 To contrast the two definitions, observe that 
@@ -121,7 +122,7 @@ Note that (\ref{Garr}) does not require symmetry of the bilinear form $\left<\,\
 
 
 \section{Homogeneous Orthogonal Polynomials}
-In this section we will construct a basis for the space of homogeneous polynomials of degree $k$ in $d+1$ variables, $\R[x_0,\ldots,x_d]$, that is orthogonal with respect to the bilinear form given by
+In this section we will construct a basis for the space of homogeneous polynomials of degree $k$ in $d+1$ variables, $\R[x_0,\ldots,x_d]_k$, that is orthogonal with respect to the bilinear form given by
 \begin{equation*}
  f\,,\,g\, \longmapsto \int_{\R^{d+1}}f(x)g(x)e^{-\frac{1}{2}\|x\|^2} dx.
 \end{equation*}
@@ -132,20 +133,20 @@ In view of Lemma \ref{homosphere}, we could equivalently integrate the homogeneo
 \subsection{Some formulas}
 We give a few basic definitions and recall some facts on elementary calculus. The reader may also consult \cite{Folland}.
 
-Denote $\Gamma(x)$ the gamma function.
-\begin{lemma}
-We have $n!=\Gamma(n+1)$ and $(2n-1)!! = 2^{n}\pi^{-\frac{1}{2}}\Gamma\left(n+\frac{1}{2}\right)$. Furthermore,
-\begin{equation}
- \int_0^\infty r^se^{-\frac{1}{2}r^2} dr = 2^{\frac{s-1}{2}}\Gamma\left(\tfrac{s+1}{2}\right).
-\end{equation}
-\end{lemma}
+Denote $\Gamma(t)$ the gamma function. It satisfies:
+\begin{align}
+n!&=\Gamma(n+1),\qquad (2n-1)!!\sqrt{\pi} =2^{n}\Gamma\left(n+\tfrac{1}{2}\right), \\
+\label{doublegamma}
+n!&\sqrt{\pi}=2^{n}\Gamma\left(\tfrac{n}{2}+1\right)\Gamma\left(\tfrac{n+1}{2}\right) ,\\
+\int_0^\infty& r^se^{-\frac{1}{2}r^2} dr = 2^{\frac{s-1}{2}}\Gamma\left(\tfrac{s+1}{2}\right).
+\end{align}
 It follows immediately, using multi-index notation: $x^\alpha = x_0^{\alpha_0}\ldots x_d^{\alpha_d}$, that:
-\begin{align}    
- \int_{\R^{d+1}}x^\alpha x^\beta e^{-\frac{1}{2}\|x\|^2} dx &= \ \ 
+\begin{align}    \label{monoint}
+ \int_{\R^{d+1}}x^\alpha x^\beta & e^{-\frac{1}{2}\|x\|^2} dx = \ \ 
 \displaystyle \prod_{i=0}^d \int_{-\infty}^\infty x_i^{\alpha_i+\beta_i} e^{-\frac{1}{2}x_i^2} dx_i \\
  &= \left\{
 \begin{array}{*2{l}p{5cm}}
- \prod_{i=0}^d (\alpha_i+\beta_i-1)!! &\text{if all }\alpha_i+\beta_i\text{ are even}, \vspace{0.2cm} \\ 
+(2 \pi)^{\frac{d+1}{2}}\prod_{i=0}^d (\alpha_i+\beta_i-1)!! &\text{if all }\alpha_i+\beta_i\text{ are even}, \vspace{0.2cm} \\ 
  0 &\text{otherwise}.
 \end{array}
   \right.\nonumber
@@ -158,6 +159,16 @@ Let $f:\R^{n+1}\rightarrow\R$ be an integrable homogeneous function of degree $k
 &= 2^{\frac{k+d-1}{2}}\Gamma\left(\tfrac{k+d+1}{2}\right)\int_{\S^d}f(\omega)d\omega .
 \end{align*}
 \end{lemma}
+
+
+\subsection{Generalities on orthogonal polynomials}
+\begin{theorem}[Favard's theorem] \label{favard}
+Let $(p_n)_n$ be a sequence of polynomials, such that $\deg p_n =n$ and the following three-term recurrence holds:
+$$p_0(x) = 1,\qquad  p_{n+1}(x) = (x-c_n)p_n(x) - d_np_{n-1}(x).
+$$
+Then there exists a unique linear functional $\L$ such that $\L(1)=1$ and $\L(p_np_{n'})=0$ for $n\neq n'$. Moreover, for $n\geq 1$ we have: $\L(p_n^2) = d_n\L(p_{n-1}^2)$.
+\end{theorem}
+
 
 
 \subsection{A polynomial family}
@@ -179,23 +190,66 @@ For $n\geq 1$, we have a trigonometric differential relation:
 \end{equation} 
 where $d_n^m\coloneqq \frac{n(m-n+1)}{(m-2n)(m-2n+2)}$.\qed
 \end{proposition}
-\begin{theorem} We define, for $m\geq 1$, a linear functional $\L$ on the vector space of polynomials of degree less than $m$, by setting
+\begin{theorem} \label{pthm}We define, for $m\geq 1$, a linear functional $\L$ on the vector space of polynomials of degree less than $m$, by setting
 \begin{equation}
-\L: f \longmapsto \int_0^\infty\!\!\! \int_{-\infty}^\infty y^{m-1}f\left(\frac{x}{y}\right)dxdy.
+\L: f \longmapsto \int_0^\infty\!\!\! \int_{-\infty}^\infty z^{m-1}f\left(\frac{y}{z}\right) e^{-\frac{y^2+z^2}{2}} dydz.
 \end{equation}
 Then the $\p{n}{m}$ form a set of orthogonal polynomials with respect to the induced bilinear form, \ie $\L(\p{n}{m}\p{n'}{m})=0$ for $n\neq n'$ and 
-\begin{equation}
+\begin{equation} \label{Lpn2}
 \L(\p{n}{m}\p{n}{m}) = 2^{\frac{3}{2}m-\frac{1}{2}-2n}  \frac{n!}{(m-n)!}
 \Gamma\left(\frac{m}{2}-n\right)\Gamma\left(\frac{m}{2}-n+1\right)\Gamma\left(\frac{m+1}{2}\right).
 \end{equation}
 \end{theorem}
 \begin{proof}
-Since $\p{n}{m}$ satisfies the three-term relation in Prop.~\ref{threeterm}, by Favard's theorem, there exists a unique functional $\L'$ with $\L'(1)=1$, such that the $\p{n}{m}$ form an orthogonal basis with respect to the bilinear form induced by $\L'$. We will show that $\L$ is a scalar multiple of $\L'$, namely $\L=2^{\frac{m-1}{2}}\Gamma\left(\frac{m+1}{2}\right) \L'$. Since $(\p{n}{m})_{n\leq\frac{m-1}{2}} $ is a basis of our vector space, all we must do is showing that, for $n\geq 1$, $\L(\p{n}{m}) = \L(\p{n}{m}\p{0}{m}) =0$.
-Using polar coordinates $(x,y) = (r\cos\omega,r\sin\omega)$ and Lemma \ref{trigonometric}, we get:
+Since $\p{n}{m}$ satisfy the three-term relation in Prop.~\ref{threeterm}, by Favard's theorem, there exists a unique functional $\L'$ with $\L'(1)=1$, such that the $\p{n}{m}$ form an orthogonal basis with respect to the bilinear form induced by $\L'$. We claim that $\L$ is a scalar multiple of $\L'$.
+Since $(\p{n}{m})_{n\leq\frac{m-1}{2}} $ is a basis of our vector space, we must show that, for $n\geq 1$, $\L(\p{n}{m}) = \L(\p{n}{m}\p{0}{m}) =0$.
+Using polar coordinates $(y,z) = (r\cos\omega,r\sin\omega)$ and Lemma \ref{trigonometric}, we get:
 \begin{align*}
-\L(\p{n}{m}) &= \int_0^\infty r^m e^{-\frac{r^2}{2}}dr \int_{\frac{\pi}{2}}^{\frac{3\pi}{2}} \cos(\omega)^{m-1} p_{n}^{m}\big(\tan(\omega)\big)d\omega\\
-&= \Gamma\left(\tfrac{m+1}{2}\right)2^{\frac{m-1}{2}}\Big[p_{n-1}^{m-2}\big(\tan(\omega)\big)\cos(\omega)^{m-1} \Big]_{\frac{\pi}{2}}^{\frac{3\pi}{2}} =0.
+\L(\p{n}{m}) &= \int_0^\pi\!\!\int_0^\infty r^m\sin(\omega)^{m-1} \p{n}{m}\left(\tfrac{\cos\omega}{\sin\omega}\right)e^{-\frac{r^2}{2}}dr d\omega \\
+&=\int_0^\infty r^m e^{-\frac{r^2}{2}}dr \int_{\frac{\pi}{2}}^{\frac{3\pi}{2}} (-1)^n \cos(\omega)^{m-1}\p{n}{m}\big(\tan(\omega)\big)d\omega\\
+&= 2^{\frac{m-1}{2}}\Gamma\left(\tfrac{m+1}{2}\right)\Big[\tfrac{(-1)^n}{n-m}p_{n-1}^{m-2}\big(\tan(\omega)\big)\cos(\omega)^{m-1} \Big]_{\frac{\pi}{2}}^{\frac{3\pi}{2}} =0,
 \end{align*}
+while $\L(1) = 2^{\frac{m-1}{2}}\sqrt{\pi}\,\Gamma\!\left(\frac{m}{2}\right)=2^{\frac{3m-1}{2}}  \frac{1}{m!}
+\Gamma\left(\frac{m}{2}\right)\Gamma\left(\frac{m}{2}+1\right)\Gamma\left(\frac{m+1}{2}\right)$ by (\ref{monoint}) and (\ref{doublegamma}). To verify that equation (\ref{Lpn2}) holds for $n\geq 1$, too, check that the right hand side satisfies $\L(\p{n}{m}\p{n}{m}) = d_n^m\L(\p{n-1}{m}\p{n-1}{m})$, the second assertion from Favard's theorem. 
+\end{proof}
+\begin{corollary}
+For monomials, 
+\end{corollary}
+
+
+\subsection{Homogeneous orthogonal polynomials} 
+We are now ready to give the desired basis of homogeneous polynomials that are orthogonal on the sphere. Inspired by the procedure for spherical harmonics, see \cite[p.~35]{Dunkl}, we make the following
+\begin{definition} \label{hdef}
+For any multi-index $\alpha=(\alpha_0,\ldots,\alpha_d)$ with $|\alpha |\coloneqq\sum\alpha_i = k$ we recursively define homogeneous polynomials $h_\alpha$ of degree $k$ by  $h_{(\alpha_0)}(x) \coloneqq x_0^{\alpha_0}$ and, for $d\geq 1$,
+$$
+h_\alpha(x) \coloneqq \p{\alpha_d}{2k+d}\left(\frac{x_d}{r}\right) r^{\alpha_d}h_{\alpha'}(x'),
+$$
+where we have set $\alpha'=(\alpha_0,\ldots,\alpha_{d-1})$ and $r=\sqrt{x_0^2 +\ldots+x_{d-1}^2}=\|x'\|$.
+\end{definition}
+\begin{theorem}
+The $h_\alpha(x)$ form an orthogonal basis of $\R[x_0,\ldots,x_d]_k$ that comes from a Gram--Schmidt process applied to the monomials. More precisely, we have:
+\begin{align} \label{hth1}
+\bra h_\alpha ,h_\alpha \ket &= 2^{|\alpha '|+|\alpha |+d}\,
+\frac{\alpha_d!\,\Gamma\!\left(|\alpha '|+\frac{d}{2}+1\right)\Gamma\!\left(|\alpha |+\frac{d+1}{2}\right)}{\sqrt{\pi}\,\left(|\alpha '|+|\alpha |+d\right)!}\bra h_{\alpha '},h_{\alpha '}\ket ,\\
+\label{hth2}
+\bra h_\alpha,h_\beta \ket &= 0 \quad\text{for }\alpha\neq\beta,\\
+\bra h_\alpha, x^\alpha \ket &= \bra h_\alpha ,h_\alpha \ket ,\\
+\bra h_\alpha,x^\beta \ket &= 0 \quad\text{for }\alpha > \beta.
+\end{align}
+
+\end{theorem}
+\begin{proof}
+For equation (\ref{hth1}), we use polar coordinates on $\R ^d$ to compute:
+\begin{align*}
+ &\int_{\R^{d+1}}\left[\p{\alpha_d}{2|\alpha|+d}\left(\frac{x_d}{r}\right) r^{\alpha_d}h_{\alpha'}(x)\right] e^{-\frac{1}{2}\|x\|^2} dx \\
+ = & \int_0^\infty\!\!\int_{\R} \left[\p{\alpha_d}{2|\alpha|+d}\left(\frac{x_d}{r}\right)\right]^2 r^{2|\alpha'|+2\alpha_d+d-1} e^{-\frac{r^2+x_d^2}{2} }dx_ddr\int_{\S^{d-1}}\left[h_{\alpha'}(\omega)\right]^2 d\omega \\
+\myeq{(\ref{Lpn2})}& \  \frac{\alpha_d!\, 2^{\frac{3}{2}d+|\alpha|+2|\alpha '|-\frac{1}{2}} }{\left(|\alpha|+|\alpha'|+d\right)!} { \textstyle
+\Gamma\!\left( |\alpha'| \!+\!\frac{d}{2}\right)\Gamma\!\left( |\alpha'|\!+\! \frac{d}{2}\!+\! 1\right) \Gamma\!\left( |\alpha| \!+\! \frac{d+1}{2}\right) }\int_{\S^{d-1}}\!\!\left[h_{\alpha'}(\omega)\right]^2 d\omega \\
+\myeq{Lemma \ref{homosphere}}&\quad\quad 2^{|\alpha '|+|\alpha |+d}\,
+\frac{\alpha_d!\;\Gamma\!\left(|\alpha '|\!+\!\frac{d}{2}\!+\!1\right)\Gamma\!\left(|\alpha |\!+\!\tfrac{d+1}{2}\right)}{\left(|\alpha '|+|\alpha |+d\right)!} \int_{\R^d} \left[h_{\alpha'}(x')\right]^2 dx'
+\end{align*}
+For the proof of (\ref{hth2}), we may assume that $\alpha_d \neq \beta_d$. Then we use the same calculation as above to see that Thm. \ref{pthm} now implies the vanishing of the integral.
+
 \end{proof}
 
 
