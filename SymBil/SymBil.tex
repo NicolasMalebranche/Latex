@@ -121,21 +121,23 @@ Note that (\ref{Garr}) does not require symmetry of the bilinear form $\left<\,\
 
 
 
-\section{Homogeneous Orthogonal Polynomials}
+\section{Homogeneous Orthogonal Polynomials on the sphere}
 In this section we will construct a basis for the space of homogeneous polynomials of degree $k$ in $d+1$ variables, $\R[x_0,\ldots,x_d]_k$, that is orthogonal with respect to the bilinear form given by
 \begin{equation*}
  \bra f,g\ket = \int_{\R^{d+1}}f(x)g(x) d\mu(x),
 \end{equation*}
-where the measure is $d\mu(x) = (2\pi)^{-\frac{d+1}{2}}e^{-\frac{1}{2}\|x\|^2}dx$.
-In view of Lemma \ref{homosphere}, we could equivalently integrate the homogeneous polynomials over the unit sphere $\S^d$. That is the reason why we call them orthogonal on the sphere.
+where the measure is $d\mu(x) = (2\pi)^{-\frac{d+1}{2}}e^{-\frac{1}{2}\|x\|^2}dx$. In order to do this, we wish to apply the Gram-Schmidt process to the (lexicographically ordered) monomial basis $(x^\alpha)_{|\alpha |=k}$. Our result is stated in Subsection \ref{hsection}. 
 \begin{remark}
- If the homogeneity constraint was dropped, the answer to the problem would be much simpler: A basis of $ \bra \ ,\;\ket$-orthogonal polynomials is given by products $H_{\alpha_0}\!(x_0)\ldots H_{\alpha_d}\!(x_d)$ of Hermite polynomials in one variable.
+In view of Lemma \ref{homosphere}, we could equivalently integrate the homogeneous polynomials over the unit sphere $\S^d$. That is the reason why we call them orthogonal on the sphere.
+\end{remark}
+\begin{remark}
+ If the homogeneity constraint was dropped, the answer to the problem would be much simpler: A basis of $ \bra\ ,\;\ket$-orthogonal polynomials is given by products $H_{\alpha_0}\!(x_0)\ldots H_{\alpha_d}\!(x_d)$ of Hermite polynomials in one variable, see also \cite[Sect.~2.3.4]{Dunkl}.
 \end{remark}
 \subsection{Some formulas}
-We give a few basic definitions and recall some facts on elementary calculus. The reader may also consult \cite{Folland}.
+We give a few basic definitions and recall some facts on elementary calculus which we will need in the sequel. The reader may also consult \cite{Folland}.
 \begin{definition}
 For a multi-index $\alpha=(\alpha_0,\ldots,\alpha_d)$ we define: $x^\alpha \coloneqq x_0^{\alpha_0}\ldots x_d^{\alpha_d}$. The degree is defined by $|\alpha |\coloneqq\sum\alpha_i$, the factorial is $\alpha! \coloneqq \prod \alpha_i!$. Further, we set
-$\alpha'\coloneqq(\alpha_0,\ldots,\alpha_{d-1})$. We introduce the lexikographical ordering on multi-indices: $\alpha < \beta$ iff $\alpha_d < \beta_d$ or $(\alpha_d=\beta_d) \wedge (\alpha'<\beta')$.
+$\alpha'\coloneqq(\alpha_0,\ldots,\alpha_{d-1})$. We introduce the lexicographical ordering on multi-indices: $\alpha < \beta$ iff $\alpha_d < \beta_d$ or $(\alpha_d=\beta_d) \wedge (\alpha'<\beta')$.
 \end{definition}
 Denote $\Gamma(t)$ the gamma function. It satisfies:
 \begin{align}
@@ -144,7 +146,7 @@ n!&=\Gamma(n+1),\qquad (2n-1)!!\sqrt{\pi} =2^{n}\Gamma\left(n+\tfrac{1}{2}\right
 n!&\sqrt{\pi}=2^{n}\Gamma\left(\tfrac{n}{2}+1\right)\Gamma\left(\tfrac{n+1}{2}\right) ,\\
 \int_0^\infty& r^se^{-\frac{1}{2}r^2} dr = 2^{\frac{s-1}{2}}\Gamma\left(\tfrac{s+1}{2}\right).
 \end{align}
-It follows immediately, using multi-index notation: $x^\alpha = x_0^{\alpha_0}\ldots x_d^{\alpha_d}$, that:
+It follows immediately, that:
 \begin{align}    \label{monoint}
  \int_{\R^{d+1}}x^\alpha x^\beta & e^{-\frac{1}{2}\|x\|^2} dx = \ \ 
 \displaystyle \prod_{i=0}^d \int_{-\infty}^\infty x_i^{\alpha_i+\beta_i} e^{-\frac{1}{2}x_i^2} dx_i \\
@@ -176,7 +178,7 @@ Then there exists a unique linear functional $\L$ such that $\L(1)=1$ and $\L(p_
 
 
 \subsection{A polynomial family}
-\begin{definition} Let $n,\ m$ be integers with $0\leq 2n\leq m+1$. We define polynomials $\p{n}{m}$ of degree $n$:
+\begin{definition} Let $n,\ m$ be integers with $0\leq 2n\leq m+1$, a condition that we always will assume silently. We define polynomials $\p{n}{m}$ of degree $n$:
 \begin{equation}
 \p{n}{m}(x) \coloneqq \sum_{\substack{l=0\\ n-l\ \text{even}}}^n \frac{n!\,(m-2n)!!\,(-1)^{\frac{n-l}{2}}}{l!\,(m-n-l)!!\,(n-l)!!}\;x^l.
 \end{equation}
@@ -205,8 +207,8 @@ Then the $\p{n}{m}$ form a set of orthogonal polynomials with respect to the ind
 \end{equation}
 \end{theorem}
 \begin{proof}
-Since $\p{n}{m}$ satisfy the three-term relation in Prop.~\ref{threeterm}, by Favard's theorem, there exists a unique functional $\L'$ with $\L'(1)=1$, such that the $\p{n}{m}$ form an orthogonal basis with respect to the bilinear form induced by $\L'$. We claim that $\L$ is a scalar multiple of $\L'$.
-Since $(\p{n}{m})_{n\leq\frac{m-1}{2}} $ is a basis of our vector space, we must show that, for $n\geq 1$, $\L(\p{n}{m}) = \L(\p{n}{m}\p{0}{m}) =0$.
+Since $\p{n}{m}$ satisfy the three-term relation in Prop.~\ref{threeterm}, by Favard's theorem, there exists a unique\footnote{Despite the fact that Favard's theorem is stated in a slightly different situation, namely for an infinite family of polynomials, the functional $\L'$ is unique on the space of poly of degree less than $\frac{m-1}{2}$.} functional $\L'$ with $\L'(1)=1$, such that the $\p{n}{m}$ form an orthogonal basis with respect to the bilinear form induced by $\L'$. We claim that $\L$ is a scalar multiple of $\L'$.
+Since $(\p{n}{m})_{n} $ is a basis of the space of polynomials, we must show that, for $n\geq 1$, $\L(\p{n}{m}) = \L(\p{n}{m}\p{0}{m}) =0$.
 Using polar coordinates $(y,z) = (r\cos\omega,r\sin\omega)$ and Lemma \ref{trigonometric}, we get:
 \begin{align*}
 \L(\p{n}{m}) &= \int_0^\pi\!\!\int_0^\infty r^m\sin(\omega)^{m-1} \p{n}{m}\left(\tfrac{\cos\omega}{\sin\omega}\right)e^{-\frac{r^2}{2}}dr d\omega \\
@@ -225,7 +227,7 @@ The first assertion is established by the theorem in the case $k=0$. Now the thr
 
 
 
-\subsection{Homogeneous orthogonal polynomials} 
+\subsection{Homogeneous orthogonal polynomials} \label{hsection}
 We are now ready to give the desired basis of homogeneous polynomials that are orthogonal on the sphere. Inspired by the procedure for spherical harmonics, see \cite[p.~35]{Dunkl}, we make the following
 \begin{definition} \label{hdef}
 For multi-indices $\alpha=(\alpha_0,\ldots,\alpha_d)$ we recursively define homogeneous polynomials $h_\alpha$ of degree $|\alpha |$ by $h_{(\alpha_0)}(x) \coloneqq x_0^{\alpha_0}$ and, for $d\geq 1$,
@@ -259,7 +261,6 @@ For equation (\ref{hth1}), we use polar coordinates on $\R ^d$ to compute:
 \end{align*}
 For the proof of (\ref{hth2}), we may assume that $\alpha_d \neq \beta_d$. Then we use the calculation above to see that Thm. \ref{pthm} now implies the vanishing of the integral. Equations (\ref{hth3}) and (\ref{hth4}) follow from Corollary \ref{pcor} in the same way.
 \end{proof}
-
 
 
 \bibliographystyle{amsplain}
