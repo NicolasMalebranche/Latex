@@ -110,8 +110,8 @@ where the sum is over all partitions $\mathcal{P}$ of $\{1,\ldots,2k\}$ into pai
 \begin{example}
 To contrast the two definitions, observe that 
 \begin{align}
-\left<ab,cd\right>_2 &= \left<a,c\right>\left<b,d\right>+\left<a,d\right>\left<b,c\right> \\
-\bra ab,cd\ket_2 &= \left<a,c\right>\left<b,d\right>+\left<a,d\right>\left<b,c\right> + \left<a,b\right>\left<c,d\right> 
+\left<ab,cd\right>_2 &= \left<a,c\right>\left<b,d\right>+\left<a,d\right>\left<b,c\right>, \\
+\bra ab,cd\ket_2 &= \left<a,c\right>\left<b,d\right>+\left<a,d\right>\left<b,c\right> + \left<a,b\right>\left<c,d\right>.
 \end{align}
 \end{example}
 \begin{remark}
@@ -124,15 +124,19 @@ Note that (\ref{Garr}) does not require symmetry of the bilinear form $\left<\,\
 \section{Homogeneous Orthogonal Polynomials}
 In this section we will construct a basis for the space of homogeneous polynomials of degree $k$ in $d+1$ variables, $\R[x_0,\ldots,x_d]_k$, that is orthogonal with respect to the bilinear form given by
 \begin{equation*}
- f\,,\,g\, \longmapsto \int_{\R^{d+1}}f(x)g(x)e^{-\frac{1}{2}\|x\|^2} dx.
+ \bra f,g\ket = \int_{\R^{d+1}}f(x)g(x) d\mu(x),
 \end{equation*}
+where the measure is $d\mu(x) = (2\pi)^{-\frac{d+1}{2}}e^{-\frac{1}{2}\|x\|^2}dx$.
 In view of Lemma \ref{homosphere}, we could equivalently integrate the homogeneous polynomials over the unit sphere $\S^d$. That is the reason why we call them orthogonal on the sphere.
 \begin{remark}
- If the homogeneity constraint was dropped, the answer to the problem would be much simpler: A basis of polynomials orthogonal with respect to that form is given by products $H_{\alpha_0}\!(x_0)\ldots H_{\alpha_d}\!(x_d)$ of Hermite polynomials in one variable.
+ If the homogeneity constraint was dropped, the answer to the problem would be much simpler: A basis of $ \bra \ ,\;\ket$-orthogonal polynomials is given by products $H_{\alpha_0}\!(x_0)\ldots H_{\alpha_d}\!(x_d)$ of Hermite polynomials in one variable.
 \end{remark}
 \subsection{Some formulas}
 We give a few basic definitions and recall some facts on elementary calculus. The reader may also consult \cite{Folland}.
-
+\begin{definition}
+For a multi-index $\alpha=(\alpha_0,\ldots,\alpha_d)$ we define: $x^\alpha \coloneqq x_0^{\alpha_0}\ldots x_d^{\alpha_d}$. The degree is defined by $|\alpha |\coloneqq\sum\alpha_i$, the factorial is $\alpha! \coloneqq \prod \alpha_i!$. Further, we set
+$\alpha'\coloneqq(\alpha_0,\ldots,\alpha_{d-1})$. We introduce the lexikographical ordering on multi-indices: $\alpha < \beta$ iff $\alpha_d < \beta_d$ or $(\alpha_d=\beta_d) \wedge (\alpha'<\beta')$.
+\end{definition}
 Denote $\Gamma(t)$ the gamma function. It satisfies:
 \begin{align}
 n!&=\Gamma(n+1),\qquad (2n-1)!!\sqrt{\pi} =2^{n}\Gamma\left(n+\tfrac{1}{2}\right), \\
@@ -194,7 +198,7 @@ where $d_n^m\coloneqq \frac{n(m-n+1)}{(m-2n)(m-2n+2)}$.\qed
 \begin{equation}
 \L: f \longmapsto \int_0^\infty\!\!\! \int_{-\infty}^\infty z^{m-1}f\left(\frac{y}{z}\right) e^{-\frac{y^2+z^2}{2}} dydz.
 \end{equation}
-Then the $\p{n}{m}$ form a set of orthogonal polynomials with respect to the induced bilinear form, \ie $\L(\p{n}{m}\p{n'}{m})=0$ for $n\neq n'$ and 
+Then the $\p{n}{m}$ form a set of orthogonal polynomials with respect to the induced bilinear form, \ie $\L(\p{k}{m}\p{n}{m})=0$ for $k\neq n$ and 
 \begin{equation} \label{Lpn2}
 \L(\p{n}{m}\p{n}{m}) = 2^{\frac{3}{2}m-\frac{1}{2}-2n}  \frac{n!}{(m-n)!}
 \Gamma\left(\frac{m}{2}-n\right)\Gamma\left(\frac{m}{2}-n+1\right)\Gamma\left(\frac{m+1}{2}\right).
@@ -210,46 +214,50 @@ Using polar coordinates $(y,z) = (r\cos\omega,r\sin\omega)$ and Lemma \ref{trigo
 &= 2^{\frac{m-1}{2}}\Gamma\left(\tfrac{m+1}{2}\right)\Big[\tfrac{(-1)^n}{n-m}p_{n-1}^{m-2}\big(\tan(\omega)\big)\cos(\omega)^{m-1} \Big]_{\frac{\pi}{2}}^{\frac{3\pi}{2}} =0,
 \end{align*}
 while $\L(1) = 2^{\frac{m-1}{2}}\sqrt{\pi}\,\Gamma\!\left(\frac{m}{2}\right)=2^{\frac{3m-1}{2}}  \frac{1}{m!}
-\Gamma\left(\frac{m}{2}\right)\Gamma\left(\frac{m}{2}+1\right)\Gamma\left(\frac{m+1}{2}\right)$ by (\ref{monoint}) and (\ref{doublegamma}). To verify that equation (\ref{Lpn2}) holds for $n\geq 1$, too, check that the right hand side satisfies $\L(\p{n}{m}\p{n}{m}) = d_n^m\L(\p{n-1}{m}\p{n-1}{m})$, the second assertion from Favard's theorem. 
+\Gamma\left(\frac{m}{2}\right)\Gamma\left(\frac{m}{2}+1\right)\Gamma\left(\frac{m+1}{2}\right)$ by (\ref{monoint}) and (\ref{doublegamma}). To verify that equation (\ref{Lpn2}) holds for $n\geq 1$, too, check that the right hand side satisfies $\L(\p{n}{m}\p{n}{m}) = d_n^m\L(\p{n-1}{m}\p{n-1}{m})$, the second information from Favard's theorem. 
 \end{proof}
-\begin{corollary}
-For monomials, 
+\begin{corollary} \label{pcor}
+ $\L(x^{k}\p{n}{m}) = 0$ for $k < n$ and $\L(x^n\p{n}{m})= \L(\p{n}{m}\p{n}{m})$.
 \end{corollary}
+\begin{proof}
+The first assertion is established by the theorem in the case $k=0$. Now the three-term recurrence from Proposition \ref{threeterm} allows us to inductively conclude that $\L(x^k\p{n}{m}) = \L(x^{k-1}\p{n+1}{m})+d_n^m\L(x^{k-1}\p{n-1}{m}) =0$. For the second equality, the same argument yields $\L(x^n\p{n}{m}) = \L(x^{n-1}\p{n+1}{m})+d_n^m\L(x^{n-1}\p{n-1}{m})=d_n^m\L(x^{n-1}\p{n-1}{m})$, for $n\geq 1$, thus $\L(x^n\p{n}{m})$ and $\L(\p{n}{m}\p{n}{m})$ satisfy the same recurrence relation.
+\end{proof}
+
 
 
 \subsection{Homogeneous orthogonal polynomials} 
 We are now ready to give the desired basis of homogeneous polynomials that are orthogonal on the sphere. Inspired by the procedure for spherical harmonics, see \cite[p.~35]{Dunkl}, we make the following
 \begin{definition} \label{hdef}
-For any multi-index $\alpha=(\alpha_0,\ldots,\alpha_d)$ with $|\alpha |\coloneqq\sum\alpha_i = k$ we recursively define homogeneous polynomials $h_\alpha$ of degree $k$ by  $h_{(\alpha_0)}(x) \coloneqq x_0^{\alpha_0}$ and, for $d\geq 1$,
+For multi-indices $\alpha=(\alpha_0,\ldots,\alpha_d)$ we recursively define homogeneous polynomials $h_\alpha$ of degree $|\alpha |$ by $h_{(\alpha_0)}(x) \coloneqq x_0^{\alpha_0}$ and, for $d\geq 1$,
 $$
-h_\alpha(x) \coloneqq \p{\alpha_d}{2k+d}\left(\frac{x_d}{r}\right) r^{\alpha_d}h_{\alpha'}(x'),
+h_\alpha(x) \coloneqq \p{\alpha_d}{2|\alpha |+d}\left(\frac{x_d}{r}\right) r^{\alpha_d}h_{\alpha'}(x'),
 $$
-where we have set $\alpha'=(\alpha_0,\ldots,\alpha_{d-1})$ and $r=\sqrt{x_0^2 +\ldots+x_{d-1}^2}=\|x'\|$.
+where we have set $r=\sqrt{x_0^2 +\ldots+x_{d-1}^2}=\|x'\|$.
 \end{definition}
-\begin{theorem}
-The $h_\alpha(x)$ form an orthogonal basis of $\R[x_0,\ldots,x_d]_k$ that comes from a Gram--Schmidt process applied to the monomials. More precisely, we have:
+\begin{theorem} Fix a degree $k$.
+Then the $h_\alpha(x),\ |\alpha|=k$ form an orthogonal basis of $\R[x_0,\ldots,x_d]_k$ that comes from a Gram--Schmidt process applied to the monomials. More precisely, we have:
 \begin{align} \label{hth1}
 \bra h_\alpha ,h_\alpha \ket &= 2^{|\alpha '|+|\alpha |+d}\,
 \frac{\alpha_d!\,\Gamma\!\left(|\alpha '|+\frac{d}{2}+1\right)\Gamma\!\left(|\alpha |+\frac{d+1}{2}\right)}{\sqrt{\pi}\,\left(|\alpha '|+|\alpha |+d\right)!}\bra h_{\alpha '},h_{\alpha '}\ket ,\\
 \label{hth2}
 \bra h_\alpha,h_\beta \ket &= 0 \quad\text{for }\alpha\neq\beta,\\
-\bra h_\alpha, x^\alpha \ket &= \bra h_\alpha ,h_\alpha \ket ,\\
-\bra h_\alpha,x^\beta \ket &= 0 \quad\text{for }\alpha > \beta.
+\label{hth3}
+\bra x^\alpha, h_\alpha \ket &= \bra h_\alpha ,h_\alpha \ket ,\\
+\label{hth4}
+\bra x^\alpha,h_\beta \ket &= 0 \quad\text{for }\alpha < \beta.
 \end{align}
-
 \end{theorem}
 \begin{proof}
 For equation (\ref{hth1}), we use polar coordinates on $\R ^d$ to compute:
 \begin{align*}
  &\int_{\R^{d+1}}\left[\p{\alpha_d}{2|\alpha|+d}\left(\frac{x_d}{r}\right) r^{\alpha_d}h_{\alpha'}(x)\right] e^{-\frac{1}{2}\|x\|^2} dx \\
  = & \int_0^\infty\!\!\int_{\R} \left[\p{\alpha_d}{2|\alpha|+d}\left(\frac{x_d}{r}\right)\right]^2 r^{2|\alpha'|+2\alpha_d+d-1} e^{-\frac{r^2+x_d^2}{2} }dx_ddr\int_{\S^{d-1}}\left[h_{\alpha'}(\omega)\right]^2 d\omega \\
-\myeq{(\ref{Lpn2})}& \  \frac{\alpha_d!\, 2^{\frac{3}{2}d+|\alpha|+2|\alpha '|-\frac{1}{2}} }{\left(|\alpha|+|\alpha'|+d\right)!} { \textstyle
+\myeq{(\ref{Lpn2})}& \  \frac{\alpha_d!\, 2^{2|\alpha '|+|\alpha|+\frac{3}{2}d-\frac{1}{2}} }{\left(|\alpha|+|\alpha'|+d\right)!} { \textstyle
 \Gamma\!\left( |\alpha'| \!+\!\frac{d}{2}\right)\Gamma\!\left( |\alpha'|\!+\! \frac{d}{2}\!+\! 1\right) \Gamma\!\left( |\alpha| \!+\! \frac{d+1}{2}\right) }\int_{\S^{d-1}}\!\!\left[h_{\alpha'}(\omega)\right]^2 d\omega \\
-\myeq{Lemma \ref{homosphere}}&\quad\quad 2^{|\alpha '|+|\alpha |+d}\,
+\myeq{Lemma \ref{homosphere}}&\quad\quad 2^{|\alpha '|+|\alpha |+d+\frac{1}{2}}\,
 \frac{\alpha_d!\;\Gamma\!\left(|\alpha '|\!+\!\frac{d}{2}\!+\!1\right)\Gamma\!\left(|\alpha |\!+\!\tfrac{d+1}{2}\right)}{\left(|\alpha '|+|\alpha |+d\right)!} \int_{\R^d} \left[h_{\alpha'}(x')\right]^2 dx'
 \end{align*}
-For the proof of (\ref{hth2}), we may assume that $\alpha_d \neq \beta_d$. Then we use the same calculation as above to see that Thm. \ref{pthm} now implies the vanishing of the integral.
-
+For the proof of (\ref{hth2}), we may assume that $\alpha_d \neq \beta_d$. Then we use the calculation above to see that Thm. \ref{pthm} now implies the vanishing of the integral. Equations (\ref{hth3}) and (\ref{hth4}) follow from Corollary \ref{pcor} in the same way.
 \end{proof}
 
 
