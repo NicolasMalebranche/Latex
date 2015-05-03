@@ -79,7 +79,7 @@
 
 \date{\today}
 
-%\keywords{}
+\keywords{Orthogonal Polynomials in Several Variables, Homogeneous Polynomials, Hermite Polynomials, Hyperk\"ahler Manifolds, Beauville-Bogomolov Form, Fujiki relation}
 
 \begin{abstract} 
 We do technical stuff!
@@ -93,32 +93,39 @@ We do technical stuff!
 
 \section{Symmetric Bilinear Forms on Symmetric Powers}
 Let $V$ be a vector space (or, more generally, a free module) over $K$ of rank $d$ with basis $\{e_0,\ldots,e_{d-1}\}$, equipped with a symmetric bilinear form $\left<\,\ ,\ \right>: V\times V \rightarrow K$. There are
-are at least two possibilities to define an induced bilinear form on the symmetric product $\Sym^kV$. The first one is to define on the induced basis of $\Sym^kV$
+are at least two possibilities to define an induced bilinear form on the symmetric power $\Sym^kV$. The first one is to define on the induced basis of $\Sym^kV$
 \begin{equation}\label{Garr}
-\left< e_{i_1}\ldots e_{i_k}, e_{j_1}\ldots e_{i_k}\right>_k \coloneqq \sum_\sigma  
+\left< e_{i_1}\ldots e_{i_k}, e_{j_1}\ldots e_{i_k}\right> \coloneqq \sum_\sigma  
 \prod_{n=1}^k \left< e_{i_n},e_{j_{\sigma(n)}}\right>,
 \end{equation}
 the sum being over all permutations of $\{1,\ldots,k\}$, as studied by McGarraghy in \cite{McGarr}. However, we will \emph{not} consider 
 this construction. Instead, we make the following
-\begin{definition} On the basis $\{e_{i_1}\ldots e_{i_k}\;|\;0\leq i_1\leq\ldots\leq i_k<d\}$ of $\Sym^kV$, we define a symmetric bilinear form $\bra\ \,,\ \ket_k$ by: 
+\begin{definition} \label{formdef} On the basis $\{e_{i_1}\ldots e_{i_k}\;|\;0\leq i_1\leq\ldots\leq i_k<d\}$ of $\Sym^kV$, we define a symmetric bilinear form $\bra\ \,,\ \ket$ by: 
 \begin{equation}
 \label{mydef}
-\bra e_{i_1}\ldots e_{i_k}\,,\,e_{i_{k+1}}\ldots e_{i_{2k}} \ket_k \coloneqq \sum_{\mathcal{P}} \prod_{\{a,b\}\in\mathcal{P}} \left<e_{i_a},e_{i_b}\right>,
+\bra e_{i_1}\ldots e_{i_k}\,,\,e_{i_{k+1}}\ldots e_{i_{2k}} \ket \coloneqq \sum_{\mathcal{P}} \prod_{\{a,b\}\in\mathcal{P}} \left<e_{i_a},e_{i_b}\right>,
 \end{equation}
 where the sum is over all partitions $\mathcal{P}$ of $\{1,\ldots,2k\}$ into pairs.
 \end{definition}
+Observe that if $U\in O(V)$ is an orthogonal transformation, then the induced diagonal action of $U^{\otimes k}$ on $\Sym^kV$ is orthogonal in both cases. This shows that the two definitions are independent of the choice of the base.
+
 \begin{example}
-To contrast the two definitions, observe that 
+To contrast the two definitions, observe that in the case $k=2$
 \begin{align}
-\left<ab,cd\right>_2 &= \left<a,c\right>\left<b,d\right>+\left<a,d\right>\left<b,c\right>, \\
-\bra ab,cd\ket_2 &= \left<a,c\right>\left<b,d\right>+\left<a,d\right>\left<b,c\right> + \left<a,b\right>\left<c,d\right>.
+\left<ab,cd\right> &= \left<a,c\right>\left<b,d\right>+\left<a,d\right>\left<b,c\right>, \\
+\bra ab,cd\ket &= \left<a,c\right>\left<b,d\right>+\left<a,d\right>\left<b,c\right> + \left<a,b\right>\left<c,d\right>.
 \end{align}
 \end{example}
 \begin{remark}
-Note that (\ref{Garr}) does not require symmetry of the bilinear form $\left<\,\ ,\ \right>$ on $V$. Indeed, the definition would equally be valid for a completely arbitrary bilinear form~$: V\times W \rightarrow K$, yielding a bilinear form $:\Sym^kV\times\Sym^kW\rightarrow K$. On the other hand, if the form on $V$ is not symmetric, then (\ref{mydef}) is not well-defined.
+Note that (\ref{Garr}) does not require symmetry of the bilinear form $\left<\,\ ,\ \right>$ on $V$. Indeed, the definition would also be valid for a completely arbitrary bilinear form~$: V\times W \rightarrow K$, yielding a bilinear form $:\Sym^kV\times\Sym^kW\rightarrow K$. On the other hand, if the form on $V$ is not symmetric, then (\ref{mydef}) is not well-defined.
 \end{remark}
-
-
+\begin{remark}
+The defining equation (\ref{mydef}) works equally well, if the two arguments have different degree. So we can easily extend our definition to a symmetric bilinear form~$\bra\ \,,\ \ket:\Sym^*V\times\Sym^*V \rightarrow K$. Note that then $\Sym^kV$ is in general not orthogonal to $\Sym^lV$ unless $k-l \equiv 1 \mod{2}$.
+\end{remark}
+We wish to investigate some properties of this construction. First of all, in the case $K=\R$, the obvious isomorphism
+\begin{equation*}
+\Sym^* V \cong \R\!\left[x_0,\ldots,x_{d-1}\right]
+\end{equation*}
 
 
 \section{Homogeneous Orthogonal Polynomials on the sphere}
@@ -146,7 +153,7 @@ n!&=\Gamma(n+1),\qquad (2n-1)!!\sqrt{\pi} =2^{n}\Gamma\left(n+\tfrac{1}{2}\right
 n!&\sqrt{\pi}=2^{n}\Gamma\left(\tfrac{n}{2}+1\right)\Gamma\left(\tfrac{n+1}{2}\right) ,\\
 \int_0^\infty& r^se^{-\frac{1}{2}r^2} dr = 2^{\frac{s-1}{2}}\Gamma\left(\tfrac{s+1}{2}\right).
 \end{align}
-It follows immediately, that:
+Using symmetry, it follows immediately that:
 \begin{align}    \label{monoint}
  \int_{\R^{d+1}}x^\alpha x^\beta & e^{-\frac{1}{2}\|x\|^2} dx = \ \ 
 \displaystyle \prod_{i=0}^d \int_{-\infty}^\infty x_i^{\alpha_i+\beta_i} e^{-\frac{1}{2}x_i^2} dx_i \\
@@ -222,7 +229,7 @@ while $\L(1) = 2^{\frac{m-1}{2}}\sqrt{\pi}\,\Gamma\!\left(\frac{m}{2}\right)=2^{
  $\L(x^{k}\p{n}{m}) = 0$ for $k < n$ and $\L(x^n\p{n}{m})= \L(\p{n}{m}\p{n}{m})$.
 \end{corollary}
 \begin{proof}
-The first assertion is established by the theorem in the case $k=0$. Now the three-term recurrence from Proposition \ref{threeterm} allows us to inductively conclude that $\L(x^k\p{n}{m}) = \L(x^{k-1}\p{n+1}{m})+d_n^m\L(x^{k-1}\p{n-1}{m}) =0$. For the second equality, the same argument yields $\L(x^n\p{n}{m}) = \L(x^{n-1}\p{n+1}{m})+d_n^m\L(x^{n-1}\p{n-1}{m})=d_n^m\L(x^{n-1}\p{n-1}{m})$, for $n\geq 1$, thus $\L(x^n\p{n}{m})$ and $\L(\p{n}{m}\p{n}{m})$ satisfy the same recurrence relation.
+The first assertion is established by the theorem in the case $k=0$. Now the three-term recurrence from Proposition \ref{threeterm} allows us to inductively conclude that $\L(x^k\p{n}{m}) = \L(x^{k-1}\p{n+1}{m})+d_n^m\L(x^{k-1}\p{n-1}{m}) =0$. The second assertion is trivial in the case $n\leq 1$. For $n\geq 1$, the same argument as above yields now $\L(x^n\p{n}{m}) = \L(x^{n-1}\p{n+1}{m})+d_n^m\L(x^{n-1}\p{n-1}{m})=d_n^m\L(x^{n-1}\p{n-1}{m})$, so $\L(x^n\p{n}{m})$ and $\L(\p{n}{m}\p{n}{m})$ must be equal because they satisfy the same recurrence relation.
 \end{proof}
 
 
@@ -252,16 +259,22 @@ Then the $h_\alpha(x),\ |\alpha|=k$ form an orthogonal basis of $\R[x_0,\ldots,x
 \begin{proof}
 For equation (\ref{hth1}), we use polar coordinates on $\R ^d$ to compute:
 \begin{align*}
- &\int_{\R^{d+1}}\left[\p{\alpha_d}{2|\alpha|+d}\left(\frac{x_d}{r}\right) r^{\alpha_d}h_{\alpha'}(x)\right] e^{-\frac{1}{2}\|x\|^2} dx \\
+ &\int_{\R^{d+1}}\left[\p{\alpha_d}{2|\alpha|+d}\left(\frac{x_d}{r}\right) r^{\alpha_d}h_{\alpha'}(x)\right]^2 e^{-\frac{1}{2}\|x\|^2} dx \\
  = & \int_0^\infty\!\!\int_{\R} \left[\p{\alpha_d}{2|\alpha|+d}\left(\frac{x_d}{r}\right)\right]^2 r^{2|\alpha'|+2\alpha_d+d-1} e^{-\frac{r^2+x_d^2}{2} }dx_ddr\int_{\S^{d-1}}\left[h_{\alpha'}(\omega)\right]^2 d\omega \\
 \myeq{(\ref{Lpn2})}& \  \frac{\alpha_d!\, 2^{2|\alpha '|+|\alpha|+\frac{3}{2}d-\frac{1}{2}} }{\left(|\alpha|+|\alpha'|+d\right)!} { \textstyle
 \Gamma\!\left( |\alpha'| \!+\!\frac{d}{2}\right)\Gamma\!\left( |\alpha'|\!+\! \frac{d}{2}\!+\! 1\right) \Gamma\!\left( |\alpha| \!+\! \frac{d+1}{2}\right) }\int_{\S^{d-1}}\!\!\left[h_{\alpha'}(\omega)\right]^2 d\omega \\
 \myeq{Lemma \ref{homosphere}}&\quad\quad 2^{|\alpha '|+|\alpha |+d+\frac{1}{2}}\,
-\frac{\alpha_d!\;\Gamma\!\left(|\alpha '|\!+\!\frac{d}{2}\!+\!1\right)\Gamma\!\left(|\alpha |\!+\!\tfrac{d+1}{2}\right)}{\left(|\alpha '|+|\alpha |+d\right)!} \int_{\R^d} \left[h_{\alpha'}(x')\right]^2 dx'
+\frac{\alpha_d!\;\Gamma\!\left(|\alpha '|\!+\!\frac{d}{2}\!+\!1\right)\Gamma\!\left(|\alpha |\!+\!\tfrac{d+1}{2}\right)}{\left(|\alpha '|+|\alpha |+d\right)!} \int_{\R^d} \left[h_{\alpha'}(x')\right]^2 dx'.
 \end{align*}
 For the proof of (\ref{hth2}), we may assume that $\alpha_d \neq \beta_d$. Then we use the calculation above to see that Thm. \ref{pthm} now implies the vanishing of the integral. Equations (\ref{hth3}) and (\ref{hth4}) follow from Corollary \ref{pcor} in the same way.
 \end{proof}
 
+
+
+
+
+\section{Application in Hyperk\"ahler geometry}
+Let $X$ be a compact Hyperk\"ahler manifold of complex dimension $2n$.
 
 \bibliographystyle{amsplain}
 \bibliography{SymBil.tex}
