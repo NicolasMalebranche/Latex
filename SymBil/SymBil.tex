@@ -33,7 +33,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\newcommand{\C}{\mathbb{C}}
+\newcommand{\G}{\mathbb{G}}
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\Z}{\mathbb{Z}}
@@ -79,7 +79,7 @@
 
 \date{\today}
 
-\keywords{Orthogonal Polynomials in Several Variables, Homogeneous Polynomials, Hermite Polynomials, Hyperk\"ahler Manifolds, Beauville-Bogomolov Form, Fujiki relation}
+\keywords{Orthogonal Polynomials in Several Variables, Hankel matrix, Homogeneous Polynomials, Hermite Polynomials, Hyperk\"ahler Manifolds, Beauville-Bogomolov Form, Fujiki relation}
 
 \begin{abstract} 
 We do technical stuff!
@@ -92,23 +92,23 @@ We do technical stuff!
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Symmetric Bilinear Forms on Symmetric Powers}
-Let $V$ be a vector space (or, more generally, a free module) over $K$ of rank $d$ with basis $\{e_0,\ldots,e_{d-1}\}$, equipped with a symmetric bilinear form $\left<\,\ ,\ \right>: V\times V \rightarrow K$. There are
+Let $V$ be a vector space (or a free module) over a field (resp.~a commutative ring) $K$ of rank $d+1$ with basis $\{e_0,\ldots,e_{d}\}$, equipped with a symmetric bilinear form $\left<\,\ ,\ \right>: V\times V \rightarrow K$. There
 are at least two possibilities to define an induced bilinear form on the symmetric power $\Sym^kV$. The first one is to define on the induced basis of $\Sym^kV$
 \begin{equation}\label{Garr}
-\left< e_{i_1}\ldots e_{i_k}, e_{j_1}\ldots e_{i_k}\right> \coloneqq \sum_\sigma  
-\prod_{n=1}^k \left< e_{i_n},e_{j_{\sigma(n)}}\right>,
+\left< e_{\alpha_1}\ldots e_{\alpha_k}, e_{\beta_1}\ldots e_{\beta_k}\right> \coloneqq \sum_\sigma  
+\prod_{i=1}^k \left< e_{\alpha_i},e_{\beta_{\sigma(i)}}\right>,
 \end{equation}
 the sum being over all permutations of $\{1,\ldots,k\}$, as studied by McGarraghy in \cite{McGarr}. However, we will \emph{not} consider 
 this construction. Instead, we make the following
-\begin{definition} \label{formdef} On the basis $\{e_{i_1}\ldots e_{i_k}\;|\;0\leq i_1\leq\ldots\leq i_k<d\}$ of $\Sym^kV$, we define a symmetric bilinear form $\bra\ \,,\ \ket$ by: 
+\begin{definition} \label{formdef} On the basis $\{e_{\alpha_1}\ldots e_{\alpha_k}\;|\;0\leq \alpha_1\leq\ldots\leq \alpha_k\leq d\}$ of $\Sym^kV$, we define a symmetric bilinear form $\bra\ \,,\ \ket$ by: 
 \begin{equation}
 \label{mydef}
-\bra e_{i_1}\ldots e_{i_k}\,,\,e_{i_{k+1}}\ldots e_{i_{2k}} \ket \coloneqq \sum_{\mathcal{P}} \prod_{\{a,b\}\in\mathcal{P}} \left<e_{i_a},e_{i_b}\right>,
+\bra e_{\alpha_1}\ldots e_{\alpha_k}\,,\,e_{\alpha_{k+1}}\ldots e_{\alpha_{2k}} \ket \coloneqq \sum_{\mathcal{P}} \prod_{\{i,j\}\in\mathcal{P}} \left<e_{\alpha_i},e_{\alpha_j}\right>,
 \end{equation}
 where the sum is over all partitions $\mathcal{P}$ of $\{1,\ldots,2k\}$ into pairs.
 \end{definition}
-Observe that if $U\in O(V)$ is an orthogonal transformation, then the induced diagonal action of $U^{\otimes k}$ on $\Sym^kV$ is orthogonal in both cases. This shows that the two definitions are independent of the choice of the base.
-
+If $U\in O(V)$ is an orthogonal transformation, then the induced diagonal action of $U^{\otimes k}$ on $\Sym^kV$ is orthogonal in both cases. This shows that the two definitions are independent of the choice of the base of $V$. 
+For later reference, please note that the number of partitions of $\{1,\ldots,2k\}$ into pairs is given by the double factorial $(2k-1)!! = (2k-1)(2k-3)(2k-5)\ldots$.
 \begin{example}
 To contrast the two definitions, observe that in the case $k=2$
 \begin{align}
@@ -122,10 +122,51 @@ Note that (\ref{Garr}) does not require symmetry of the bilinear form $\left<\,\
 \begin{remark}
 The defining equation (\ref{mydef}) works equally well, if the two arguments have different degree. So we can easily extend our definition to a symmetric bilinear form~$\bra\ \,,\ \ket:\Sym^*V\times\Sym^*V \rightarrow K$. Note that then $\Sym^kV$ is in general not orthogonal to $\Sym^lV$ unless $k-l \equiv 1 \mod{2}$.
 \end{remark}
-We wish to investigate some properties of this construction. First of all, in the case $K=\R$, the obvious isomorphism
+We wish to investigate some properties of this construction. Let $G$ be the Gram matrix of $\left< \ ,\;\right>$, \ie $G_{ij} = \left<e_i,e_j\right>$. 
+Our main result is then:
+\begin{theorem} \label{maintheorem}
+The determinant of the Gram matrix $\G$ of $\bra\ ,\;\ket$ is:
+\begin{equation}
+\det(\G)= \det(G)^{\binom{d+k}{k-1}}\,(-1)^{\binom{d+k}{k}}\theta_{d,k}
+\end{equation}
+where $\theta_{d,k}$ is a combinatorial factor given by:
+\begin{equation}
+\theta_{d,k} = \left\{
+ \begin{array}{*2{l}p{5cm}}
+ \displaystyle\prod_{i=1}^k i^{\binom{k-i+d}{d}d}\prod_{\substack{i=1 \\ i\ \text{odd}\\\ }}^{2k+d-1}i^{\binom{k-i+d}{d}} &\text{if }d\text{ is even}, \\
+ \displaystyle\prod_{i=1}^k i^{\binom{k-i+d}{d}d}\prod_{i=1}^{k+\frac{d-1}{2}} i^{\binom{k-i+d}{d} - \binom{k-2i+d}{d}} &\text{if }d\text{ is odd}.
+\end{array}
+\right.
+\end{equation}
+\end{theorem}
+See Section \ref{proofsection} for the proof. Note that for small $d$ and $k$ we have nicer formulas for $\theta_{d,k}$:
+\begin{gather*}
+\theta_{d,1} =1,\qquad \theta_{d,2} = 2^{d}(d+3), \\
+\theta_{0,k} = (2k-1)!!, \qquad \theta_{1,k} = (k!)^{k+1}.
+\end{gather*}
+
+
+%We shall assume that it is non-degenerate, so $G^{-1} $ exists.
+\begin{proposition} In the case $K=\R$, under the obvious isomorphism
 \begin{equation*}
-\Sym^* V \cong \R\!\left[x_0,\ldots,x_{d-1}\right]
+\Sym^* V \cong \R\!\left[x_0,\ldots,x_{d}\right]
 \end{equation*}
+that identifies the standard base of $Sym^kV$ with monomials of degree $k$, the bilinear form is mapped to
+\begin{equation}
+\bra x^\alpha, x^\beta \ket = \frac{1}{c}\int_{\R^{d+1}} x^\alpha x^\beta d\mu(x).
+\end{equation}
+Here the integration measure is given by $d\mu(x) = \exp\left(-\frac{1}{2}\sum_{i,j} G^{-1}_{ij}x_ix_j\right)dx$ and the normalization constant $c=\int_{\R^{n+1}} d\mu(x)$.
+\end{proposition}
+\begin{proof}
+Since the integral is invariant under orthogonal transformations of the base space, too, we may assume that $G= \text{diag}\left(a_0,\ldots,a_d\right)$ is a diagonal matrix. Denote $m(i)$ the exponent of $x_i$ in $x^\alpha x^\beta$. Then the integral splits nicely:
+$$
+\bra x^\alpha, x^\beta \ket = \frac{1}{c}\prod_{i=0}^d \int_{-\infty} \infty x_i^{m(i)} e^{-\frac{1}{2}x_i^2}dx_i =
+$$
+%In order to increase readability of the proof, we put $d=1$, because the generalisation is evident. Definition \ref{formdef} reads then
+$$ 
+\bra e_0^{\otimes i}e_1^{\otimes k-i}\,,\, e_0^{\otimes j}e_1^{\otimes k-j} \ket = \prod_n=0^d
+$$
+\end{proof}
 
 
 \section{Homogeneous Orthogonal Polynomials on the sphere}
@@ -270,11 +311,16 @@ For the proof of (\ref{hth2}), we may assume that $\alpha_d \neq \beta_d$. Then 
 \end{proof}
 
 
-
+\section{Proof of Theorem \ref{maintheorem}} \label{proofsection}
 
 
 \section{Application in Hyperk\"ahler geometry}
-Let $X$ be a compact Hyperk\"ahler manifold of complex dimension $2n$.
+Let $X$ be a compact Hyperk\"ahler manifold of complex dimension $2k$. On the second cohomology $H^2(X,\Z)$ there is an integral quadratic form, called the Beauville--Bogomolov form $q_X$, which can be computed by an integration over some cup--product power:
+\begin{equation}
+\int_X \alpha ^{2k} = c_X q_X(\alpha)^k
+\end{equation}
+See \cite[Chap. 23]{Huybrechts} or \cite[Subsection~2.3]{OGrady} for reference.
+
 
 \bibliographystyle{amsplain}
 \bibliography{SymBil.tex}

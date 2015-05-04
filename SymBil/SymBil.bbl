@@ -18,24 +18,19 @@ Charles~F.~Dunkl and Yuan~Xu, \emph{Orthogonal Polynomials of Several Variables}
 Gerald~B.~Folland, \emph{How to Integrate a Polynomial over a Sphere}, The American
   Mathematical Monthly, Vol.~108, No.~5, (May,~2001)
 
+\bibitem{Huybrechts}
+Mark~Gross, Daniel~Huybrechts, Dominic~Joyce, \emph{Calabi-Yau Manifolds and Related Geometries},
+  Universitext, Springer (2003)
+
 \bibitem{Kapfer}
 Simon~Kapfer, \emph{Computing Cup-Products in integral cohomology of Hilbert schemes 
   of points on K3 surfaces}, eprint arXiv:1410.8398 (2014)
-
-\bibitem{LehnSorger}
-M.~Lehn and C.~Sorger, \emph{The cup product of Hilbert schemes for {$K3$}
-  surfaces}, Invent. Math. \textbf{152} (2003), no.~2, 305--329.
 
 \bibitem{McGarr}
 Se\'an McGarraghy, \emph{Symmetric Powers of Symmetric Bilinear Forms}, 
   Algebra Colloquium 12:1 (2005) 41-57
 
-\bibitem{QinWang}
-Z.~Qin and W.~Wang, \emph{Integral operators and integral cohomology classes of
-  {H}ilbert schemes}, Math. Ann. \textbf{331} (2005), no.~3, 669--692.
-
-\bibitem{Verbitsky}
-M.~Verbitsky, \emph{Cohomology of compact hyper-{K}\"ahler manifolds and its
-  applications}, Geom. Funct. Anal. \textbf{6} (1996), no.~4, 601--611.
+\bibitem{OGrady}
+Kieran~G.~O'Grady, \emph{Compact Hyperk\"ahler manifolds: general theory} (2013)
 
 \end{thebibliography}
