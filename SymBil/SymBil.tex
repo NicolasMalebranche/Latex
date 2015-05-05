@@ -92,23 +92,23 @@ We do technical stuff!
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Symmetric Bilinear Forms on Symmetric Powers}
-Let $V$ be a vector space (or a free module) over a field (resp.~a commutative ring) $K$ of rank $d+1$ with basis $\{e_0,\ldots,e_{d}\}$, equipped with a symmetric bilinear form $\left<\,\ ,\ \right>: V\times V \rightarrow K$. There
-are at least two possibilities to define an induced bilinear form on the symmetric power $\Sym^kV$. The first one is to define on the induced basis of $\Sym^kV$
+Let $V$ be a vector space (or a free module) over a field (resp.~a commutative ring) $K$ of rank $d+1$ with basis $\{x_0,\ldots,x_{d}\}$, equipped with a symmetric bilinear form $\left<\,\ ,\ \right>: V\times V \rightarrow K$. We will freely identify the symmetric power $\Sym^kV$ with the space of homogeneous polynomials $K[x_0,\ldots,x_d]_k$ of degree $k$. 
+
+There are at least two possibilities to define an induced bilinear form on $\Sym^kV$. The first one is to define on monomials:
 \begin{equation}\label{Garr}
-\left< e_{\alpha_1}\ldots e_{\alpha_k}, e_{\beta_1}\ldots e_{\beta_k}\right> \coloneqq \sum_\sigma  
-\prod_{i=1}^k \left< e_{\alpha_i},e_{\beta_{\sigma(i)}}\right>,
+\left< x_{n_1}\ldots x_{n_k}\,,\, x_{m_1}\ldots x_{m_k}\right> \coloneqq \sum_\sigma  
+\prod_{i=1}^k \left< x_{n_i},x_{m_{\sigma(i)}}\right>,
 \end{equation}
 the sum being over all permutations of $\{1,\ldots,k\}$, as studied by McGarraghy in \cite{McGarr}. However, we will \emph{not} consider 
 this construction. Instead, we make the following
-\begin{definition} \label{formdef} On the basis $\{e_{\alpha_1}\ldots e_{\alpha_k}\;|\;0\leq \alpha_1\leq\ldots\leq \alpha_k\leq d\}$ of $\Sym^kV$, we define a symmetric bilinear form $\bra\ \,,\ \ket$ by: 
+\begin{definition} \label{formdef} On the basis $\{x_{n_1}\ldots x_{n_k}\;|\;0\leq n_1\leq\ldots\leq n_k\leq d\}$ of $\Sym^kV$, we define a symmetric bilinear form $\bra\ \,,\ \ket$ by: 
 \begin{equation}
 \label{mydef}
-\bra e_{\alpha_1}\ldots e_{\alpha_k}\,,\,e_{\alpha_{k+1}}\ldots e_{\alpha_{2k}} \ket \coloneqq \sum_{\mathcal{P}} \prod_{\{i,j\}\in\mathcal{P}} \left<e_{\alpha_i},e_{\alpha_j}\right>,
+\bra x_{n_1}\ldots x_{n_k}\,,\,x_{n_{k+1}}\ldots x_{n_{2k}} \ket \coloneqq \sum_{\mathcal{P}} \prod_{\{i,j\}\in\mathcal{P}} \left<x_{n_i},x_{n_j}\right>,
 \end{equation}
 where the sum is over all partitions $\mathcal{P}$ of $\{1,\ldots,2k\}$ into pairs.
 \end{definition}
 If $U\in O(V)$ is an orthogonal transformation, then the induced diagonal action of $U^{\otimes k}$ on $\Sym^kV$ is orthogonal in both cases. This shows that the two definitions are independent of the choice of the base of $V$. 
-For later reference, please note that the number of partitions of $\{1,\ldots,2k\}$ into pairs is given by the double factorial $(2k-1)!! = (2k-1)(2k-3)(2k-5)\ldots = \frac{(2k)!}{2^kk!}$.
 \begin{example}
 To contrast the two definitions, observe that in the case $k=2$
 \begin{align}
@@ -122,7 +122,28 @@ Note that (\ref{Garr}) does not require symmetry of the bilinear form $\left<\,\
 \begin{remark}
 The defining equation (\ref{mydef}) works equally well, if the two arguments have different degree. So we can easily extend our definition to a symmetric bilinear form~$\bra\ \,,\ \ket:\Sym^*V\times\Sym^*V \rightarrow K$. Note that then $\Sym^kV$ is in general not orthogonal to $\Sym^lV$ unless $k-l \equiv 1 \mod{2}$.
 \end{remark}
-We wish to investigate some properties of this construction. Let $G$ be the Gram matrix of $\left< \ ,\;\right>$, \ie $G_{ij} = \left<e_i,e_j\right>$. 
+We wish to investigate some properties of this construction. Let $G$ be the Gram matrix of $\left< \ ,\;\right>$, \ie $G_{ij} = \left<x_i,x_j\right>$ and
+let $\G$ be the Gram matrix of $\bra\ ,\;\ket$. We use multi-index notation, cf.~Definition~\ref{multiindex}.
+\begin{proposition} Assume $K=\R$ and $G$ is positive definite, so $G^{-1} $ exists. Then $\bra\ ,\;\ket$ takes a nice integral form:
+\begin{equation}
+\bra x^\alpha, x^\beta \ket = \frac{1}{c}\int_{\R^{d+1}} x^\alpha x^\beta d\mu(x).
+\end{equation}
+Here the integration measure is $d\mu(x) = \exp\left(-\frac{1}{2}\sum_{i,j} G^{-1}_{ij}x_ix_j\right)dx$ and the normalization constant is $c=\int_{\R^{n+1}} d\mu(x)=\sqrt{(2\pi)^{d+1}\det G}$.
+\end{proposition}
+\begin{proof} We make use of the content in Section \ref{boring}.
+First, observe that both sides of the equation are invariant under orthogonal transformations of the base space $\R^{d+1}$. We may therefore assume that $G= \text{diag}\left(a_0,\ldots,a_d\right)$ is a diagonal matrix. Then the integral splits nicely:
+\begin{align*}
+\frac{1}{c}\int_{\R^{d+1}}& x^\alpha x^\beta d\mu(x)= \frac{1}{c}\prod_{i=0}^d \int_{-\infty}^\infty x_i^{\alpha_i+\beta_i} e^{-\frac{1}{2a_i}x_i^2}dx_i \\=&\: 
+\frac{1}{c}\prod_{i=0}^d a_i^{\frac{\alpha_i+\beta_i+1}{2}}\int_{-\infty}^\infty x^{\alpha_i+\beta_i} e^{-\frac{1}{2}x^2}dx\\
+=&\left\{
+\begin{array}{*2{l}p{5cm}}\displaystyle \prod_{i=0}^d a_i^{\frac{\alpha_i+\beta_i}{2}}(\alpha_i+\beta_i-1)!! &\text{if all }\alpha_i+\beta_i\text{ are even}, \vspace{0.2cm} \\ 
+ 0 &\text{otherwise}.
+\end{array}
+ \right.
+\end{align*}
+On the other hand, if $G$ is diagonal, then every partition into pairs of the multiset $\{n^{\alpha_n+\beta_n}|\,0\!\leq\!n\!\leq\! d\}$ that contains a pair of two different numbers will not contribute to the sum in the defining equation (\ref{mydef}). It is not hard to see that we obtain the same formula for $\bra x^\alpha, x^\beta \ket$.
+\end{proof}
+
 Our main result is then:
 \begin{theorem} \label{maintheorem}
 The determinant of the Gram matrix $\G$ of $\bra\ ,\;\ket$ is:
@@ -139,53 +160,23 @@ where $\theta_{d,k}$ is a combinatorial factor given by:
 \right.
 \end{equation}
 \end{theorem}
-See Section \ref{proofsection} for the proof. Note that for small $d$ and $k$ we have nicer formulas for $\theta_{d,k}$:
+See Section \ref{proofsection} for the proof. Note that for small $d$ and $k$ we can simplify:
 \begin{gather*}
 \theta_{d,1} =1,\qquad \theta_{d,2} = 2^{d}(d+3), \\
 \theta_{0,k} = (2k-1)!!, \qquad \theta_{1,k} = (k!)^{k+1}.
 \end{gather*}
 
-
-%We shall assume that it is non-degenerate, so $G^{-1} $ exists.
-\begin{proposition} In the case $K=\R$, under the obvious isomorphism
-\begin{equation*}
-\Sym^* V \cong \R\!\left[x_0,\ldots,x_{d}\right]
-\end{equation*}
-that identifies the standard base of $Sym^kV$ with monomials of degree $k$, the bilinear form is mapped to
-\begin{equation}
-\bra x^\alpha, x^\beta \ket = \frac{1}{c}\int_{\R^{d+1}} x^\alpha x^\beta d\mu(x).
-\end{equation}
-Here the integration measure is given by $d\mu(x) = \exp\left(-\frac{1}{2}\sum_{i,j} G^{-1}_{ij}x_ix_j\right)dx$ and the normalization constant $c=\int_{\R^{n+1}} d\mu(x)$.
-\end{proposition}
-\begin{proof}
-Since the integral is invariant under orthogonal transformations of the base space, too, we may assume that $G= \text{diag}\left(a_0,\ldots,a_d\right)$ is a diagonal matrix. Denote $m(i)$ the exponent of $x_i$ in $x^\alpha x^\beta$. Then the integral splits nicely:
-$$
-\bra x^\alpha, x^\beta \ket = \frac{1}{c}\prod_{i=0}^d \int_{-\infty} \infty x_i^{m(i)} e^{-\frac{1}{2}x_i^2}dx_i =
-$$
-%In order to increase readability of the proof, we put $d=1$, because the generalisation is evident. Definition \ref{formdef} reads then
-$$ 
-\bra e_0^{\otimes i}e_1^{\otimes k-i}\,,\, e_0^{\otimes j}e_1^{\otimes k-j} \ket = \prod_n=0^d
-$$
-\end{proof}
-
-
-\section{Homogeneous Orthogonal Polynomials on the sphere}
-In this section we will construct a basis for the space of homogeneous polynomials of degree $k$ in $d+1$ variables, $\R[x_0,\ldots,x_d]_k$, that is orthogonal with respect to the bilinear form given by
-\begin{equation*}
- \bra f,g\ket = \int_{\R^{d+1}}f(x)g(x) d\mu(x),
-\end{equation*}
-where the measure is $d\mu(x) = (2\pi)^{-\frac{d+1}{2}}e^{-\frac{1}{2}\|x\|^2}dx$. In order to do this, we wish to apply the Gram-Schmidt process to the (lexicographically ordered) monomial basis $(x^\alpha)_{|\alpha |=k}$. Our result is stated in Subsection \ref{hsection}. 
-\begin{remark}
-In view of Lemma \ref{homosphere}, we could equivalently integrate the homogeneous polynomials over the unit sphere $\S^d$. That is the reason why we call them orthogonal on the sphere.
-\end{remark}
-\begin{remark}
- If the homogeneity constraint was dropped, the answer to the problem would be much simpler: A basis of $ \bra\ ,\;\ket$-orthogonal polynomials is given by products $H_{\alpha_0}\!(x_0)\ldots H_{\alpha_d}\!(x_d)$ of Hermite polynomials in one variable, see also \cite[Sect.~2.3.4]{Dunkl}.
-\end{remark}
-\subsection{Some formulas}
-We give a few basic definitions and recall some facts on elementary calculus which we will need in the sequel. The reader may also consult \cite{Folland}.
-\begin{definition}
+\section{Notions and helper formulas} \label{boring}
+In this section 
+we give a few standard definitions and recall some facts on elementary calculus. 
+\begin{definition}\label{multiindex}
 For a multi-index $\alpha=(\alpha_0,\ldots,\alpha_d)$ we define: $x^\alpha \coloneqq x_0^{\alpha_0}\ldots x_d^{\alpha_d}$. The degree is defined by $|\alpha |\coloneqq\sum\alpha_i$, the factorial is $\alpha! \coloneqq \prod \alpha_i!$. Further, we set
 $\alpha'\coloneqq(\alpha_0,\ldots,\alpha_{d-1})$. We introduce the lexicographical ordering on multi-indices: $\alpha < \beta$ iff $\alpha_d < \beta_d$ or $(\alpha_d=\beta_d) \wedge (\alpha'<\beta')$.
+\end{definition}
+\begin{definition}\label{doublefactorial}
+We define the double factorial by 
+$$n!! \,\coloneqq \prod_{i=0}^{\left\lfloor\!\frac{n-1}{2}\!\right\rfloor }(n-2i)=n(n-2)(n-4)\ldots $$
+The number of partitions of the set $\{1,\ldots,2k\}$ into pairs equals $(2k-1)!! = \frac{(2k)!}{2^kk!}$.
 \end{definition}
 Denote $\Gamma(t)$ the gamma function. It satisfies:
 \begin{align}
@@ -205,7 +196,7 @@ Using symmetry, it follows immediately that:
 \end{array}
   \right.\nonumber
 \end{align}
-
+The reader may also consult \cite{Folland}.
 \begin{lemma}\label{homosphere}
 Let $f:\R^{n+1}\rightarrow\R$ be an integrable homogeneous function of degree $k$, that is $f(sx) = s^kf(x)$. Using polar coordinates $(r,\omega) = (\|x\|,\frac{x}{\|x\|})$, we get:
 \begin{align*}
@@ -213,6 +204,21 @@ Let $f:\R^{n+1}\rightarrow\R$ be an integrable homogeneous function of degree $k
 &= 2^{\frac{k+d-1}{2}}\Gamma\left(\tfrac{k+d+1}{2}\right)\int_{\S^d}f(\omega)d\omega .
 \end{align*}
 \end{lemma}
+
+
+\section{Homogeneous Orthogonal Polynomials on the sphere}
+In this section we will construct a basis for the space of homogeneous polynomials of degree $k$ in $d+1$ variables, $\R[x_0,\ldots,x_d]_k$, that is orthogonal with respect to the bilinear form given by
+\begin{equation*}
+ \bra f,g\ket = \int_{\R^{d+1}}f(x)g(x) d\mu(x),
+\end{equation*}
+where the measure is $d\mu(x) = (2\pi)^{-\frac{d+1}{2}}e^{-\frac{1}{2}\|x\|^2}dx$. In order to do this, we wish to apply the Gram-Schmidt process to the (lexicographically ordered) monomial basis $(x^\alpha)_{|\alpha |=k}$. Our result is stated in Subsection \ref{hsection}. 
+\begin{remark}
+In view of Lemma \ref{homosphere}, we could equivalently integrate the homogeneous polynomials over the unit sphere $\S^d$. That is the reason why we call them orthogonal on the sphere.
+\end{remark}
+\begin{remark}
+ If the homogeneity constraint was dropped, the answer to the problem would be much simpler: A basis of $ \bra\ ,\;\ket$-orthogonal polynomials is given by products $H_{\alpha_0}\!(x_0)\ldots H_{\alpha_d}\!(x_d)$ of Hermite polynomials in one variable, see also \cite[Sect.~2.3.4]{Dunkl}.
+\end{remark}
+
 
 
 \subsection{Generalities on orthogonal polynomials}
@@ -357,7 +363,7 @@ contains no prime factors bigger than
 The cases $X=S^{[2]}$ and $X=S^{[3]}$ were already studied in \cite[Prop.~6.6]{BNS} and \cite[Prop.~2.4]{Kapfer}, using explicit calculations. The case $X=S^{[2]}$ is particularly nice, because $\Sym^2H^2(S^{[2]},\Z)$ and $H^4(S^{[2]},\Z)$ have the same rank. Since the rank and the discriminant of $H^2(S^{[2]},\Z)$ are $23$ and $-2$, Theorem \ref{maintheorem} implies that the cardinality of the quotient is precisely $\sqrt{2^{24}\,2^{22}(22+3)}$.
 \end{remark}
 
-
+\emph{Acknowledgements.} We thank Samuel Boissi\`ere, Cl\'ement Chesseboeuf and K\'evin Tari for useful conversations and the University of Poitiers for its hospitality. The author was supported by a DAAD grant.
 
 \bibliographystyle{amsplain}
 \bibliography{SymBil.tex}
