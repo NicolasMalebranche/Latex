@@ -79,7 +79,7 @@
 
 \date{\today}
 
-\keywords{Orthogonal Polynomials in Several Variables, Hankel matrix, Homogeneous Polynomials, Hermite Polynomials, Hyperk\"ahler Manifolds, Beauville-Bogomolov Form, Fujiki relation}
+\keywords{Orthogonal Polynomials in Several Variables, Hankel matrix, Homogeneous Polynomials, Hermite Polynomials, Hyperk\"ahler Manifolds, Beauville--Bogomolov Form, Beauville--Fujiki relation}
 
 \begin{abstract} 
 We do technical stuff!
@@ -108,7 +108,7 @@ this construction. Instead, we make the following
 where the sum is over all partitions $\mathcal{P}$ of $\{1,\ldots,2k\}$ into pairs.
 \end{definition}
 If $U\in O(V)$ is an orthogonal transformation, then the induced diagonal action of $U^{\otimes k}$ on $\Sym^kV$ is orthogonal in both cases. This shows that the two definitions are independent of the choice of the base of $V$. 
-For later reference, please note that the number of partitions of $\{1,\ldots,2k\}$ into pairs is given by the double factorial $(2k-1)!! = (2k-1)(2k-3)(2k-5)\ldots$.
+For later reference, please note that the number of partitions of $\{1,\ldots,2k\}$ into pairs is given by the double factorial $(2k-1)!! = (2k-1)(2k-3)(2k-5)\ldots = \frac{(2k)!}{2^kk!}$.
 \begin{example}
 To contrast the two definitions, observe that in the case $k=2$
 \begin{align}
@@ -315,11 +315,48 @@ For the proof of (\ref{hth2}), we may assume that $\alpha_d \neq \beta_d$. Then 
 
 
 \section{Application in Hyperk\"ahler geometry}
-Let $X$ be a compact Hyperk\"ahler manifold of complex dimension $2k$. On the second cohomology $H^2(X,\Z)$ there is an integral quadratic form, called the Beauville--Bogomolov form $q_X$, which can be computed by an integration over some cup--product power:
-\begin{equation}
-\int_X \alpha ^{2k} = c_X q_X(\alpha)^k
+Let $X$ be a compact Hyperk\"ahler manifold of complex dimension $2k$. These objects are also called Irreducible Holomorphic Symplectic manifolds. The second cohomology group $H^2(X,\Z)$ comes with an integral quadratic form, called the Beauville--Bogomolov form $q_X$, which can be computed by an integration over some cup--product power, see \cite[Subsection~2.3]{OGrady}:
+\begin{equation} \label{fujiki}
+\int_X \alpha ^{2k} = (2k-1)!!\,c_X q_X(\alpha)^k,\qquad \alpha\in H^2(X,\Z).
 \end{equation}
-See \cite[Chap. 23]{Huybrechts} or \cite[Subsection~2.3]{OGrady} for reference.
+This equation is referred to as the Beauville--Fujiki relation. The constant $c_X\in\Q$ is chosen such that the quadratic form $q_X$ is indivisible and $q_X(\sigma + \bar{\sigma}) > 0$ for a holomorphic two-form $\sigma$ with $\int_X\sigma\bar{\sigma} = 1$. There is an alternative description, as shown in \cite[Chap.~23]{Huybrechts}. Up to a scalar factor $\tilde{c}$, $q_X$ is equal to:
+\begin{equation}\label{bb}
+ \tilde{c}\,q_X(\alpha) = \frac{k}{2}\int_X \alpha^2 (\sigma\bar{\sigma})^{k-1} + (1-k)\left(\int_X\alpha\,\sigma^{n-1}\bar{\sigma}^{n}\right)\left(\int_X\alpha\,\sigma^{n}\bar{\sigma}^{n-1}\right).
+\end{equation}
+Now $q_X$, by polarisation, gives rise to a symmetric bilinear form $\left<\ ,\;\right>$ on $H^2(X,\Z)$, namely $2\left<\alpha,\beta\right> \coloneqq q_X(\alpha+\beta)-q_X(\alpha) -q_X(\beta)$. On the other hand, from (\ref{fujiki}) one deduces (again by polarisation, cf.~\cite[Eq.~3.2.4]{OGrady}) that:
+\begin{equation}
+ \int_X \alpha_1\wedge\ldots\wedge\alpha_{2k} = c_X \bra \alpha_1\ldots\alpha_k\,,\,\alpha_{k+1}\ldots\alpha_{2k}\ket,
+\end{equation}
+with the induced form $\bra\ ,\;\ket$ on $\Sym^kH^2(X,\Z)$, according to Definition \ref{formdef}. Since the Poincar\'e pairing $(\beta_1,\beta_2)_X \coloneqq \int_X\beta_1\wedge\beta_2$ gives $H^{2k}(X,\Z)$ the structure of an unimodular lattice, we have got a primitive imbedding of lattices:
+\begin{equation}
+\Big( \Sym^kH^2(X,\Z),\: c_X\!\bra\ ,\;\ket\Big) \longrightarrow \Big(H^{2k}(X,\Z),\;(\ ,\;)_X\Big).
+\end{equation}
+From this observation and Theorem \ref{maintheorem}, we deduce some interesting corollaries:
+\begin{corollary}
+Let $X$ be a compact Hyperk\"ahler manifold of complex dimension $2k$. Denote $h_2$ resp.~$d_2$ the rank and the discriminant of $H^2(X,\Z)$. Then the torsion part of the quotient
+$$
+\frac{H^{2k}(X,\Z)}{\Sym^kH^2(X,\Z)}
+$$
+contains no prime factors that are bigger than $2k+h_2-2$ and don't divide neither $c_X$ nor $d_2$. \qed
+\end{corollary}
+For the known examples of compact Hyperk\"ahler manifolds, we can refine this a bit, using \cite[Table~1]{OGrady}:
+\begin{corollary}
+ The torsion part of the quotient
+$$
+\frac{H^{2k}(X,\Z)}{\Sym^kH^2(X,\Z)}
+$$
+contains no prime factors bigger than
+\begin{itemize}
+\item $2k+21$, if $X$ is $S^{[k]}$, the Hilbert scheme of $k$ points on a K3 surface $S$,
+\item $2k+5$, if $X$ is $K^{[[k]]}$, the generalized Kummer variety of a torus,
+\item $16$, if $X$ is the 10--dimensional O'Grady manifold,
+\item $6$, if $X$ is the 6--dimensional O'Grady manifold.
+\end{itemize} \qed
+\end{corollary}
+\begin{remark}
+The cases $X=S^{[2]}$ and $X=S^{[3]}$ were already studied in \cite[Prop.~6.6]{BNS} and \cite[Prop.~2.4]{Kapfer}, using explicit calculations. The case $X=S^{[2]}$ is particularly nice, because $\Sym^2H^2(S^{[2]},\Z)$ and $H^4(S^{[2]},\Z)$ have the same rank. Since the rank and the discriminant of $H^2(S^{[2]},\Z)$ are $23$ and $-2$, Theorem \ref{maintheorem} implies that the cardinality of the quotient is precisely $\sqrt{2^{24}\,2^{22}(22+3)}$.
+\end{remark}
+
 
 
 \bibliographystyle{amsplain}
