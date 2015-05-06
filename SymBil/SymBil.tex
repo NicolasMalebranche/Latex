@@ -79,10 +79,10 @@
 
 \date{\today}
 
-\keywords{Orthogonal Polynomials in Several Variables, Hankel matrix, Homogeneous Polynomials, Hermite Polynomials, Hyperk\"ahler Manifolds, Beauville--Bogomolov Form, Beauville--Fujiki relation}
+%\keywords{Symmetric Bilinear Forms on Symmetric Powers, Orthogonal Polynomials in Several Variables,Homogeneous Orthogonal Polynomials, Hermite Polynomials, Hankel matrices, Hyperk\"ahler Manifolds, Beauville--Bogomolov Form, Beauville--Fujiki relation}
 
 \begin{abstract} 
-We do technical stuff!
+We study a construction for a symmetric bilinear form on the space $\Sym^kV$, derived from a form on $V$. We point out that it is related to integrating homogenuous polynomials over a sphere and give an orthogonal basis of such polynomials. Since the construction applies to the Beauville--Fujiki relation from Hyperk\"ahler theory, we remark some consequences for integer cohomology of compact Hyperk\"ahler manifolds.
 \end{abstract}
 
 \maketitle
@@ -96,7 +96,7 @@ Let $V$ be a vector space (or a free module) over a field (resp.~a commutative r
 
 There are at least two possibilities to define an induced bilinear form on $\Sym^kV$. The first one is to define on monomials:
 \begin{equation}\label{Garr}
-\left< x_{n_1}\ldots x_{n_k}\,,\, x_{m_1}\ldots x_{m_k}\right> \coloneqq \sum_\sigma  
+\left(\!\left( x_{n_1}\ldots x_{n_k}\,,\, x_{m_1}\ldots x_{m_k}\right)\!\right) \coloneqq \sum_\sigma  
 \prod_{i=1}^k \left< x_{n_i},x_{m_{\sigma(i)}}\right>,
 \end{equation}
 the sum being over all permutations of $\{1,\ldots,k\}$, as studied by McGarraghy in \cite{McGarr}. However, we will \emph{not} consider 
@@ -112,7 +112,7 @@ If $U\in O(V)$ is an orthogonal transformation, then the induced diagonal action
 \begin{example}
 To contrast the two definitions, observe that in the case $k=2$
 \begin{align}
-\left<ab,cd\right> &= \left<a,c\right>\left<b,d\right>+\left<a,d\right>\left<b,c\right>, \\
+\left(\!\left( ab,cd \right)\!\right) &= \left<a,c\right>\left<b,d\right>+\left<a,d\right>\left<b,c\right>, \\
 \bra ab,cd\ket &= \left<a,c\right>\left<b,d\right>+\left<a,d\right>\left<b,c\right> + \left<a,b\right>\left<c,d\right>.
 \end{align}
 \end{example}
@@ -166,18 +166,30 @@ See Section \ref{proofsection} for the proof. Note that for small $d$ and $k$ we
 \theta_{0,k} = (2k-1)!!, \qquad \theta_{1,k} = (k!)^{k+1}.
 \end{gather*}
 
-\section{Notions and helper formulas} \label{boring}
+\section{Terminology and helper formulas} \label{boring}
 In this section 
 we give a few standard definitions and recall some facts on elementary calculus. 
 \begin{definition}\label{multiindex}
 For a multi-index $\alpha=(\alpha_0,\ldots,\alpha_d)$ we define: $x^\alpha \coloneqq x_0^{\alpha_0}\ldots x_d^{\alpha_d}$. The degree is defined by $|\alpha |\coloneqq\sum\alpha_i$, the factorial is $\alpha! \coloneqq \prod \alpha_i!$. Further, we set
 $\alpha'\coloneqq(\alpha_0,\ldots,\alpha_{d-1})$. We introduce the lexicographical ordering on multi-indices: $\alpha < \beta$ iff $\alpha_d < \beta_d$ or $(\alpha_d=\beta_d) \wedge (\alpha'<\beta')$.
 \end{definition}
+\begin{definition}
+The binomial coefficient for nonnegative integers $k$ and arbitrary $z$ is defined as:
+$\binom{z}{k} \coloneqq \frac{z(z-1)\ldots(z-k+1)}{k!}$. For negative $k$ we set $\binom{z}{k}\coloneqq 0$. It satisfies the difference equation: $\binom{z+1}{k}-\binom{z}{k} = \binom{z}{k-1}$.
+\end{definition}
 \begin{definition}\label{doublefactorial}
 We define the double factorial by 
 $$n!! \,\coloneqq \prod_{i=0}^{\left\lfloor\!\frac{n-1}{2}\!\right\rfloor }(n-2i)=n(n-2)(n-4)\ldots $$
-The number of partitions of the set $\{1,\ldots,2k\}$ into pairs equals $(2k-1)!! = \frac{(2k)!}{2^kk!}$.
 \end{definition}
+\begin{proposition}
+The number of partitions of the set $\{1,\ldots,2k\}$ into pairs equals $(2k-1)!! = \frac{(2k)!}{2^kk!}$.
+\end{proposition}
+\begin{proof}
+Given such a partition, look at the pair that contains the element $1$. There are $2k-1$ possible partners; removing this pair leaves a partition of a $(2k-2)$--elementary set into pairs. Then proceed by induction.
+\end{proof}
+
+
+
 Denote $\Gamma(t)$ the gamma function. It satisfies:
 \begin{align}
 n!&=\Gamma(n+1),\qquad (2n-1)!!\sqrt{\pi} =2^{n}\Gamma\left(n+\tfrac{1}{2}\right), \\
@@ -213,7 +225,7 @@ In this section we will construct a basis for the space of homogeneous polynomia
 \end{equation*}
 where the measure is $d\mu(x) = (2\pi)^{-\frac{d+1}{2}}e^{-\frac{1}{2}\|x\|^2}dx$. In order to do this, we wish to apply the Gram-Schmidt process to the (lexicographically ordered) monomial basis $(x^\alpha)_{|\alpha |=k}$. Our result is stated in Subsection \ref{hsection}. 
 \begin{remark}
-In view of Lemma \ref{homosphere}, we could equivalently integrate the homogeneous polynomials over the unit sphere $\S^d$. That is the reason why we call them orthogonal on the sphere.
+In view of Lemma \ref{homosphere}, we could equivalently integrate the homogeneous polynomials over the unit sphere $\S^d$. This is the reason why we call them orthogonal on the sphere.
 \end{remark}
 \begin{remark}
  If the homogeneity constraint was dropped, the answer to the problem would be much simpler: A basis of $ \bra\ ,\;\ket$-orthogonal polynomials is given by products $H_{\alpha_0}\!(x_0)\ldots H_{\alpha_d}\!(x_d)$ of Hermite polynomials in one variable, see also \cite[Sect.~2.3.4]{Dunkl}.
@@ -221,13 +233,32 @@ In view of Lemma \ref{homosphere}, we could equivalently integrate the homogeneo
 
 
 
-\subsection{Generalities on orthogonal polynomials}
-\begin{theorem}[Favard's theorem] \label{favard}
+\subsection{Generalities on orthogonal polynomials in one variable}
+Given a nondegenerate symmetric bilinear form on the space of polynomials $K[x]$, one may ask for a basis of polynomials $(p_n)_n$ that are mutually orthogonal with respect to that form. To find such a basis, one could start with the monomial basis $(x^n)_n$ and apply some version of the Gram--Schmidt algorithm. The result should be a lower triangular matrix $T$ such that $p_n =\sum_j T_{nj} x^j$. If our bilinear form now depends only on the product of its two arguments, the procedure simplifies as follows:
+
+Let $\L$ be a linear functional such that the induced bilinear form $(f,g)=\L(fg)$ is nondegenerate when restricted to $K[x]_{\leq n}$, the space of polynomials of bounded degree, for all $n\geq 0$. Let $(p_n)_n$ be the associated sequence of monic orthogonal polynomials, \ie the leading term of $p_n(x)$ is $x^n$ and $(p_k,p_{n})=0$ for $k\neq n$. Then we have
+\begin{theorem} \cite[Thm.~4.1]{Chihara} There are constants $c_n,\: d_n$ such that
+\begin{equation*}
+ p_0(x) = 1,\qquad  p_{n+1}(x) = (x-c_n)p_n(x) - d_np_{n-1}(x).
+\end{equation*}
+\end{theorem}
+But also the converse is true:
+\begin{theorem}[Favard's theorem] \cite[Thm.~4.4]{Chihara} \label{favard}
 Let $(p_n)_n$ be a sequence of polynomials, such that $\deg p_n =n$ and the following three-term recurrence holds:
 $$p_0(x) = 1,\qquad  p_{n+1}(x) = (x-c_n)p_n(x) - d_np_{n-1}(x).
 $$
-Then there exists a unique linear functional $\L$ such that $\L(1)=1$ and $\L(p_np_{n'})=0$ for $n\neq n'$. Moreover, for $n\geq 1$ we have: $\L(p_n^2) = d_n\L(p_{n-1}^2)$.
+Then there exists a unique linear functional $\L$ such that $\L(1)=1$ and $\L(p_kp_{n})=0$ for $k\neq n$. 
 \end{theorem}
+\begin{theorem}\cite[Thm.~4.2]{Chihara} \label{generalLnorm}
+In this situation, we have for $n\geq 1$: $$\L(p_n^2) = d_n\L(p_{n-1}^2).$$
+\end{theorem}
+Since we shall deal with finite polynomial families, we need a little modification of Favard's theorem:
+\begin{remark} \label{finiteFarvard}
+If $(p_n)_{n\leq N}$ is a finite sequence that satisfies a three-term recurrence as above, then we can always extend it to an infinite sequence by choosing arbitrary constants $c_n$, $d_n$ for $n\geq N$. But for every such extension, the resulting functional $\L$ from Favard's theorem will satisfy $\L(1) =1$ and $\L(p_n)=\L(p_np_0)=0$ for $n\geq 1$. So $\L$ will always be uniquely determined on $K[x]_{\leq N}$, the space of degree-bounded polynomials.
+\end{remark}
+
+
+
 
 
 
@@ -261,7 +292,7 @@ Then the $\p{n}{m}$ form a set of orthogonal polynomials with respect to the ind
 \end{equation}
 \end{theorem}
 \begin{proof}
-Since $\p{n}{m}$ satisfy the three-term relation in Prop.~\ref{threeterm}, by Favard's theorem, there exists a unique\footnote{Despite the fact that Favard's theorem is stated in a slightly different situation, namely for an infinite family of polynomials, the functional $\L'$ is unique on the space of poly of degree less than $\frac{m-1}{2}$.} functional $\L'$ with $\L'(1)=1$, such that the $\p{n}{m}$ form an orthogonal basis with respect to the bilinear form induced by $\L'$. We claim that $\L$ is a scalar multiple of $\L'$.
+Since $\p{n}{m}$ satisfy the three-term relation in Prop.~\ref{threeterm}, by Favard's theorem and Remark \ref{finiteFarvard}, there exists a unique functional $\L'$ with $\L'(1)=1$, such that the $\p{n}{m}$ form an orthogonal basis with respect to the bilinear form induced by $\L'$. We claim that $\L$ is a scalar multiple of $\L'$.
 Since $(\p{n}{m})_{n} $ is a basis of the space of polynomials, we must show that, for $n\geq 1$, $\L(\p{n}{m}) = \L(\p{n}{m}\p{0}{m}) =0$.
 Using polar coordinates $(y,z) = (r\cos\omega,r\sin\omega)$ and Lemma \ref{trigonometric}, we get:
 \begin{align*}
@@ -270,7 +301,7 @@ Using polar coordinates $(y,z) = (r\cos\omega,r\sin\omega)$ and Lemma \ref{trigo
 &= 2^{\frac{m-1}{2}}\Gamma\left(\tfrac{m+1}{2}\right)\Big[\tfrac{(-1)^n}{n-m}p_{n-1}^{m-2}\big(\tan(\omega)\big)\cos(\omega)^{m-1} \Big]_{\frac{\pi}{2}}^{\frac{3\pi}{2}} =0,
 \end{align*}
 while $\L(1) = 2^{\frac{m-1}{2}}\sqrt{\pi}\,\Gamma\!\left(\frac{m}{2}\right)=2^{\frac{3m-1}{2}}  \frac{1}{m!}
-\Gamma\left(\frac{m}{2}\right)\Gamma\left(\frac{m}{2}+1\right)\Gamma\left(\frac{m+1}{2}\right)$ by (\ref{monoint}) and (\ref{doublegamma}). To verify that equation (\ref{Lpn2}) holds for $n\geq 1$, too, check that the right hand side satisfies $\L(\p{n}{m}\p{n}{m}) = d_n^m\L(\p{n-1}{m}\p{n-1}{m})$, the second information from Favard's theorem. 
+\Gamma\left(\frac{m}{2}\right)\Gamma\left(\frac{m}{2}+1\right)\Gamma\left(\frac{m+1}{2}\right)$ by (\ref{monoint}) and (\ref{doublegamma}). To verify that equation (\ref{Lpn2}) holds for $n\geq 1$, too, check that the right hand side satisfies $\L(\p{n}{m}\p{n}{m}) = d_n^m\L(\p{n-1}{m}\p{n-1}{m})$, the recurrence from Theorem~\ref{generalLnorm}.
 \end{proof}
 \begin{corollary} \label{pcor}
  $\L(x^{k}\p{n}{m}) = 0$ for $k < n$ and $\L(x^n\p{n}{m})= \L(\p{n}{m}\p{n}{m})$.

@@ -7,8 +7,12 @@
 \begin{thebibliography}{10}
 
 \bibitem{BNS}
-S.~Boissi\`ere, M.~Nieper-Wi{\ss}kirchen, and A.~Sarti, \emph{Smith theory and 
+Samuel~Boissi\`ere, Marc~Nieper-Wi{\ss}kirchen and Alessandra~Sarti, \emph{Smith theory and 
   Irreducible Holomorphic Symplectic Manifolds}, eprint arXiv:1204.4118 (2012).
+
+\bibitem{Chihara}
+Theodore~S.~Chihara, \emph{An introduction to orthogonal polynomials},
+  Mathematics and its Applications 13, Gordon and Breach Science Publishers (1978)
 
 \bibitem{Dunkl}
 Charles~F.~Dunkl and Yuan~Xu, \emph{Orthogonal Polynomials of Several Variables},
