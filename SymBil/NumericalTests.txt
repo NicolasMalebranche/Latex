@@ -1,0 +1,144 @@
+# Sage code for numerical testing
+
+# Indizes of Symmetric Product
+def sym(n,k):
+    if k==0: yield []
+    elif n>0:
+        for s in sym(n-1,k): yield s
+        for s in sym(n,k-1): yield s+[n-1]
+
+# All multi-indizes of length d and degree n
+def multiIndizes(d,n):
+    if n==0 : yield [0 for i in range(d)]
+    elif d<>0:
+        for m in multiIndizes(d-1,n):
+            m.append(0)
+            yield m
+        for m in multiIndizes(d,n-1):
+            m[d-1]+=1
+            yield m
+
+# builds a quadratic matrix
+def buildMatrix(ranks, lamb):
+    l = [i for i in ranks]
+    m =[]
+    for r in l:
+        a=[]
+        for s in l:
+            a.append(lamb(r,s))
+        m.append(a)
+    return matrix(m)
+
+# check if sym and multiIndizes yield the right number of elements
+def checkRanks():
+    l =[]
+    for d in [0..4]:
+        for k in [0..5]:
+            a = len([i for i in sym(d+1,k)])
+            b = len([i for i in multiIndizes(d+1,k)])
+            c = binomial(d+k,k)
+            l.append(a==b and b == c)
+    print all(l)
+
+# induced Gram matrix on Sym^k
+def inducedGram(G,k):
+    def inducedBilinearForm(list):
+        res = 0
+        l = len(list)
+        if l == 0 : return 1
+        if l == 1 : return 1
+        for q in [1..l-1]:
+            res+= G[list[0],list[q]] * inducedBilinearForm(list[1:q]+list[q+1:l])
+        return res
+    rk = G.dimensions()[0]
+    return buildMatrix(sym(rk,k),lambda r,s: inducedBilinearForm(r+s))
+
+
+# induced Gram matrix of diagonal matrices on Sym^k
+def inducedGramDiag(G,k):
+    rk = G.dimensions()[0] 
+    def inducedBilinearForm(alpha,beta):
+        res = 1
+        for i in [0..rk-1]:
+            ss = alpha[i]+beta[i]
+            if ss%2 <> 0: return 0
+            res *= G[i,i]^(ss/2)*(ss-1).multifactorial(2)
+        return res
+    return buildMatrix(multiIndizes(rk,k),inducedBilinearForm)
+
+
+# Checks if the induced Gram matrices are the same for diagonal matrices
+def checkInducedGram():
+    G= diagonal_matrix(random_vector(3)) 
+    print G
+    print [inducedGramDiag(G,k)==inducedGram(G,k) for k in [0..5]]
+
+# Checks the integral form of the gram matrix
+def checkIntegral():
+    var('x0 x1 x2')
+    while True:
+        rm = random_matrix(QQ,3,3)
+        G = rm+rm.transpose()
+        if G.is_positive_definite() : break
+    Gi = G^(-1)
+    earg = Gi[0,0]*x0^2 + Gi[1,1]*x1^2 + Gi[2,2]*x2^2 +2*Gi[0,1]*x0*x1 + 2*Gi[0,2]*x0*x2 + 2*Gi[2,1]*x2*x1
+    def myint(alpha):
+        [a0,a1,a2] = alpha
+        teg = x0^a0*x1^a1*x2^a2*e^(-earg/2)
+        i1 = integrate(teg,x0,-infinity,infinity)
+        i2 = integrate(i1,x1,-infinity,infinity)
+        i3 = integrate(i2,x2,-infinity,infinity)
+        return i3
+    c = myint([0,0,0])
+    c0 = False
+    if c==sqrt((2*pi)^3*G.det()): c0 = True
+    def entry(r,s):
+        II = myint([i+j for (i,j) in zip(r,s)])
+        return expand(II/c)
+    print c0,[buildMatrix(multiIndizes(3,k),entry)==inducedGram(G,k) for k in [0..3]]
+
+# Combinatorial factor theta
+def theta(d,k):
+    a = prod([i^(binomial(k-i+d,d)*d) for i in [1..k]])
+    if d%2 ==0:
+        return a*prod([i^(binomial(k-i+d,d)) for i in [1,3..2*k+d-1]])
+    else:
+        return a*prod([i^(binomial(k-i+d,d)-binomial(k-2*i+d,d)) for i in [1..k+(d-1)/2]])
+# Specialisations of theta
+def checkThetaSpec():
+    print [theta(d,1)==1 for d in [0..10]]
+    print [theta(d,2)==2^d*(d+3) for d in [0..10]]
+    print [theta(0,k)== (2*k-1).multifactorial(2) for k in [0..10]]
+    print [theta(1,k)== factorial(k)^(k+1) for k in [0..10]]
+
+# Checks the main theorem
+def checkDiscriminantTheorem():
+    for d in [0..4]:
+        G= diagonal_matrix(random_vector(d+1))
+        detG = G.det()
+        print detG,[inducedGramDiag(G,k).det() == theta(d,k)*detG^binomial(d+k,k-1) for k in [0..5]]
+    for n in [1..4]:
+        d = n-1
+        r = random_matrix(ZZ, n,n)
+        G = r+ r.transpose()
+        detG = G.det()
+        print detG,[inducedGram(G,k).det() == theta(d,k)*detG^binomial(d+k,k-1) for k in [0..4]]
+
+
+checkRanks()
+checkInducedGram()
+checkIntegral()
+checkDiscriminantTheorem()
+checkThetaSpec()
+
+A.<x>=InfinitePolynomialRing(QQ, order='lex');
+var("y0 y1 y2 y3 y4")
+
+print "n!sqrt(pi) - 2^n*Gamma(n/2+1)*Gamma((n+1)/2)"
+print [factorial(n)*sqrt(pi)-2^n*gamma(n/2+1)*gamma((n+1)/2) for n in range(17)]
+print ""
+
+print "int_0^inf r^s * exp(-1/2*r^2) - 2^((s-1)/2)*gamma((s+1)/2)"
+print [expand(integral(y0^s*exp(-1/2*y0^2), y0, 0, infinity)- 2^((s-1)/2)*gamma((s+1)/2)) for s in range(17)]
+
+
