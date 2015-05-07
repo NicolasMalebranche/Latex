@@ -82,7 +82,7 @@
 %\keywords{Symmetric Bilinear Forms on Symmetric Powers, Orthogonal Polynomials in Several Variables,Homogeneous Orthogonal Polynomials, Hermite Polynomials, Hankel matrices, Hyperk\"ahler Manifolds, Beauville--Bogomolov Form, Beauville--Fujiki relation}
 
 \begin{abstract} 
-We study a construction for a symmetric bilinear form on the space $\Sym^kV$, derived from a form on $V$. We point out that it is related to integrating homogenuous polynomials over a sphere and give an orthogonal basis of such polynomials. Since the construction applies to the Beauville--Fujiki relation from Hyperk\"ahler theory, we remark some consequences for integer cohomology of compact Hyperk\"ahler manifolds.
+We study a construction for a symmetric bilinear form on the space $\Sym^kV$, derived from a form on $V$. We point out that it is related to integrating homogenuous polynomials over a sphere and give an orthogonal basis of such polynomials. Since the construction also applies to the Beauville--Fujiki relation from Hyperk\"ahler theory, we remark some consequences for integer cohomology of compact Hyperk\"ahler manifolds.
 \end{abstract}
 
 \maketitle
@@ -120,7 +120,7 @@ To contrast the two definitions, observe that in the case $k=2$
 Note that (\ref{Garr}) does not require symmetry of the bilinear form $\left<\,\ ,\ \right>$ on $V$. Indeed, the definition would also be valid for a completely arbitrary bilinear form~$: V\times W \rightarrow K$, yielding a bilinear form $:\Sym^kV\times\Sym^kW\rightarrow K$. On the other hand, if the form on $V$ is not symmetric, then (\ref{mydef}) is not well-defined.
 \end{remark}
 \begin{remark}
-The defining equation (\ref{mydef}) works equally well, if the two arguments have different degree. So we can easily extend our definition to a symmetric bilinear form~$\bra\ \,,\ \ket:\Sym^*V\times\Sym^*V \rightarrow K$. Note that then $\Sym^kV$ is in general not orthogonal to $\Sym^lV$ unless $k-l \equiv 1 \mod{2}$.
+The defining equation (\ref{mydef}) works equally well, if the two arguments have different degree. So we can easily extend our definition to a symmetric bilinear form~$\bra\ \,,\ \ket:\Sym^*V\times\Sym^*V \rightarrow K$. Note that then $\Sym^kV$ is in general not orthogonal to $\Sym^lV$ unless $k-l$ is an odd number.
 \end{remark}
 We wish to investigate some properties of this construction. Let $G$ be the Gram matrix of $\left< \ ,\;\right>$, \ie $G_{ij} = \left<x_i,x_j\right>$ and
 let $\G$ be the Gram matrix of $\bra\ ,\;\ket$. We use multi-index notation, cf.~Definition~\ref{multiindex}.
@@ -144,14 +144,14 @@ First, observe that both sides of the equation are invariant under orthogonal tr
 On the other hand, if $G$ is diagonal, then every partition into pairs of the multiset $\{n^{\alpha_n+\beta_n}|\,0\!\leq\!n\!\leq\! d\}$ that contains a pair of two different numbers will not contribute to the sum in the defining equation (\ref{mydef}). It is not hard to see that we obtain the same formula for $\bra x^\alpha, x^\beta \ket$.
 \end{proof}
 
-Our main result is then:
+The next theorem gives a formula for the determinant of $\G$. This is of particular interest when $K=\Z$, because in this case we are doing lattice theory, and $\det \G$ is an important lattice-theoretic invariant, called the discriminant of the lattice. We prove the theorem for $K=\R$, using the above proposition, but the final formula is purely algebraic. So we conclude firstly, by analytic continuation, that we can drop the positive definiteness for $G$, which is an open condition. Secondly, we see that the coefficients are all integer, so the formula is universal in the sense that it holds over any commutative ring $K$.
 \begin{theorem} \label{maintheorem}
 The determinant of the Gram matrix $\G$ of $\bra\ ,\;\ket$ is:
 \begin{equation}
-\det(\G)= \det(G)^{\binom{d+k}{k-1}}\,(-1)^{\binom{d+k}{k}}\theta_{d,k}
+\det(\G)= \det(G)^{\binom{d+k}{d+1}}\,\theta_{d,k}
 \end{equation}
 where $\theta_{d,k}$ is a combinatorial factor given by:
-\begin{equation}
+\begin{equation} \label{thetaDef}
 \theta_{d,k} = \left\{
  \begin{array}{*2{l}p{5cm}}
  \displaystyle\prod_{i=1}^k i^{\binom{k-i+d}{d}d}\prod_{\substack{i=1 \\ i\ \text{odd}\\\ }}^{2k+d-1}i^{\binom{k-i+d}{d}} &\text{if }d\text{ is even}, \\
@@ -160,11 +160,22 @@ where $\theta_{d,k}$ is a combinatorial factor given by:
 \right.
 \end{equation}
 \end{theorem}
-See Section \ref{proofsection} for the proof. Note that for small $d$ and $k$ we can simplify:
+\begin{remark} If $d$ or $k$ is small, this simplifies as follows:
 \begin{gather*}
 \theta_{d,1} =1,\qquad \theta_{d,2} = 2^{d}(d+3), \\
 \theta_{0,k} = (2k-1)!!, \qquad \theta_{1,k} = (k!)^{k+1}.
 \end{gather*}
+\end{remark}
+\begin{proof}
+Note that one can think of $\sqrt{\det\G}$ as the volume of the parallelotope that is spanned by the monomials in some polynomial vector space.
+Let us first check, what happens if we apply a coordinate transformation $x\mapsto\tilde x$ that changes the last coordinate by $\tilde{x}_d = \gamma x_d$ and leaves the other coordinates invariant. We clearly have: $\tilde{x}^\alpha = \gamma^{\alpha_d} x^\alpha$. Let $\tilde{G}$ and $\tilde{\G}$ be the Gram matrices corresponding to the new coordinates. Extracting the factor $\gamma^2 =:a$, we get:
+$$
+\frac{\det \tilde{\G}}{\det\G} = \prod_{|\alpha|=k}a^{\alpha_d} = \prod_{i=0}^k\ \prod_{|\alpha '|=k-i} a^i  =\prod_{i=0}^ka^{i\binom{d-1+k-i}{d-1}} = a^{\binom{d+k}{d+1}}
+$$
+For the last equality we have used Lemma \ref{binomialLemma}. Now we can reduce the proof to the case when $G$ is the identity matrix. Then the statement is established by Corollary \ref{thetaCor}. By an orthogonal transformation we may assume that $G= \text{diag}\left(a_0,\ldots,a_d\right)$ is a diagonal matrix. Then we apply successively coordinate transformations that map $x_i$ to $\frac{x_i}{\sqrt{a_i}}$. We get a factor $(a_0\ldots a_d)^{\binom{d+k}{d+1}} = \deg G^{\binom{d+k}{d+1}}$.
+\end{proof}
+
+
 
 \section{Terminology and helper formulas} \label{boring}
 In this section 
@@ -175,8 +186,18 @@ $\alpha'\coloneqq(\alpha_0,\ldots,\alpha_{d-1})$. We introduce the lexicographic
 \end{definition}
 \begin{definition}
 The binomial coefficient for nonnegative integers $k$ and arbitrary $z$ is defined as:
-$\binom{z}{k} \coloneqq \frac{z(z-1)\ldots(z-k+1)}{k!}$. For negative $k$ we set $\binom{z}{k}\coloneqq 0$. It satisfies the difference equation: $\binom{z+1}{k}-\binom{z}{k} = \binom{z}{k-1}$.
+$\binom{z}{k} \coloneqq \frac{z(z-1)\ldots(z-k+1)}{k!}$. For negative $k$ we set $\binom{z}{k}\coloneqq 0$. 
 \end{definition}
+The binomial coefficient satisfies the difference equation: $\binom{z+1}{k}-\binom{z}{k} = \binom{z}{k-1}$.
+The rank of $\Sym^k K^{d+1}$ equals $\binom{d+k}{k}=\binom{d+k}{d}$.
+\begin{lemma} \label{binomialLemma}
+The following formula holds true for integers $0\leq j\leq k\leq n$:
+$$ \sum_{m=0}^n\binom{m}{j}\binom{n-m}{k-j} = \binom{n+1}{k+1}
+$$
+\end{lemma}
+\begin{proof}This is a standard identity in the calculus of binomial coefficients.
+\end{proof}
+
 \begin{definition}\label{doublefactorial}
 We define the double factorial by 
 $$n!! \,\coloneqq \prod_{i=0}^{\left\lfloor\!\frac{n-1}{2}\!\right\rfloor }(n-2i)=n(n-2)(n-4)\ldots $$
@@ -185,7 +206,7 @@ $$n!! \,\coloneqq \prod_{i=0}^{\left\lfloor\!\frac{n-1}{2}\!\right\rfloor }(n-2i
 The number of partitions of the set $\{1,\ldots,2k\}$ into pairs equals $(2k-1)!! = \frac{(2k)!}{2^kk!}$.
 \end{proposition}
 \begin{proof}
-Given such a partition, look at the pair that contains the element $1$. There are $2k-1$ possible partners; removing this pair leaves a partition of a $(2k-2)$--elementary set into pairs. Then proceed by induction.
+Given such a partition, look at the pair that contains the element $1$. There are $2k-1$ possible partners for this element; removing the pair leaves a partition of a $(2k-2)$--elementary set into pairs. Then proceed by induction.
 \end{proof}
 
 
@@ -234,7 +255,7 @@ In view of Lemma \ref{homosphere}, we could equivalently integrate the homogeneo
 
 
 \subsection{Generalities on orthogonal polynomials in one variable}
-Given a nondegenerate symmetric bilinear form on the space of polynomials $K[x]$, one may ask for a basis of polynomials $(p_n)_n$ that are mutually orthogonal with respect to that form. To find such a basis, one could start with the monomial basis $(x^n)_n$ and apply some version of the Gram--Schmidt algorithm. The result should be a lower triangular matrix $T$ such that $p_n =\sum_j T_{nj} x^j$. If our bilinear form now depends only on the product of its two arguments, the procedure simplifies as follows:
+Given a nondegenerate symmetric bilinear form on the space of polynomials $K[x]$, one may ask for a basis of polynomials $(p_n)_n$ that are mutually orthogonal with respect to that form. To find such a basis, one could start with the monomial basis $(x^n)_n$ and apply some version of the Gram--Schmidt algorithm. The result should be an infinite lower triangular matrix $T$ such that $p_n =\sum_j T_{nj} x^j$. If our bilinear form now depends only on the product of its two arguments, the procedure simplifies as follows:
 
 Let $\L$ be a linear functional such that the induced bilinear form $(f,g)=\L(fg)$ is nondegenerate when restricted to $K[x]_{\leq n}$, the space of polynomials of bounded degree, for all $n\geq 0$. Let $(p_n)_n$ be the associated sequence of monic orthogonal polynomials, \ie the leading term of $p_n(x)$ is $x^n$ and $(p_k,p_{n})=0$ for $k\neq n$. Then we have
 \begin{theorem} \cite[Thm.~4.1]{Chihara} There are constants $c_n,\: d_n$ such that
@@ -346,9 +367,16 @@ For equation (\ref{hth1}), we use polar coordinates on $\R ^d$ to compute:
 \end{align*}
 For the proof of (\ref{hth2}), we may assume that $\alpha_d \neq \beta_d$. Then we use the calculation above to see that Thm. \ref{pthm} now implies the vanishing of the integral. Equations (\ref{hth3}) and (\ref{hth4}) follow from Corollary \ref{pcor} in the same way.
 \end{proof}
+\begin{corollary}\label{thetaCor}
+$$
+\det(\bra h_\alpha ,h_\beta \ket)_{|\alpha|,|\beta|=k} = \det(\bra x^\alpha ,x^\beta \ket)_{|\alpha|,|\beta|=k} = \theta_{d,k}
+$$
+where $\theta_{d,k}$ is defined as in Equation (\ref{thetaDef}).
+\end{corollary}
+\begin{proof}
+ Coming soon ...
+\end{proof}
 
-
-\section{Proof of Theorem \ref{maintheorem}} \label{proofsection}
 
 
 \section{Application in Hyperk\"ahler geometry}
