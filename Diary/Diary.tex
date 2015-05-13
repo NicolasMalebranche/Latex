@@ -132,4 +132,12 @@ die durch einen Gram-Schmidt-Proze\ss , angewandt auf die Monomialbasis in lexik
 $$\left<h_\alpha,x^\alpha\right>=\left<h_\alpha,h_\alpha\right> = 
 \frac{\Gamma\left(|\alpha '|+\frac{d}{2}+1\right)\Gamma\left(|\alpha |+\frac{d+1}{2}\right)\alpha_d!}{\sqrt{\pi}\,\left(|\alpha '|+|\alpha |+d\right)!}2^{|\alpha '|+|\alpha |+d}\left<h_{\alpha '},h_{\alpha '}\right>
 .$$
+
+\eintrag{Ein paar Formeln mit Binomialkoeffizienten}
+\begin{align*}
+\prod_{j=0}^k (j!)^{\binom{k-j+d}{d}} =& \prod_{i=1}^k i^{\binom{k-i+d+1}{d+1}} \\
+\prod_{j=0}^k (j!)^{\binom{j+b}{d}} =& \prod_{i=1}^k i^{\binom{k+b+1}{d+1}-\binom{i+b}{d+1}} = \frac{(k!)^{\binom{k+b+1}{d+1}}}{\prod_{i=1}^k i^{\binom{i+b}{d+1}}} \\
+\prod_{j=0}^k (j+m)!^{\binom{j+d}{d}} =& \prod_{i=1}^{k+m}i^{ \binom{k+d+1}{k}-\binom{i+d-m}{i-m-1}}
+\end{align*}
+
 \end{document}          
