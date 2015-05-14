@@ -82,7 +82,7 @@
 %\keywords{Symmetric Bilinear Forms on Symmetric Powers, Orthogonal Polynomials in Several Variables,Homogeneous Orthogonal Polynomials, Hermite Polynomials, Hankel matrices, Hyperk\"ahler Manifolds, Beauville--Bogomolov Form, Beauville--Fujiki relation}
 
 \begin{abstract} 
-We study a construction for a symmetric bilinear form on the space $\Sym^kV$, derived from a form on $V$. We point out that it is related to integrating homogenuous polynomials over a sphere and give an orthogonal basis of such polynomials. Since the construction also applies to the Beauville--Fujiki relation from Hyperk\"ahler theory, we remark some consequences for integer cohomology of compact Hyperk\"ahler manifolds.
+We study a construction for a symmetric bilinear form on the space $\Sym^kV$, derived from a form on $V$. We point out that it is related to integrating homogeneous polynomials over a sphere and give an orthogonal basis of such polynomials. Since the construction also applies to the Beauville--Fujiki relation from Hyperk\"ahler theory, we remark some consequences for integer cohomology of compact Hyperk\"ahler manifolds.
 \end{abstract}
 
 \maketitle
@@ -172,7 +172,7 @@ Let us first check, what happens if we apply a coordinate transformation $x\maps
 $$
 \frac{\det \tilde{\G}}{\det\G} = \prod_{|\alpha|=k}a^{\alpha_d} = \prod_{i=0}^k\ \prod_{|\alpha '|=k-i} a^i  =\prod_{i=0}^ka^{i\binom{d-1+k-i}{d-1}} = a^{\binom{d+k}{d+1}}
 $$
-For the last equality we have used Lemma \ref{binomialLemma}. Now we can reduce the proof to the case when $G$ is the identity matrix. Then the statement is established by Corollary \ref{thetaCor}. By an orthogonal transformation we may assume that $G= \text{diag}\left(a_0,\ldots,a_d\right)$ is a diagonal matrix. Then we apply successively coordinate transformations that map $x_i$ to $\frac{x_i}{\sqrt{a_i}}$. We get a factor $(a_0\ldots a_d)^{\binom{d+k}{d+1}} = \deg G^{\binom{d+k}{d+1}}$.
+For the last equality we have used Lemma \ref{binomialLemma}. Now we can reduce the proof to the case when $G$ is the identity matrix. Then the statement is established by Corollary \ref{thetaCor}. By an orthogonal transformation we may assume that $G= \text{diag}\left(a_0,\ldots,a_d\right)$ is a diagonal matrix. Then we apply successively coordinate transformations that map $x_i$ to $\frac{x_i}{\sqrt{a_i}}$. We get a factor $(a_0\ldots a_d)^{\binom{d+k}{d+1}} = \det G^{\binom{d+k}{d+1}}$.
 \end{proof}
 
 
@@ -213,6 +213,7 @@ Given such a partition, look at the pair that contains the element $1$. There ar
 
 Denote $\Gamma(t)$ the gamma function. It satisfies:
 \begin{align}
+\label{ffgamma}
 n!&=\Gamma(n+1),\qquad (2n-1)!!\sqrt{\pi} =2^{n}\Gamma\left(n+\tfrac{1}{2}\right), \\
 \label{doublegamma}
 n!&\sqrt{\pi}=2^{n}\Gamma\left(\tfrac{n}{2}+1\right)\Gamma\left(\tfrac{n+1}{2}\right) ,\\
@@ -345,8 +346,7 @@ where we have set $r=\sqrt{x_0^2 +\ldots+x_{d-1}^2}=\|x'\|$.
 \begin{theorem} Fix a degree $k$.
 Then the $h_\alpha(x),\ |\alpha|=k$ form an orthogonal basis of $\R[x_0,\ldots,x_d]_k$ that comes from a Gram--Schmidt process applied to the monomials. More precisely, we have:
 \begin{align} \label{hth1}
-\bra h_\alpha ,h_\alpha \ket &= 2^{|\alpha '|+|\alpha |+d}\,
-\frac{\alpha_d!\,\Gamma\!\left(|\alpha '|+\frac{d}{2}+1\right)\Gamma\!\left(|\alpha |+\frac{d+1}{2}\right)}{\sqrt{\pi}\,\left(|\alpha '|+|\alpha |+d\right)!}\bra h_{\alpha '},h_{\alpha '}\ket ,\\
+\bra h_\alpha ,h_\alpha \ket &= \alpha_d!\,\frac{\left(2|\alpha '|\!+\!d\right)!!\,\left(2|\alpha |\!+\!d\!-\!1\right)!!}{\left(|\alpha '|+|\alpha |+d\right)!}\bra h_{\alpha '},h_{\alpha '}\ket ,\\
 \label{hth2}
 \bra h_\alpha,h_\beta \ket &= 0 \quad\text{for }\alpha\neq\beta,\\
 \label{hth3}
@@ -362,19 +362,41 @@ For equation (\ref{hth1}), we use polar coordinates on $\R ^d$ to compute:
  = & \int_0^\infty\!\!\int_{\R} \left[\p{\alpha_d}{2|\alpha|+d}\left(\frac{x_d}{r}\right)\right]^2 r^{2|\alpha'|+2\alpha_d+d-1} e^{-\frac{r^2+x_d^2}{2} }dx_ddr\int_{\S^{d-1}}\left[h_{\alpha'}(\omega)\right]^2 d\omega \\
 \myeq{(\ref{Lpn2})}& \  \frac{\alpha_d!\, 2^{2|\alpha '|+|\alpha|+\frac{3}{2}d-\frac{1}{2}} }{\left(|\alpha|+|\alpha'|+d\right)!} { \textstyle
 \Gamma\!\left( |\alpha'| \!+\!\frac{d}{2}\right)\Gamma\!\left( |\alpha'|\!+\! \frac{d}{2}\!+\! 1\right) \Gamma\!\left( |\alpha| \!+\! \frac{d+1}{2}\right) }\int_{\S^{d-1}}\!\!\left[h_{\alpha'}(\omega)\right]^2 d\omega \\
-\myeq{Lemma \ref{homosphere}}&\quad\quad 2^{|\alpha '|+|\alpha |+d+\frac{1}{2}}\,
-\frac{\alpha_d!\;\Gamma\!\left(|\alpha '|\!+\!\frac{d}{2}\!+\!1\right)\Gamma\!\left(|\alpha |\!+\!\tfrac{d+1}{2}\right)}{\left(|\alpha '|+|\alpha |+d\right)!} \int_{\R^d} \left[h_{\alpha'}(x')\right]^2 dx'.
+\myeq{Lemma~\ref{homosphere}}&\quad\quad \alpha_d!\,2^{|\alpha '|+|\alpha |+d+\frac{1}{2}}\,
+\frac{\Gamma\!\left(|\alpha '|\!+\!\frac{d}{2}\!+\!1\right)\Gamma\!\left(|\alpha |\!+\!\tfrac{d+1}{2}\right)}{\left(|\alpha '|+|\alpha |+d\right)!} \int_{\R^d} \left[h_{\alpha'}(x')\right]^2 dx' \\
+\myeq{(\ref{ffgamma})}& \quad\; 
+\alpha_d!\,\frac{\left(2|\alpha '|\!+\!d\right)!!\,\left(2|\alpha |\!+\!d\!-\!1\right)!!}{\left(|\alpha '|+|\alpha |+d\right)!}\, \sqrt{2\pi}\int_{\R^d} \left[h_{\alpha'}(x')\right]^2 dx' .
 \end{align*}
 For the proof of (\ref{hth2}), we may assume that $\alpha_d \neq \beta_d$. Then we use the calculation above to see that Thm. \ref{pthm} now implies the vanishing of the integral. Equations (\ref{hth3}) and (\ref{hth4}) follow from Corollary \ref{pcor} in the same way.
 \end{proof}
-\begin{corollary}\label{thetaCor}
+\begin{corollary}\label{thetaCor} Let $D(d,k):=\det(\bra x^\alpha ,x^\beta \ket)_{|\alpha|,|\beta|=k} $ be the determinant of the Gram matrix of $\bra\ ,\;\ket$. Then:
 $$
-\det(\bra h_\alpha ,h_\beta \ket)_{|\alpha|,|\beta|=k} = \det(\bra x^\alpha ,x^\beta \ket)_{|\alpha|,|\beta|=k} = \theta_{d,k}
+D(d,k) = \theta_{d,k}
 $$
 where $\theta_{d,k}$ is defined as in Equation (\ref{thetaDef}).
 \end{corollary}
-\begin{proof}
- Coming soon ...
+\begin{proof} This is a technical computation.
+From the above theorem it is clear that $D(d,k)=\prod_{|\alpha | =k}\bra h_\alpha ,h_\alpha \ket$. Now observe that the equality holds for $d\leq 0$. Since $\{ |\alpha| = k \} = \bigcup_{j=0}^k  \{ |\alpha'| = j \} \times \{ k-j \}  $, we have from Equation (\ref{hth1}):
+$$
+D(d,k) = \prod_{j=0}^k D(d\!-\!1,j) \prod_{|\alpha'| = j} (k-j)!\,\frac{(2j+d)!!\,(2k+d-1)!!}{(j+k+d)!},
+$$
+hence 
+\begin{align*}
+\frac{D(d,k)}{\prod_{j=0}^k D(d\!-\!1,j) } \;&=\; \prod_{j=0}^k \left[(k-j)!\,\frac{(2j+d)!!\,(2k+d-1)!!}{(j+k+d)!} \right]^{\binom{j+d-1}{d-1}} \\
+&=\; \prod_{i=1}^k i^{\binom{k-i+d}{d}} \underbrace{\frac{\displaystyle\prod_{i=k+d+1}^{2k+d} i^{\binom{i-k-1}{d} }}{\displaystyle \prod_{\substack{i=d+1 \\ i+d\text{ even}}}^{2k+d} i^{\binom{\frac{i+d}{2}-1}{d} }    } }_{=:R(d,k)}
+\end{align*}
+On the other hand, we have
+%$$
+%\frac{\theta_{d,k}}{\prod_{j=0}^k \theta_{d-1,j} } = \rho_{d,k}\prod_{i=1}^k i^{\binom{k-i+d}{d}} 
+%$$ where 
+$$
+\frac{\theta_{d,k}}{\prod_{j=0}^k \theta_{d-1,j} } := \left\{
+ \begin{array}{*2{l}p{5cm}}
+ \displaystyle \prod_{j=0}^k \prod_{i=1}^{j+\frac{d}{2}-1} i^{\binom{j-2i+d-1}{d-1}}\prod_{\substack{i=1 \\ i\ \text{odd}\\\ }}^{2k+d-1}i^{\binom{k-i+d}{d}} &\text{if }d\text{ is even}, \\
+ \displaystyle\prod_{i=1}^k i^{\binom{k-i+d}{d}d}\prod_{i=1}^{k+\frac{d-1}{2}} i^{\binom{k-i+d}{d} - \binom{k-2i+d}{d}} &\text{if }d\text{ is odd}.
+\end{array}
+\right.
+$$
 \end{proof}
 
 
