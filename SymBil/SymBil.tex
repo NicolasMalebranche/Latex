@@ -198,6 +198,20 @@ $$
 \begin{proof}This is a standard identity in the calculus of binomial coefficients.
 \end{proof}
 
+\begin{lemma}
+ The following identities hold true for integers $d,k,m\geq 0$:
+\begin{align} \label{facprod1}
+\prod_{j=0}^k (k-j)!^{\binom{j+d-1}{d-1}} &= \ \prod_{i=1}^k i^{\binom{k-i+d}{d}} \\
+\label{facprod2}
+ \prod_{j=0}^k (j+m)!^{\binom{j+d-1}{d-1}} &= (k+m)!^{\binom{k+d}{d}} \prod_{i=m+1}^{k+m} i^{ -\binom{i-m+d-1}{d}}
+\end{align}
+\end{lemma}
+\begin{proof}
+This is easily proven by induction over $k$.
+\end{proof}
+
+
+
 \begin{definition}\label{doublefactorial}
 We define the double factorial by 
 $$n!! \,\coloneqq \prod_{i=0}^{\left\lfloor\!\frac{n-1}{2}\!\right\rfloor }(n-2i)=n(n-2)(n-4)\ldots $$
@@ -297,7 +311,7 @@ For $n\geq 1$, we have a trigonometric differential relation:
 \frac{d}{d\omega} \Big[\p{n-1}{m-2}\big(\tan(\omega)\big)\cos(\omega)^{m-1} \Big]= (n-m)\, \p{n}{m}\big(\tan(\omega)\big)\cos(\omega)^{m-1}
 \end{equation} \qed
 \end{lemma}
-\begin{proposition} \label{threeterm} For $0\leq 2n\leq m+1$, we have a three-term recurrence:
+\begin{proposition} \label{threeterm} For $0\leq 2n\leq m-1$, we have a three-term recurrence:
 \begin{equation}
 \p{0}{m}(x) = 1,\qquad \p{1}{m}(x) = x, \qquad \p{n+1}{m}(x) = x\p{n}{m}(x) -d_n^m \p{n-1}{m}(x),
 \end{equation} 
@@ -307,7 +321,7 @@ where $d_n^m\coloneqq \frac{n(m-n+1)}{(m-2n)(m-2n+2)}$.\qed
 \begin{equation}
 \L: f \longmapsto \int_0^\infty\!\!\! \int_{-\infty}^\infty z^{m-1}f\left(\frac{y}{z}\right) e^{-\frac{y^2+z^2}{2}} dydz.
 \end{equation}
-Then the $\p{n}{m}$ form a set of orthogonal polynomials with respect to the induced bilinear form, \ie $\L(\p{k}{m}\p{n}{m})=0$ for $k\neq n$ and 
+Then the $\p{n}{m}$ form a set of orthogonal polynomials with respect to the induced bilinear form, \ie for $k\neq n,\ k\!+\! n\leq m\!-\!1$ we have $\L(\p{k}{m}\p{n}{m})=0$ and for $2n\leq m\!-\!1$:
 \begin{equation} \label{Lpn2}
 \L(\p{n}{m}\p{n}{m}) = 2^{\frac{3}{2}m-\frac{1}{2}-2n}  \frac{n!}{(m-n)!}
 \Gamma\left(\frac{m}{2}-n\right)\Gamma\left(\frac{m}{2}-n+1\right)\Gamma\left(\frac{m+1}{2}\right).
@@ -318,8 +332,8 @@ Since $\p{n}{m}$ satisfy the three-term relation in Prop.~\ref{threeterm}, by Fa
 Since $(\p{n}{m})_{n} $ is a basis of the space of polynomials, we must show that, for $n\geq 1$, $\L(\p{n}{m}) = \L(\p{n}{m}\p{0}{m}) =0$.
 Using polar coordinates $(y,z) = (r\cos\omega,r\sin\omega)$ and Lemma \ref{trigonometric}, we get:
 \begin{align*}
-\L(\p{n}{m}) &= \int_0^\pi\!\!\int_0^\infty r^m\sin(\omega)^{m-1} \p{n}{m}\left(\tfrac{\cos\omega}{\sin\omega}\right)e^{-\frac{r^2}{2}}dr d\omega \\
-&=\int_0^\infty r^m e^{-\frac{r^2}{2}}dr \int_{\frac{\pi}{2}}^{\frac{3\pi}{2}} (-1)^n \cos(\omega)^{m-1}\p{n}{m}\big(\tan(\omega)\big)d\omega\\
+\L(\p{n}{m}) &= \int_0^\pi\!\!\int_0^\infty\p{n}{m}\!\left(\tfrac{\cos\omega}{\sin\omega}\right)\sin(\omega)^{m-1} r^m e^{-\frac{r^2}{2}}dr d\omega \\
+&=\int_0^\infty r^m e^{-\frac{r^2}{2}}dr \int_{\frac{\pi}{2}}^{\frac{3\pi}{2}} (-1)^n \p{n}{m}\big(\tan(\omega)\big)\cos(\omega)^{m-1}d\omega\\
 &= 2^{\frac{m-1}{2}}\Gamma\left(\tfrac{m+1}{2}\right)\Big[\tfrac{(-1)^n}{n-m}p_{n-1}^{m-2}\big(\tan(\omega)\big)\cos(\omega)^{m-1} \Big]_{\frac{\pi}{2}}^{\frac{3\pi}{2}} =0,
 \end{align*}
 while $\L(1) = 2^{\frac{m-1}{2}}\sqrt{\pi}\,\Gamma\!\left(\frac{m}{2}\right)=2^{\frac{3m-1}{2}}  \frac{1}{m!}
@@ -375,17 +389,24 @@ D(d,k) = \theta_{d,k}
 $$
 where $\theta_{d,k}$ is defined as in Equation (\ref{thetaDef}).
 \end{corollary}
-\begin{proof} This is a technical computation.
+\begin{proof} We use a double induction over $k$ and $d$.
 From the above theorem it is clear that $D(d,k)=\prod_{|\alpha | =k}\bra h_\alpha ,h_\alpha \ket$. Now observe that the equality holds for $d\leq 0$. Since $\{ |\alpha| = k \} = \bigcup_{j=0}^k  \{ |\alpha'| = j \} \times \{ k-j \}  $, we have from Equation (\ref{hth1}):
 $$
 D(d,k) = \prod_{j=0}^k D(d\!-\!1,j) \prod_{|\alpha'| = j} (k-j)!\,\frac{(2j+d)!!\,(2k+d-1)!!}{(j+k+d)!},
 $$
 hence 
 \begin{align*}
-\frac{D(d,k)}{\prod_{j=0}^k D(d\!-\!1,j) } \;&=\; \prod_{j=0}^k \left[(k-j)!\,\frac{(2j+d)!!\,(2k+d-1)!!}{(j+k+d)!} \right]^{\binom{j+d-1}{d-1}} \\
-&=\; \prod_{i=1}^k i^{\binom{k-i+d}{d}} \underbrace{\frac{\displaystyle\prod_{i=k+d+1}^{2k+d} i^{\binom{i-k-1}{d} }}{\displaystyle \prod_{\substack{i=d+1 \\ i+d\text{ even}}}^{2k+d} i^{\binom{\frac{i+d}{2}-1}{d} }    } }_{=:R(d,k)}
+\frac{D(d,k)}{\prod_{j=0}^k D(d\!-\!1,j) } \;&=\; \prod_{j=0}^k \left[\frac{(2j+d)!!\,(2k+d-1)!!}{(j+k+d)!} (k-j)!\right]^{\binom{j+d-1}{d-1}} \\
+&\myeq{(\ref{facprod1})}\; \prod_{j=0}^k\left[ \frac{(2j+d)!!}{(j\!+\!k\!+\!d)!!}\right]^{\binom{j+d-1}{d-1}}(2k\!+\!d\!-\!1)^{\binom{k+d}{d}} \;\prod_{i=1}^k i^{\binom{k-i+d}{d}} =: R(d,k) .
 \end{align*}
-On the other hand, we have
+% R(d,k)=\frac{\displaystyle\prod_{i=k+d+1}^{2k+d} i^{\binom{i-k-1}{d} }}{\displaystyle \prod_{\substack{i=d+1 \\ i+d\text{ even}}}^{2k+d} i^{\binom{\frac{i+d}{2}-1}{d}
+Furthermore, $R(d,k)$ fulfils the recurrence
+\begin{align*}
+ \frac{R(d,k+1)}{R(d,k)} &= \frac{(2k\!+\!d\!+\!2)!!^{\binom{k+d}{d-1}}\,(2k\!+\!d\!+\!1)^{\binom{k+d+1}{d}}\,(2k\!+\!d\!+\!1)!!^{\binom{k+d}{d-1}}}{(2k\!+\!d\!+\!2)!^{\binom{k+d}{d-1}} \prod_{j=0}^k(j\!+\!k\!+\!d\!+\!1)^{\binom{j+d-1}{d-1}}} \prod_{i=1}^{k+1} i^{\binom{k-i+d}{d-1}}\\
+&= \frac{(2k+d+1)^{\binom{k+d}{d}}}{\prod_{j=0}^k(j\!+\!k\!+\!d\!+\!1)^{\binom{j+d-1}{d-1}}}\prod_{i=1}^{k+1} i^{\binom{k-i+d}{d-1}}.
+\end{align*}
+We will now show the principal inductive step: $\frac{D(d,k+1)}{D(d,k)D(d-1,k+1)}=\frac{\theta_{d,k+1}}{\theta_{d,k}\theta_{d-1,k+1}}$. The left hand side, clearly equals $\frac{R(d,k+1)}{R(d,k+1)} $.
+
 %$$
 %\frac{\theta_{d,k}}{\prod_{j=0}^k \theta_{d-1,j} } = \rho_{d,k}\prod_{i=1}^k i^{\binom{k-i+d}{d}} 
 %$$ where 
@@ -397,6 +418,8 @@ $$
 \end{array}
 \right.
 $$
+
+
 \end{proof}
 
 
