@@ -92,14 +92,14 @@ We study a construction for a symmetric bilinear form on the space $\Sym^kV$, de
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Symmetric Bilinear Forms on Symmetric Powers}
-Let $V$ be a vector space (or a free module) over a field (resp.~a commutative ring) $K$ of rank $d+1$ with basis $\{x_0,\ldots,x_{d}\}$, equipped with a symmetric bilinear form $\left<\,\ ,\ \right>: V\times V \rightarrow K$. We will freely identify the symmetric power $\Sym^kV$ with the space of homogeneous polynomials $K[x_0,\ldots,x_d]_k$ of degree $k$. 
+Let $V$ be a vector space (or a free module) over a field (resp.~a commutative ring) $K$ of rank $d+1$ with basis $\{x_0,\ldots,x_{d}\}$, equipped with a symmetric bilinear form $\left<\,\ ,\ \right>: V\times V \rightarrow K$. We will freely identify the symmetric power $\Sym^kV$ with the space $K[x_0,\ldots,x_d]_k$ of homogeneous polynomials of degree $k$. 
 
 There are at least two possibilities to define an induced bilinear form on $\Sym^kV$. The first one is to define on monomials:
 \begin{equation}\label{Garr}
 \left(\!\left( x_{n_1}\ldots x_{n_k}\,,\, x_{m_1}\ldots x_{m_k}\right)\!\right) \coloneqq \sum_\sigma  
 \prod_{i=1}^k \left< x_{n_i},x_{m_{\sigma(i)}}\right>,
 \end{equation}
-the sum being over all permutations of $\{1,\ldots,k\}$, as studied by McGarraghy in \cite{McGarr}. However, we will \emph{not} consider 
+the sum being over all permutations $\sigma$ of $\{1,\ldots,k\}$, as studied by McGarraghy in \cite{McGarr}. However, we will \emph{not} consider 
 this construction. Instead, we make the following
 \begin{definition} \label{formdef} On the basis $\{x_{n_1}\ldots x_{n_k}\;|\;0\leq n_1\leq\ldots\leq n_k\leq d\}$ of $\Sym^kV$, we define a symmetric bilinear form $\bra\ \,,\ \ket$ by: 
 \begin{equation}
@@ -120,22 +120,22 @@ To contrast the two definitions, observe that in the case $k=2$
 Note that (\ref{Garr}) does not require symmetry of the bilinear form $\left<\,\ ,\ \right>$ on $V$. Indeed, the definition would also be valid for a completely arbitrary bilinear form~$: V\times W \rightarrow K$, yielding a bilinear form $:\Sym^kV\times\Sym^kW\rightarrow K$. On the other hand, if the form on $V$ is not symmetric, then (\ref{mydef}) is not well-defined.
 \end{remark}
 \begin{remark}
-The defining equation (\ref{mydef}) works equally well, if the two arguments have different degree. So we can easily extend our definition to a symmetric bilinear form~$\bra\ \,,\ \ket:\Sym^*V\times\Sym^*V \rightarrow K$. Note that then $\Sym^kV$ is in general not orthogonal to $\Sym^lV$ unless $k-l$ is an odd number.
+The defining equation (\ref{mydef}) works equally well, if the two arguments have different degree. So we can easily extend our definition to a symmetric bilinear form~$\bra\ \,,\ \ket:\Sym^*V\times\Sym^*V \rightarrow K$. Then we have: $\bra a,bc\ket =\bra ab,c\ket$. Note that $\Sym^kV$ is in general not orthogonal to $\Sym^lV$ unless $k-l$ is an odd number.
 \end{remark}
 We wish to investigate some properties of this construction. Let $G$ be the Gram matrix of $\left< \ ,\;\right>$, \ie $G_{ij} = \left<x_i,x_j\right>$ and
 let $\G$ be the Gram matrix of $\bra\ ,\;\ket$. We use multi-index notation, cf.~Definition~\ref{multiindex}.
-\begin{proposition} Assume $K=\R$ and $G$ is positive definite, so $G^{-1} $ exists. Then $\bra\ ,\;\ket$ takes a nice integral form:
+\begin{proposition} Assume $K=\R$ and $G$ is positive definite, so its inverse $G^{-1} $ exists. Then $\bra\ ,\;\ket$ takes an analytic integral form:
 \begin{equation}
-\bra x^\alpha, x^\beta \ket = \frac{1}{c}\int_{\R^{d+1}} x^\alpha x^\beta d\mu(x).
+\bra x^\alpha, x^\beta \ket = \frac{1}{c}\int_{\R^{d+1}} x^\alpha x^\beta d\mu(x),
 \end{equation}
-Here the integration measure is $d\mu(x) = \exp\left(-\frac{1}{2}\sum_{i,j} G^{-1}_{ij}x_ix_j\right)dx$ and the normalization constant is $c=\int_{\R^{n+1}} d\mu(x)=\sqrt{(2\pi)^{d+1}\det G}$.
+where the integration measure is $d\mu(x) = \exp\left(-\frac{1}{2}\sum_{i,j} G^{-1}_{ij}x_ix_j\right)dx$ and the normalization constant is $c=\int_{\R^{n+1}} d\mu(x)=\sqrt{(2\pi)^{d+1}\det G}$.
 \end{proposition}
-\begin{proof} We make use of the content in Section \ref{boring}.
+\begin{proof} Note that we need positive definiteness of $G$ to make the integral converge. We make use of the content in Section \ref{boring}.
 First, observe that both sides of the equation are invariant under orthogonal transformations of the base space $\R^{d+1}$. We may therefore assume that $G= \text{diag}\left(a_0,\ldots,a_d\right)$ is a diagonal matrix. Then the integral splits nicely:
 \begin{align*}
 \frac{1}{c}\int_{\R^{d+1}}& x^\alpha x^\beta d\mu(x)= \frac{1}{c}\prod_{i=0}^d \int_{-\infty}^\infty x_i^{\alpha_i+\beta_i} e^{-\frac{1}{2a_i}x_i^2}dx_i \\=&\: 
 \frac{1}{c}\prod_{i=0}^d a_i^{\frac{\alpha_i+\beta_i+1}{2}}\int_{-\infty}^\infty x^{\alpha_i+\beta_i} e^{-\frac{1}{2}x^2}dx\\
-=&\left\{
+\myeq{(\ref{monoint})}\  &\left\{
 \begin{array}{*2{l}p{5cm}}\displaystyle \prod_{i=0}^d a_i^{\frac{\alpha_i+\beta_i}{2}}(\alpha_i+\beta_i-1)!! &\text{if all }\alpha_i+\beta_i\text{ are even}, \vspace{0.2cm} \\ 
  0 &\text{otherwise}.
 \end{array}
@@ -179,7 +179,7 @@ Now we can reduce the proof to the case when $G$ is the identity matrix. Then th
 
 \section{Terminology and helper formulas} \label{boring}
 In this section 
-we give a few standard definitions and recall some facts on elementary calculus. We also mention some technical formulas needed for our proofs.
+we give a few standard definitions and recall some facts on elementary calculus. We also mention technical formulas needed for our proofs.
 \begin{definition}\label{multiindex}
 For a multi-index $\alpha=(\alpha_0,\ldots,\alpha_d)$ we define: $x^\alpha \coloneqq x_0^{\alpha_0}\ldots x_d^{\alpha_d}$. The degree is defined by $|\alpha |\coloneqq\sum\alpha_i$, the factorial is $\alpha! \coloneqq \prod \alpha_i!$. Further, we set
 $\alpha'\coloneqq(\alpha_0,\ldots,\alpha_{d-1})$. We introduce the lexicographical ordering on multi-indices: $\alpha < \beta$ iff $\alpha_d < \beta_d$ or $(\alpha_d=\beta_d) \wedge (\alpha'<\beta')$.
@@ -228,7 +228,7 @@ Clearly, $(n-1)!!\,n!! = n!$ and $(2n)!! = 2^n n!$.
 The number of partitions of the set $\{1,\ldots,2k\}$ into pairs equals $(2k-1)!! = \frac{(2k)!}{2^kk!}$.
 \end{proposition}
 \begin{proof}
-Given such a partition, look at the pair that contains the element $1$. There are $2k-1$ possible partners for this element; removing the pair leaves a partition of a $(2k-2)$--elementary set into pairs. Then proceed by induction.
+Given such a partition, look at the pair that contains the element $1$. There are $2k-1$ possible partners for this element; removing the pair leaves a partition of a set of cardinality $(2k-2)$ into pairs. Then proceed by induction.
 \end{proof}
 
 
@@ -241,7 +241,7 @@ n!&=\Gamma(n+1),\qquad (2n-1)!!\sqrt{\pi} =2^{n}\Gamma\left(n+\tfrac{1}{2}\right
 n!&\sqrt{\pi}=2^{n}\Gamma\left(\tfrac{n}{2}+1\right)\Gamma\left(\tfrac{n+1}{2}\right) ,\\
 \int_0^\infty& r^se^{-\frac{1}{2}r^2} dr = 2^{\frac{s-1}{2}}\Gamma\left(\tfrac{s+1}{2}\right).
 \end{align}
-Using symmetry, it follows immediately that:
+It follows, that:
 \begin{align}    \label{monoint}
  \int_{\R^{d+1}}x^\alpha x^\beta & e^{-\frac{1}{2}\|x\|^2} dx = \ \ 
 \displaystyle \prod_{i=0}^d \int_{-\infty}^\infty x_i^{\alpha_i+\beta_i} e^{-\frac{1}{2}x_i^2} dx_i \\
@@ -252,9 +252,9 @@ Using symmetry, it follows immediately that:
 \end{array}
   \right.\nonumber
 \end{align}
-The reader may also consult \cite{Folland}.
+The reader may also consult \cite{Folland} for that kind of calculus. In particular, \cite[Eq.~(4)]{Folland} yields:
 \begin{lemma}\label{homosphere}
-Let $f:\R^{n+1}\rightarrow\R$ be an integrable homogeneous function of degree $k$, that is $f(sx) = s^kf(x)$. Using polar coordinates $(r,\omega) = (\|x\|,\frac{x}{\|x\|})$, we get:
+Let $f:\R^{n+1}\rightarrow\R$ be a continuous homogeneous function of degree $k$, that is $f(sx) = s^kf(x)\; \forall s\in\!\R$. Then, using polar coordinates $(r,\omega) = (\|x\|,\frac{x}{\|x\|})$:
 \begin{align*}
 \int_{\R^{d+1}}f(x)e^{-\frac{1}{2}\|x\|^2} dx &= \int_{\S^d}\!\int_0^\infty\! f(r\omega) r^d e^{-\frac{1}{2}r^2}dr d\omega \\
 &= 2^{\frac{k+d-1}{2}}\Gamma\left(\tfrac{k+d+1}{2}\right)\int_{\S^d}f(\omega)d\omega .
@@ -278,7 +278,7 @@ In view of Lemma \ref{homosphere}, we could equivalently integrate the homogeneo
 
 
 \subsection{Generalities on orthogonal polynomials in one variable}
-Given a nondegenerate symmetric bilinear form on the space of polynomials $K[x]$, one may ask for a basis of polynomials $(p_n)_n$ that are mutually orthogonal with respect to that form. To find such a basis, one could start with the monomial basis $(x^n)_n$ and apply some version of the Gram--Schmidt algorithm. The result should be an infinite lower triangular matrix $T$ such that $p_n =\sum_j T_{nj} x^j$. If our bilinear form now depends only on the product of its two arguments, the procedure simplifies as follows:
+Given a nondegenerate symmetric bilinear form on the space of polynomials $K[x]$, one may ask for a basis of polynomials $(p_n)_n$ that are mutually orthogonal with respect to that form. To find such a basis, one could start with the monomial basis $(x^n)_n$ and apply some version of the Gram--Schmidt algorithm. The result will be an infinite lower triangular matrix $T$ such that $p_n =\sum_j T_{nj} x^j$. If our bilinear form now depends only on the product of its two arguments, the procedure simplifies as follows:
 
 Let $\L$ be a linear functional such that the induced bilinear form $(f,g)=\L(fg)$ is nondegenerate when restricted to $K[x]_{\leq n}$, the space of polynomials of bounded degree, for all $n\geq 0$. Let $(p_n)_n$ be the associated sequence of monic orthogonal polynomials, \ie the leading term of $p_n(x)$ is $x^n$ and $(p_k,p_{n})=0$ for $k\neq n$. Then we have
 \begin{theorem} \cite[Thm.~4.1]{Chihara} There are constants $c_n,\: d_n$ such that
@@ -294,10 +294,9 @@ $$
 Then there exists a unique linear functional $\L$ such that $\L(1)=1$ and $\L(p_kp_{n})=0$ for $k\neq n$. 
 \end{theorem}
 \begin{theorem}\cite[Thm.~4.2]{Chihara} \label{generalLnorm}
-In this situation, we have for $n\geq 1$: $$\L(p_n^2) = d_n\L(p_{n-1}^2).$$
+Under the conditions of the above theorem, we have for $n\geq 1$: $$\L(p_n^2) = d_n\L(p_{n-1}^2).$$
 \end{theorem}
-Since we shall deal with finite polynomial families, we need a little modification of Favard's theorem:
-\begin{remark} \label{finiteFarvard}
+\begin{remark} \label{finiteFarvard}Since we shall deal with finite polynomial families, we need a little modification of Favard's theorem:
 If $(p_n)_{n\leq N}$ is a finite sequence that satisfies a three-term recurrence as above, then we can always extend it to an infinite sequence by choosing arbitrary constants $c_n$, $d_n$ for $n\geq N$. But for every such extension, the resulting functional $\L$ from Favard's theorem will satisfy $\L(1) =1$ and $\L(p_n)=\L(p_np_0)=0$ for $n\geq 1$. So $\L$ will always be uniquely determined on $K[x]_{\leq N}$, the space of degree-bounded polynomials.
 \end{remark}
 
@@ -309,29 +308,50 @@ If $(p_n)_{n\leq N}$ is a finite sequence that satisfies a three-term recurrence
 \subsection{A polynomial family}
 \begin{definition} Let $n,\ m$ be integers with $0\leq 2n\leq m+1$, a condition that we always will assume silently. We define polynomials $\p{n}{m}$ of degree $n$:
 \begin{equation}
-\p{n}{m}(x) \coloneqq \sum_{\substack{l=0\\ n-l\ \text{even}}}^n \frac{n!\,(m-2n)!!\,(-1)^{\frac{n-l}{2}}}{l!\,(m-n-l)!!\,(n-l)!!}\;x^l.
+\p{n}{m}(x) \coloneqq \sum_{\substack{j=0\\ n-j\ \text{even}}}^n (-1)^{\frac{n-j}{2}} \frac{n!\,(m-2n)!!}{j!\,(m-n-j)!!\,(n-j)!!}\:x^j.
 \end{equation}
 \end{definition}
-It is straightforward to check that the following two identities hold.
 \begin{lemma} \label{trigonometric}
 For $n\geq 1$, we have a trigonometric differential relation:
 \begin{equation}
 \frac{d}{d\omega} \Big[\p{n-1}{m-2}\big(\tan(\omega)\big)\cos(\omega)^{m-1} \Big]= (n-m)\, \p{n}{m}\big(\tan(\omega)\big)\cos(\omega)^{m-1}
-\end{equation} \qed
+\end{equation} 
 \end{lemma}
+\begin{proof} This is straightforward.
+We calculate firstly $ \frac{d}{d\omega}\! \left[\sin(\omega)^j \cos(\omega)^{m-j-1}\right] = j \sin(\omega)^{j-1} \cos(\omega)^{m-j}-(m\!-\!j\!-\!1)\sin(\omega)^{j+1} \cos(\omega)^{m-j-2}$, so
+\begin{align*} \textstyle
+\frac{d}{d\omega} &\Big[\p{n-1}{m-2}\big(\tan(\omega)\big)\cos(\omega)^{m-1} \Big] 
+\\&=\!\! \textstyle \sum\limits_{\substack{j=0\\ n-j\ \text{odd}}}^{n-1} \!\!\!\frac{(-1)^{\frac{n-j-1}{2}}  (n-1)!\,(m-2n)!!}{j!\,(m-n-j-1)!!\,(n-j-1)!!}\frac{d}{d\omega}\! \left[\sin(\omega)^j \cos(\omega)^{m-j-1}\right]
+\\ &=\!\!\textstyle\sum\limits_{\substack{j=0\\ n-j\ \text{even}}}^{n-2} \!\!\!\frac{(-1)^{\frac{n-j}{2}}(n-1)!\,(m-2n)!!}{j!\,(m-n-j-2)!!\,(n-j-2)!!}\sin(\omega)^{j} \cos(\omega)^{m-j-1} \\[-3mm]
+&\hspace{3cm}+\textstyle\sum\limits_{\substack{j=1\\ n-j\ \text{even}}}^{n}\!\!\! \frac{(-1)^{\frac{n-j}{2}}(n-1)!\,(m-2n)!!\,(m-j)}{(j-1)!\,(m-n-j)!!\,(n-j)!!}\sin(\omega)^{j} \cos(\omega)^{m-j-1} \\
+&=\!\!\textstyle\sum\limits_{\substack{j=0\\ n-j\ \text{even}}}^{n} \!\!\!\frac{(-1)^{\frac{n-j}{2}}(n-1)!\,(m-2n)!!}{j!\,(m-n-j)!!\,(n-j)!!}\big[(m\!-\!n\!-\!j)(n\!-\!j)+j(m\!-\!j) \big]\tan(\omega)^{j} \cos(\omega)^{m-1}
+\\ &= \textstyle(n-m)\, \p{n}{m}\big(\tan(\omega)\big)\cos(\omega)^{m-1}.
+\end{align*}
+\end{proof}
+
 \begin{proposition} \label{threeterm} For $0\leq 2n\leq m-1$, we have a three-term recurrence:
 \begin{equation}
 \p{0}{m}(x) = 1,\qquad \p{1}{m}(x) = x, \qquad \p{n+1}{m}(x) = x\p{n}{m}(x) -d_n^m \p{n-1}{m}(x),
 \end{equation} 
-where $d_n^m\coloneqq \frac{n(m-n+1)}{(m-2n)(m-2n+2)}$.\qed
+where $d_n^m\coloneqq \frac{n(m-n+1)}{(m-2n)(m-2n+2)}$.
 \end{proposition}
+\begin{proof}
+We start from the right: $ x\p{n}{m}(x) -d_n^m \p{n-1}{m}(x)$ gives
+\begin{align*}
+ &\textstyle \sum\limits_{\substack{j=1\\ n-j\ \text{odd}}}^{n+1} \!\!\!\frac{(-1)^{\frac{n-j+1}{2}} n!\,(m-2n)!!}{(j-1)!\,(m-n-j+1)!!\,(n-j+1)!!}\: x^j 
+\ - \sum\limits_{\substack{j=0\\ n-j\ \text{odd}}}^{n-1} \!\!\!d_n^m\frac{(-1)^{\frac{n-j-1}{2}} (n-1)!\,(m-2n+2)!!}{j!\,(m-n-j+1)!!\,(n-j-1)!!}\: x^j 
+\\=&\textstyle \sum\limits_{\substack{j=0\\ n-j\ \text{odd}}}^{n+1} \!\!\!\frac{(-1)^{\frac{n-j+1}{2}} (n+1)!\,(m-2n-2)!!}{j!\,(m-n-j-1)!!\,(n-j+1)!!}\underbrace{\textstyle
+\frac{j(m-2n)+(m-n+1)(n-j+1)}{(n+1)(m-n-j+1)}}_{=1} \,x^j = \p{n+1}{m}(x) .
+\end{align*}
+\end{proof}
+
 \begin{theorem} \label{pthm}We define, for $m\geq 1$, a linear functional $\L$ on the vector space of polynomials of degree less than $m$, by setting
 \begin{equation}
 \L: f \longmapsto \int_0^\infty\!\!\! \int_{-\infty}^\infty z^{m-1}f\left(\frac{y}{z}\right) e^{-\frac{y^2+z^2}{2}} dydz.
 \end{equation}
 Then the $\p{n}{m}$ form a set of orthogonal polynomials with respect to the induced bilinear form, \ie for $k\neq n,\ k\!+\! n\leq m\!-\!1$ we have $\L(\p{k}{m}\p{n}{m})=0$ and for $2n\leq m\!-\!1$:
 \begin{equation} \label{Lpn2}
-\L(\p{n}{m}\p{n}{m}) = 2^{\frac{3}{2}m-\frac{1}{2}-2n}  \frac{n!}{(m-n)!}
+\L(\p{n}{m}\p{n}{m}) = 2^{\frac{3}{2}m-2n-\frac{1}{2}}  \frac{n!}{(m-n)!}
 \Gamma\left(\frac{m}{2}-n\right)\Gamma\left(\frac{m}{2}-n+1\right)\Gamma\left(\frac{m+1}{2}\right).
 \end{equation}
 \end{theorem}
@@ -345,7 +365,13 @@ Using polar coordinates $(y,z) = (r\cos\omega,r\sin\omega)$ and Lemma \ref{trigo
 &= 2^{\frac{m-1}{2}}\Gamma\left(\tfrac{m+1}{2}\right)\Big[\tfrac{(-1)^n}{n-m}p_{n-1}^{m-2}\big(\tan(\omega)\big)\cos(\omega)^{m-1} \Big]_{\frac{\pi}{2}}^{\frac{3\pi}{2}} =0,
 \end{align*}
 while $\L(1) = 2^{\frac{m-1}{2}}\sqrt{\pi}\,\Gamma\!\left(\frac{m}{2}\right)=2^{\frac{3m-1}{2}}  \frac{1}{m!}
-\Gamma\left(\frac{m}{2}\right)\Gamma\left(\frac{m}{2}+1\right)\Gamma\left(\frac{m+1}{2}\right)$ by (\ref{monoint}) and (\ref{doublegamma}). To verify that equation (\ref{Lpn2}) holds for $n\geq 1$, too, check that the right hand side satisfies $\L(\p{n}{m}\p{n}{m}) = d_n^m\L(\p{n-1}{m}\p{n-1}{m})$, the recurrence from Theorem~\ref{generalLnorm}.
+\Gamma\left(\frac{m}{2}\right)\Gamma\left(\frac{m}{2}+1\right)\Gamma\left(\frac{m+1}{2}\right)$ by (\ref{monoint}) and (\ref{doublegamma}). To verify that equation (\ref{Lpn2}) holds for $n\geq 1$, too, we must show that the right hand side satisfies the recurrence from Theorem~\ref{generalLnorm}, but this is easy:
+$$ 
+\frac{2^{\frac{3}{2}m\!-\!2n\!-\!\frac{1}{2}}  \frac{n!}{(m\!-\!n)!}
+\Gamma\left(\frac{m}{2}\!-\!n\right)\Gamma\left(\frac{m}{2}\!-\!n\!+\!1\right)\Gamma\left(\frac{m+!1}{2}\right)}{
+2^{\frac{3}{2}m\!-\!2n\!+\!\frac{3}{2}}  \frac{(n\!-\!1)!}{(m\!-\!n\!+\!1)!}
+\Gamma\left(\frac{m}{2}\!-\!n\!+\!1\right)\Gamma\left(\frac{m}{2}\!-\!n\!+\!2\right)\Gamma\left(\frac{m+1}{2}\right)} = \frac{n(m\!-\!n\!+\!1)}{(m\!-\!2n)(m\!-\!2n\!+\!2)} =d_n^m.
+$$
 \end{proof}
 \begin{corollary} \label{pcor}
  $\L(x^{k}\p{n}{m}) = 0$ for $k < n$ and $\L(x^n\p{n}{m})= \L(\p{n}{m}\p{n}{m})$.
@@ -404,8 +430,8 @@ D(d,k) = \prod_{j=0}^k D(d\!-\!1,j) \prod_{|\alpha'| = j} (k-j)!\,\frac{(2j+d)!!
 $$
 hence 
 \begin{align*}
-\frac{D(d,k)}{\prod_{j=0}^k D(d\!-\!1,j) } \;&=\; \prod_{j=0}^k \left[\frac{(2j+d)!!\,(2k+d-1)!!}{(j+k+d)!} (k-j)!\right]^{\binom{j+d-1}{d-1}} \\
-&\myeq{(\ref{facprod1})}\; \prod_{j=0}^k\left[ \frac{(2j+d)!!}{(j\!+\!k\!+\!d)!!}\right]^{\binom{j+d-1}{d-1}}(2k\!+\!d\!-\!1)^{\binom{k+d}{d}} \;\prod_{i=1}^k i^{\binom{k-i+d}{d}} =: R(d,k) .
+R(d,k) \;&\coloneqq\; \frac{D(d,k)}{\prod_{j=0}^k D(d\!-\!1,j) } \;=\; \prod_{j=0}^k \left[\frac{(2j+d)!!\,(2k+d-1)!!}{(j+k+d)!} (k-j)!\right]^{\binom{j+d-1}{d-1}} \\
+&\qquad\myeq{(\ref{facprod1})}\; \prod_{j=0}^k\left[ \frac{(2j+d)!!}{(j\!+\!k\!+\!d)!!}\right]^{\binom{j+d-1}{d-1}}(2k\!+\!d\!-\!1)^{\binom{k+d}{d}} \;\prod_{i=1}^k i^{\binom{k-i+d}{d}} .
 \end{align*}
 % R(d,k)=\frac{\displaystyle\prod_{i=k+d+1}^{2k+d} i^{\binom{i-k-1}{d} }}{\displaystyle \prod_{\substack{i=d+1 \\ i+d\text{ even}}}^{2k+d} i^{\binom{\frac{i+d}{2}-1}{d}
 We will now show the principal inductive step: $\frac{D(d,k+1)}{D(d,k)D(d-1,k+1)}=\frac{\theta_{d,k+1}}{\theta_{d,k}\theta_{d-1,k+1}}$. The left hand side clearly equals
