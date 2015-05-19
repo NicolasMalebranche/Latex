@@ -368,9 +368,9 @@ while $\L(1) = 2^{\frac{m-1}{2}}\sqrt{\pi}\,\Gamma\!\left(\frac{m}{2}\right)=2^{
 \Gamma\left(\frac{m}{2}\right)\Gamma\left(\frac{m}{2}+1\right)\Gamma\left(\frac{m+1}{2}\right)$ by (\ref{monoint}) and (\ref{doublegamma}). To verify that equation (\ref{Lpn2}) holds for $n\geq 1$, too, we must show that the right hand side satisfies the recurrence from Theorem~\ref{generalLnorm}, but this is easy:
 $$ 
 \frac{2^{\frac{3}{2}m\!-\!2n\!-\!\frac{1}{2}}  \frac{n!}{(m\!-\!n)!}
-\Gamma\left(\frac{m}{2}\!-\!n\right)\Gamma\left(\frac{m}{2}\!-\!n\!+\!1\right)\Gamma\left(\frac{m+!1}{2}\right)}{
+\Gamma\!\left(\frac{m}{2}\!-\!n\right)\Gamma\!\left(\frac{m}{2}\!-\!n\!+\!1\right)\Gamma\!\left(\frac{m+!1}{2}\right)}{
 2^{\frac{3}{2}m\!-\!2n\!+\!\frac{3}{2}}  \frac{(n\!-\!1)!}{(m\!-\!n\!+\!1)!}
-\Gamma\left(\frac{m}{2}\!-\!n\!+\!1\right)\Gamma\left(\frac{m}{2}\!-\!n\!+\!2\right)\Gamma\left(\frac{m+1}{2}\right)} = \frac{n(m\!-\!n\!+\!1)}{(m\!-\!2n)(m\!-\!2n\!+\!2)} =d_n^m.
+\Gamma\!\left(\frac{m}{2}\!-\!n\!+\!1\right)\Gamma\!\left(\frac{m}{2}\!-\!n\!+\!2\right)\Gamma\!\left(\frac{m+1}{2}\right)} = \frac{n(m\!-\!n\!+\!1)}{(m\!-\!2n)(m\!-\!2n\!+\!2)} =d_n^m.
 $$
 \end{proof}
 \begin{corollary} \label{pcor}
@@ -389,7 +389,7 @@ For multi-indices $\alpha=(\alpha_0,\ldots,\alpha_d)$ we recursively define homo
 $$
 h_\alpha(x) \coloneqq \p{\alpha_d}{2|\alpha |+d}\left(\frac{x_d}{r}\right) r^{\alpha_d}h_{\alpha'}(x'),
 $$
-where we have set $r=\sqrt{x_0^2 +\ldots+x_{d-1}^2}=\|x'\|$.
+where we have set $r=\sqrt{x_0^2 +\ldots+x_{d-1}^2}=\|x'\|$. Note that the definition of $\p{n}{m}$ implies that $\p{n}{m}(\frac{1}{y})y^n$ is an even polynomial, so all square roots vanish.
 \end{definition}
 \begin{theorem} Fix a degree $k$.
 Then the $h_\alpha(x),\ |\alpha|=k$ form an orthogonal basis of $\R[x_0,\ldots,x_d]_k$ that comes from a Gram--Schmidt process applied to the monomials. More precisely, we have:
@@ -417,12 +417,12 @@ For equation (\ref{hth1}), we use polar coordinates on $\R ^d$ to compute:
 \end{align*}
 For the proof of (\ref{hth2}), we may assume that $\alpha_d \neq \beta_d$. Then we use the calculation above to see that Thm. \ref{pthm} now implies the vanishing of the integral. Equations (\ref{hth3}) and (\ref{hth4}) follow from Corollary \ref{pcor} in the same way.
 \end{proof}
-\begin{corollary}\label{thetaCor} Let $D(d,k):=\det\left(\bra x^\alpha ,x^\beta \ket\right)_{|\alpha|,|\beta|=k} $ be the determinant of the Gram matrix of $\bra\ ,\;\ket$. Then:
+\begin{theorem}\label{thetaCor} Let $D(d,k):=\det\limits_{|\alpha|,|\beta|=k}\bra x^\alpha ,x^\beta \ket $ be the determinant of the Gram matrix of $\bra\ ,\;\ket$. Then:
 $$
 D(d,k) = \theta_{d,k}
 $$
 where $\theta_{d,k}$ is defined as in Equation (\ref{thetaDef}).
-\end{corollary}
+\end{theorem}
 \begin{proof} We do a double induction over $k$ and $d$. First check that $D(d,0) = \theta_{d,0}=1$ and $D(0,k) = \theta_{0,k} =(2k-1)!!$.
 From the above theorem it is clear that $D(d,k)=\prod_{|\alpha | =k}\bra h_\alpha ,h_\alpha \ket$. Since $\{ |\alpha| = k \} = \bigcup_{j=0}^k  \{ |\alpha'| = j \} \times \{ k-j \}  $, we have from Equation (\ref{hth1}):
 $$
