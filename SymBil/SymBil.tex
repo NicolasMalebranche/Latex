@@ -279,7 +279,7 @@ In this section we will construct a basis for the space of homogeneous polynomia
 \end{equation*}
 where the measure is $d\mu(x) = (2\pi)^{-\frac{d+1}{2}}e^{-\frac{1}{2}\|x\|^2}dx$. In order to do this, we wish to apply the Gram-Schmidt process to the (lexicographically ordered) monomial basis $(x^\alpha)_{|\alpha |=k}$. Our result is stated in Subsection \ref{hsection}. 
 \begin{remark}
-Alhough our definition of $\bra\ ,\;\ket$ doesn't mention the sphere, in view of Lemma \ref{homosphere}, we could equivalently integrate the homogeneous polynomials over the unit sphere $\S^d$:
+Although our definition of $\bra\ ,\;\ket$ doesn't mention the sphere, in view of Lemma \ref{homosphere}, we could equivalently integrate the homogeneous polynomials over the unit sphere $\S^d$:
 $$
  \bra f,g\ket = c \int_{\S^{d}}f(\omega)g(\omega) d\omega, \qquad c = 2^{\frac{k}{2}-1}\pi^{-\frac{d+1}{2}}\Gamma\!\left(\tfrac{k+d+1}{2}\right).
 $$ 
@@ -336,9 +336,9 @@ Firstly, we calculate $ \frac{d}{d\omega}\! \left[\sin(\omega)^j \cos(\omega)^{m
 \begin{align*} \textstyle
 \frac{d}{d\omega} &\Big[\p{n-1}{m-2}\big(\tan(\omega)\big)\cos(\omega)^{m-1} \Big] 
 \\&=\!\! \textstyle \sum\limits_{\substack{j=0\\ n-j\ \text{odd}}}^{n-1} \!\!\!\frac{(-1)^{\frac{n-j-1}{2}}  (n-1)!\,(m-2n)!!}{j!\,(m-n-j-1)!!\,(n-j-1)!!}\frac{d}{d\omega}\! \left[\sin(\omega)^j \cos(\omega)^{m-j-1}\right]
-\\ &=\!\!\textstyle\sum\limits_{\substack{j=0\\ n-j\ \text{even}}}^{n-2} \!\!\!\frac{(-1)^{\frac{n-j}{2}}(n-1)!\,(m-2n)!!}{j!\,(m-n-j-2)!!\,(n-j-2)!!}\sin(\omega)^{j} \cos(\omega)^{m-j-1} \\[-3mm]
-&\hspace{3cm}+\textstyle\sum\limits_{\substack{j=1\\ n-j\ \text{even}}}^{n}\!\!\! \frac{(-1)^{\frac{n-j}{2}}(n-1)!\,(m-2n)!!\,(m-j)}{(j-1)!\,(m-n-j)!!\,(n-j)!!}\sin(\omega)^{j} \cos(\omega)^{m-j-1} \\
-&=\!\!\textstyle\sum\limits_{\substack{j=0\\ n-j\ \text{even}}}^{n} \!\!\!\frac{(-1)^{\frac{n-j}{2}}(n-1)!\,(m-2n)!!}{j!\,(m-n-j)!!\,(n-j)!!}\big[(m\!-\!n\!-\!j)(n\!-\!j)+j(m\!-\!j) \big]\tan(\omega)^{j} \cos(\omega)^{m-1}
+\\ &=\!\!\textstyle\sum\limits_{\substack{j=0\\ n-j\ \text{even}}}^{n-2} \!\!\!\frac{(-1)^{\frac{n-j-2}{2}}(n-1)!\,(m-2n)!!}{j!\,(m-n-j-2)!!\,(n-j-2)!!}\sin(\omega)^{j} \cos(\omega)^{m-j-1} \\[-3mm]
+&\hspace{3cm}-\textstyle\sum\limits_{\substack{j=1\\ n-j\ \text{even}}}^{n}\!\!\! \frac{(-1)^{\frac{n-j}{2}}(n-1)!\,(m-2n)!!\,(m-j)}{(j-1)!\,(m-n-j)!!\,(n-j)!!}\sin(\omega)^{j} \cos(\omega)^{m-j-1} \\
+&=\!\!\textstyle\sum\limits_{\substack{j=0\\ n-j\ \text{even}}}^{n} \!\!\!\frac{(-1)^{\frac{n-j}{2}}(n-1)!\,(m-2n)!!}{j!\,(m-n-j)!!\,(n-j)!!}\underbrace{\big[(j\!-\!n)(m\!-\!n\!-\!j)-j(m\!-\!j)\big] }_{=n(n-m)}\tan(\omega)^{j} \cos(\omega)^{m-1}
 \\ &= \textstyle(n-m)\, \p{n}{m}\big(\tan(\omega)\big)\cos(\omega)^{m-1}.
 \end{align*}
 \end{proof}
@@ -379,10 +379,10 @@ Using polar coordinates $(y,z) = (r\cos\omega,r\sin\omega)$ and Lemma \ref{trigo
 &= 2^{\frac{m-1}{2}}\Gamma\left(\tfrac{m+1}{2}\right)\Big[\tfrac{(-1)^n}{n-m}p_{n-1}^{m-2}\big(\tan(\omega)\big)\cos(\omega)^{m-1} \Big]_{\frac{\pi}{2}}^{\frac{3\pi}{2}} =0,
 \end{align*}
 while $\L(1) = 2^{\frac{m-1}{2}}\sqrt{\pi}\,\Gamma\!\left(\frac{m}{2}\right)=2^{\frac{3m-1}{2}}  \frac{1}{m!}
-\Gamma\left(\frac{m}{2}\right)\Gamma\left(\frac{m}{2}+1\right)\Gamma\left(\frac{m+1}{2}\right)$ by (\ref{monoint}) and (\ref{doublegamma}). To verify that equation (\ref{Lpn2}) holds for $n\geq 1$, too, we must show that the right hand side satisfies the recurrence from Theorem~\ref{generalLnorm}, but this is easy:
+\Gamma\left(\frac{m}{2}\right)\Gamma\left(\frac{m}{2}+1\right)\Gamma\left(\frac{m+1}{2}\right)$ by (\ref{monoint}) and (\ref{doublegamma}). To verify that equation (\ref{Lpn2}) holds for $n\geq 1$, too, we must show that the right hand side satisfies the recurrence from Theorem~\ref{generalLnorm}, but this is immediate:
 $$ 
 \frac{2^{\frac{3}{2}m\!-\!2n\!-\!\frac{1}{2}}  \frac{n!}{(m\!-\!n)!}
-\Gamma\!\left(\frac{m}{2}\!-\!n\right)\Gamma\!\left(\frac{m}{2}\!-\!n\!+\!1\right)\Gamma\!\left(\frac{m+!1}{2}\right)}{
+\Gamma\!\left(\frac{m}{2}\!-\!n\right)\Gamma\!\left(\frac{m}{2}\!-\!n\!+\!1\right)\Gamma\!\left(\frac{m+1}{2}\right)}{
 2^{\frac{3}{2}m\!-\!2n\!+\!\frac{3}{2}}  \frac{(n\!-\!1)!}{(m\!-\!n\!+\!1)!}
 \Gamma\!\left(\frac{m}{2}\!-\!n\!+\!1\right)\Gamma\!\left(\frac{m}{2}\!-\!n\!+\!2\right)\Gamma\!\left(\frac{m+1}{2}\right)} = \frac{n(m\!-\!n\!+\!1)}{(m\!-\!2n)(m\!-\!2n\!+\!2)} =d_n^m.
 $$
@@ -390,14 +390,15 @@ $$
 \begin{corollary} \label{pcor}
  $\L(x^{k}\p{n}{m}) = 0$ for $k < n$ and $\L(x^n\p{n}{m})= \L(\p{n}{m}\p{n}{m})$.
 \end{corollary}
-\begin{proof}
-The first assertion is established by the theorem in the case $k=0$. Now the three-term recurrence from Proposition \ref{threeterm} allows us to inductively conclude that $\L(x^k\p{n}{m}) = \L(x^{k-1}\p{n+1}{m})+d_n^m\L(x^{k-1}\p{n-1}{m}) =0$. The second assertion is trivial in the case $n\leq 1$. For $n\geq 1$, the same argument as above yields now $\L(x^n\p{n}{m}) = \L(x^{n-1}\p{n+1}{m})+d_n^m\L(x^{n-1}\p{n-1}{m})=d_n^m\L(x^{n-1}\p{n-1}{m})$, so $\L(x^n\p{n}{m})$ and $\L(\p{n}{m}\p{n}{m})$ must be equal because they satisfy the same recurrence relation.
+\begin{proof} By the theorem, we have $\L(x^{0}\p{n}{m}) = 0$ for $n>0$, so the case $k=0$ holds true.
+Now the three-term recurrence from Proposition \ref{threeterm} allows us to inductively conclude that $\L(x^k\p{n}{m}) = \L(x^{k-1}\p{n+1}{m})+d_n^m\L(x^{k-1}\p{n-1}{m}) =0$.
+The second assertion, $\L(x^n\p{n}{m})= \L(\p{n}{m}\p{n}{m})$ is trivial in the case $n\leq 1$. For $n\geq 1$, the three-term recurrence yields now $\L(x^n\p{n}{m}) = \L(x^{n-1}\p{n+1}{m})+d_n^m\L(x^{n-1}\p{n-1}{m})=d_n^m\L(x^{n-1}\p{n-1}{m})$, so $\L(x^n\p{n}{m})$ and $\L(\p{n}{m}\p{n}{m})$ (by Theorem \ref{generalLnorm}) satisfy the same recurrence relation and therefore must be equal.
 \end{proof}
 
 
 
 \subsection{Homogeneous orthogonal polynomials} \label{hsection}
-We are now ready to give the desired basis of homogeneous polynomials that are orthogonal on the sphere. Inspired by the procedure for spherical harmonics, see \cite[p.~35]{Dunkl}, we make the following
+We are now ready to give the desired basis of homogeneous polynomials that are orthogonal on the sphere. Inspired by the procedure for spherical harmonics, see \cite[p.~35]{Dunkl}, where homogeneous polynomials were defined by recursion over $d$, we make the following
 \begin{definition} \label{hdef}
 For multi-indices $\alpha=(\alpha_0,\ldots,\alpha_d)$ we recursively define homogeneous polynomials $h_\alpha$ of degree $|\alpha |$ by $h_{(\alpha_0)}(x) \coloneqq x_0^{\alpha_0}$ and, for $d\geq 1$,
 $$
@@ -405,8 +406,8 @@ h_\alpha(x) \coloneqq \p{\alpha_d}{2|\alpha |+d}\left(\frac{x_d}{r}\right) r^{\a
 $$
 where we have set $r=\sqrt{x_0^2 +\ldots+x_{d-1}^2}=\|x'\|$. Note that the definition of $\p{n}{m}$ implies that $\p{n}{m}(\frac{1}{y})y^n$ is an even polynomial, so all square roots vanish.
 \end{definition}
-\begin{theorem} Fix a degree $k$.
-Then the $h_\alpha(x),\ |\alpha|=k$ form an orthogonal basis of $\R[x_0,\ldots,x_d]_k$ that comes from a Gram--Schmidt process applied to the monomials. More precisely, we have:
+\begin{theorem}
+For all multi-indices $\alpha,\;\beta$ of length $d+1$ and degree $k$ we have:
 \begin{align} \label{hth1}
 \bra h_\alpha ,h_\alpha \ket &= \alpha_d!\,\frac{\left(2|\alpha '|\!+\!d\right)!!\,\left(2|\alpha |\!+\!d\!-\!1\right)!!}{\left(|\alpha '|+|\alpha |+d\right)!}\bra h_{\alpha '},h_{\alpha '}\ket ,\\
 \label{hth2}
@@ -417,8 +418,11 @@ Then the $h_\alpha(x),\ |\alpha|=k$ form an orthogonal basis of $\R[x_0,\ldots,x
 \bra x^\alpha,h_\beta \ket &= 0 \quad\text{for }\alpha < \beta.
 \end{align}
 \end{theorem}
+\begin{remark}
+This means that the $h_\alpha(x),\ |\alpha|=k$ form an orthogonal basis of $\R[x_0,\ldots,x_d]_k$ that comes from a Gram--Schmidt process applied to the monomials (in lexicographic order). Indeed, equations (\ref{hth1}) and (\ref{hth2}) say that the $h_\alpha(x)$ are orthogonal, while equations (\ref{hth3}) and (\ref{hth4}) imply that the transition matrix $T^{-1}$, defined by $ x^\alpha = \sum_\beta T^{-1}_{\alpha\beta}h_\beta,\ T^{-1}_{\alpha\beta} \coloneqq \frac{\bra x^\alpha,h_\beta\ket}{\bra h_\beta,h_\beta\ket} $ is lower triangular with all diagonal elements equal to $1$.
+\end{remark}
 \begin{proof}
-For equation (\ref{hth1}), we use polar coordinates on $\R ^d$ to compute:
+For equation (\ref{hth1}), we use polar coordinates on $\R ^d$ to compute $\bra h_\alpha ,h_\alpha \ket$:
 \begin{align*}
  &\int_{\R^{d+1}}\left[\p{\alpha_d}{2|\alpha|+d}\left(\frac{x_d}{r}\right) r^{\alpha_d}h_{\alpha'}(x)\right]^2 e^{-\frac{1}{2}\|x\|^2} dx \\
  = & \int_0^\infty\!\!\int_{\R} \left[\p{\alpha_d}{2|\alpha|+d}\left(\frac{x_d}{r}\right)\right]^2 r^{2|\alpha'|+2\alpha_d+d-1} e^{-\frac{r^2+x_d^2}{2} }dx_ddr\int_{\S^{d-1}}\left[h_{\alpha'}(\omega)\right]^2 d\omega \\
