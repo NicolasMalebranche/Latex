@@ -82,9 +82,9 @@
 
 \keywords{Symmetric Bilinear Forms on Symmetric Powers, Orthogonal Polynomials in Several Variables, Homogeneous Orthogonal Polynomials, Hermite Polynomials, Spherical Harmonics, Hankel matrices, Hyperk\"ahler Manifolds, Beauville--Bogomolov Form, Beauville--Fujiki relation}
 
-\begin{abstract} The Beauville--Fujiki relation for a compact Hyperk\"ahler $X$ manifold of dimension $2k$ allows to equip the symmetric power $\Sym^kH^2(X)$ with a symmetric bilinear form induced by the Beauville--Bogomolov form. We study some of its properties and compare it to the form given by the Poincar\'e pairing.
+\begin{abstract} The Beauville--Fujiki relation for a compact Hyperk\"ahler manifold $X$ of dimension $2k$ allows to equip the symmetric power $\Sym^kH^2(X)$ with a symmetric bilinear form induced by the Beauville--Bogomolov form. We study some of its properties and compare it to the form given by the Poincar\'e pairing.
 
-The construction generalizes to a definition for an induced symmetric bilinear form on the symmetric power of any free module equipped with a symmetric bilinear form. We point out that our construction is related to the theory of orthogonal polynomials in several variables.
+The construction generalizes to a definition for an induced symmetric bilinear form on the symmetric power of any free module equipped with a symmetric bilinear form. We point out that the situation is related to the theory of orthogonal polynomials in several variables.
 Finally, we construct a basis of homogeneous polynomials that are orthogonal when integrated over the unit sphere $\S^d$, or equivalently, over $\R^{d+1}$ with a Gaussian kernel.
 \end{abstract}
 
@@ -111,16 +111,25 @@ by comparing coefficients in the equality
 \begin{equation*}
 I\!\left((x_1+\ldots+x_{2k})^{2k}\right) = q(x_1+\ldots+x_{2k})^{k} = \left(\sum\limits_{i=1}^{2k} q(x_i) +\!\!\!\sum\limits_{1\leq i<j\leq 2k}\!\!2 \left<x_i,x_j\right>  \right)^k.
 \end{equation*}
-If we look at the summands belonging to $x_1\ldots x_{2k}$, we obtain a seemingly more general but in fact equivalent version of (\ref{initialeq}):
+If we look at the summands belonging to the monomial $x_1\ldots x_{2k}$, we obtain a seemingly more general but in fact equivalent version of (\ref{initialeq}):
 \begin{equation} \label{initialpolar}
  (2k)!\; I\!\left(x_1\ldots x_{2k}\right) = 2^k k! \!\!\prod\limits_{1\leq i<j\leq 2k}\!\!\left<x_i,x_j\right>.
 \end{equation}
-This observation was already made by O'Grady, see \cite[Eq.~3.2.4]{OGrady}. Let us now change a bit our point of view. The map $(f,g) \mapsto I(fg)$ clearly defines a symmetric bilinear form on the symmetric product $\Sym^kH^2$.
+This observation was already made by O'Grady, see \cite[Eq.~3.2.4]{OGrady}. Let us develop this idea a bit further. The map $(f,g) \mapsto I(fg)$ clearly defines a symmetric bilinear form on the symmetric product $\Sym^kH^2$.
 Equation (\ref{initialpolar}) gives now a redefinition of this form by means of a bilinear form on $H^2$. So we liberate ourselves from the initial setting and take the right hand side of (\ref{initialpolar}) as a general recipe to construct a symmetric bilinear form $\bra\ ,\;\ket$ on $\Sym^kV$ from a symmetric bilinear form on an appropriate space $V$. This is carried out in Section~\ref{symSection}. Our main result, Theorem~\ref{maintheorem}, gives a formula for the determinant of the Gram matrix of $\bra\ ,\;\ket$. 
 
-It is not surprising that we can get back our linear form $I$. However, for real vector spaces $V$, there is a notable description in terms of an analytic integral given in Prop.~\ref{intequiv}: After some simplifications this amounts to integrating homogeneous polynomials over a sphere. Since for computing determinants it is good to have diagonal matrices, we have to look for polynomials that are mutually orthogonal on the sphere. Surprisingly we could not find this topic in the literature, so we constructed them in Section~\ref{polynomialSection}.
+%It is not surprising that we can get back our linear form $I$. However, 
+For real vector spaces $V$, there is a notable description in terms of an analytic integral given in Prop.~\ref{intequiv}: After some simplifications this amounts to integrating homogeneous polynomials over a sphere. Essentially, we have:
+$$ \bra f,g\ket = \int_{\S^d} f(\omega)g(\omega)d\omega $$
+This is very comfortable, since it allows to use the whole bunch of techniques from calculus to investigate the algebraic properties of our construction.
+Since we are interested in the determinant of the Gram matrix of $\bra\ ,\;\ket$
+and for computing determinants it is good to have diagonal matrices, we look for polynomials that are mutually orthogonal on the sphere. The theory of orthogonal polynomials is well developped, but surprisingly we were unable to find our particular situation in the literature. 
+There are two topics that come close. The first is the theory of Hermite polynomials, see Remark \ref{hermite}. The second is spherical harmonics, which imposes an unwanted restriction though, namely the condition for the polynomials being harmonic.
+We construct the basis of homogeneous polynomials that are orthogonal on the sphere in Section~\ref{polynomialSection}.
 
 After doing that, we come back to our starting point and apply our results to Hyperk\"ahler manifolds. The bilinear form on $\Sym^kH^2$ allows us to compare $\Sym^kH^2$ with $H^{2k}$. We give some results on the quotient $\frac{H^{2k}}{\Sym^kH^2}$ in Section \ref{hyper}, similar to those the author studied in \cite{Kapfer}.
+
+Sections \ref{symSection}, \ref{hsection} and \ref{hyper} treat rather different aspects and can be read independently.
 
 
 
@@ -147,7 +156,7 @@ This often applies to the binomial coefficient, since we have:
 \end{equation}
 %The same recurrence holds for the cardinality of the set $\{|\alpha| =k\}$ of multi-indices of length $d+1$ and degree $k$, because $\{ |\alpha| = k \} = \bigcup_{j=0}^k  \{ |\alpha'| = j \} \times \{ k-j \}  $
 
-For instance, let $r_{d,k} = \rank \left(\Sym^k K^{d+1} \right)$ be the rank of the symmetric power. 
+Let $r_{d,k} = \rank \left(\Sym^k K^{d+1} \right)$ be the rank of the symmetric power. 
 Because of the decomposition $\Sym^k\! K^{d+1} \cong \Sym^k\! K^d \oplus \,\Sym^{k-1}\! K^{d+1}\!\otimes\! K$, we have the recurrence $r_{d,k} = r_{d-1,k} +r_{d,k-1}$. So we deduce:
 \begin{equation} \label{binomcount} \textstyle
 \binom{k+d}{d} =\binom{k+d}{k} = r_{d,k}=\rank \left(\Sym^k K^{d+1} \right) = \text{card}\big(\{|\alpha| =k\}\big).
@@ -236,9 +245,9 @@ We emphasize that this is not the only possibility. One could alternatively defi
 \left(\!\left( x_{n_1}\ldots x_{n_k}\,,\, x_{m_1}\ldots x_{m_k}\right)\!\right) \coloneqq \sum_\sigma  
 \prod_{i=1}^k \left< x_{n_i},x_{m_{\sigma(i)}}\right>,
 \end{equation}
-the sum being over all permutations $\sigma$ of $\{1,\ldots,k\}$, as studied by McGarraghy in \cite{McGarr}. However, this is a different construction that we will \emph{not} consider in this article.
+the sum being over all permutations $\sigma$ of $\{1,\ldots,k\}$, as studied by McGarraghy in \cite{McGarr}. However, this is a different construction that doesn't match the situation described in the introduction. We will \emph{not} consider it in this article.
 
-If $U\in O(V)$ is an orthogonal transformation, then the induced diagonal action of $U^{\otimes k}$ on $\Sym^kV$ is orthogonal in both cases. This shows that the two definitions are independent of the choice of the base of $V$. 
+If $U\in O(V)$ is an orthogonal transformation, then the induced diagonal action of $U^{\otimes k}$ on $\Sym^kV$ is orthogonal in both cases. This shows that the values of $\bra\ ,\;\ket$ and $\left(\!\left(\ ,\;\right)\!\right)$ are independent of the choice of the base of $V$ up to orthogonal transformation. 
 \begin{example}
 To contrast the two definitions, observe that in the case $k=2$
 \begin{align}
@@ -317,7 +326,7 @@ In this section we will construct a basis for the space of homogeneous polynomia
 \begin{equation*}
  \bra f,g\ket = \int_{\R^{d+1}}f(x)g(x) d\mu(x),
 \end{equation*}
-where the measure is $d\mu(x) = (2\pi)^{-\frac{d+1}{2}}e^{-\frac{1}{2}\|x\|^2}dx$. In order to do this, we wish to apply the Gram-Schmidt process to the (lexicographically ordered) monomial basis $(x^\alpha)_{|\alpha |=k}$. Our result is stated in Subsection \ref{hsection}. 
+where the measure is $d\mu(x) = (2\pi)^{-\frac{d+1}{2}}e^{-\frac{1}{2}\|x\|^2}dx$. In order to do this, we wish to apply the Gram-Schmidt process to the (lexicographically ordered) monomial basis $(x^\alpha)_{|\alpha |=k}$. Our result is stated in Subsection \ref{hsection}. 
 \begin{remark}
 Although our definition of $\bra\ ,\;\ket$ doesn't mention the sphere, in view of Lemma \ref{homosphere}, we could equivalently integrate the homogeneous polynomials over the unit sphere $\S^d$:
 $$
@@ -325,7 +334,7 @@ $$
 $$ 
 This is the reason why we call our polynomials orthogonal on the sphere. However, we prefer to integrate over $\R^{d+1}$, since this avoids the unwanted constant $c$.
 \end{remark}
-\begin{remark}
+\begin{remark} \label{hermite}
  If the homogeneity constraint was dropped, the answer to the problem would be much simpler: A basis of $ \bra\ ,\;\ket$-orthogonal polynomials is given by products $H_{\alpha_0}\!(x_0)\ldots H_{\alpha_d}\!(x_d)$ of Hermite polynomials in one variable, see also \cite[Sect.~2.3.4]{Dunkl}.
 \end{remark}
 
