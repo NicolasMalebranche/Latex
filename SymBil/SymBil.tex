@@ -13,6 +13,7 @@
 \DeclareMathOperator{\Sym}{Sym}
 \DeclareMathOperator{\Hilb}{Hilb}
 \DeclareMathOperator{\len}{len}
+\DeclareMathOperator{\discr}{discr}
 
 \newcommand{\hilb}[1]{^{[#1]}}
 \newcommand{\ie}{{\it i.e. }}
@@ -124,18 +125,19 @@ $$ \bra f,g\ket = \int_{\S^d} f(\omega)g(\omega)d\omega $$
 This is very comfortable, since it allows to use the whole bunch of techniques from calculus to investigate the algebraic properties of our construction.
 Since we are interested in the determinant of the Gram matrix of $\bra\ ,\;\ket$
 and for computing determinants it is good to have diagonal matrices, we look for polynomials that are mutually orthogonal on the sphere. The theory of orthogonal polynomials is well developped, but surprisingly we were unable to find our particular situation in the literature. 
-There are two topics that come close. The first is the theory of Hermite polynomials, see Remark \ref{hermite}. The second is spherical harmonics, which imposes an unwanted restriction though, namely the condition for the polynomials being harmonic.
+There are two topics that come close. The first one is the theory of Hermite polynomials, see Remark \ref{hermite}. The second is spherical harmonics, which imposes an unwanted restriction though, namely the condition for the polynomials being harmonic.
 We construct the basis of homogeneous polynomials that are orthogonal on the sphere in Section~\ref{polynomialSection}.
 
-After doing that, we come back to our starting point and apply our results to Hyperk\"ahler manifolds. The bilinear form on $\Sym^kH^2$ allows us to compare $\Sym^kH^2$ with $H^{2k}$. We give some results on the quotient $\frac{H^{2k}}{\Sym^kH^2}$ in Section \ref{hyper}, similar to those the author studied in \cite{Kapfer}.
+After doing that, we come back to our starting point and apply our results to Hyperk\"ahler manifolds. The bilinear form on $\Sym^kH^2$ allows us to compare $\Sym^kH^2$ with $H^{2k}$. We give some results on torsion factors of the quotient $\frac{H^{2k}}{\Sym^kH^2}$ in Section \ref{hyper}, similar to those the author studied in \cite{Kapfer}.
 
-Sections \ref{symSection}, \ref{hsection} and \ref{hyper} treat rather different aspects and can be read independently.
+Sections \ref{symSection}, \ref{polynomialSection} and \ref{hyper} treat rather different aspects and can be read independently.
 
 
 
 \section{Terminology and helper formulas} \label{boring}
 In this section 
 we give a few standard definitions and recall some facts on elementary calculus. We also mention technical formulas needed for our proofs.
+\subsection{Combinatorial formulas}
 \begin{definition}\label{multiindex}
 For a multi-index $\alpha=(\alpha_0,\ldots,\alpha_d)$ of length $\len(\alpha)\coloneqq d+1$ we define: $x^\alpha \coloneqq x_0^{\alpha_0}\ldots x_d^{\alpha_d}$. The degree is defined by $|\alpha |\coloneqq\sum\alpha_i$, the factorial is $\alpha! \coloneqq \prod \alpha_i!$. Further, we set
 $\alpha'\coloneqq(\alpha_0,\ldots,\alpha_{d-1})$. We introduce the lexicographical ordering on multi-indices: $\alpha < \beta$ iff $\alpha_d < \beta_d$ or $(\alpha_d=\beta_d) \wedge (\alpha'<\beta')$.
@@ -197,7 +199,7 @@ Given such a partition, look at the pair that contains the element $1$. There ar
 \end{proof}
 
 
-
+\subsection{Formulas from Calculus}
 Denote $\Gamma(t) \coloneqq \int_{0}^{\infty}r^{t-1}e^{-r}dr$ the gamma function. It satisfies:
 \begin{align}
 \label{ffgamma}
@@ -227,6 +229,24 @@ Let $f:\R^{n+1}\rightarrow\R$ be a continuous homogeneous function of degree $k$
 \end{lemma}
 
 
+\subsection{Lattices}\label{latticeSubsection} By a lattice $L$ we mean a free $\Z$--module of finite rank, equipped with a non--degenerate, integer--valued symmetric bilinear form $\left<\ ,\;\right>$. By a homomorphism or imbedding $L\subset M$ of lattices we mean a map $:L\rightarrow M$ that preserves the bilinear forms on $L$ and $M$ respectively. It is automatically injective. We always have the imbedding of a lattice $L$ into its dual space $L^*\coloneqq \Hom(L,\Z)$, given by $x \mapsto \left<x,\ \right>$. A lattice is called unimodular, if this imbedding is an isomorphism of lattices, \ie if it is surjective. By tensoring with $\Q$, we can interpret $L$ as well as $L^*$ as a discrete subset of the $\Q$--vector space $L\otimes \Q$. Note that this gives a kind of lattice structure to $L^*$, too, but the symmetric bilinear form on $L^*$ may now take rational coefficients.
+
+The quotient $L^*/L$ is called the discriminant group. Its order is always finite and is called the discriminant of $L$.
+Choosing a basis $(x_i)_i$ of $L$, we may express $\discr L$ as the determinant of the so--called Gram matrix $G$ of $\left<\ ,\;\right>$, which is defined by $G_{ij}\coloneqq \left<x_i,x_j\right>$. 
+
+An imbedding $L\subset M$ is called primitive, if the quotient $M/L$ is free. If additionally $L$ an $M$ have the same rank, we deduce from the chain of imbeddings $L\subset M \subset M^* \subset L^*$ the following
+\begin{proposition} \label{squareDiscr}Let $M$ be a unimodular lattice. Let $L\subset M$ be a primitively imbedded sublattice of the same rank. Then the order of $M/L$ equals $\sqrt{\discr L}$.
+\end{proposition}
+For any imbedding $L\subset M$ we denote by $L^\perp$ the orthogonal complement of $L$ within $M$. Since an orthogonal complement is always primitive, the double orthogonal complement $ (L^\perp)^\perp$ is a primitively embedded superlattice of $L$. It is clear that the discriminant of $ (L^\perp)^\perp$  divides $\discr L$. Now $L\oplus L^\perp\subset M$, and therefore we have a chain of imbeddings:
+$$
+L\oplus L^\perp \subset  (L^\perp)^\perp \oplus L^\perp\subset M \subset M^* \subset \left((L^\perp)^\perp \oplus L^\perp\right)^*  \subset \left(L \oplus L^\perp\right)^*.
+$$
+If now again $M$ is unimodular, then $M/(L\oplus L^\perp)$ is finite and isomorphic to the torsion part of $M/L$. With the above consideration we get
+\begin{proposition}\label{TorsionQuotient} Let $L\subset M$ be an imbedding of lattices with unimodular $M$. Then the order of the torsion part of $M/L$ 
+divides $\discr L$.
+\end{proposition}
+
+
 
 \section{Symmetric Bilinear Forms on Symmetric Powers} \label{symSection}
 Let $V$ be a vector space (or a free module) over a field (resp.~a commutative ring) $K$ of rank $d+1$ with basis $\{x_0,\ldots,x_{d}\}$, equipped with a symmetric bilinear form $\left<\,\ ,\ \right>: V\times V \rightarrow K$. We will freely identify the symmetric power $\Sym^kV$ with the space $K[x_0,\ldots,x_d]_k$ of homogeneous polynomials of degree $k$. 
@@ -251,8 +271,8 @@ If $U\in O(V)$ is an orthogonal transformation, then the induced diagonal action
 \begin{example}
 To contrast the two definitions, observe that in the case $k=2$
 \begin{align}
-\left(\!\left( ab,cd \right)\!\right) &= \left<a,c\right>\left<b,d\right>+\left<a,d\right>\left<b,c\right>, \\
-\bra ab,cd\ket &= \left<a,c\right>\left<b,d\right>+\left<a,d\right>\left<b,c\right> + \left<a,b\right>\left<c,d\right>.
+\bra ab,cd\ket &= \left<a,c\right>\left<b,d\right>+\left<a,d\right>\left<b,c\right> + \left<a,b\right>\left<c,d\right>, \\
+\left(\!\left( ab,cd \right)\!\right) &= \left<a,c\right>\left<b,d\right>+\left<a,d\right>\left<b,c\right>.
 \end{align}
 \end{example}
 \begin{remark}
@@ -306,7 +326,7 @@ where $\theta_{d,k}$ is a combinatorial factor given by:
 \end{gather*}
 \end{remark}
 \begin{remark}
-We didn't mention the base ring $K$ in the theorem. In fact, if the formula holds for $K=\Z$, then automatically for any $K$, because $\det\G$ is defined only by sums and products that don't depend on $K$. However, for the proof we work with $\R$-valued coefficients. It is clear that the formula holds for $K=\R$ if and only if it holds for $K=\Z$. We require further that $G$ is positive definite, because we want to use Prop.~\ref{intequiv}. That this means no loss of generality, is seen by the following argument: Let $Q\subset \R^{(d+1)\times(d+1)}$ be the set of real symmetric square matrices of size $d+1$. The subset $R\subset Q$ of all matrices $G\in Q$ that satisfy our formula is Zariski-closed. But on the other hand, the positive definite matrices form a nonempty subset $P\subset Q$ which is open in the analytic topology. So if $P\subset R$, then necessarily $R=Q$.
+We didn't mention the base ring $K$ in the theorem. In fact, if the formula holds for $K=\Z$, then automatically for any $K$, because $\det\G$ is defined only by sums and products that depend on the entries of $G$, but not on $K$. However, for the proof we work with $\R$-valued coefficients. It is clear that the formula holds for $K=\R$ if and only if it holds for $K=\Z$. We require further that $G$ is positive definite, because we want to use Prop.~\ref{intequiv}. That this means no loss of generality, is seen by the following argument: Let $Q\subset \R^{(d+1)\times(d+1)}$ be the set of real symmetric square matrices of size $d+1$. The subset $R\subset Q$ of all matrices $G\in Q$ that satisfy our formula is Zariski-closed. But on the other hand, the positive definite matrices form a nonempty subset $P\subset Q$ which is open in the analytic topology. So if $P\subset R$, then necessarily $R=Q$.
 \end{remark}
 \begin{proof}
 As one may imagine, finding the factor $\theta_{d,k}$ is the hard part. We have to postpone this to Section \ref{hsection}. We will therefore reduce the statement to the case when $G$ is the identity matrix, which is proven in Theorem \ref{thetaCor}. Since any orthogonal transformation $U\in O(V)$ induces a  transformation $U^{\otimes k} \in O(\Sym^k V)$ and thus doesn't affect determinants, we may assume that $G$ is a diagonal matrix. So let us check, what happens if we apply a coordinate transformation $x\mapsto\tilde x$ that changes the last coordinate by $\tilde{x}_d = \gamma x_d$ and leaves the other coordinates invariant. Let $\tilde{G}$ and $\tilde{\G}$ be the Gram matrices corresponding to the new coordinates. We clearly have: $\tilde{x}^\alpha = \gamma^{\alpha_d} x^\alpha$. Extracting the factor $\gamma$ from the Leibniz determinant formula, which is of the form $\det \tilde{\G}=\sum\limits_\sigma\pm\prod\limits_{|\alpha|=k} \bra \tilde{x}^{\alpha},\tilde{x}^{\sigma(\alpha)}\ket$, we get: 
@@ -389,7 +409,7 @@ Firstly, we calculate $ \frac{d}{d\omega}\! \left[\sin(\omega)^j \cos(\omega)^{m
 &\hspace{3cm}-\textstyle\sum\limits_{\substack{j=1\\ n-j\ \text{even}}}^{n}\!\!\! \frac{(-1)^{\frac{n-j}{2}}(n-1)!\,(m-2n)!!\,(m-j)}{(j-1)!\,(m-n-j)!!\,(n-j)!!}\sin(\omega)^{j} \cos(\omega)^{m-j-1} \\
 &=\!\!\textstyle\sum\limits_{\substack{j=0\\ n-j\ \text{even}}}^{n} \!\!\!\frac{(-1)^{\frac{n-j}{2}}(n-1)!\,(m-2n)!!}{j!\,(m-n-j)!!\,(n-j)!!}\underbrace{\big[(j\!-\!n)(m\!-\!n\!-\!j)-j(m\!-\!j)\big] }_{=n(n-m)}\tan(\omega)^{j} \cos(\omega)^{m-1}
 \\ &= \textstyle(n-m)\, \p{n}{m}\big(\tan(\omega)\big)\cos(\omega)^{m-1}.
-\end{align*}
+\end{align*} \nobreak
 \end{proof}
 
 \begin{proposition} \label{threeterm} For $0\leq 2n\leq m-1$, we have a three-term recurrence:
@@ -405,7 +425,7 @@ We start from the right: $ x\p{n}{m}(x) -d_n^m \p{n-1}{m}(x)$ gives
 \ - \sum\limits_{\substack{j=0\\ n-j\ \text{odd}}}^{n-1} \!\!\!d_n^m\frac{(-1)^{\frac{n-j-1}{2}} (n-1)!\,(m-2n+2)!!}{j!\,(m-n-j+1)!!\,(n-j-1)!!}\: x^j 
 \\=&\textstyle \sum\limits_{\substack{j=0\\ n-j\ \text{odd}}}^{n+1} \!\!\!\frac{(-1)^{\frac{n-j+1}{2}} (n+1)!\,(m-2n-2)!!}{j!\,(m-n-j-1)!!\,(n-j+1)!!}\underbrace{\textstyle
 \frac{j(m-2n)+(m-n+1)(n-j+1)}{(n+1)(m-n-j+1)}}_{=1} \,x^j = \p{n+1}{m}(x) .
-\end{align*}
+\end{align*} \nobreak
 \end{proof}
 
 \begin{theorem} \label{pthm}We define, for $m\geq 1$, a linear functional $\L$ on the vector space of polynomials of degree less than $m$, by setting
@@ -523,7 +543,7 @@ but also for odd $d$,
 \frac{B(d,k+1)}{B(d,k)B(d-1,k+1)} = \frac{ (k+\tfrac{d+1}{2})^{-\binom{-k-1}{d}} \prod\limits_{i=1}^{k+\frac{d+1}{2}} i^{\binom{k-i+d}{d-1}-\binom{k-2i+d}{d-1}}  }{ \prod\limits_{\substack{i=1 \\ i\ \text{odd} }}^{2k+d+1}i^{\binom{k-i+d}{d-1}} } \\
 = \frac{ (k+\tfrac{d+1}{2})^{\binom{k+d}{d}} \prod\limits_{i=1}^{k+\frac{d+1}{2}} i^{\binom{k-i+d}{d-1}}  \prod\limits_{\substack{i=1 \\ i\ \text{even} }}^{2k+d} 2^{ \binom{k-i+d}{d-1}}}{ \prod\limits_{i=1}^{2k+d+1}i^{\binom{k-i+d}{d-1}}} 
 \ \myeq{(\ref{evensum})} \ \frac{ (2k\!+\!d\!+\!1)^{\binom{k+d}{d}} }{ \prod\limits_{i=k+d+1}^{2k+d+1}i^{ \binom{k-i+d}{d-1}} }.
-\end{gather*}
+\end{gather*}\nobreak
 \end{proof}
 
 
@@ -537,7 +557,7 @@ This equation is referred to as the Beauville--Fujiki relation. The constant $c_
 \begin{equation}\label{bb}
  \tilde{c}\,q_X(\alpha) = \frac{k}{2}\int_X \alpha^2 (\sigma\bar{\sigma})^{k-1} + (1-k)\left(\int_X\alpha\,\sigma^{n-1}\bar{\sigma}^{n}\right)\left(\int_X\alpha\,\sigma^{n}\bar{\sigma}^{n-1}\right).
 \end{equation}
-Now $q_X$, by polarisation, gives rise to a symmetric bilinear form $\left<\ ,\;\right>$ on $H^2(X,\Z)$, namely $2\left<\alpha,\beta\right> \coloneqq q_X(\alpha+\beta)-q_X(\alpha) -q_X(\beta)$. On the other hand, from (\ref{fujiki}) one deduces (again by polarisation, cf.~\cite[Eq.~3.2.4]{OGrady}) that:
+Now $q_X$, by polarization, gives rise to a symmetric bilinear form $\left<\ ,\;\right>$ on $H^2(X,\Z)$, namely $2\left<\alpha,\beta\right> \coloneqq q_X(\alpha+\beta)-q_X(\alpha) -q_X(\beta)$. On the other hand, from (\ref{fujiki}) one deduces again by polarization, as shown in the introduction, see also \cite[Eq.~3.2.4]{OGrady} that:
 \begin{equation}
  \int_X \alpha_1\wedge\ldots\wedge\alpha_{2k} = c_X \bra \alpha_1\ldots\alpha_k\,,\,\alpha_{k+1}\ldots\alpha_{2k}\ket,
 \end{equation}
@@ -545,15 +565,30 @@ with the induced form $\bra\ ,\;\ket$ on $\Sym^kH^2(X,\Z)$, according to Definit
 \begin{equation}
 \Big( \Sym^kH^2(X,\Z),\: c_X\!\bra\ ,\;\ket\Big) \longrightarrow \Big(H^{2k}(X,\Z),\;(\ ,\;)_X\Big).
 \end{equation}
-From this observation and Theorem \ref{maintheorem}, we deduce some interesting corollaries:
+
+
+From Theorem \ref{maintheorem} and Proposition~\ref{TorsionQuotient} we now get some interesting corollaries:
 \begin{corollary}
-Let $X$ be a compact Hyperk\"ahler manifold of complex dimension $2k$. Denote $h_2$ resp.~$d_2$ the rank and the discriminant of $H^2(X,\Z)$. Then the torsion part of the quotient
+Let $X$ be a compact Hyperk\"ahler manifold of complex dimension $2k$. Denote $b_2$ resp.~$d_2$ the rank and the discriminant of $H^2(X,\Z)$. Then the torsion part of the quotient
 $$
 \frac{H^{2k}(X,\Z)}{\Sym^kH^2(X,\Z)}
 $$
-contains no prime factors that are bigger than $2k+h_2-2$ and don't divide neither $c_X$ nor $d_2$. \qed
+contains only prime factors that are smaller than $2k+b_2-1$ or divide $c_X^{b_2} d_2$. 
 \end{corollary}
-For the known examples of compact Hyperk\"ahler manifolds, we can refine this a bit, using \cite[Table~1]{OGrady}:
+For the known examples of compact Hyperk\"ahler manifolds, we can refine this a bit, using the list given in \cite[Table~1]{OGrady}:
+
+Let $S^{[k]}$ for $k\geq 2$ be the Hilbert scheme of $k$ points on a K3 surface $S$, let $K^{[[k]]}$ be the generalized Kummer variety of a torus and let $OG_6$ and $OG_{10}$ be the 6-- resp. 10--dimensional O'Grady manifold. Then we have:
+
+\begin{center}
+\begin{tabular}{ p{2cm} p{2cm} p{2cm} p{2cm} }
+$X$ 		& $\dim X$	& $b_2$ & $c_X$ \\ \hline 
+$S^{[k]}$ 	& $2k$ 		& $23$ 	& $1$	\\
+$K^{[[k]]}$	& $2k$ 		& $7$	& $k+1$ \\
+$OG_6$		& $6$		& $8$	& $4$ 	\\
+$OG_{10}$	& $10$		& $24$	& $1$ 	
+\end{tabular}
+\end{center}
+
 \begin{corollary}
  The torsion part of the quotient
 $$
@@ -561,14 +596,14 @@ $$
 $$
 contains no prime factors bigger than
 \begin{itemize}
-\item $2k+21$, if $X$ is $S^{[k]}$, the Hilbert scheme of $k$ points on a K3 surface $S$,
-\item $2k+5$, if $X$ is $K^{[[k]]}$, the generalized Kummer variety of a torus,
-\item $16$, if $X$ is the 10--dimensional O'Grady manifold,
-\item $6$, if $X$ is the 6--dimensional O'Grady manifold.
-\end{itemize} \qed
+\item $2k+21$, if $X$ is deformation equivalent to $S^{[k]}$,
+\item $2k+5$, if $X$ is deformation equivalent to $K^{[[k]]}$, 
+\item $5$, if $X$ is deformation equivalent to $OG_6$,
+\item $13$, if $X$ is deformation equivalent to $OG_{10}$.
+\end{itemize} 
 \end{corollary}
 \begin{remark}
-The cases $X=S^{[2]}$ and $X=S^{[3]}$ were already studied in \cite[Prop.~6.6]{BNS} and \cite[Prop.~2.4]{Kapfer}, using explicit calculations. The case $X=S^{[2]}$ is particularly nice, because $\Sym^2H^2(S^{[2]},\Z)$ and $H^4(S^{[2]},\Z)$ have the same rank. Since the rank and the discriminant of $H^2(S^{[2]},\Z)$ are $23$ and $-2$, Theorem \ref{maintheorem} implies that the cardinality of the quotient is precisely $\sqrt{2^{24}\,2^{22}(22+3)}$.
+The cases $X=S^{[2]}$ and $X=S^{[3]}$ were already studied in \cite[Prop.~6.6]{BNS} and \cite[Prop.~2.4]{Kapfer}, using explicit calculations. The case $X=S^{[2]}$ is special, because $\Sym^2H^2(S^{[2]},\Z)$ and $H^4(S^{[2]},\Z)$ have the same rank. So Prop.~\ref{squareDiscr}, together with Theorem~\ref{maintheorem} imply that the cardinality of the quotient is precisely $\sqrt{2^{24}\cdot2^{22}\cdot(22+3)} = 2^{23}\cdot5$.
 \end{remark}
 
 \emph{Acknowledgements.} We thank Samuel Boissi\`ere, Cl\'ement Chesseboeuf and K\'evin Tari for useful conversations and the University of Poitiers for its hospitality. The author was supported by a DAAD grant.
