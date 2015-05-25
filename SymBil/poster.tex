@@ -1,0 +1,266 @@
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[final]{beamer}
+
+\usepackage[scale=1.24]{beamerposter} % Use the beamerposter package for laying out the poster
+
+\usetheme{confposter} % Use the confposter theme supplied with this template
+
+\setbeamercolor{block title}{fg=ngreen,bg=white} % Colors of the block titles
+\setbeamercolor{block body}{fg=black,bg=white} % Colors of the body of blocks
+\setbeamercolor{block alerted title}{fg=white,bg=dblue!70} % Colors of the highlighted block titles
+\setbeamercolor{block alerted body}{fg=black,bg=dblue!10} % Colors of the body of highlighted blocks
+% Many more colors are available for use in beamerthemeconfposter.sty
+
+%-----------------------------------------------------------
+% Define the column widths and overall poster size
+% To set effective sepwid, onecolwid and twocolwid values, first choose how many columns you want and how much separation you want between columns
+% In this template, the separation width chosen is 0.024 of the paper width and a 4-column layout
+% onecolwid should therefore be (1-(# of columns+1)*sepwid)/# of columns e.g. (1-(4+1)*0.024)/4 = 0.22
+% Set twocolwid to be (2*onecolwid)+sepwid = 0.464
+% Set threecolwid to be (3*onecolwid)+2*sepwid = 0.708
+
+\newlength{\sepwid}
+\newlength{\onecolwid}
+\newlength{\twocolwid}
+\newlength{\threecolwid}
+\setlength{\paperwidth}{48in} % A0 width: 46.8in
+\setlength{\paperheight}{36in} % A0 height: 33.1in
+\setlength{\sepwid}{0.024\paperwidth} % Separation width (white space) between columns
+\setlength{\onecolwid}{0.3\paperwidth} % Width of one column
+\setlength{\twocolwid}{0.464\paperwidth} % Width of two columns
+\setlength{\threecolwid}{0.708\paperwidth} % Width of three columns
+\setlength{\topmargin}{-0.5in} % Reduce the top margin size
+%-----------------------------------------------------------
+
+\usepackage{graphicx}  % Required for including images
+
+\usepackage{booktabs} % Top and bottom rules for tables
+
+\DeclareMathOperator{\rank}{rk}
+\DeclareMathOperator{\trace}{tr}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\Hilb}{Hilb}
+\DeclareMathOperator{\len}{len}
+\DeclareMathOperator{\discr}{discr}
+
+\newcommand{\hilb}[1]{^{[#1]}}
+\newcommand{\ie}{{\it i.e. }}
+\newcommand{\eg}{{\it e.g. }}
+\newcommand{\loccit}{{\it loc. cit. }}
+\newcommand{\vac}{|0\rangle}
+\newcommand{\odd}{{\rm{odd}}}
+\newcommand{\even}{{\rm{even}}}
+\newcommand{\tors}{{\rm{tors}}}
+
+\newcommand{\p}[2]{p_{#1}^{#2}\;\!\!}
+\renewcommand{\L}{\mathcal{L}}
+
+\newcommand{\coloneqq}{:=}
+\newcommand{\bra}{\left<\!\!\!\:\left<}
+\newcommand{\ket}{\right>\!\!\!\:\right>}
+\newcommand{\myeq}[1]{\mathrel{\overset{\makebox[0pt]{\text{\tiny #1}}}{=}}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\G}{\mathbb{G}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\renewcommand{\S}{\mathbb{S}}
+\renewcommand{\H}{\mathbb{H}}
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION 
+%----------------------------------------------------------------------------------------
+
+\title{Aspects of the Beauville--Fujiki relation} % Poster title
+
+\author{Simon Kapfer} % Author(s)
+
+\institute{University of Poitiers} % Institution(s)
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\addtobeamertemplate{block end}{}{\vspace*{2ex}} % White space under blocks
+\addtobeamertemplate{block alerted end}{}{\vspace*{2ex}} % White space under highlighted (alert) blocks
+
+\setlength{\belowcaptionskip}{2ex} % White space under figures
+\setlength\belowdisplayshortskip{2ex} % White space under equations
+
+\begin{frame}[t] % The whole poster is enclosed in one beamer frame
+
+\begin{columns}[t] % The whole poster consists of three major columns, the second of which is split into two columns twice - the [t] option aligns each column's content to the top
+
+\begin{column}{\sepwid}\end{column} % Empty spacer column
+
+\begin{column}{\onecolwid} % The first column
+
+
+%----------------------------------------------------------------------------------------
+%	INTRODUCTION
+%----------------------------------------------------------------------------------------
+
+\begin{block}{Introduction}
+Let $X$ be a compact Hyperk\"ahler manifold of dimension $2n$. The Beauville--Fujiki relation expresses a symmetric bilinear form on $H^2(X,\Z)$ in terms of the Poincar\'e pairing on $H^{2n}(X,\Z)$:
+$$
+\left< \alpha,\alpha\right> = \left(c\int_X \alpha^{2n} \right) ^{\frac{1}{n}}
+$$
+\emph{Question:} Is there a way to invert this procedure? \\
+\emph{Answer:} Yes, on $\im\left(\Sym^nH^2(X) \rightarrow H^4(X)\right)$.
+\begin{alertblock}{B--F relation, polarized version:}
+$$
+c\cdot I\!\left(\alpha_1\ldots \alpha_{2n}\right) = \prod\limits_{1\leq i<j\leq 2n}\!\!\left<\alpha_i,\alpha_j\right>.
+$$
+\end{alertblock}
+We take this as a general recipe to generate symmetric bilinear forms on symmetric powers!
+\end{block}
+
+%------------------------------------------------
+
+\begin{block}{General setting}
+Let $V$ be a free module with symmetric bilinear form $\left<\ ,\;\right>$.
+On the basis $\{x_{n_1}\ldots x_{n_k}\;|\;0\leq n_1\leq\ldots\leq n_k\leq d\}$ of $\Sym^kV$, we define a symmetric bilinear form $\bra\ \,,\ \ket$ by: 
+\begin{equation}
+\label{mydef}
+\bra x_{n_1}\ldots x_{n_k}\,,\,x_{n_{k+1}}\ldots x_{n_{2k}} \ket \coloneqq \sum_{\mathcal{P}} \prod_{\{i,j\}\in\mathcal{P}} \left<x_{n_i},x_{n_j}\right>,
+\end{equation}
+The sum is over all partitions $\mathcal{P}$ of $\{1,\ldots,2k\}$ in pairs.
+\end{block}
+
+
+
+\begin{figure}
+\includegraphics[width=0.8\linewidth]{placeholder.jpg}
+\caption{Figure caption}
+\end{figure}
+
+%----------------------------------------------------------------------------------------
+
+\end{column} % End of the first column
+
+\begin{column}{\sepwid}\end{column} % Empty spacer column
+
+\begin{column}{\onecolwid} % Begin a column which is two columns wide (column 2)
+
+\begin{block}{Link to real analysis}
+There is an alternative description, for $V=\R^n$ with the standard scalar product.
+For two homogeneous polynomials $h_1(x),\;h_2(x)$ in $d+1$ variables, 
+$$
+\bra h_1(x), h_2(x) \ket = c \int_{\S^d}  h_1(\omega) h_2(\omega) d\omega ,
+$$ 
+with an analytic integral over the unit sphere. 
+\end{block}
+
+\begin{block}{Conclusion}
+Finding a basis of homogeneous polynomials orthogonal on the sphere amounts to understanding a portion of the structure of the Bauville--Fujiki relation!
+\end{block}
+
+
+\end{column} % End of the second column
+
+\begin{column}{\sepwid}\end{column} % Empty spacer column
+
+\begin{column}{\onecolwid} % The third column
+
+%----------------------------------------------------------------------------------------
+%	CONCLUSION
+%----------------------------------------------------------------------------------------
+
+\begin{block}{Conclusion}
+
+Nunc tempus venenatis facilisis. \textbf{Curabitur suscipit} consequat eros non porttitor. Sed a massa dolor, id ornare enim. Fusce quis massa dictum tortor \textbf{tincidunt mattis}. Donec quam est, lobortis quis pretium at, laoreet scelerisque lacus. Nam quis odio enim, in molestie libero. Vivamus cursus mi at \textit{nulla elementum sollicitudin}.
+
+\end{block}
+
+
+\begin{alertblock}{Consequence for compact HK manifolds}
+The quotient 
+$$
+\frac{H^{2n}(X,\Z)}{\Sym^nH^2(X,\Z)}
+$$
+contains no prime torsion factors greater than $2n +b_2-2$.
+\end{alertblock}
+
+
+%----------------------------------------------------------------------------------------
+%	ADDITIONAL INFORMATION
+%----------------------------------------------------------------------------------------
+
+\begin{block}{Additional Information}
+
+Maecenas ultricies feugiat velit non mattis. Fusce tempus arcu id ligula varius dictum. 
+\begin{itemize}
+\item Curabitur pellentesque dignissim
+\item Eu facilisis est tempus quis
+\item Duis porta consequat lorem
+\end{itemize}
+
+\end{block}
+
+%----------------------------------------------------------------------------------------
+%	REFERENCES
+%----------------------------------------------------------------------------------------
+
+\begin{block}{References}
+
+\nocite{*} % Insert publications even if they are not cited in the poster
+\small{\bibliographystyle{unsrt}
+\bibliography{sample}\vspace{0.75in}}
+
+\end{block}
+
+%----------------------------------------------------------------------------------------
+%	ACKNOWLEDGEMENTS
+%----------------------------------------------------------------------------------------
+
+\setbeamercolor{block title}{fg=red,bg=white} % Change the block title color
+
+\begin{block}{Acknowledgements}
+
+\small{\rmfamily{Nam mollis tristique neque eu luctus. Suspendisse rutrum congue nisi sed convallis. Aenean id neque dolor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.}} \\
+
+\end{block}
+
+%----------------------------------------------------------------------------------------
+%	CONTACT INFORMATION
+%----------------------------------------------------------------------------------------
+
+\setbeamercolor{block alerted title}{fg=black,bg=norange} % Change the alert block title colors
+\setbeamercolor{block alerted body}{fg=black,bg=white} % Change the alert block body colors
+
+\begin{alertblock}{Contact Information}
+
+\begin{itemize}
+\item Web: \href{http://www.university.edu/smithlab}{http://www.university.edu/smithlab}
+\item Email: \href{mailto:john@smith.com}{john@smith.com}
+\item Phone: +1 (000) 111 1111
+\end{itemize}
+
+\end{alertblock}
+
+\begin{center}
+\begin{tabular}{ccc}
+\includegraphics[width=0.4\linewidth]{logo.png} & \hfill & \includegraphics[width=0.4\linewidth]{logo.png}
+\end{tabular}
+\end{center}
+
+%----------------------------------------------------------------------------------------
+
+\end{column} % End of the third column
+
+\end{columns} % End of all the columns in the poster
+
+\end{frame} % End of the enclosing frame
+
+\end{document}
