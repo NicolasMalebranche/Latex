@@ -114,9 +114,9 @@ I\!\left((x_1+\ldots+x_{2k})^{2k}\right) = q(x_1+\ldots+x_{2k})^{k} = \left(\sum
 \end{equation*}
 If we look at the summands belonging to the monomial $x_1\ldots x_{2k}$, we obtain a seemingly more general but in fact equivalent version of (\ref{initialeq}):
 \begin{equation} \label{initialpolar}
- (2k)!\; I\!\left(x_1\ldots x_{2k}\right) = 2^k k! \!\!\prod\limits_{1\leq i<j\leq 2k}\!\!\left<x_i,x_j\right>.
+ (2k)!\; I\!\left(x_1\ldots x_{2k}\right) = 2^k k!\sum_{\mathcal{P}} \prod_{\{i,j\}\in\mathcal{P}}\left<x_i,x_j\right>,
 \end{equation}
-This observation was already made by O'Grady, see \cite[Eq.~3.2.4]{OGrady}. Let us develop this idea a bit further. The map $(f,g) \mapsto I(fg)$ clearly defines a symmetric bilinear form on the symmetric product $\Sym^kH^2$.
+where the sum is over all partitions $\mathcal{P}$ of $\{1,\ldots,2k\}$ into pairs. This observation was already made by O'Grady, see \cite[Eq.~3.2.4]{OGrady}. Let us develop this idea a bit further. The map $(f,g) \mapsto I(fg)$ clearly defines a symmetric bilinear form on the symmetric product $\Sym^kH^2$.
 Equation (\ref{initialpolar}) gives now a redefinition of this form by means of a bilinear form on $H^2$. So we liberate ourselves from the initial setting and take the right hand side of (\ref{initialpolar}) as a general recipe to construct a symmetric bilinear form $\bra\ ,\;\ket$ on $\Sym^kV$ from a symmetric bilinear form on an appropriate space $V$. This is carried out in Section~\ref{symSection}. Our main result, Theorem~\ref{maintheorem}, gives a formula for the determinant of the Gram matrix of $\bra\ ,\;\ket$. 
 
 %It is not surprising that we can get back our linear form $I$. However, 
@@ -221,7 +221,7 @@ It follows, that:
 \end{align}
 The reader may also consult \cite{Folland} for that kind of calculus. In particular, \cite[Eq.~(4)]{Folland} yields:
 \begin{lemma}\label{homosphere}
-Let $f:\R^{n+1}\rightarrow\R$ be a continuous homogeneous function of degree $k$, that is $f(sx) = s^kf(x)\; \forall s\in\!\R$. Then, using polar coordinates $(r,\omega) = (\|x\|,\frac{x}{\|x\|})$:
+Let $f:\R^{d+1}\rightarrow\R$ be a continuous homogeneous function of degree $k$, that is $f(sx) = s^kf(x)\; \forall s\in\!\R$. Then, using polar coordinates $(r,\omega) = (\|x\|,\frac{x}{\|x\|})$:
 \begin{align*}
 \int_{\R^{d+1}}f(x)e^{-\frac{1}{2}\|x\|^2} dx &= \int_{\S^d}\!\int_0^\infty\! f(r\omega) r^d e^{-\frac{1}{2}r^2}dr d\omega \\
 &= 2^{\frac{k+d-1}{2}}\Gamma\!\left(\tfrac{k+d+1}{2}\right)\int_{\S^d}f(\omega)d\omega .
