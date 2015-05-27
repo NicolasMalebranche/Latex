@@ -118,7 +118,7 @@ evident embedding: $\Sym^n\!H^2(X) \rightarrow H^{2n}(X)$ becomes metric.
 
 
 \begin{block}{Introduction}
-Let $X$ be a compact Hyperk\"ahler manifold of dimension $2n$. The Beauville--Fujiki relation expresses a symmetric bilinear form on $H^2(X,\Z)$ in terms of the Poincar\'e pairing on $H^{2n}(X,\Z)$:
+Let $X$ be a compact Hyperk\"ahler manifold of dimension $2n$. The Beauville--Fujiki relation expresses an integral symmetric bilinear form on $H^2(X,\Z)$, called the Beauville--Bogomolov form, in terms of the Poincar\'e pairing on $H^{2n}(X,\Z)$:
 $$
 \left< \alpha,\alpha\right> \stareq \left(\int_X \alpha^{2n} \right) ^{\frac{1}{n}} \vspace{6pt}
 $$
@@ -157,8 +157,8 @@ ${}^*$all equations are meant to hold only up to a constant factor
 \begin{column}{\onecolwid} % Begin a column which is two columns wide (column 2)
 
 \begin{block}{Generalized setting}
-Let $V$ be a free module with symmetric bilinear form $\left<\ ,\;\right>$.
-On the basis $\{x_{k_1}\ldots x_{k_n}\;|\;0\leq k_1\leq\ldots\leq k_n\leq d\}$ of $\Sym^nV$, we define a symmetric bilinear form $\bra\ \,,\ \ket$ by: 
+Let $V$ be a free module with basis $(x_i)_{0\leq i\leq d}$, equipped with a symmetric bilinear form $\left<\ ,\;\right>$.
+On the induced basis of $\Sym^nV$, we define a symmetric bilinear form $\bra\ \,,\ \ket$ by: 
 \begin{equation*}
 \label{mydef}
 \bra x_{k_1}\ldots x_{k_n}\,,\,x_{k_{n+1}}\ldots x_{k_{2n}} \ket \coloneqq \sum_{\mathcal{P}} \prod_{\{i,j\}\in\mathcal{P}} \left<x_{k_i},x_{k_j}\right>,
@@ -177,16 +177,16 @@ with an analytic integral over the unit sphere $\S^d$.
 Finding a basis of homogeneous polynomials orthogonal on the sphere amounts to understanding a portion of the structure of the Beauville--Fujiki relation! A such orthogonal basis
 \begin{itemize}
  \item can be constructed recursively,
- \item admits a computation of the discriminant of $\bra\ ,\;\ket$ in a closed form.
+ \item admits a computation of the discriminant of $\bra\ ,\;\ket$ in closed form.
 \end{itemize}
 \end{block}
 \begin{alertblock}{Theorem}
 Let $a$ be the discriminant of $\left<\ ,\;\right>$ on $V$, where $\rank V=d+1$.
-Then the discriminant of $\bra_ ,\;\ket$ on $\Sym^nV $ equals
+Then the discriminant of $\bra\ ,\;\ket$ on $\Sym^nV $ equals
 $$
 a^{\binom{d+n}{n}}\, \theta
 $$ 
-where the factor $\theta$ contains only prime numbers smaller than $2n+d$.
+where the factor $\theta$ is integral and contains only prime numbers smaller than $2n+d$.
 \end{alertblock}
 
 
@@ -200,14 +200,14 @@ where the factor $\theta$ contains only prime numbers smaller than $2n+d$.
 \begin{block}{Consequence for compact HK manifolds}
 Seen as a lattice, $\Sym^n\!H^2(X,\Z)$ is embedded in the unimodular Poincar\'e lattice $H^{2n}(X,\Z)$. Its discriminant is composed of factors coming from:
 \begin{itemize}
- \item The discriminant of the Beauville--Bogomolov form on $H^2(X,\Z)$,
+ \item The discriminant of the Beauville--Bogomolov form,
 \item the Fujiki constant,
 \item the combinatorial factor $\theta$.
 \end{itemize}
 \vspace{-5mm}
 \end{block}
 \begin{alertblock}{Corollary}
-For all known examples of compact HKM, the quotient
+For all known examples $X $ of compact HKM, the quotient
 $$
 \frac{H^{2n}(X,\Z)}{\Sym^n\!H^2(X,\Z)}
 $$
@@ -228,10 +228,10 @@ contains no prime torsion factors greater than $2n +b_2-2$.
 
 \begin{itemize}
 \small
-\item S.~Kapfer, \emph{Symmetric Powers of Symmetric Bilinear Forms, Homogeneous Orthogonal Polynomials on the sphere and an application in Compact Hyperk\"ahler Manifolds}, to appear.
+\item S.~Kapfer, \emph{Symmetric Powers of Symmetric Bilinear Forms, Homogeneous Orthogonal Polynomials on the sphere and an application in Compact Hyperk\"ahler Manifolds}, preprint 2015.
 \item K.~O'Grady, \emph{Compact Hyperk\"ahler manifolds: general theory} (2013), lecture notes.
 \end{itemize}
-\vspace{-1cm}
+%\vspace{-1cm}
 \end{block}
 
 %----------------------------------------------------------------------------------------
