@@ -5,7 +5,7 @@
 
 \documentclass[final]{beamer}
 
-\usepackage[scale=1.24]{beamerposter} % Use the beamerposter package for laying out the poster
+\usepackage[size=a1,scale=1.04]{beamerposter} % Use the beamerposter package for laying out the poster
 
 \usetheme{confposter} % Use the confposter theme supplied with this template
 
@@ -25,14 +25,10 @@
 
 \newlength{\sepwid}
 \newlength{\onecolwid}
-\newlength{\twocolwid}
-\newlength{\threecolwid}
-\setlength{\paperwidth}{48in} % A0 width: 46.8in
-\setlength{\paperheight}{36in} % A0 height: 33.1in
+\setlength{\paperwidth}{36in} % A0 width: 46.8in
+\setlength{\paperheight}{24in} % A0 height: 33.1in
 \setlength{\sepwid}{0.024\paperwidth} % Separation width (white space) between columns
 \setlength{\onecolwid}{0.3\paperwidth} % Width of one column
-\setlength{\twocolwid}{0.464\paperwidth} % Width of two columns
-\setlength{\threecolwid}{0.708\paperwidth} % Width of three columns
 \setlength{\topmargin}{-0.5in} % Reduce the top margin size
 %-----------------------------------------------------------
 
@@ -67,7 +63,7 @@
 \newcommand{\bra}{\left<\!\!\!\:\left<}
 \newcommand{\ket}{\right>\!\!\!\:\right>}
 \newcommand{\myeq}[1]{\mathrel{\overset{\makebox[0pt]{\text{\tiny #1}}}{=}}}
-
+\newcommand{\stareq}{\myeq{*}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -86,7 +82,7 @@
 
 \author{Simon Kapfer} % Author(s)
 
-\institute{University of Poitiers} % Institution(s)
+\institute{Universit\'e de Poitiers} % Institution(s)
 
 %----------------------------------------------------------------------------------------
 
@@ -106,65 +102,92 @@
 
 \begin{column}{\onecolwid} % The first column
 
+\setbeamercolor{block alerted title}{fg=black,bg=norange} % Change the alert block title colors
+\setbeamercolor{block alerted body}{fg=black,bg=white} % Change the alert block body colors
+\begin{alertblock}{Summary}
+For $X$ a compact Hyperk\"ahler manifold, $\dim X=2n$, we construct a form  $\bra\ ,\;\ket$ on $\Sym^nH^2(X)$ from the Beauville--Bogomolov form on $H^2(X)$, such that the
+evident embedding: $\Sym^n\!H^2(X) \rightarrow H^{2n}(X)$ becomes metric.
+\end{alertblock}
+
+\setbeamercolor{block alerted title}{fg=white,bg=dblue!70} % Colors of the highlighted block titles
+\setbeamercolor{block alerted body}{fg=black,bg=dblue!10} % Colors of the body of highlighted blocks
 
 %----------------------------------------------------------------------------------------
 %	INTRODUCTION
 %----------------------------------------------------------------------------------------
 
+
 \begin{block}{Introduction}
 Let $X$ be a compact Hyperk\"ahler manifold of dimension $2n$. The Beauville--Fujiki relation expresses a symmetric bilinear form on $H^2(X,\Z)$ in terms of the Poincar\'e pairing on $H^{2n}(X,\Z)$:
 $$
-\left< \alpha,\alpha\right> = \left(c\int_X \alpha^{2n} \right) ^{\frac{1}{n}}
+\left< \alpha,\alpha\right> \stareq \left(\int_X \alpha^{2n} \right) ^{\frac{1}{n}} \vspace{6pt}
 $$
-\emph{Question:} Is there a way to invert this procedure? \\
-\emph{Answer:} Yes, on $\im\left(\Sym^nH^2(X) \rightarrow H^4(X)\right)$.
+\emph{Question:} Is there a way to invert this procedure? \vspace{6pt}\\
+\emph{Answer:} Yes, on the image of $\Sym^n\!H^2(X)$ in $ H^{2n}(X)$.\vspace{6pt}
+
 \begin{alertblock}{B--F relation, polarized version:}
 $$
-c\cdot I\!\left(\alpha_1\ldots \alpha_{2n}\right) = \prod\limits_{1\leq i<j\leq 2n}\!\!\left<\alpha_i,\alpha_j\right>.
+\int_X \alpha_1\wedge\ldots \wedge\alpha_{2n} \stareq\sum_{\mathcal{P}} \prod_{\{i,j\}\in\mathcal{P}} \left<\alpha_i,\alpha_j\right>.
 $$
+The sum is over all partitions $\mathcal{P}$ of $\{1,\ldots,2n\}$ into pairs.
 \end{alertblock}
-We take this as a general recipe to generate symmetric bilinear forms on symmetric powers!
+We can take this as a general recipe to generate symmetric bilinear forms on symmetric powers!
+\vspace{55mm}
+\begin{flushright}
+${}^*$all equations are meant to hold only up to a constant factor
+\end{flushright}
 \end{block}
 
 %------------------------------------------------
 
-\begin{block}{General setting}
-Let $V$ be a free module with symmetric bilinear form $\left<\ ,\;\right>$.
-On the basis $\{x_{n_1}\ldots x_{n_k}\;|\;0\leq n_1\leq\ldots\leq n_k\leq d\}$ of $\Sym^kV$, we define a symmetric bilinear form $\bra\ \,,\ \ket$ by: 
-\begin{equation}
-\label{mydef}
-\bra x_{n_1}\ldots x_{n_k}\,,\,x_{n_{k+1}}\ldots x_{n_{2k}} \ket \coloneqq \sum_{\mathcal{P}} \prod_{\{i,j\}\in\mathcal{P}} \left<x_{n_i},x_{n_j}\right>,
-\end{equation}
-The sum is over all partitions $\mathcal{P}$ of $\{1,\ldots,2k\}$ in pairs.
-\end{block}
 
 
-
-\begin{figure}
-\includegraphics[width=0.8\linewidth]{placeholder.jpg}
-\caption{Figure caption}
-\end{figure}
+%\begin{figure}
+%\includegraphics[width=0.8\linewidth]{placeholder.jpg}
+%\caption{Figure caption}
+%\end{figure}
 
 %----------------------------------------------------------------------------------------
 
 \end{column} % End of the first column
 
+
 \begin{column}{\sepwid}\end{column} % Empty spacer column
 
 \begin{column}{\onecolwid} % Begin a column which is two columns wide (column 2)
 
-\begin{block}{Link to real analysis}
-There is an alternative description, for $V=\R^n$ with the standard scalar product.
-For two homogeneous polynomials $h_1(x),\;h_2(x)$ in $d+1$ variables, 
-$$
-\bra h_1(x), h_2(x) \ket = c \int_{\S^d}  h_1(\omega) h_2(\omega) d\omega ,
-$$ 
-with an analytic integral over the unit sphere. 
+\begin{block}{Generalized setting}
+Let $V$ be a free module with symmetric bilinear form $\left<\ ,\;\right>$.
+On the basis $\{x_{k_1}\ldots x_{k_n}\;|\;0\leq k_1\leq\ldots\leq k_n\leq d\}$ of $\Sym^nV$, we define a symmetric bilinear form $\bra\ \,,\ \ket$ by: 
+\begin{equation*}
+\label{mydef}
+\bra x_{k_1}\ldots x_{k_n}\,,\,x_{k_{n+1}}\ldots x_{k_{2n}} \ket \coloneqq \sum_{\mathcal{P}} \prod_{\{i,j\}\in\mathcal{P}} \left<x_{k_i},x_{k_j}\right>,
+\end{equation*}
+where the sum is over all partitions $\mathcal{P}$ of $\{1,\ldots,2n\}$ into pairs.
 \end{block}
 
-\begin{block}{Conclusion}
-Finding a basis of homogeneous polynomials orthogonal on the sphere amounts to understanding a portion of the structure of the Bauville--Fujiki relation!
+\begin{block}{Link to real analysis}
+There is an alternative description, for $V=\R^{d+1}$ with the standard scalar product.
+For two homogeneous polynomials $h_1(x),\;h_2(x)$ in $d+1$ variables, we have
+$$
+\bra h_1(x), h_2(x) \ket \stareq \int_{\S^d}  h_1(\omega) h_2(\omega) d\omega ,
+$$ 
+with an analytic integral over the unit sphere $\S^d$.
+
+Finding a basis of homogeneous polynomials orthogonal on the sphere amounts to understanding a portion of the structure of the Beauville--Fujiki relation! A such orthogonal basis
+\begin{itemize}
+ \item can be constructed recursively,
+ \item admits a computation of the discriminant of $\bra\ ,\;\ket$ in a closed form.
+\end{itemize}
 \end{block}
+\begin{alertblock}{Theorem}
+Let $a$ be the discriminant of $\left<\ ,\;\right>$ on $V$, where $\rank V=d+1$.
+Then the discriminant of $\bra_ ,\;\ket$ on $\Sym^nV $ equals
+$$
+a^{\binom{d+n}{n}}\, \theta
+$$ 
+where the factor $\theta$ contains only prime numbers smaller than $2n+d$.
+\end{alertblock}
 
 
 \end{column} % End of the second column
@@ -173,21 +196,20 @@ Finding a basis of homogeneous polynomials orthogonal on the sphere amounts to u
 
 \begin{column}{\onecolwid} % The third column
 
-%----------------------------------------------------------------------------------------
-%	CONCLUSION
-%----------------------------------------------------------------------------------------
 
-\begin{block}{Conclusion}
-
-Nunc tempus venenatis facilisis. \textbf{Curabitur suscipit} consequat eros non porttitor. Sed a massa dolor, id ornare enim. Fusce quis massa dictum tortor \textbf{tincidunt mattis}. Donec quam est, lobortis quis pretium at, laoreet scelerisque lacus. Nam quis odio enim, in molestie libero. Vivamus cursus mi at \textit{nulla elementum sollicitudin}.
-
+\begin{block}{Consequence for compact HK manifolds}
+Seen as a lattice, $\Sym^n\!H^2(X,\Z)$ is embedded in the unimodular Poincar\'e lattice $H^{2n}(X,\Z)$. Its discriminant is composed of factors coming from:
+\begin{itemize}
+ \item The discriminant of the Beauville--Bogomolov form on $H^2(X,\Z)$,
+\item the Fujiki constant,
+\item the combinatorial factor $\theta$.
+\end{itemize}
+\vspace{-5mm}
 \end{block}
-
-
-\begin{alertblock}{Consequence for compact HK manifolds}
-The quotient 
+\begin{alertblock}{Corollary}
+For all known examples of compact HKM, the quotient
 $$
-\frac{H^{2n}(X,\Z)}{\Sym^nH^2(X,\Z)}
+\frac{H^{2n}(X,\Z)}{\Sym^n\!H^2(X,\Z)}
 $$
 contains no prime torsion factors greater than $2n +b_2-2$.
 \end{alertblock}
@@ -197,16 +219,6 @@ contains no prime torsion factors greater than $2n +b_2-2$.
 %	ADDITIONAL INFORMATION
 %----------------------------------------------------------------------------------------
 
-\begin{block}{Additional Information}
-
-Maecenas ultricies feugiat velit non mattis. Fusce tempus arcu id ligula varius dictum. 
-\begin{itemize}
-\item Curabitur pellentesque dignissim
-\item Eu facilisis est tempus quis
-\item Duis porta consequat lorem
-\end{itemize}
-
-\end{block}
 
 %----------------------------------------------------------------------------------------
 %	REFERENCES
@@ -214,44 +226,32 @@ Maecenas ultricies feugiat velit non mattis. Fusce tempus arcu id ligula varius 
 
 \begin{block}{References}
 
-\nocite{*} % Insert publications even if they are not cited in the poster
-\small{\bibliographystyle{unsrt}
-\bibliography{sample}\vspace{0.75in}}
-
+\begin{itemize}
+\small
+\item S.~Kapfer, \emph{Symmetric Powers of Symmetric Bilinear Forms, Homogeneous Orthogonal Polynomials on the sphere and an application in Compact Hyperk\"ahler Manifolds}, to appear.
+\item K.~O'Grady, \emph{Compact Hyperk\"ahler manifolds: general theory} (2013), lecture notes.
+\end{itemize}
+\vspace{-1cm}
 \end{block}
 
 %----------------------------------------------------------------------------------------
 %	ACKNOWLEDGEMENTS
 %----------------------------------------------------------------------------------------
 
-\setbeamercolor{block title}{fg=red,bg=white} % Change the block title color
-
-\begin{block}{Acknowledgements}
-
-\small{\rmfamily{Nam mollis tristique neque eu luctus. Suspendisse rutrum congue nisi sed convallis. Aenean id neque dolor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.}} \\
-
-\end{block}
+%\setbeamercolor{block title}{fg=red,bg=white} % Change the block title color
 
 %----------------------------------------------------------------------------------------
 %	CONTACT INFORMATION
 %----------------------------------------------------------------------------------------
 
-\setbeamercolor{block alerted title}{fg=black,bg=norange} % Change the alert block title colors
-\setbeamercolor{block alerted body}{fg=black,bg=white} % Change the alert block body colors
-
-\begin{alertblock}{Contact Information}
-
-\begin{itemize}
-\item Web: \href{http://www.university.edu/smithlab}{http://www.university.edu/smithlab}
-\item Email: \href{mailto:john@smith.com}{john@smith.com}
-\item Phone: +1 (000) 111 1111
-\end{itemize}
-
-\end{alertblock}
+\setbeamercolor{block title}{fg=red,bg=white} 
+\begin{block}{Contact information}
+Email: \href{mailto:simon.kapfer@math.univ-poitiers.fr}{simon.kapfer@math.univ-poitiers.fr}
+\end{block}
 
 \begin{center}
 \begin{tabular}{ccc}
-\includegraphics[width=0.4\linewidth]{logo.png} & \hfill & \includegraphics[width=0.4\linewidth]{logo.png}
+\includegraphics[height=45mm]{logo-Dept-Math-1.png} & \hspace{4cm} & \includegraphics[height=45mm]{logo-cnrs2.jpg}
 \end{tabular}
 \end{center}
 
@@ -260,7 +260,6 @@ Maecenas ultricies feugiat velit non mattis. Fusce tempus arcu id ligula varius 
 \end{column} % End of the third column
 
 \end{columns} % End of all the columns in the poster
-
 \end{frame} % End of the enclosing frame
 
 \end{document}
