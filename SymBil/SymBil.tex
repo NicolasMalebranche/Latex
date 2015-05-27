@@ -491,9 +491,9 @@ For all multi-indices $\alpha,\;\beta$ of length $d+1$ and degree $k$ we have:
 This means that the $h_\alpha(x),\ |\alpha|=k$ form an orthogonal basis of $\R[x_0,\ldots,x_d]_k$ that comes from a Gram--Schmidt process applied to the monomials (in lexicographic order). Indeed, equations (\ref{hth1}) and (\ref{hth2}) say that the $h_\alpha(x)$ are orthogonal, while equations (\ref{hth3}) and (\ref{hth4}) imply that the transition matrix $T^{-1}$, defined by $ x^\alpha = \sum_\beta T^{-1}_{\alpha\beta}h_\beta,\ T^{-1}_{\alpha\beta} \coloneqq \frac{\bra x^\alpha,h_\beta\ket}{\bra h_\beta,h_\beta\ket} $ is lower triangular with all diagonal elements equal to $1$.
 \end{remark}
 \begin{proof}
-For equation (\ref{hth1}), we use polar coordinates on $\R ^d$ to compute $\bra h_\alpha ,h_\alpha \ket$:
+For equation (\ref{hth1}), we use polar coordinates on $\R ^d$ to compute:
 \begin{align*}
- &\int_{\R^{d+1}}\left[\p{\alpha_d}{2|\alpha|+d}\left(\frac{x_d}{r}\right) r^{\alpha_d}h_{\alpha'}(x)\right]^2 e^{-\frac{1}{2}\|x\|^2} dx \\
+ & \sqrt{2\pi}^{d+1}\!\bra h_\alpha ,h_\alpha \ket = \int_{\R^{d+1}}\left[\p{\alpha_d}{2|\alpha|+d}\left(\frac{x_d}{r}\right) r^{\alpha_d}h_{\alpha'}(x)\right]^2 e^{-\frac{1}{2}\|x\|^2} dx \\
  = & \int_0^\infty\!\!\int_{\R} \left[\p{\alpha_d}{2|\alpha|+d}\left(\frac{x_d}{r}\right)\right]^2 r^{2|\alpha'|+2\alpha_d+d-1} e^{-\frac{r^2+x_d^2}{2} }dx_ddr\int_{\S^{d-1}}\left[h_{\alpha'}(\omega)\right]^2 d\omega \\
 \myeq{(\ref{Lpn2})}& \  \frac{\alpha_d!\, 2^{2|\alpha '|+|\alpha|+\frac{3}{2}d-\frac{1}{2}} }{\left(|\alpha|+|\alpha'|+d\right)!} { \textstyle
 \Gamma\!\left( |\alpha'| \!+\!\frac{d}{2}\right)\Gamma\!\left( |\alpha'|\!+\! \frac{d}{2}\!+\! 1\right) \Gamma\!\left( |\alpha| \!+\! \frac{d+1}{2}\right) }\int_{\S^{d-1}}\!\!\left[h_{\alpha'}(\omega)\right]^2 d\omega \\
