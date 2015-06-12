@@ -125,7 +125,7 @@ $$ \bra f,g\ket = \int_{\S^d} f(\omega)g(\omega)d\omega $$
 This is very comfortable, since it allows to use the whole bunch of techniques from calculus to investigate the algebraic properties of our construction.
 Since we are interested in the determinant of the Gram matrix of $\bra\ ,\;\ket$
 and for computing determinants it is good to have diagonal matrices, we look for polynomials that are mutually orthogonal on the sphere. The theory of orthogonal polynomials is well developped, but surprisingly we were unable to find our particular situation in the literature. 
-There are two topics that come close. The first one is the theory of Hermite polynomials, see Remark \ref{hermite}. The second is spherical harmonics, which imposes an unwanted restriction though, namely the condition for the polynomials being harmonic.
+There are two topics that come close, see Remark \ref{hermite}. The first one is the theory of Hermite polynomials. The second is spherical harmonics, which imposes an unwanted restriction though, namely the condition for the polynomials being harmonic.
 We construct the basis of homogeneous polynomials that are orthogonal on the sphere in Section~\ref{polynomialSection}.
 
 After doing that, we come back to our starting point and apply our results to Hyperk\"ahler manifolds. The bilinear form on $\Sym^kH^2$ allows us to compare $\Sym^kH^2$ with $H^{2k}$. We give some results on torsion factors of the quotient $\frac{H^{2k}}{\Sym^kH^2}$ in Section \ref{hyper}, similar to those the author studied in \cite{Kapfer}.
@@ -354,8 +354,12 @@ $$
 $$ 
 This is the reason why we speak of polynomials orthogonal on the sphere. However, we prefer to integrate over $\R^{d+1}$, since this avoids the unwanted constant $c_{d,k}$.
 \end{remark}
-\begin{remark} \label{hermite}
- If the homogeneity constraint was dropped, the answer to the problem would be much simpler: A basis of $ \bra\ ,\;\ket$-orthogonal polynomials is given by products $H_{\alpha_0}\!(x_0)\ldots H_{\alpha_d}\!(x_d)$ of Hermite polynomials in one variable, see also \cite[Sect.~2.3.4]{Dunkl}.
+\begin{remark}\label{hermite}
+We stress that this equivalency really depends on the homogeneity. Denote $\bra f ,g\ket_{\R^{d+1}} \coloneqq \bra f,g\ket$ and $\bra f ,g\ket_{\S^{d}} \coloneqq \int_{\S^{d}} f g$ for a moment and let us look at what happens if we drop the homogeneity constraint. Since $c_{d,k}$ depends on $k$, $\bra\ ,\;\ket_{\R^{d+1}}$ and $\bra\ ,\;\ket_{\S^d}$ aren't equivalent anymore:
+\begin{itemize}
+\item A basis of $\R[x_0,\ldots,x_d]$, consisting of $\bra f ,g\ket_{\R^{d+1}}$-orthogonal polynomials is given by products $H_{\alpha_0}\!(x_0)\ldots H_{\alpha_d}\!(x_d)$ of Hermite polynomials in one variable, see also \cite[Sect.~2.3.4]{Dunkl}.
+\item The form $\bra\ ,\;\ket_{\S^d}$ becomes degenerate on $\R[x_0,\ldots,x_d]$, since integration on the sphere can't distinguish between $1$ and the square radius $\|x\|^2$. Ignoring thus any radial components, a basis of $\R[x_0,\ldots,x_d]/(\|x\|^2-1)$ consisting of $\bra\ ,\;\ket_{\S^d}$-orthogonal polynomials is given by spherical harmonics, see also \cite[Sect.~2.2]{Dunkl}.
+\end{itemize}
 \end{remark}
 
 
