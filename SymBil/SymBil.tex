@@ -81,7 +81,7 @@
 
 \date{\today}
 
-\keywords{Symmetric Bilinear Forms on Symmetric Powers, Orthogonal Polynomials in Several Variables, Homogeneous Orthogonal Polynomials, Hermite Polynomials, Spherical Harmonics, Hankel matrices, Hyperk\"ahler Manifolds, Beauville--Bogomolov Form, Beauville--Fujiki relation}
+\keywords{Symmetric Bilinear Forms on Symmetric Powers, Orthogonal Polynomials in Several Variables, Homogeneous Orthogonal Polynomials, Gegenbauer Polynomials, Hermite Polynomials, Spherical Harmonics, Hankel matrices, Hyperk\"ahler Manifolds, Beauville--Bogomolov Form, Beauville--Fujiki relation}
 
 \begin{abstract} The Beauville--Fujiki relation for a compact Hyperk\"ahler manifold $X$ of dimension $2k$ allows to equip the symmetric power $\Sym^kH^2(X)$ with a symmetric bilinear form induced by the Beauville--Bogomolov form. We study some of its properties and compare it to the form given by the Poincar\'e pairing.
 
@@ -350,9 +350,9 @@ where the measure is $d\mu(x) = (2\pi)^{-\frac{d+1}{2}}e^{-\frac{1}{2}\|x\|^2}dx
 \begin{remark}
 Although our definition of $\bra\ ,\;\ket$ doesn't mention the sphere, in view of Lemma \ref{homosphere}, we could equivalently consider the integral:
 $$
- \bra f,g\ket = c \int_{\S^{d}}f(\omega)g(\omega) d\omega, \qquad c = 2^{\frac{k}{2}-1}\pi^{-\frac{d+1}{2}}\Gamma\!\left(\tfrac{k+d+1}{2}\right).
+ \bra f,g\ket = c_{d,k} \int_{\S^{d}}f(\omega)g(\omega) d\omega, \qquad c_{d,k} = 2^{\frac{k}{2}-1}\pi^{-\frac{d+1}{2}}\Gamma\!\left(\tfrac{k+d+1}{2}\right).
 $$ 
-This is the reason why we speak of polynomials orthogonal on the sphere. However, we prefer to integrate over $\R^{d+1}$, since this avoids the unwanted constant $c$.
+This is the reason why we speak of polynomials orthogonal on the sphere. However, we prefer to integrate over $\R^{d+1}$, since this avoids the unwanted constant $c_{d,k}$.
 \end{remark}
 \begin{remark} \label{hermite}
  If the homogeneity constraint was dropped, the answer to the problem would be much simpler: A basis of $ \bra\ ,\;\ket$-orthogonal polynomials is given by products $H_{\alpha_0}\!(x_0)\ldots H_{\alpha_d}\!(x_d)$ of Hermite polynomials in one variable, see also \cite[Sect.~2.3.4]{Dunkl}.
@@ -395,6 +395,10 @@ Our construction of homogeneous polynomials orthogonal on the sphere is formally
 \p{n}{m}(x) \coloneqq \sum_{\substack{j=0\\ n-j\ \text{even}}}^n (-1)^{\frac{n-j}{2}} \frac{n!\,(m-2n)!!}{j!\,(m-n-j)!!\,(n-j)!!}\:x^j.
 \end{equation*}
 \end{definition}
+\begin{remark}
+As Yuan Xu pointed out, this can be written in terms of the hypergeometric function, namely $\p{n}{m}(x) = x^n\vphantom{}_2F_1\!\left( \genfrac{}{}{0pt}{}{-\frac{n}{2},\,\frac{1-n}{2}}{\frac{m}{2}-n+1} ; -\frac{1}{x^2}\right)$. Too see this, first change summation from $j$ to $n-j$, so that the sum is over $j\! =$ even, then set $j\! =\!2i$ and rewrite the sum in the notation of the rising Pochhammer symbol $(a)_n = a (a\!+\!1)\ldots(a\!+\!n\!-\!1)$. Comparing this formula with \cite[Prop.~1.4.11]{Dunkl}, it follows that the $\p{n}{m}$ are in fact a variant of the Gegenbauer polynomials $C_n^\lambda$. More precisely, $\p{n}{m}(x)$ is a multiple of $C^{-\frac{m}{2}}_n\!\!\left(\sqrt{-1}\,x\right)$, where the factor is chosen such that the polynomial becomes monic.
+\end{remark}
+
 \begin{lemma} \label{trigonometric}
 For $n\geq 1$, we have a trigonometric differential relation:
 \begin{equation*}
@@ -478,7 +482,7 @@ $$
 where we have set $r=\sqrt{x_0^2 +\ldots+x_{d-1}^2}=\|x'\|$. Note that the definition of $\p{n}{m}$ implies that $\p{n}{m}(\frac{1}{y})y^n$ is an even polynomial, so all square roots vanish.
 \end{definition}
 \begin{theorem}
-For all multi-indices $\alpha,\;\beta$ of length $d+1$ and degree $k$ we have:
+For all multi-indices $\alpha,\;\beta$ of length $\len(\alpha)=\len(\beta)=d+1$ and degree $|\alpha|=|\beta|$ we have:
 \begin{align} \label{hth1}
 \bra h_\alpha ,h_\alpha \ket &= \alpha_d!\,\frac{\left(2|\alpha '|\!+\!d\right)!!\,\left(2|\alpha |\!+\!d\!-\!1\right)!!}{\left(|\alpha '|+|\alpha |+d\right)!}\bra h_{\alpha '},h_{\alpha '}\ket ,\\
 \label{hth2}
@@ -486,7 +490,7 @@ For all multi-indices $\alpha,\;\beta$ of length $d+1$ and degree $k$ we have:
 \label{hth3}
 \bra x^\alpha, h_\alpha \ket &= \bra h_\alpha ,h_\alpha \ket ,\\
 \label{hth4}
-\bra x^\alpha,h_\beta \ket &= 0 \quad\text{for }\alpha < \beta.
+\bra x^\alpha,h_\beta \ket &= 0 \quad\text{for }\alpha < \beta\ \text{(see Def.~\ref{multiindex})}.
 \end{align}
 \end{theorem}
 \begin{remark}
@@ -496,7 +500,8 @@ This means that the $h_\alpha(x),\ |\alpha|=k$ form an orthogonal basis of $\R[x
 For equation (\ref{hth1}), we use polar coordinates on $\R ^d$ to compute:
 \begin{align*}
  & \sqrt{2\pi}^{d+1}\!\bra h_\alpha ,h_\alpha \ket = \int_{\R^{d+1}}\left[\p{\alpha_d}{2|\alpha|+d}\left(\frac{x_d}{r}\right) r^{\alpha_d}h_{\alpha'}(x)\right]^2 e^{-\frac{1}{2}\|x\|^2} dx \\
- = & \int_0^\infty\!\!\int_{\R} \left[\p{\alpha_d}{2|\alpha|+d}\left(\frac{x_d}{r}\right)\right]^2 r^{2|\alpha'|+2\alpha_d+d-1} e^{-\frac{r^2+x_d^2}{2} }dx_ddr\int_{\S^{d-1}}\left[h_{\alpha'}(\omega)\right]^2 d\omega \\
+ = & \underbrace{ \int_0^\infty\!\!\int_{\R} \left[\p{\alpha_d}{2|\alpha|+d}\left(\frac{x_d}{r}\right)\right]^2 r^{2|\alpha'|+2\alpha_d+d-1} e^{-\frac{r^2+x_d^2}{2} }dx_ddr}_{= \L\left(\left(\p{\alpha_d}{2|\alpha|+d}\right)^2\right)}
+ \int_{\S^{d-1}}\left[h_{\alpha'}(\omega)\right]^2 d\omega \\
 \myeq{(\ref{Lpn2})}& \  \frac{\alpha_d!\, 2^{2|\alpha '|+|\alpha|+\frac{3}{2}d-\frac{1}{2}} }{\left(|\alpha|+|\alpha'|+d\right)!} { \textstyle
 \Gamma\!\left( |\alpha'| \!+\!\frac{d}{2}\right)\Gamma\!\left( |\alpha'|\!+\! \frac{d}{2}\!+\! 1\right) \Gamma\!\left( |\alpha| \!+\! \frac{d+1}{2}\right) }\int_{\S^{d-1}}\!\!\left[h_{\alpha'}(\omega)\right]^2 d\omega \\
 \myeq{Lemma~\ref{homosphere}}&\quad\quad \alpha_d!\,2^{|\alpha '|+|\alpha |+d+\frac{1}{2}}\,
@@ -517,7 +522,7 @@ From the above theorem it is clear that $D(d,k)=\prod_{|\alpha | =k}\bra h_\alph
 $$
 D(d,k) = \prod_{j=0}^k D(d\!-\!1,j) \prod_{|\alpha'| = j} (k-j)!\,\frac{(2j+d)!!\,(2k+d-1)!!}{(j+k+d)!},
 $$
-hence we get the quotient \vspace{-1mm}
+hence we get the ratio \vspace{-1mm}
 \begin{align*}
 R(d,k) \;&\coloneqq\; \frac{D(d,k)}{\prod_{j=0}^k D(d\!-\!1,j) } \;=\; \prod_{j=0}^k \left[(k-j)!\frac{(2j+d)!!\,(2k+d-1)!!}{(j+k+d)!} \right]^{\binom{j+d-1}{d-1}} \\
 &\qquad\myeq{(\ref{facprod1})}\; \prod_{j=0}^k\left[ \frac{(2j+d)!!}{(j\!+\!k\!+\!d)!!}\right]^{\binom{j+d-1}{d-1}}(2k\!+\!d\!-\!1)^{\binom{k+d}{d}} \;\prod_{i=1}^k i^{\binom{k-i+d}{d}} .
@@ -608,7 +613,7 @@ contains no prime factors bigger than
 The cases $X=S^{[2]}$ and $X=S^{[3]}$ were already studied in \cite[Prop.~6.6]{BNS} and \cite[Prop.~2.4]{Kapfer}, using explicit calculations. The case $X=S^{[2]}$ is special, because $\Sym^2H^2(S^{[2]},\Z)$ and $H^4(S^{[2]},\Z)$ have the same rank. So Prop.~\ref{squareDiscr}, together with Theorem~\ref{maintheorem} imply that the cardinality of the quotient is precisely $\sqrt{2^{24}\cdot2^{22}\cdot(22+3)} = 2^{23}\cdot5$.
 \end{remark}
 
-\emph{Acknowledgements.} We thank Samuel Boissi\`ere, Cl\'ement Chesseboeuf and K\'evin Tari for useful conversations and the University of Poitiers for its hospitality. The author was supported by a DAAD grant.
+\emph{Acknowledgements.} We thank Samuel Boissi\`ere, Cl\'ement Chesseboeuf, K\'evin Tari and Yuan Xu for useful conversations and the University of Poitiers for its hospitality. The author was supported by a DAAD grant.
 
 \bibliographystyle{amsplain}
 \bibliography{SymBil.tex}
