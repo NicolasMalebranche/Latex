@@ -85,7 +85,7 @@
 
 \begin{abstract} The Beauville--Fujiki relation for a compact Hyperk\"ahler manifold $X$ of dimension $2k$ allows to equip the symmetric power $\Sym^kH^2(X)$ with a symmetric bilinear form induced by the Beauville--Bogomolov form. We study some of its properties and compare it to the form given by the Poincar\'e pairing.
 
-The construction generalizes to a definition for an induced symmetric bilinear form on the symmetric power of any free module equipped with a symmetric bilinear form. We point out that the situation is related to the theory of orthogonal polynomials in several variables.
+The construction generalizes to a definition for an induced symmetric bilinear form on the symmetric power of any free module equipped with a symmetric bilinear form. We point out how the situation is related to the theory of orthogonal polynomials in several variables.
 Finally, we construct a basis of homogeneous polynomials that are orthogonal when integrated over the unit sphere $\S^d$, or equivalently, over $\R^{d+1}$ with a Gaussian kernel.
 \end{abstract}
 
@@ -343,9 +343,9 @@ Now, if $G= \text{diag}\left(a_0,\ldots,a_d\right)$, we apply successively coord
 
 \section{Homogeneous Orthogonal Polynomials on the sphere} \label{polynomialSection}
 In this section we will construct a basis for the space of homogeneous polynomials of degree $k$ in $d+1$ variables, $\R[x_0,\ldots,x_d]_k$, that is orthogonal with respect to the bilinear form given by
-\begin{equation*}
+\begin{equation} \label{spherebracket}
  \bra f,g\ket = \int_{\R^{d+1}}f(x)g(x) d\mu(x),
-\end{equation*}
+\end{equation}
 where the measure is $d\mu(x) = (2\pi)^{-\frac{d+1}{2}}e^{-\frac{1}{2}\|x\|^2}dx$. In order to do this, we wish to apply the Gram-Schmidt process to the (lexicographically ordered) monomial basis $(x^\alpha)_{|\alpha |=k}$. Our result is stated in Subsection \ref{hsection}. 
 \begin{remark}
 Although the above definition of $\bra\ ,\;\ket$ doesn't mention the sphere, in view of Lemma \ref{homosphere}, we could equivalently consider the integral:
@@ -400,7 +400,7 @@ Our construction of homogeneous polynomials orthogonal on the sphere is formally
 \end{equation*}
 \end{definition}
 \begin{remark}
-As Yuan Xu pointed out, this can be written in terms of the hypergeometric function, namely $\p{n}{m}(x) = x^n\vphantom{}_2F_1\!\left( \genfrac{}{}{0pt}{}{-\frac{n}{2},\,\frac{1-n}{2}}{\frac{m}{2}-n+1} ; -\frac{1}{x^2}\right)$. Too see this, first change summation from $j$ to $n-j$, so that the sum is over $j\! =$ even, then set $j\! =\!2i$ and rewrite the sum in the notation of the rising Pochhammer symbol $(a)_n = a (a\!+\!1)\ldots(a\!+\!n\!-\!1)$. Comparing this formula with \cite[Prop.~1.4.11]{Dunkl}, it follows that the $\p{n}{m}$ are in fact a variant of the Gegenbauer polynomials $C_n^\lambda$. More precisely, $\p{n}{m}(x)$ is a multiple of $C^{-\frac{m}{2}}_n\!\!\left(\sqrt{-1}\,x\right)$, where the factor is chosen such that the polynomial becomes monic.
+As Yuan Xu pointed out to the author, this can be written in terms of the hypergeometric function, namely $\p{n}{m}(x) = x^n\vphantom{}_2F_1\!\left( \genfrac{}{}{0pt}{}{-\frac{n}{2},\,\frac{1-n}{2}}{\frac{m}{2}-n+1} ; -\frac{1}{x^2}\right)$. To see this, first change summation from $j$ to $n-j$, so that the sum is over $j\! =$ even, then set $j\! =\!2i$ and rewrite the sum in the notation of the rising Pochhammer symbol $(a)_n = a (a\!+\!1)\ldots(a\!+\!n\!-\!1)$. Comparing this formula with \cite[Prop.~1.4.11]{Dunkl}, it follows that the $\p{n}{m}$ are in fact a variant of the Gegenbauer polynomials $C_n^\lambda$. More precisely, $\p{n}{m}(x)$ is a multiple of $C^{-\frac{m}{2}}_n\!\!\left(\sqrt{-1}\,x\right)$, where the factor is chosen such that the polynomial becomes monic.
 \end{remark}
 
 \begin{lemma} \label{trigonometric}
@@ -485,7 +485,7 @@ h_\alpha(x) \coloneqq \p{\alpha_d}{2|\alpha |+d}\left(\frac{x_d}{r}\right) r^{\a
 $$
 where we have set $r=\sqrt{x_0^2 +\ldots+x_{d-1}^2}=\|x'\|$. Note that the definition of $\p{n}{m}$ implies that $\p{n}{m}(\frac{1}{y})y^n$ is an even polynomial, so all square roots vanish.
 \end{definition}
-\begin{theorem}
+\begin{theorem} Let $\bra\ ,\;\ket$ be defined as in (\ref{spherebracket}).
 For all multi-indices $\alpha,\;\beta$ of length $\len(\alpha)=\len(\beta)=d+1$ and degree $|\alpha|=|\beta|$ we have:
 \begin{align} \label{hth1}
 \bra h_\alpha ,h_\alpha \ket &= \alpha_d!\,\frac{\left(2|\alpha '|\!+\!d\right)!!\,\left(2|\alpha |\!+\!d\!-\!1\right)!!}{\left(|\alpha '|+|\alpha |+d\right)!}\bra h_{\alpha '},h_{\alpha '}\ket ,\\
@@ -501,7 +501,7 @@ For all multi-indices $\alpha,\;\beta$ of length $\len(\alpha)=\len(\beta)=d+1$ 
 This means that the $h_\alpha(x),\ |\alpha|=k$ form an orthogonal basis of $\R[x_0,\ldots,x_d]_k$ that comes from a Gram--Schmidt process applied to the monomials (in lexicographic order). Indeed, equations (\ref{hth1}) and (\ref{hth2}) say that the $h_\alpha(x)$ are orthogonal, while equations (\ref{hth3}) and (\ref{hth4}) imply that the transition matrix $T^{-1}$, defined by $ x^\alpha = \sum_\beta T^{-1}_{\alpha\beta}h_\beta,\ T^{-1}_{\alpha\beta} \coloneqq \frac{\bra x^\alpha,h_\beta\ket}{\bra h_\beta,h_\beta\ket} $ is lower triangular with all diagonal elements equal to $1$.
 \end{remark}
 \begin{proof}
-For equation (\ref{hth1}), we use polar coordinates on $\R ^d$ to compute:
+We begin with equation (\ref{hth1}). The term $\bra h_{\alpha '},h_{\alpha '}\ket$ on the right hand side means of course the form in $d$ instead of $d\!+\!1$ variables. We use polar coordinates on $\R^d$ to compute:
 \begin{align*}
  & \sqrt{2\pi}^{d+1}\!\bra h_\alpha ,h_\alpha \ket = \int_{\R^{d+1}}\left[\p{\alpha_d}{2|\alpha|+d}\left(\frac{x_d}{r}\right) r^{\alpha_d}h_{\alpha'}(x)\right]^2 e^{-\frac{1}{2}\|x\|^2} dx \\
  = & \underbrace{ \int_0^\infty\!\!\int_{\R} \left[\p{\alpha_d}{2|\alpha|+d}\left(\frac{x_d}{r}\right)\right]^2 r^{2|\alpha'|+2\alpha_d+d-1} e^{-\frac{r^2+x_d^2}{2} }dx_ddr}_{= \L\left(\left(\p{\alpha_d}{2|\alpha|+d}\right)^2\right)}
@@ -511,11 +511,11 @@ For equation (\ref{hth1}), we use polar coordinates on $\R ^d$ to compute:
 \myeq{Lemma~\ref{homosphere}}&\quad\quad \alpha_d!\,2^{|\alpha '|+|\alpha |+d+\frac{1}{2}}\,
 \frac{\Gamma\!\left(|\alpha '|\!+\!\frac{d}{2}\!+\!1\right)\Gamma\!\left(|\alpha |\!+\!\tfrac{d+1}{2}\right)}{\left(|\alpha '|+|\alpha |+d\right)!} \int_{\R^d} \left[h_{\alpha'}(x')\right]^2 dx' \\
 \myeq{(\ref{ffgamma})}& \quad\; 
-\alpha_d!\,\frac{\left(2|\alpha '|\!+\!d\right)!!\,\left(2|\alpha |\!+\!d\!-\!1\right)!!}{\left(|\alpha '|+|\alpha |+d\right)!}\, \sqrt{2\pi}\int_{\R^d} \left[h_{\alpha'}(x')\right]^2 dx' .
+\alpha_d!\,\frac{\left(2|\alpha '|\!+\!d\right)!!\,\left(2|\alpha |\!+\!d\!-\!1\right)!!}{\left(|\alpha '|+|\alpha |+d\right)!}\, \underbrace{\sqrt{2\pi}\int_{\R^d} \left[h_{\alpha'}(x')\right]^2 dx'}_{=\sqrt{2\pi}^{d+1}\bra h_{\alpha '},h_{\alpha '}\ket} .
 \end{align*}
-For the proof of (\ref{hth2}), we may assume that $\alpha_d \neq \beta_d$. Then we use the calculation above to see that Thm. \ref{pthm} now implies the vanishing of the integral. Equations (\ref{hth3}) and (\ref{hth4}) follow from Corollary \ref{pcor} in the same way.
+For the proof of (\ref{hth2}), let $i$ be the highest index where $\alpha$ and $\beta$ differ. Due to the recursive nature of (\ref{hth1}) and the definition of $h_\alpha$, we may assume $i=d$, so $\alpha_d \neq \beta_d$. Then we use the calculation above to see that Theorem~\ref{pthm} now implies the vanishing of the integral. Equations (\ref{hth3}) and (\ref{hth4}) follow analogously from Corollary~\ref{pcor}.
 \end{proof}
-\begin{theorem}\label{thetaCor} Let the biliniear form $\bra\ ,\;\ket$ on $\R[x_0,\ldots x_d]_k$ be defined as in the beginning of Section \ref{polynomialSection}. Let $D(d,k):=\det\limits_{|\alpha|,|\beta|=k}\bra x^\alpha ,x^\beta \ket $ be the determinant of the Gram matrix of $\bra\ ,\;\ket$. Then:
+\begin{theorem}\label{thetaCor} Let the bilinear form $\bra\ ,\;\ket$ on $\R[x_0,\ldots x_d]_k$ be defined as in (\ref{spherebracket}). Let $D(d,k):=\det\limits_{|\alpha|,|\beta|=k}\bra x^\alpha ,x^\beta \ket $ be the determinant of its Gram matrix. Then:
 $$
 D(d,k) = \theta_{d,k}
 $$
@@ -537,7 +537,7 @@ We will now show the principal inductive step: $\frac{D(d,k+1)}{D(d,k)D(d-1,k+1)
  \frac{R(d,k+1)}{R(d,k)} &= \frac{(2k\!+\!d\!+\!2)!!^{\binom{k+d}{d-1}}\,(2k\!+\!d\!+\!1)^{\binom{k+d+1}{d}}\,(2k\!+\!d\!+\!1)!!^{\binom{k+d}{d-1}}}{(2k\!+\!d\!+\!2)!^{\binom{k+d}{d-1}} \prod\limits_{j=0}^k(j\!+\!k\!+\!d\!+\!1)^{\binom{j+d-1}{d-1}}} \prod_{i=1}^{k+1} i^{\binom{k-i+d}{d-1}}\\
 &= \frac{(2k+d+1)^{\binom{k+d}{d}}}{\prod\limits_{i=k+d+1}^{2k+d+1}i^{ \binom{k-i+d}{d-1}} }\prod_{i=1}^{k+1} i^{\binom{k-i+d}{d-1}}.
 \end{align*}
-If we split $\theta_{d,k} = A(d,k)B(d,k)$ with $A(d,k)\coloneqq\prod_{i=1}^k i^{\binom{k-i+d}{d}d}$, we see that
+To simplify the right hand side a little bit, we split $\theta_{d,k} = A(d,k)B(d,k)$ with $A(d,k)\coloneqq\prod_{i=1}\limits^k i^{\binom{k-i+d}{d}d}$, and $B(d,k)$ the complementary factor of $\theta_{d,k}$ depending on the parity of $d$. For $A(d,k)$ we have:
 \begin{align*}
 \frac{A(d,k+1)}{A(d,k)A(d-1,k+1)} &=
  \prod_{i=1}^{k+1}i^{\binom{k-i+d+1}{d}d-\binom{k-i+d}{d}d -\binom{k-i+d}{d-1}(d-1)} \ 
