@@ -125,7 +125,7 @@ where the sum is over all partitions $\mathcal{P}$ of $\{1,\ldots,2k\}$ into pai
 Equation (\ref{initialpolar}) gives now a redefinition of this form by means of a bilinear form on $H^2$. So we liberate ourselves from the initial setting and take the right hand side of (\ref{initialpolar}) as a general recipe to construct a symmetric bilinear form $\bra\ ,\;\ket$ on $\Sym^kV$ from a symmetric bilinear form on an appropriate space $V$. This is carried out in Section~\ref{symSection}. Our main result, Theorem~\ref{maintheorem}, gives a formula for the determinant of the Gram matrix of $\bra\ ,\;\ket$. 
 
 %It is not surprising that we can get back our linear form $I$. However, 
-For real vector spaces $V$, there is a notable description in terms of an analytic integral given in Prop.~\ref{intequiv}: After some simplifications this amounts to integrating homogeneous polynomials over a sphere. Essentially, we have:
+If $V$ is a real vector space, then there is a notable description in terms of an analytic integral given in Prop.~\ref{intequiv}: After some simplifications this amounts to integrating homogeneous polynomials over a sphere. Essentially, we have:
 $$ \bra f,g\ket = \int_{\S^d} f(\omega)g(\omega)d\omega $$
 This is very comfortable, since it allows to use the whole bunch of techniques from calculus to investigate the algebraic properties of our construction.
 Since we are interested in the determinant of the Gram matrix of $\bra\ ,\;\ket$
@@ -162,8 +162,8 @@ This often applies to the binomial coefficient, since we have:
 \end{equation}
 %The same recurrence holds for the cardinality of the set $\{|\alpha| =k\}$ of multi-indices of length $d+1$ and degree $k$, because $\{ |\alpha| = k \} = \bigcup_{j=0}^k  \{ |\alpha'| = j \} \times \{ k-j \}  $
 
-Let $r_{d,k} = \rank \left(\Sym^k K^{d+1} \right)$ be the rank of the symmetric power. 
-Because of the decomposition $\Sym^k\! K^{d+1} \cong \Sym^k\! K^d \oplus \,\Sym^{k-1}\! K^{d+1}\!\otimes\! K$, we have the recurrence $r_{d,k} = r_{d-1,k} +r_{d,k-1}$. So we deduce:
+Let $K$ be a commutative ring and let $r_{d,k} = \rank \left(\Sym^k K^{d+1} \right)$ be the rank of the symmetric power of a free $K$-module of rank $d\!+\!1$. 
+Because we have the decomposition $\Sym^k\! K^{d+1} \cong \Sym^k\! K^d \oplus \,(\Sym^{k-1}\! K^{d+1})\!\otimes\! K$, we obtain the recurrence $r_{d,k} = r_{d-1,k} +r_{d,k-1}$. So we deduce:
 \begin{equation} \label{binomcount} \textstyle
 \binom{k+d}{d} =\binom{k+d}{k} = r_{d,k}=\rank \left(\Sym^k K^{d+1} \right) = \text{card}\big(\{|\alpha| =k\}\big).
 \end{equation}
@@ -236,7 +236,7 @@ Let $f:\R^{d+1}\rightarrow\R$ be a continuous homogeneous function of degree $k$
 \subsection{Lattices}\label{latticeSubsection} By a lattice $L$ we mean a free $\Z$--module of finite rank, equipped with a non--degenerate, integer--valued symmetric bilinear form $\left<\ ,\;\right>$. By a homomorphism or imbedding $L\subset M$ of lattices we mean a map $:L\rightarrow M$ that preserves the bilinear forms on $L$ and $M$ respectively. It is automatically injective. We always have the imbedding of a lattice $L$ into its dual space $L^*\coloneqq \Hom(L,\Z)$, given by $x \mapsto \left<x,\ \right>$. A lattice is called unimodular, if this imbedding is an isomorphism, \ie if it is surjective. By tensoring with $\Q$, we can interpret $L$ as well as $L^*$ as a discrete subset of the $\Q$--vector space $L\otimes \Q$. Note that this gives a kind of lattice structure to $L^*$, too, but the symmetric bilinear form on $L^*$ may now take rational coefficients.
 
 The quotient $L^*/L$ is called the discriminant group. Its order is always finite and is called the discriminant of $L$.
-Choosing a basis $(x_i)_i$ of $L$, we may express $\discr L$ as the determinant of the so--called Gram matrix $G$ of $\left<\ ,\;\right>$, which is defined by $G_{ij}\coloneqq \left<x_i,x_j\right>$. 
+Choosing a basis $(x_i)_i$ of $L$, we may express $\discr L$ as the absolute value of the determinant of the so--called Gram matrix $G$ of $\left<\ ,\;\right>$, which is defined by $G_{ij}\coloneqq \left<x_i,x_j\right>$. 
 
 An imbedding $L\subset M$ is called primitive, if the quotient $M/L$ is free. If additionally $L$ an $M$ have the same rank, we deduce from the chain of imbeddings $L\subset M \subset M^* \subset L^*$ the following
 \begin{proposition} \label{squareDiscr}Let $M$ be a unimodular lattice. Let $L\subset M$ be a primitively imbedded sublattice of the same rank. Then the order of $M/L$ equals $\sqrt{\discr L}$.
@@ -307,7 +307,7 @@ First, observe that both sides of the equation are invariant under orthogonal tr
 On the other hand, if $G$ is diagonal, then every partition into pairs in Equation (\ref{mydef}) that contains a pair of two different numbers will not contribute to the sum. But the number of partitions of the multiset $\{n|\,0\!\leq\!n\!\leq\! d,\text{ multiplicity of } n = \alpha_n+\beta_n\}$ into pairs, such that every pair consists of two equal numbers, is by Prop.~\ref{partitioncount} evidently equal to $\prod_{i=0}^d (\alpha_i+\beta_i-1)!!$ if all $\alpha_i+\beta_i$ are even and $0$ otherwise. So we obtain the same formula for $\bra x^\alpha ,x^\beta\ket$.
 \end{proof}
 
-The next theorem gives a formula for the determinant of $\G$. This is of particular interest when $K=\Z$, because in this case we are in the setting of lattice theory, and $\det \G$ is an important lattice-theoretic invariant, called the discriminant.
+The next theorem gives a formula for the determinant of $\G$. This is of particular interest when $K=\Z$, because in this case we are in the setting of lattice theory, and $|\det \G|$ is the discriminant of the lattice $V$.
 \begin{theorem} \label{maintheorem}
 The determinant of the Gram matrix $\G$ of $\bra\ ,\;\ket$, the induced bilinear form on $\Sym^kV,\ \rank V = d\!+\!1$, is:
 \begin{equation}\label{maintheorem1}
@@ -598,13 +598,13 @@ contains only prime factors that are smaller than $2k+b_2-1$ or divide $c_X^{b_2
 \end{corollary}
 For the known examples of compact Hyperk\"ahler manifolds, we can refine this a bit, using the list given in \cite[Table~1]{OGrady}:
 
-Let $S^{[k]}$ for $k\geq 2$ be the Hilbert scheme of $k$ points on a K3 surface $S$, let $K^{[[k]]}$ be the generalized Kummer variety of a torus and let $OG_6$ and $OG_{10}$ be the 6-- resp. 10--dimensional O'Grady manifold. Then we have:
+Let $S^{[k]}$ for $k\geq 2$ be the Hilbert scheme of $k$ points on a K3 surface $S$, let $A^{[[k]]}$ be the generalized Kummer variety of a torus $A$ and let $OG_6$ and $OG_{10}$ be the 6-- resp. 10--dimensional O'Grady manifold. Then we have:
 
 \begin{center}
 \begin{tabular}{ p{2cm} p{2cm} p{2cm} p{2cm} }
 $X$ 		& $\dim X$	& $b_2$ & $c_X$ \\ \hline 
 $S^{[k]}$ 	& $2k$ 		& $23$ 	& $1$	\\
-$K^{[[k]]}$	& $2k$ 		& $7$	& $k+1$ \\
+$A^{[[k]]}$	& $2k$ 		& $7$	& $k+1$ \\
 $OG_6$		& $6$		& $8$	& $4$ 	\\
 $OG_{10}$	& $10$		& $24$	& $1$ 	
 \end{tabular}
@@ -618,7 +618,7 @@ $$
 contains no prime factors bigger than
 \begin{itemize}
 \item $2k+21$, if $X$ is deformation equivalent to $S^{[k]}$,
-\item $2k+5$, if $X$ is deformation equivalent to $K^{[[k]]}$, 
+\item $2k+5$, if $X$ is deformation equivalent to $A^{[[k]]}$, 
 \item $5$, if $X$ is deformation equivalent to $OG_6$,
 \item $13$, if $X$ is deformation equivalent to $OG_{10}$.
 \end{itemize} 
