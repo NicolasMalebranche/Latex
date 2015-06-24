@@ -609,7 +609,7 @@ with the induced form $\bra\ ,\;\ket$ on $\Sym^kH^2(X,\Z)$, according to Definit
 \begin{equation}
 \Big( \Sym^kH^2(X,\Z),\: c_X\!\bra\ ,\;\ket\Big) \longrightarrow \Big(H^{2k}(X,\Z),\;(\ ,\;)_X\Big).
 \end{equation}
-
+In general, this embedding is not primitive.
 
 From Theorem \ref{maintheorem} and Proposition~\ref{TorsionQuotient} we now get some interesting corollaries:
 \begin{corollary}
@@ -624,12 +624,12 @@ For the known examples of compact Hyperk\"ahler manifolds, we can refine this a 
 Let $S^{[k]}$ for $k\geq 2$ be the Hilbert scheme of $k$ points on a K3 surface $S$, let $A^{[[k]]}$ be the generalized Kummer variety of a torus $A$ and let $OG_6$ and $OG_{10}$ be the 6-- resp. 10--dimensional O'Grady manifold. Then we have:
 
 \begin{center}
-\begin{tabular}{ p{2cm} p{2cm} p{2cm} p{2cm} }
-$X$ 		& $\dim X$	& $b_2$ & $c_X$ \\ \hline 
-$S^{[k]}$ 	& $2k$ 		& $23$ 	& $1$	\\
-$A^{[[k]]}$	& $2k$ 		& $7$	& $k+1$ \\
-$OG_6$		& $6$		& $8$	& $4$ 	\\
-$OG_{10}$	& $10$		& $24$	& $1$ 	
+\begin{tabular}{ p{2cm} p{2cm} p{2cm} p{2cm} p{2cm} }
+$X$ 		& $\dim X$	& $b_2$ & $d_2$	& $c_X$ \\ \hline 
+$S^{[k]}$ 	& $2k$ 		& $23$ 	& $ 2(k-1)$		& $1$	\\
+$A^{[[k]]}$	& $2k$ 		& $7$	& $ 2(k+1)$		& $k+1$ \\
+$OG_6$		& $6$		& $8$	& $4$			& $4$ 	\\
+$OG_{10}$	& $10$		& $24$	& $3$			& $1$ 	
 \end{tabular}
 \end{center}
 
@@ -647,8 +647,13 @@ contains no prime factors bigger than
 \end{itemize} 
 \end{corollary}
 \begin{remark}
-The cases $X=S^{[2]}$ and $X=S^{[3]}$ were already studied in \cite[Prop.~6.6]{BNS} and \cite[Prop.~2.4]{Kapfer}, using explicit calculations. The case $X=S^{[2]}$ is special, because $\Sym^2H^2(S^{[2]},\Z)$ and $H^4(S^{[2]},\Z)$ have the same rank. So Prop.~\ref{squareDiscr}, together with Theorem~\ref{maintheorem} imply that the cardinality of the quotient is precisely $\sqrt{2^{24}\cdot2^{22}\cdot(22+3)} = 2^{23}\cdot5$.
+The case $X=S^{[2]}$ was already studied in \cite[Prop.~6.6]{BNS}, using explicit calculations. It is special, because $\Sym^2H^2(S^{[2]},\Z)$ and $H^4(S^{[2]},\Z)$ have the same rank. So Prop.~\ref{squareDiscr}, together with Theorem~\ref{maintheorem} imply that the cardinality of the quotient is precisely $\sqrt{2^{24}\cdot2^{22}\cdot(22+3)} = 2^{23}\cdot5$.
 \end{remark}
+\begin{remark}
+In the case $X=S^{[3]}$, Theorem~\ref{maintheorem} says that the discriminant of $\Sym^3H^2$ is equal to $2^{1106}\cdot 3^{92}$. But on the other hand, according to \cite[Prop.~2.4]{Kapfer}, the torsion part of $H^6/(\Sym^3H^2)$ has order $2^{277}\cdot 3^{46}$. So it follows from Proposition~\ref{discrOrthPrim} that both the orthogonal complement and the primitive overlattice of $\Sym^3H^2$ must have discriminant $\frac{2^{1106}\cdot 3^{92}}{(2^{277}\cdot 3^{46})^2}=2^{552}$.
+\end{remark}
+
+
 
 \emph{Acknowledgements.} We thank Samuel Boissi\`ere, Cl\'ement Chesseboeuf, K\'evin Tari and Yuan Xu for useful conversations and the University of Poitiers for its hospitality. The author was supported by a DAAD grant.
 
