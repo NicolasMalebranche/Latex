@@ -18,6 +18,7 @@
 \DeclareMathOperator{\discr}{discr}
 
 \newcommand{\hilb}[1]{^{[#1]}}
+\newcommand{\DP}{\,{:}\,}
 \newcommand{\ie}{{\it i.e. }}
 \newcommand{\eg}{{\it e.g. }}
 \newcommand{\loccit}{{\it loc. cit. }}
@@ -140,7 +141,7 @@ Sections \ref{symSection}, \ref{polynomialSection} and \ref{hyper} treat rather 
 
 \section{Terminology and helper formulas} \label{boring}
 In this section 
-we give a few standard definitions and recall some facts on elementary calculus. We also mention technical formulas needed for our proofs.
+we give a few standard definitions and recall some facts on elementary calculus and lattice theory. We also mention technical formulas needed for our proofs.
 \subsection{Combinatorial formulas}
 \begin{definition}\label{multiindex}
 For a multi-index $\alpha=(\alpha_0,\ldots,\alpha_d)$ of length $\len(\alpha)\coloneqq d+1$ we define: $x^\alpha \coloneqq x_0^{\alpha_0}\ldots x_d^{\alpha_d}$. The degree is defined by $|\alpha |\coloneqq\sum\alpha_i$, the factorial is $\alpha! \coloneqq \prod \alpha_i!$. Further, we set
@@ -233,22 +234,39 @@ Let $f:\R^{d+1}\rightarrow\R$ be a continuous homogeneous function of degree $k$
 \end{lemma}
 
 
-\subsection{Lattices}\label{latticeSubsection} By a lattice $L$ we mean a free $\Z$--module of finite rank, equipped with a non--degenerate, integer--valued symmetric bilinear form $\left<\ ,\;\right>$. By a homomorphism or imbedding $L\subset M$ of lattices we mean a map $:L\rightarrow M$ that preserves the bilinear forms on $L$ and $M$ respectively. It is automatically injective. We always have the imbedding of a lattice $L$ into its dual space $L^*\coloneqq \Hom(L,\Z)$, given by $x \mapsto \left<x,\ \right>$. A lattice is called unimodular, if this imbedding is an isomorphism, \ie if it is surjective. By tensoring with $\Q$, we can interpret $L$ as well as $L^*$ as a discrete subset of the $\Q$--vector space $L\otimes \Q$. Note that this gives a kind of lattice structure to $L^*$, too, but the symmetric bilinear form on $L^*$ may now take rational coefficients.
+\subsection{Lattices}\label{latticeSubsection} By a lattice $L$ we mean a free $\Z$--module of finite rank, equipped with a non--degenerate, integer--valued symmetric bilinear form $\left<\ ,\;\right>$. By a homomorphism or embedding $L\subset M$ of lattices we mean a map $:L\rightarrow M$ that preserves the bilinear forms on $L$ and $M$ respectively. It is automatically injective. We always have the embedding of a lattice $L$ into its dual space $L^*\coloneqq \Hom(L,\Z)$, given by $x \mapsto \left<x,\ \right>$. A lattice is called unimodular, if this embedding is an isomorphism, \ie if it is surjective. By tensoring with $\Q$, we can interpret $L$ as well as $L^*$ as a discrete subset of the $\Q$--vector space $L\otimes \Q$. Note that this gives a kind of lattice structure to $L^*$, too, but the symmetric bilinear form on $L^*$ may now take rational coefficients.
 
-The quotient $L^*/L$ is called the discriminant group. Its order is always finite and is called the discriminant of $L$.
-Choosing a basis $(x_i)_i$ of $L$, we may express $\discr L$ as the absolute value of the determinant of the so--called Gram matrix $G$ of $\left<\ ,\;\right>$, which is defined by $G_{ij}\coloneqq \left<x_i,x_j\right>$. 
+If $L\subset M$ is an embedding of lattices of the same rank, then the index $|M\DP L|$ of $L$ in $M$ is defined as the order of the finite group $M/L$.
+There is a chain of embeddings $L\subset M \subset M^* \subset L^*$ with $|L^*\DP M^*| =|M\DP L| $.
 
-An imbedding $L\subset M$ is called primitive, if the quotient $M/L$ is free. If additionally $L$ an $M$ have the same rank, we deduce from the chain of imbeddings $L\subset M \subset M^* \subset L^*$ the following
-\begin{proposition} \label{squareDiscr}Let $M$ be a unimodular lattice. Let $L\subset M$ be a primitively imbedded sublattice of the same rank. Then the order of $M/L$ equals $\sqrt{\discr L}$.
+The quotient $L^*/L$ is called the discriminant group. The index of $L$ in $L^*$ is called the discriminant of $L$.
+Choosing a basis $(x_i)_i$ of $L$, we may express $\discr L$ as the absolute value of the determinant of the so--called Gram matrix $G$ of $L$, which is defined by $G_{ij}\coloneqq \left<x_i,x_j\right>$. The Gram matrix with respect to the dual basis is the inverse $G^{-1}$. If $L$ is unimodular, then $\det G =\pm 1$.
+
+\begin{proposition} \label{squareDiscr}Let $M$ be a unimodular lattice. Let $L\subset M$ be a sublattice of the same rank. Then $|M\DP L|$ equals $\sqrt{\discr L}$.
 \end{proposition}
-For any imbedding $L\subset M$ we denote by $L^\perp$ the orthogonal complement of $L$ within $M$. Since an orthogonal complement is always primitive, the double orthogonal complement $ (L^\perp)^\perp$ is a primitively embedded superlattice of $L$. It is clear that the discriminant of $ (L^\perp)^\perp$  divides $\discr L$. Now $L\oplus L^\perp\subset M$, and therefore we have a chain of imbeddings:
-$$
-L\oplus L^\perp \subset  (L^\perp)^\perp \oplus L^\perp\subset M \subset M^* \subset \left((L^\perp)^\perp \oplus L^\perp\right)^*  \subset \left(L \oplus L^\perp\right)^*.
-$$
-If now again $M$ is unimodular, then $M/(L\oplus L^\perp)$ is finite and isomorphic to the torsion part of $M/L$. With the above consideration we get
-\begin{proposition}\label{TorsionQuotient} Let $L\subset M$ be an imbedding of lattices with unimodular $M$. Then the order of the torsion part of $M/L$ 
+\begin{proof}
+Since $M$ is unimodular, $|L^*\DP M|=|L^*\DP M^*| =|M\DP L| $ and therefore $|L^*\DP L| = |L^*\DP M||M\DP L|  = |M\DP L|^2$.
+\end{proof}
+An embedding $L\subset M$ is called primitive, if the quotient $M/L$ is free. We denote by $L^\perp$ the orthogonal complement of $L$ within $M$. Since an orthogonal complement is always primitive, the double orthogonal complement $ L^{\perp\perp}$ is a primitively embedded superlattice of $L$. It is clear that $\discr( L^{\perp\perp})$ divides $\discr L$. 
+\begin{proposition}\label{TorsionQuotient} Let $L\subset M$ be an embedding of lattices. Then the order of the torsion part of $M/L$ 
 divides $\discr L$.
 \end{proposition}
+\begin{proof}
+The torsion part is the index of $M/( L^{\perp\perp})$ in $M/L$. But this is equal to $|L^{\perp\perp}\DP L| = |L^* \DP (L^{\perp\perp})^*|$ and clearly divides $|L^*\DP L|$.
+\end{proof}
+\begin{proposition}\label{discrOrth}
+Let $L\subset M$ be an embedding of lattices with unimodular $M$. Then the discriminants of $L$ and $L^\perp$ are the same up to squares.
+\end{proposition}
+\begin{proof}
+By Proposition~\ref{squareDiscr}, $|M \DP (L\oplus L^\perp)|= \sqrt{\discr (L\oplus L^\perp)} =\sqrt{\discr(L) \discr (L^\perp)}$, so $\discr(L) \discr (L^\perp)$ must be a square number.
+\end{proof}
+\begin{proposition}\label{discrOrthPrim}
+Let $M$ be unimodular. Let $L\subset M$ be a primitive embedding. Then $\discr L = \discr L^\perp$.
+\end{proposition}
+\begin{proof}
+Consider the orthogonal projection $ : M\otimes\Q \rightarrow L\otimes \Q$. Its restriction to $M$ has kernel equal to $L^\perp$ and image in $L^*$. Hence we have an imbedding of lattices $M/L^\perp \subset L^*$. Quotienting by $L$, we get an injective map $: M/(L\oplus L^\perp) \rightarrow L^*/L$. 
+Now by Proposition~\ref{squareDiscr}, $\sqrt{\discr(L) \discr (L^\perp)} =|M \DP (L\oplus L^\perp)| \leq |L^*\DP L| = \discr L$. So we get $\discr L^\perp \leq \discr L$. Exchanging the roles of $L=L^{\perp\perp}$ and $L^\perp$ gives the inequality in the opposite direction.
+\end{proof}
 
 
 
@@ -587,7 +605,7 @@ Now $q_X$, by polarization, gives rise to a symmetric bilinear form $\left<\ ,\;
 \begin{equation}
  \int_X \alpha_1\wedge\ldots\wedge\alpha_{2k} = c_X \bra \alpha_1\ldots\alpha_k\,,\,\alpha_{k+1}\ldots\alpha_{2k}\ket,
 \end{equation}
-with the induced form $\bra\ ,\;\ket$ on $\Sym^kH^2(X,\Z)$, according to Definition \ref{formdef}. Since the Poincar\'e pairing $(\beta_1,\beta_2)_X \coloneqq \int_X\beta_1\wedge\beta_2$ gives $H^{2k}(X,\Z)$ the structure of an unimodular lattice, we have got an imbedding of lattices:
+with the induced form $\bra\ ,\;\ket$ on $\Sym^kH^2(X,\Z)$, according to Definition \ref{formdef}. Since the Poincar\'e pairing $(\beta_1,\beta_2)_X \coloneqq \int_X\beta_1\wedge\beta_2$ gives $H^{2k}(X,\Z)$ the structure of an unimodular lattice, we have got an embedding of lattices:
 \begin{equation}
 \Big( \Sym^kH^2(X,\Z),\: c_X\!\bra\ ,\;\ket\Big) \longrightarrow \Big(H^{2k}(X,\Z),\;(\ ,\;)_X\Big).
 \end{equation}
