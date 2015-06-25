@@ -76,7 +76,7 @@
 
 \begin{document}
 
-\title[Symmetric Powers, Hom.~Orth.~Polynomials, Hyperk\"ahlers]{Symmetric Powers of Symmetric Bilinear Forms, Homogeneous Orthogonal Polynomials on the Sphere and an Application in Compact Hyperk\"ahler Manifolds}
+\title[Symmetric Powers, Hom.~Orth.~Polynomials, Hyperk\"ahlers]{Symmetric Powers of Symmetric Bilinear Forms, Homogeneous Orthogonal Polynomials on the Sphere and an Application to Compact Hyperk\"ahler Manifolds}
 
 
 \author{Simon Kapfer}
@@ -202,6 +202,10 @@ The number of partitions of the set $\{1,\ldots,2k\}$ into pairs equals $(2k-1)!
 \begin{proof}
 Given such a partition, look at the pair that contains the element $1$. There are $2k-1$ possible partners for this element; removing the pair leaves a partition of a set of cardinality $(2k-2)$ into pairs. Then proceed by induction.
 \end{proof}
+\begin{corollary} \label{multipairs}
+Given disjoint finite sets $D_1,\ldots,D_n$ with $|D_i|=\alpha_i$. Then the number of partitions of the set $D = D_1\cup\ldots\cup D_n$ into pairs, such that the elements of every pair come from the same $D_i$, is equal to $\prod_i (\alpha_i -1)!!$ if all $\alpha_i$ are even and $0$ otherwise.
+\end{corollary}
+
 
 
 \subsection{Formulas from Calculus}
@@ -234,39 +238,36 @@ Let $f:\R^{d+1}\rightarrow\R$ be a continuous homogeneous function of degree $k$
 \end{lemma}
 
 
-\subsection{Lattices}\label{latticeSubsection} By a lattice $L$ we mean a free $\Z$--module of finite rank, equipped with a non--degenerate, integer--valued symmetric bilinear form $\left<\ ,\;\right>$. By a homomorphism or embedding $L\subset M$ of lattices we mean a map $:L\rightarrow M$ that preserves the bilinear forms on $L$ and $M$ respectively. It is automatically injective. We always have the embedding of a lattice $L$ into its dual space $L^*\coloneqq \Hom(L,\Z)$, given by $x \mapsto \left<x,\ \right>$. A lattice is called unimodular, if this embedding is an isomorphism, \ie if it is surjective. By tensoring with $\Q$, we can interpret $L$ as well as $L^*$ as a discrete subset of the $\Q$--vector space $L\otimes \Q$. Note that this gives a kind of lattice structure to $L^*$, too, but the symmetric bilinear form on $L^*$ may now take rational coefficients.
+\subsection{Lattices}\label{latticeSubsection} By a lattice $L$ we mean a free $\Z$--module of finite rank, equipped with a non--degenerate, integer--valued symmetric bilinear form $\left<\ ,\;\right>$. By a homomorphism or embedding $L\subset M$ of lattices we mean a map $:L\rightarrow M$ that preserves the bilinear forms on $L$ and $M$ respectively. It is automatically injective. We always have the injection of a lattice $L$ into its dual space $L^*\coloneqq \Hom(L,\Z)$, given by $x \mapsto \left<x,\ \right>$. A lattice is called unimodular, if this injection is an isomorphism, \ie if it is surjective. By tensoring with $\Q$, we can interpret $L$ as well as $L^*$ as a discrete subset of the $\Q$--vector space $L\otimes \Q$. Note that this gives a kind of lattice structure to $L^*$, too, but the symmetric bilinear form on $L^*$ may now take rational coefficients.
 
 If $L\subset M$ is an embedding of lattices of the same rank, then the index $|M\DP L|$ of $L$ in $M$ is defined as the order of the finite group $M/L$.
 There is a chain of embeddings $L\subset M \subset M^* \subset L^*$ with $|L^*\DP M^*| =|M\DP L| $.
 
-The quotient $L^*/L$ is called the discriminant group. The index of $L$ in $L^*$ is called the discriminant of $L$.
-Choosing a basis $(x_i)_i$ of $L$, we may express $\discr L$ as the absolute value of the determinant of the so--called Gram matrix $G$ of $L$, which is defined by $G_{ij}\coloneqq \left<x_i,x_j\right>$. The Gram matrix with respect to the dual basis is the inverse $G^{-1}$. If $L$ is unimodular, then $\det G =\pm 1$.
+The quotient $L^*/L$ is called the discriminant group. The index of $L$ in $L^*$ is called $\discr L$, the discriminant of $L$.
+Choosing a basis $(x_i)_i$ of $L$, we may express $\discr L$ as the absolute value of the determinant of the so--called Gram matrix $G$ of $L$, which is defined by $G_{ij}\coloneqq \left<x_i,x_j\right>$. $L$ is unimodular, iff $\det G =\pm 1$.
 
 \begin{proposition} \label{squareDiscr}Let $M$ be a unimodular lattice. Let $L\subset M$ be a sublattice of the same rank. Then $|M\DP L|$ equals $\sqrt{\discr L}$.
 \end{proposition}
 \begin{proof}
 Since $M$ is unimodular, $|L^*\DP M|=|L^*\DP M^*| =|M\DP L| $ and therefore $|L^*\DP L| = |L^*\DP M||M\DP L|  = |M\DP L|^2$.
 \end{proof}
-An embedding $L\subset M$ is called primitive, if the quotient $M/L$ is free. We denote by $L^\perp$ the orthogonal complement of $L$ within $M$. Since an orthogonal complement is always primitive, the double orthogonal complement $ L^{\perp\perp}$ is a primitively embedded superlattice of $L$. It is clear that $\discr( L^{\perp\perp})$ divides $\discr L$. 
+An embedding $L\subset M$ is called primitive, if the quotient $M/L$ is free. We denote by $L^\perp$ the orthogonal complement of $L$ within $M$. Since an orthogonal complement is always primitive, the double orthogonal complement $ L^{\perp\perp}$ is a primitively embedded overlattice of $L$. It is clear that $\discr( L^{\perp\perp})$ divides $\discr L$. 
 \begin{proposition}\label{TorsionQuotient} Let $L\subset M$ be an embedding of lattices. Then the order of the torsion part of $M/L$ 
 divides $\discr L$.
 \end{proposition}
 \begin{proof}
 The torsion part is the index of $M/( L^{\perp\perp})$ in $M/L$. But this is equal to $|L^{\perp\perp}\DP L| = |L^* \DP (L^{\perp\perp})^*|$ and clearly divides $|L^*\DP L|$.
 \end{proof}
-\begin{proposition}\label{discrOrth}
-Let $L\subset M$ be an embedding of lattices with unimodular $M$. Then the discriminants of $L$ and $L^\perp$ are the same up to squares.
-\end{proposition}
-\begin{proof}
-By Proposition~\ref{squareDiscr}, $|M \DP (L\oplus L^\perp)|= \sqrt{\discr (L\oplus L^\perp)} =\sqrt{\discr(L) \discr (L^\perp)}$, so $\discr(L) \discr (L^\perp)$ must be a square number.
-\end{proof}
 \begin{proposition}\label{discrOrthPrim}
 Let $M$ be unimodular. Let $L\subset M$ be a primitive embedding. Then $\discr L = \discr L^\perp$.
 \end{proposition}
 \begin{proof}
-Consider the orthogonal projection $ : M\otimes\Q \rightarrow L\otimes \Q$. Its restriction to $M$ has kernel equal to $L^\perp$ and image in $L^*$. Hence we have an imbedding of lattices $M/L^\perp \subset L^*$. Quotienting by $L$, we get an injective map $: M/(L\oplus L^\perp) \rightarrow L^*/L$. 
+Consider the orthogonal projection $ : M\otimes\Q \rightarrow L\otimes \Q$. Its restriction to $M$ has kernel equal to $L^\perp$ and image in $L^*$. Hence we have an embedding of lattices $M/L^\perp \subset L^*$. Quotienting by $L$, we get an injective map $: M/(L\oplus L^\perp) \rightarrow L^*/L$. 
 Now by Proposition~\ref{squareDiscr}, $\sqrt{\discr(L) \discr (L^\perp)} =|M \DP (L\oplus L^\perp)| \leq |L^*\DP L| = \discr L$. So we get $\discr L^\perp \leq \discr L$. Exchanging the roles of $L=L^{\perp\perp}$ and $L^\perp$ gives the inequality in the opposite direction.
 \end{proof}
+\begin{corollary}\label{latticeCor}
+Let $L\subset M$ be an embedding of lattices with unimodular $M$. Let $n$ be the order of the torsion part of $M/L$. Then $\discr L^\perp =\discr L^{\perp\perp} = \frac{1}{n^2}\discr L$.
+\end{corollary}
 
 
 
@@ -287,7 +288,7 @@ We emphasize that this is not the only possibility. One could alternatively defi
 \left(\!\left( x_{n_1}\ldots x_{n_k}\,,\, x_{m_1}\ldots x_{m_k}\right)\!\right) \coloneqq \sum_\sigma  
 \prod_{i=1}^k \left< x_{n_i},x_{m_{\sigma(i)}}\right>,
 \end{equation}
-the sum being over all permutations $\sigma$ of $\{1,\ldots,k\}$, as studied by McGarraghy in \cite{McGarr}. However, this is a different construction that doesn't match the situation described in the introduction. We will \emph{not} consider it in this article.
+the sum being over all permutations $\sigma$ of $\{1,\ldots,k\}$, as studied by McGarraghy in \cite{McGarr}. However, this is a different construction that doesn't match the situation described in the introduction. We will \emph{not} consider it here.
 
 If $U\in O(V)$ is an orthogonal transformation, then the induced diagonal action of $U^{\otimes k}$ on $\Sym^kV$ is orthogonal in both cases. This shows that the values of $\bra\ ,\;\ket$ and $\left(\!\left(\ ,\;\right)\!\right)$ are independent of the choice of the base of $V$ up to orthogonal transformation. 
 \begin{example}
@@ -322,7 +323,7 @@ First, observe that both sides of the equation are invariant under orthogonal tr
 \end{array}
  \right.
 \end{align*}
-On the other hand, if $G$ is diagonal, then every partition into pairs in Equation (\ref{mydef}) that contains a pair of two different numbers will not contribute to the sum. But the number of partitions of the multiset $\{n|\,0\!\leq\!n\!\leq\! d,\text{ multiplicity of } n = \alpha_n+\beta_n\}$ into pairs, such that every pair consists of two equal numbers, is by Prop.~\ref{partitioncount} evidently equal to $\prod_{i=0}^d (\alpha_i+\beta_i-1)!!$ if all $\alpha_i+\beta_i$ are even and $0$ otherwise. So we obtain the same formula for $\bra x^\alpha ,x^\beta\ket$.
+On the other hand, if $G$ is diagonal, then every partition into pairs in Equation (\ref{mydef}) that contains a pair of two different numbers will not contribute to the sum. Corollary~\ref{multipairs} shows then, that we get the same formula for $\bra x^\alpha ,x^\beta\ket$.
 \end{proof}
 
 The next theorem gives a formula for the determinant of $\G$. This is of particular interest when $K=\Z$, because in this case we are in the setting of lattice theory, and $|\det \G|$ is the discriminant of the lattice $V$.
@@ -605,23 +606,32 @@ Now $q_X$, by polarization, gives rise to a symmetric bilinear form $\left<\ ,\;
 \begin{equation}
  \int_X \alpha_1\wedge\ldots\wedge\alpha_{2k} = c_X \bra \alpha_1\ldots\alpha_k\,,\,\alpha_{k+1}\ldots\alpha_{2k}\ket,
 \end{equation}
-with the induced form $\bra\ ,\;\ket$ on $\Sym^kH^2(X,\Z)$, according to Definition \ref{formdef}. Since the Poincar\'e pairing $(\beta_1,\beta_2)_X \coloneqq \int_X\beta_1\wedge\beta_2$ gives $H^{2k}(X,\Z)$ the structure of an unimodular lattice, we have got an embedding of lattices:
+with the induced form $\bra\ ,\;\ket$ on $\Sym^kH^2(X,\Z)$, according to Definition \ref{formdef}. The discriminant of $\Sym^kH^2(X,\Z)$ can be computed with Theorem~\ref{maintheorem}. Since the Poincar\'e pairing $(\beta_1,\beta_2)_X \coloneqq \int_X\beta_1\wedge\beta_2$ gives $H^{2k}(X,\Z)$ the structure of an unimodular lattice, we have got an embedding of lattices:
 \begin{equation}
 \Big( \Sym^kH^2(X,\Z),\: c_X\!\bra\ ,\;\ket\Big) \longrightarrow \Big(H^{2k}(X,\Z),\;(\ ,\;)_X\Big).
 \end{equation}
 In general, this embedding is not primitive.
 
-From Theorem \ref{maintheorem} and Proposition~\ref{TorsionQuotient} we now get some interesting corollaries:
+From Theorem \ref{maintheorem} and Proposition~\ref{TorsionQuotient} we now get some interesting corollaries, by looking at the prime factors contained in (\ref{maintheorem1}):
 \begin{corollary}
-Let $X$ be a compact Hyperk\"ahler manifold of complex dimension $2k$. Denote $b_2$ resp.~$d_2$ the rank and the discriminant of $H^2(X,\Z)$. Then the torsion part of the quotient
+Let $X$ be a compact Hyperk\"ahler manifold of complex dimension $2k$. Denote $b_2$ resp.~$d_2$ the rank and the discriminant of $H^2(X,\Z)$. Define a set of integers $Z$ by
+$$
+Z \coloneqq \left\{
+ \begin{array}{*2{l}p{5cm}}
+  \{1,\ldots ,k\} \cup \{2k\!+\!b_2\!-\!2, 2k\!+\!b_2\!-\!4,\ldots,k\!+\!b_2\}\cup\{c_X^{b_2} d_2\}  &\text{if }b_2\text{ is odd}, \\
+  \{1,\ldots , k\!+\! \frac{b_2}{2}\!-\!1\} \cup\{c_X^{b_2} d_2\}  &\text{if }b_2\text{ is even}.
+\end{array}
+\right.
+$$
+Then the torsion part of the quotient
 $$
 \frac{H^{2k}(X,\Z)}{\Sym^kH^2(X,\Z)}
 $$
-contains only prime factors that are smaller than $2k+b_2-1$ or divide $c_X^{b_2} d_2$. 
+contains only prime factors that divide at least one of the numbers contained in $Z$.
+%are smaller than $2k+b_2-1$ or divide $c_X^{b_2} d_2$. 
 \end{corollary}
-For the known examples of compact Hyperk\"ahler manifolds, we can refine this a bit, using the list given in \cite[Table~1]{OGrady}:
-
-Let $S^{[k]}$ for $k\geq 2$ be the Hilbert scheme of $k$ points on a K3 surface $S$, let $A^{[[k]]}$ be the generalized Kummer variety of a torus $A$ and let $OG_6$ and $OG_{10}$ be the 6-- resp. 10--dimensional O'Grady manifold. Then we have:
+For the known examples of compact Hyperk\"ahler manifolds, in higher dimensions, we can use the list given in \cite[Table~1]{OGrady}:
+Let $S^{[k]}$ for $k\geq 2$ be the Hilbert scheme of $k$ points on a K3 surface $S$, let $A^{[[k]]}$ be the generalized Kummer variety of a torus $A$ and let $OG_6$ and $OG_{10}$ be the 6-- resp. 10--dimensional O'Grady manifold. Let $X$ be deformation equivalent to one of these. Then we have:
 
 \begin{center}
 \begin{tabular}{ p{2cm} p{2cm} p{2cm} p{2cm} p{2cm} }
@@ -632,25 +642,19 @@ $OG_6$		& $6$		& $8$	& $4$			& $4$ 	\\
 $OG_{10}$	& $10$		& $24$	& $3$			& $1$ 	
 \end{tabular}
 \end{center}
-
-\begin{corollary}
- The torsion part of the quotient
-$$
-\frac{H^{2k}(X,\Z)}{\Sym^kH^2(X,\Z)}
-$$
-contains no prime factors bigger than
+In particular, the torsion part of $\frac{H^{2k}(X,\Z)}{\Sym^kH^2(X,\Z)}$ contains no prime factors bigger than
 \begin{itemize}
-\item $2k+21$, if $X$ is deformation equivalent to $S^{[k]}$,
-\item $2k+5$, if $X$ is deformation equivalent to $A^{[[k]]}$, 
-\item $5$, if $X$ is deformation equivalent to $OG_6$,
-\item $13$, if $X$ is deformation equivalent to $OG_{10}$.
+\item $3$, if $X$ is deformation equivalent to $OG_6$,
+\item $5$, if $X$ is deformation equivalent to $OG_{10}$.
 \end{itemize} 
-\end{corollary}
 \begin{remark}
-The case $X=S^{[2]}$ was already studied in \cite[Prop.~6.6]{BNS}, using explicit calculations. It is special, because $\Sym^2H^2(S^{[2]},\Z)$ and $H^4(S^{[2]},\Z)$ have the same rank. So Prop.~\ref{squareDiscr}, together with Theorem~\ref{maintheorem} imply that the cardinality of the quotient is precisely $\sqrt{2^{24}\cdot2^{22}\cdot(22+3)} = 2^{23}\cdot5$.
+The case $X=S^{[2]}$ was already studied in \cite[Prop.~6.6]{BNS}, using explicit calculations. It is special, because $\Sym^2H^2(S^{[2]},\Z)$ and $H^4(S^{[2]},\Z)$ have the same rank. So Proposition~\ref{squareDiscr}, together with Theorem~\ref{maintheorem} imply that the cardinality of the quotient is precisely $\sqrt{2^{24}\cdot2^{22}\cdot(22+3)} = 2^{23}\cdot5$.
 \end{remark}
 \begin{remark}
-In the case $X=S^{[3]}$, Theorem~\ref{maintheorem} says that the discriminant of $\Sym^3H^2$ is equal to $2^{1106}\cdot 3^{92}$. But on the other hand, according to \cite[Prop.~2.4]{Kapfer}, the torsion part of $H^6/(\Sym^3H^2)$ has order $2^{277}\cdot 3^{46}$. So it follows from Proposition~\ref{discrOrthPrim} that both the orthogonal complement and the primitive overlattice of $\Sym^3H^2$ must have discriminant $\frac{2^{1106}\cdot 3^{92}}{(2^{277}\cdot 3^{46})^2}=2^{552}$.
+If the exact value of the torsion part of $H^{2k}/(\Sym^kH^2)$ is known, we can say more, by applying Corollary~\ref{latticeCor}. For instance,
+in the case $X=S^{[3]}$, Theorem~\ref{maintheorem} says that the discriminant of $\Sym^3H^2$ is equal to $2^{1106}\cdot 3^{92}$. But on the other hand, according to \cite[Prop.~2.4]{Kapfer}, the torsion part of $H^6/(\Sym^3H^2)$ has order $2^{277}\cdot 3^{46}$. So it follows from Proposition~\ref{discrOrthPrim} that both the orthogonal complement and the primitive overlattice of $\Sym^3H^2$ must have discriminant $\frac{2^{1106}\cdot 3^{92}}{(2^{277}\cdot 3^{46})^2}=2^{552}$.
+
+If the torsion part of $H^{2k}/(\Sym^kH^2)$ is unknown, then Corollary~\ref{latticeCor} still allows the conclusion, that the square-free parts of the discriminants of $\Sym^kH^2$ and its orthogonal complement are equal.
 \end{remark}
 
 
