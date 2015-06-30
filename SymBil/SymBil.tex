@@ -327,7 +327,7 @@ First, observe that both sides of the equation are invariant under orthogonal tr
 On the other hand, if $G$ is diagonal, then every partition into pairs in Equation (\ref{mydef}) that contains a pair of two different numbers will not contribute to the sum. Corollary~\ref{multipairs} shows then, that we get the same formula for $\bra x^\alpha ,x^\beta\ket$.
 \end{proof}
 
-The next theorem gives a formula for the determinant of $\G$. This is of particular interest when $K=\Z$, because in this case we are in the setting of lattice theory, and $|\det \G|$ is the discriminant of the lattice $V$.
+The next theorem gives a formula for the determinant of $\G$. This is of particular interest when $K=\Z$, because in this case we are in the setting of lattice theory, and $\left|\det \G\right|$ is the discriminant of the lattice $V$.
 \begin{theorem} \label{maintheorem}
 The determinant of the Gram matrix $\G$ of $\bra\ ,\;\ket$, the induced bilinear form on $\Sym^kV,\ \rank V = d\!+\!1$, is:
 \begin{equation}\label{maintheorem1}
@@ -393,7 +393,7 @@ A $\bra\ ,\;\ket$-orthogonal basis of homogeneous polynomials which we won't con
 $$
 \R[x_0,\ldots,x_d]_k = \Har^{d+1}_k \oplus r^2 \Har^{d+1}_{k-2}\oplus r^4 \Har^{d+1}_{k-4}\oplus \ldots
 $$
-where $r^2 = \|x\|^2= x_0^2+\ldots +x_d^2$. Orthogonal bases for each of the $\Har^{d+1}_k$ in turn are constructed in \cite[Sect.~2.2]{Dunkl}. However, the basis one obtains this way has nothing to do with monomials. In particular, the transition matrix between them is not triangluar, so they are not related by a Gram-Schmidt process.
+where $r^2 = \|x\|^2= x_0^2+\ldots +x_d^2$. Orthogonal bases for each of the $\Har^{d+1}_k$ in turn are constructed in \cite[Sect.~2.2]{Dunkl}. However, the basis one obtains this way has nothing to do with monomials. In particular, the transition matrix between them is not triangular, so they are not related by a Gram-Schmidt process.
 \end{remark}
 
 
@@ -452,8 +452,8 @@ Firstly, we calculate $ \frac{d}{d\omega}\! \left[\sin(\omega)^j \cos(\omega)^{m
 \\ &=\!\!\textstyle\sum\limits_{\substack{j=0\\ n-j\ \text{even}}}^{n-2} \!\!\!\frac{(-1)^{\frac{n-j-2}{2}}(n-1)!\,(m-2n)!!}{j!\,(m-n-j-2)!!\,(n-j-2)!!}\sin(\omega)^{j} \cos(\omega)^{m-j-1} \\[-3mm]
 &\hspace{3cm}-\textstyle\sum\limits_{\substack{j=1\\ n-j\ \text{even}}}^{n}\!\!\! \frac{(-1)^{\frac{n-j}{2}}(n-1)!\,(m-2n)!!\,(m-j)}{(j-1)!\,(m-n-j)!!\,(n-j)!!}\sin(\omega)^{j} \cos(\omega)^{m-j-1} \\
 &=\!\!\textstyle\sum\limits_{\substack{j=0\\ n-j\ \text{even}}}^{n} \!\!\!\frac{(-1)^{\frac{n-j}{2}}(n-1)!\,(m-2n)!!}{j!\,(m-n-j)!!\,(n-j)!!}\underbrace{\big[(j\!-\!n)(m\!-\!n\!-\!j)-j(m\!-\!j)\big] }_{=n(n-m)}\tan(\omega)^{j} \cos(\omega)^{m-1}
-\\ &= \textstyle(n-m)\, \p{n}{m}\big(\tan(\omega)\big)\cos(\omega)^{m-1}.
-\end{align*} \nobreak
+\\ &= \textstyle(n-m)\, \p{n}{m}\big(\tan(\omega)\big)\cos(\omega)^{m-1}. \qedhere
+\end{align*} 
 \end{proof}
 
 Our next goal is to show that the $\p{n}{m}$, for fixed $m$, form a set of orthogonal polynomials in the sense of the above subsection. In order to apply Favard's theorem, we claim:
@@ -469,8 +469,8 @@ We start from the right: $ x\p{n}{m}(x) -d_n^m \p{n-1}{m}(x)$ gives
  &\textstyle \sum\limits_{\substack{j=1\\ n-j\ \text{odd}}}^{n+1} \!\!\!\frac{(-1)^{\frac{n-j+1}{2}} n!\,(m-2n)!!}{(j-1)!\,(m-n-j+1)!!\,(n-j+1)!!}\: x^j 
 \ - \sum\limits_{\substack{j=0\\ n-j\ \text{odd}}}^{n-1} \!\!\!d_n^m\frac{(-1)^{\frac{n-j-1}{2}} (n-1)!\,(m-2n+2)!!}{j!\,(m-n-j+1)!!\,(n-j-1)!!}\: x^j 
 \\=&\textstyle \sum\limits_{\substack{j=0\\ n-j\ \text{odd}}}^{n+1} \!\!\!\frac{(-1)^{\frac{n-j+1}{2}} (n+1)!\,(m-2n-2)!!}{j!\,(m-n-j-1)!!\,(n-j+1)!!}\underbrace{\textstyle
-\frac{j(m-2n)+(m-n+1)(n-j+1)}{(n+1)(m-n-j+1)}}_{=1} \,x^j = \p{n+1}{m}(x) .
-\end{align*} \nobreak
+\frac{j(m-2n)+(m-n+1)(n-j+1)}{(n+1)(m-n-j+1)}}_{=1} \,x^j = \p{n+1}{m}(x) .\qedhere
+\end{align*} 
 \end{proof}
 The next theorem gives a useful analytic form of the corresponding linear functional.
 \begin{theorem} \label{pthm}We define, for $m\geq 1$, a linear functional $\L$ on the vector space of polynomials of degree less than $m$, by setting
@@ -588,7 +588,7 @@ but also for odd $d$,
 \begin{gather*}
 \frac{B(d,k+1)}{B(d,k)B(d-1,k+1)} = \frac{ (k+\tfrac{d+1}{2})^{-\binom{-k-1}{d}} \prod\limits_{i=1}^{k+\frac{d+1}{2}} i^{\binom{k-i+d}{d-1}-\binom{k-2i+d}{d-1}}  }{ \prod\limits_{\substack{i=1 \\ i\ \text{odd} }}^{2k+d+1}i^{\binom{k-i+d}{d-1}} } \\
 = \frac{ (k+\tfrac{d+1}{2})^{\binom{k+d}{d}} \prod\limits_{i=1}^{k+\frac{d+1}{2}} i^{\binom{k-i+d}{d-1}}  \prod\limits_{\substack{i=1 \\ i\ \text{even} }}^{2k+d} 2^{ \binom{k-i+d}{d-1}}}{ \prod\limits_{i=1}^{2k+d+1}i^{\binom{k-i+d}{d-1}}} 
-\ \myeq{(\ref{evensum})} \ \frac{ (2k\!+\!d\!+\!1)^{\binom{k+d}{d}} }{ \prod\limits_{i=k+d+1}^{2k+d+1}i^{ \binom{k-i+d}{d-1}} }.
+\ \myeq{(\ref{evensum})} \ \frac{ (2k\!+\!d\!+\!1)^{\binom{k+d}{d}} }{ \prod\limits_{i=k+d+1}^{2k+d+1}i^{ \binom{k-i+d}{d-1}} }. \qedhere
 \end{gather*}\nobreak
 \end{proof}
 
@@ -607,7 +607,7 @@ Now $q_X$, by polarization, gives rise to a symmetric bilinear form $\left<\ ,\;
 \begin{equation}
  \int_X \alpha_1\wedge\ldots\wedge\alpha_{2k} = c_X \bra \alpha_1\ldots\alpha_k\,,\,\alpha_{k+1}\ldots\alpha_{2k}\ket,
 \end{equation}
-with the induced form $\bra\ ,\;\ket$ on $\Sym^kH^2(X,\Z)$, according to Definition \ref{formdef}. The discriminant of $\Sym^kH^2(X,\Z)$ can be computed with Theorem~\ref{maintheorem}. Since the Poincar\'e pairing $(\beta_1,\beta_2)_X \coloneqq \int_X\beta_1\wedge\beta_2$ gives $H^{2k}(X,\Z)$ the structure of an unimodular lattice, we have got an embedding of lattices:
+with the induced form $\bra\ ,\;\ket$ on $\Sym^kH^2(X,\Z)$, according to Definition \ref{formdef}. The discriminant of $\Sym^kH^2(X,\Z)$ can be computed with Theorem~\ref{maintheorem}. Since the Poincar\'e pairing $(\beta_1,\beta_2)_X \coloneqq \int_X\beta_1\wedge\beta_2$ gives $H^{2k}(X,\Z)$ the structure of a unimodular lattice, we have got an embedding of lattices:
 \begin{equation}
 \Big( \Sym^kH^2(X,\Z),\: c_X\!\bra\ ,\;\ket\Big) \longrightarrow \Big(H^{2k}(X,\Z),\;(\ ,\;)_X\Big).
 \end{equation}
