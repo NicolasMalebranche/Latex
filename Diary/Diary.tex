@@ -40,6 +40,8 @@
 \DeclareMathOperator{\Sym}{Sym}
 \DeclareMathOperator{\Spur}{Spur}
 \newcommand{\vectline}[1]{\underline{\smash{ #1 }}} 
+\newcommand{\normord}[1]{\mathop{:}\nolimits #1 \mathop{:}\nolimits\ }
+\newcommand{\lie}[1]{\left[ #1 \right]}
 
 %\binoppenalty=7000
 %\relpenalty=5000 
@@ -139,5 +141,14 @@ $$\left<h_\alpha,x^\alpha\right>=\left<h_\alpha,h_\alpha\right> =
 \prod_{j=0}^k (j!)^{\binom{j+b}{d}} =& \prod_{i=1}^k i^{\binom{k+b+1}{d+1}-\binom{i+b}{d+1}} = \frac{(k!)^{\binom{k+b+1}{d+1}}}{\prod_{i=1}^k i^{\binom{i+b}{d+1}}} \\
 \prod_{j=0}^k (j+m)!^{\binom{j+d}{d}} =& \prod_{i=1}^{k+m}i^{ \binom{k+d+1}{k}-\binom{i+d-m}{i-m-1}}
 \end{align*}
+
+\eintrag{Operator von Goulden} Auf $\Q[p_1,p_2,\ldots]$ definiere lineare Operatoren 
+\begin{align*}
+q_n &:= \left\{ \begin{array}{ll} \displaystyle n\diff{p_n}, & n \leq 0, \\ p_{-n}, & n<0, \end{array}\right.
+& \Delta &:= \frac{1}{2}\sum_{i,j\geq 1} \left(q_{-i-j}q_iq_j + q_{-i}q_{-j}q_{i+j} \right).
+\end{align*}
+Dann gilt $\lie{q_n,q_m} = n \delta_{n,-m}$, sowie
+$ \displaystyle \lie{q_n,\Delta} = \frac{n}{2} \sum_{i\in\Z} \normord{q_iq_{n-i}}$ (Normalordnung ordnet Indizes aufsteigend) und $\lie{q_m,\lie{q_n,\Delta}} = nm\,q_{n+m}$.
+
 
 \end{document}          
