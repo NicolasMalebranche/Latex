@@ -110,11 +110,6 @@ q(x)^k = I(x^{2k}),
 where $x^{2k}$ means a power in the cohomology ring, and $I$ is a linear form (in fact, a scaled integral). 
 
 Now every quadratic form $q$ has an associated symmetric bilinear form $\left<\ ,\;\right>$, obtained by polarization: $2\left<x,y\right> = q(x+y)-q(x)-q(y)$. This allows us to retrieve some information about $I$ from $\left<\ ,\;\right>$,
-%On the other hand, the map $(x^\alpha,y^\beta) \mapsto I(x^\alpha y^\beta)$ clearly defines a symmetric bilinear form on the symmetric product $\Sym^kH^2$. So we may ask for the relation between these two bilinear forms. 
-%For instance, by comparing coefficients in the equality $I\left((x+y)^{2k}\right) = q(x+y)^k = \left( q(x)+2\left<x,y\right>+q(y) \right)^k$, we obtain:
-%\begin{equation*}
-%\textstyle \binom{2k}{2j} I\!\left(x^{2j}y^{2k-2j} \right) = \sum\limits_{i=0}^j \frac{k!\,2^{2j-2i}}{i!\,(2j-2i)!\,(k-2j+i)!} \, q(x)^i \left< x,y\right>^{2j-2i}q(y)^{2k-2j+i}
-%\end{equation*}
 by comparing coefficients in the equality
 \begin{equation*}
 I\!\left((x_1+\ldots+x_{2k})^{2k}\right) = q(x_1+\ldots+x_{2k})^{k} = \left(\sum\limits_{i=1}^{2k} q(x_i) +\!\!\!\sum\limits_{1\leq i<j\leq 2k}\!\!2 \left<x_i,x_j\right>  \right)^k.
@@ -123,7 +118,7 @@ If we look at the summands belonging to the monomial $x_1\ldots x_{2k}$, we obta
 \begin{equation} \label{initialpolar}
  (2k)!\; I\!\left(x_1\ldots x_{2k}\right) = 2^k k!\sum_{\mathcal{P}} \prod_{\{i,j\}\in\mathcal{P}}\left<x_i,x_j\right>,
 \end{equation}
-where the sum is over all partitions $\mathcal{P}$ of $\{1,\ldots,2k\}$ into pairs. This observation was already made by O'Grady, see \cite[Eq.~3.2.4]{OGrady}. Let us develop this idea a bit further. The map $(f,g) \mapsto I(fg)$ clearly defines a symmetric bilinear form on the symmetric product $\Sym^kH^2$.
+where the sum is over all partitions $\mathcal{P}$ of $\{1,\ldots,2k\}$ into pairs. This is a classical observation, see also \cite[Eq.~3.2.4]{OGrady}. Let us develop this idea a bit further. The map $(f,g) \mapsto I(fg)$ clearly defines a symmetric bilinear form on the symmetric product $\Sym^kH^2$.
 Equation (\ref{initialpolar}) gives now a redefinition of this form by means of a bilinear form on $H^2$. So we liberate ourselves from the initial setting and take the right hand side of (\ref{initialpolar}) as a general recipe to construct a symmetric bilinear form $\bra\ ,\;\ket$ on $\Sym^kV$ from a symmetric bilinear form on an appropriate space $V$. This is carried out in Section~\ref{symSection}. Our main result, Theorem~\ref{maintheorem}, gives a formula for the determinant of the Gram matrix of $\bra\ ,\;\ket$. 
 
 %It is not surprising that we can get back our linear form $I$. However, 
@@ -595,7 +590,7 @@ but also for odd $d$,
 
 
 \section{Application in Hyperk\"ahler geometry} \label{hyper}
-Let $X$ be a compact Hyperk\"ahler manifold of complex dimension $2k$. These objects are also called Irreducible Holomorphic Symplectic manifolds. The second cohomology group $H^2(X,\Z)$ comes with an integral quadratic form, called the Beauville--Bogomolov form $q_X$, which can be computed by an integration over some cup--product power, see \cite[Subsection~2.3]{OGrady}:
+Let $X$ be a compact Hyperk\"ahler manifold of complex dimension $2k$. The second cohomology group $H^2(X,\Z)$ comes with an integral quadratic form, called the Beauville--Bogomolov form $q_X$, which can be computed by an integration over some cup--product power, see \cite[Subsection~2.3]{OGrady}:
 \begin{equation} \label{fujiki}
 \int_X \alpha ^{2k} = (2k-1)!!\,c_X q_X(\alpha)^k,\qquad \alpha\in H^2(X,\Z).
 \end{equation}
