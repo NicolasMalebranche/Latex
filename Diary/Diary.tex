@@ -148,7 +148,14 @@ q_n &:= \left\{ \begin{array}{ll} \displaystyle n\diff{p_n}, & n \leq 0, \\ p_{-
 & \Delta &:= \frac{1}{2}\sum_{i,j\geq 1} \left(q_{-i-j}q_iq_j + q_{-i}q_{-j}q_{i+j} \right).
 \end{align*}
 Dann gilt $\lie{q_n,q_m} = n \delta_{n,-m}$, sowie
-$ \displaystyle \lie{q_n,\Delta} = \frac{n}{2} \sum_{i\in\Z} \normord{q_iq_{n-i}}$ (Normalordnung ordnet Indizes aufsteigend) und $\lie{q_m,\lie{q_n,\Delta}} = nm\,q_{n+m}$.
+$ \displaystyle \lie{q_n,\Delta} = \frac{n}{2} \sum_{i\in\Z} \normord{q_iq_{n-i}}$ (Normalordnung ordnet Indizes aufsteigend) und $\lie{q_m,\lie{q_n,\Delta}} = nm\,q_{n+m}$. Insbesondere l\"a\ss t sich jeder Operator $q_n$ durch Kommutatoren von $q_1,\ q_{-1}$ und $\Delta$ darstellen.
+
+\eintrag{Aus meiner Masterarbeit} Definiere einen Operator, so \"ahnlich wie Goulden, $\Psi : \bigoplus \Q[\S_n] \rightarrow \Q[p_1,p_2,\ldots]$, der eine Klassensumme $K_{\lambda}$ auf $\frac{p^{\lambda}}{z_{\lambda}}$ schickt. Dann ist
+\begin{gather*}
+\Psi^{-1}\left(\exp\left(\sum_{k\geq 1} \frac{a_k}{k!} \frac{p_k}{k} t^k \right)\right)\cup\Psi^{-1}\left(\exp\left(\sum_{k\geq 1} \frac{b_k}{k!} \frac{p_k}{k} t^k \right)\right)=\Psi^{-1}\left(\exp\left(\sum_{k\geq 1} \frac{c_k}{k!} \frac{p_k}{k} t^k \right)\right) \\
+\text{wobei}\quad A(t) = \sum_{k\geq 1} \frac{a_k}{k!} t^k, \quad B(t)=\sum_{k\geq 1} \frac{b_k}{k!} t^k, \quad C(t)=\sum_{k\geq 1} \frac{c_k}{k!} t^k\\
+\text{und} \quad t\cdot C^{-1}(t) = A^{-1}(t)B^{-1}(t).
+\end{gather*}
 
 
 \end{document}          
