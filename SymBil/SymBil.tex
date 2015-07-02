@@ -350,7 +350,7 @@ Let us first consider the case when $V$ is a vector space over $\R$ and $G$ is p
 
 Any orthogonal transformation $U\in O(V)$ induces a transformation $U^{\otimes k} \in O(\Sym^k V)$ and thus doesn't affect determinants. Since over $\R$, every symmetric matrix can be diagonalized by applying an orthogonal coordinate change, we may assume that $G=\text{diag}\left(a_0,\ldots,a_d\right)$ is a diagonal matrix. 
 Let us check, what happens if we apply a coordinate transformation $x\mapsto\tilde x$ that changes the last coordinate by $\tilde{x}_d = \gamma x_d$ and leaves the other coordinates invariant. Let $\tilde{G}$ and $\tilde{\G}$ be the Gram matrices corresponding to the new coordinates.
-We clearly have: $\tilde{x}^\alpha = \gamma^{\alpha_d} x^\alpha$. Extracting the factor $\gamma$ from the Leibniz determinant formula, which is of the form $\det \tilde{\G}=\sum\limits_\sigma\pm\prod\limits_{|\alpha|=k} \bra \tilde{x}^{\alpha},\tilde{x}^{\sigma(\alpha)}\ket=\det G\prod\limits_{|\alpha|=k} \gamma^{2\alpha_d}$, we get: 
+We clearly have: $\tilde{x}^\alpha = \gamma^{\alpha_d} x^\alpha$. Extracting the factor $\gamma$ from the Leibniz determinant formula, which is of the form $\det \tilde{\G}=\sum\limits_\sigma\pm\prod\limits_{|\alpha|=k} \bra \tilde{x}^{\alpha},\tilde{x}^{\sigma(\alpha)}\ket=\det \G\prod\limits_{|\alpha|=k} \gamma^{2\alpha_d}$, we get: 
 \vspace{-2mm}
 $$
 \frac{\det \tilde{\G}}{\det\G} = \prod_{|\alpha|=k}\gamma^{2\alpha_d} = \prod_{i=0}^k\ \prod_{|\alpha '|=k-i} \gamma^{2i} \; \myeq{(\ref{binomcount})}\;\prod_{i=0}^k\gamma^{2i\binom{k-i+d-1}{d-1}} \; \myeq{(\ref{sumbyparts})} \; \gamma^{2\binom{d+k}{d+1}}.
