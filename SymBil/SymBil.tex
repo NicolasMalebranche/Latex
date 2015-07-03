@@ -539,9 +539,9 @@ We begin with equation (\ref{hth1}). The term $\bra h_{\alpha '},h_{\alpha '}\ke
 \myeq{(\ref{Lpn2})}& \  \frac{\alpha_d!\, 2^{2|\alpha '|+|\alpha|+\frac{3}{2}d-\frac{1}{2}} }{\left(|\alpha|+|\alpha'|+d\right)!} { \textstyle
 \Gamma\!\left( |\alpha'| \!+\!\frac{d}{2}\right)\Gamma\!\left( |\alpha'|\!+\! \frac{d}{2}\!+\! 1\right) \Gamma\!\left( |\alpha| \!+\! \frac{d+1}{2}\right) }\int_{\S^{d-1}}\!\!\left[h_{\alpha'}(\omega)\right]^2 d\omega \\
 \myeq{Lemma~\ref{homosphere}}&\quad\quad \alpha_d!\,2^{|\alpha '|+|\alpha |+d+\frac{1}{2}}\,
-\frac{\Gamma\!\left(|\alpha '|\!+\!\frac{d}{2}\!+\!1\right)\Gamma\!\left(|\alpha |\!+\!\tfrac{d+1}{2}\right)}{\left(|\alpha '|+|\alpha |+d\right)!} \int_{\R^d} \left[h_{\alpha'}(x')\right]^2 dx' \\
+\frac{\Gamma\!\left(|\alpha '|\!+\!\frac{d}{2}\!+\!1\right)\Gamma\!\left(|\alpha |\!+\!\tfrac{d+1}{2}\right)}{\left(|\alpha '|+|\alpha |+d\right)!} \int_{\R^d} \left[h_{\alpha'}(x')\right]^2 e^{-\frac{1}{2}\|x'\|^2} dx' \\
 \myeq{(\ref{ffgamma})}& \quad\; 
-\alpha_d!\,\frac{\left(2|\alpha '|\!+\!d\right)!!\,\left(2|\alpha |\!+\!d\!-\!1\right)!!}{\left(|\alpha '|+|\alpha |+d\right)!}\, \underbrace{\sqrt{2\pi}\int_{\R^d} \left[h_{\alpha'}(x')\right]^2 dx'}_{=\sqrt{2\pi}^{d+1}\bra h_{\alpha '},h_{\alpha '}\ket} .
+\alpha_d!\,\frac{\left(2|\alpha '|\!+\!d\right)!!\,\left(2|\alpha |\!+\!d\!-\!1\right)!!}{\left(|\alpha '|+|\alpha |+d\right)!}\, \underbrace{\sqrt{2\pi}\int_{\R^d} \left[h_{\alpha'}(x')\right]^2 e^{-\frac{1}{2}\|x'\|^2}  dx'}_{=\sqrt{2\pi}^{d+1}\bra h_{\alpha '},h_{\alpha '}\ket} .
 \end{align*}
 For the proof of (\ref{hth2}), let $i$ be the highest index where $\alpha$ and $\beta$ differ. Due to the recursive nature of (\ref{hth1}) and the definition of $h_\alpha$, we may assume $i=d$, so $\alpha_d \neq \beta_d$. Then we use the calculation above to see that Theorem~\ref{pthm} now implies the vanishing of the integral. Equations (\ref{hth3}) and (\ref{hth4}) follow analogously from Corollary~\ref{pcor}.
 \end{proof}
