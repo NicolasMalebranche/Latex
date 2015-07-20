@@ -87,7 +87,7 @@
 
 
 \date{\today}
-
+\subjclass{14C05, 15A63, 33C50}
 \keywords{Symmetric Bilinear Forms on Symmetric Powers, Orthogonal Polynomials in Several Variables, Homogeneous Orthogonal Polynomials, Gegenbauer Polynomials, Ultraspherical Polynomials, Hermite Polynomials, Spherical Harmonics, Hankel matrices, Hyperk\"ahler Manifolds, Irreducible Holomorphic Symplectic Manifolds, Beauville--Bogomolov Form, Beauville--Fujiki relation}
 
 \begin{abstract} The Beauville--Fujiki relation for a compact Hyperk\"ahler manifold $X$ of dimension $2k$ allows to equip the symmetric power $\Sym^kH^2(X)$ with a symmetric bilinear form induced by the Beauville--Bogomolov form. We study some of its properties and compare it to the form given by the Poincar\'e pairing.
@@ -110,11 +110,6 @@ q(x)^k = I(x^{2k}),
 where $x^{2k}$ means a power in the cohomology ring, and $I$ is a linear form (in fact, a scaled integral). 
 
 Now every quadratic form $q$ has an associated symmetric bilinear form $\left<\ ,\;\right>$, obtained by polarization: $2\left<x,y\right> = q(x+y)-q(x)-q(y)$. This allows us to retrieve some information about $I$ from $\left<\ ,\;\right>$,
-%On the other hand, the map $(x^\alpha,y^\beta) \mapsto I(x^\alpha y^\beta)$ clearly defines a symmetric bilinear form on the symmetric product $\Sym^kH^2$. So we may ask for the relation between these two bilinear forms. 
-%For instance, by comparing coefficients in the equality $I\left((x+y)^{2k}\right) = q(x+y)^k = \left( q(x)+2\left<x,y\right>+q(y) \right)^k$, we obtain:
-%\begin{equation*}
-%\textstyle \binom{2k}{2j} I\!\left(x^{2j}y^{2k-2j} \right) = \sum\limits_{i=0}^j \frac{k!\,2^{2j-2i}}{i!\,(2j-2i)!\,(k-2j+i)!} \, q(x)^i \left< x,y\right>^{2j-2i}q(y)^{2k-2j+i}
-%\end{equation*}
 by comparing coefficients in the equality
 \begin{equation*}
 I\!\left((x_1+\ldots+x_{2k})^{2k}\right) = q(x_1+\ldots+x_{2k})^{k} = \left(\sum\limits_{i=1}^{2k} q(x_i) +\!\!\!\sum\limits_{1\leq i<j\leq 2k}\!\!2 \left<x_i,x_j\right>  \right)^k.
@@ -123,7 +118,7 @@ If we look at the summands belonging to the monomial $x_1\ldots x_{2k}$, we obta
 \begin{equation} \label{initialpolar}
  (2k)!\; I\!\left(x_1\ldots x_{2k}\right) = 2^k k!\sum_{\mathcal{P}} \prod_{\{i,j\}\in\mathcal{P}}\left<x_i,x_j\right>,
 \end{equation}
-where the sum is over all partitions $\mathcal{P}$ of $\{1,\ldots,2k\}$ into pairs. This observation was already made by O'Grady, see \cite[Eq.~3.2.4]{OGrady}. Let us develop this idea a bit further. The map $(f,g) \mapsto I(fg)$ clearly defines a symmetric bilinear form on the symmetric product $\Sym^kH^2$.
+where the sum is over all partitions $\mathcal{P}$ of $\{1,\ldots,2k\}$ into pairs. This is a classical observation, see also \cite[Eq.~3.2.4]{OGrady}. Let us develop this idea a bit further. The map $(f,g) \mapsto I(fg)$ clearly defines a symmetric bilinear form on the symmetric product $\Sym^kH^2$.
 Equation (\ref{initialpolar}) gives now a redefinition of this form by means of a bilinear form on $H^2$. So we liberate ourselves from the initial setting and take the right hand side of (\ref{initialpolar}) as a general recipe to construct a symmetric bilinear form $\bra\ ,\;\ket$ on $\Sym^kV$ from a symmetric bilinear form on an appropriate space $V$. This is carried out in Section~\ref{symSection}. Our main result, Theorem~\ref{maintheorem}, gives a formula for the determinant of the Gram matrix of $\bra\ ,\;\ket$. 
 
 %It is not surprising that we can get back our linear form $I$. However, 
@@ -355,7 +350,7 @@ Let us first consider the case when $V$ is a vector space over $\R$ and $G$ is p
 
 Any orthogonal transformation $U\in O(V)$ induces a transformation $U^{\otimes k} \in O(\Sym^k V)$ and thus doesn't affect determinants. Since over $\R$, every symmetric matrix can be diagonalized by applying an orthogonal coordinate change, we may assume that $G=\text{diag}\left(a_0,\ldots,a_d\right)$ is a diagonal matrix. 
 Let us check, what happens if we apply a coordinate transformation $x\mapsto\tilde x$ that changes the last coordinate by $\tilde{x}_d = \gamma x_d$ and leaves the other coordinates invariant. Let $\tilde{G}$ and $\tilde{\G}$ be the Gram matrices corresponding to the new coordinates.
-We clearly have: $\tilde{x}^\alpha = \gamma^{\alpha_d} x^\alpha$. Extracting the factor $\gamma$ from the Leibniz determinant formula, which is of the form $\det \tilde{\G}=\sum\limits_\sigma\pm\prod\limits_{|\alpha|=k} \bra \tilde{x}^{\alpha},\tilde{x}^{\sigma(\alpha)}\ket=\det G\prod\limits_{|\alpha|=k} \gamma^{2\alpha_d}$, we get: 
+We clearly have: $\tilde{x}^\alpha = \gamma^{\alpha_d} x^\alpha$. Extracting the factor $\gamma$ from the Leibniz determinant formula, which is of the form $\det \tilde{\G}=\sum\limits_\sigma\pm\prod\limits_{|\alpha|=k} \bra \tilde{x}^{\alpha},\tilde{x}^{\sigma(\alpha)}\ket=\det \G\prod\limits_{|\alpha|=k} \gamma^{2\alpha_d}$, we get: 
 \vspace{-2mm}
 $$
 \frac{\det \tilde{\G}}{\det\G} = \prod_{|\alpha|=k}\gamma^{2\alpha_d} = \prod_{i=0}^k\ \prod_{|\alpha '|=k-i} \gamma^{2i} \; \myeq{(\ref{binomcount})}\;\prod_{i=0}^k\gamma^{2i\binom{k-i+d-1}{d-1}} \; \myeq{(\ref{sumbyparts})} \; \gamma^{2\binom{d+k}{d+1}}.
@@ -544,9 +539,9 @@ We begin with equation (\ref{hth1}). The term $\bra h_{\alpha '},h_{\alpha '}\ke
 \myeq{(\ref{Lpn2})}& \  \frac{\alpha_d!\, 2^{2|\alpha '|+|\alpha|+\frac{3}{2}d-\frac{1}{2}} }{\left(|\alpha|+|\alpha'|+d\right)!} { \textstyle
 \Gamma\!\left( |\alpha'| \!+\!\frac{d}{2}\right)\Gamma\!\left( |\alpha'|\!+\! \frac{d}{2}\!+\! 1\right) \Gamma\!\left( |\alpha| \!+\! \frac{d+1}{2}\right) }\int_{\S^{d-1}}\!\!\left[h_{\alpha'}(\omega)\right]^2 d\omega \\
 \myeq{Lemma~\ref{homosphere}}&\quad\quad \alpha_d!\,2^{|\alpha '|+|\alpha |+d+\frac{1}{2}}\,
-\frac{\Gamma\!\left(|\alpha '|\!+\!\frac{d}{2}\!+\!1\right)\Gamma\!\left(|\alpha |\!+\!\tfrac{d+1}{2}\right)}{\left(|\alpha '|+|\alpha |+d\right)!} \int_{\R^d} \left[h_{\alpha'}(x')\right]^2 dx' \\
+\frac{\Gamma\!\left(|\alpha '|\!+\!\frac{d}{2}\!+\!1\right)\Gamma\!\left(|\alpha |\!+\!\tfrac{d+1}{2}\right)}{\left(|\alpha '|+|\alpha |+d\right)!} \int_{\R^d} \left[h_{\alpha'}(x')\right]^2 e^{-\frac{1}{2}\|x'\|^2} dx' \\
 \myeq{(\ref{ffgamma})}& \quad\; 
-\alpha_d!\,\frac{\left(2|\alpha '|\!+\!d\right)!!\,\left(2|\alpha |\!+\!d\!-\!1\right)!!}{\left(|\alpha '|+|\alpha |+d\right)!}\, \underbrace{\sqrt{2\pi}\int_{\R^d} \left[h_{\alpha'}(x')\right]^2 dx'}_{=\sqrt{2\pi}^{d+1}\bra h_{\alpha '},h_{\alpha '}\ket} .
+\alpha_d!\,\frac{\left(2|\alpha '|\!+\!d\right)!!\,\left(2|\alpha |\!+\!d\!-\!1\right)!!}{\left(|\alpha '|+|\alpha |+d\right)!}\, \underbrace{\sqrt{2\pi}\int_{\R^d} \left[h_{\alpha'}(x')\right]^2 e^{-\frac{1}{2}\|x'\|^2}  dx'}_{=\sqrt{2\pi}^{d+1}\bra h_{\alpha '},h_{\alpha '}\ket} .
 \end{align*}
 For the proof of (\ref{hth2}), let $i$ be the highest index where $\alpha$ and $\beta$ differ. Due to the recursive nature of (\ref{hth1}) and the definition of $h_\alpha$, we may assume $i=d$, so $\alpha_d \neq \beta_d$. Then we use the calculation above to see that Theorem~\ref{pthm} now implies the vanishing of the integral. Equations (\ref{hth3}) and (\ref{hth4}) follow analogously from Corollary~\ref{pcor}.
 \end{proof}
@@ -595,7 +590,7 @@ but also for odd $d$,
 
 
 \section{Application in Hyperk\"ahler geometry} \label{hyper}
-Let $X$ be a compact Hyperk\"ahler manifold of complex dimension $2k$. These objects are also called Irreducible Holomorphic Symplectic manifolds. The second cohomology group $H^2(X,\Z)$ comes with an integral quadratic form, called the Beauville--Bogomolov form $q_X$, which can be computed by an integration over some cup--product power, see \cite[Subsection~2.3]{OGrady}:
+Let $X$ be a compact Hyperk\"ahler manifold of complex dimension $2k$. The second cohomology group $H^2(X,\Z)$ comes with an integral quadratic form, called the Beauville--Bogomolov form $q_X$, which can be computed by an integration over some cup--product power, see \cite[Subsection~2.3]{OGrady}:
 \begin{equation} \label{fujiki}
 \int_X \alpha ^{2k} = (2k-1)!!\,c_X q_X(\alpha)^k,\qquad \alpha\in H^2(X,\Z).
 \end{equation}
