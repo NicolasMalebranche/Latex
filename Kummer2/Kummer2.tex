@@ -1,0 +1,122 @@
+\documentclass{amsart}
+
+\usepackage{amsmath,amssymb,amsfonts,amscd}
+\usepackage[all]{xy}
+\usepackage{appendix,listings,hyperref}
+
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\trace}{tr}
+\DeclareMathOperator{\Tor}{Tor}
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\im}{Im}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\Hilb}{Hilb}
+
+\newcommand{\hilb}[1]{^{[#1]}}
+\newcommand{\ie}{{\it i.e. }}
+\newcommand{\eg}{{\it e.g. }}
+\newcommand{\loccit}{{\it loc. cit. }}
+\newcommand{\vac}{|0\rangle}
+\newcommand{\odd}{{\rm{odd}}}
+\newcommand{\even}{{\rm{even}}}
+\newcommand{\tors}{{\rm{tors}}}
+
+\newcommand{\p}{\mathfrak{p}}
+
+\newcommand{\coloneqq}{:=}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\IC}{\mathbb{C}}
+\newcommand{\IR}{\mathbb{R}}
+\newcommand{\IQ}{\mathbb{Q}}
+\newcommand{\IZ}{\mathbb{Z}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\kS}{\mathfrak{S}}
+
+\newcommand{\km}{\mathfrak{m}}
+\newcommand{\kq}{\mathfrak{q}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\lra}{\longrightarrow}
+\newcommand{\ra}{\rightarrow}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{notation}[theorem]{Notation}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{example}[theorem]{Example}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\title{Integral cohomology of $K^2(A)$}
+
+
+\author{Simon Kapfer}
+\address{Simon Kapfer, Laboratoire de Math\'ematiques et Applications, UMR CNRS 6086, Universit\'e de Poitiers, T\'el\'eport 2, Boulevard Marie et Pierre Curie, F-86962 Futuroscope Chasseneuil}
+\email{simon.kapfer@math.univ-poitiers.fr}
+%\urladdr{http://www.math.uni-augsburg.de/alg/}
+
+
+\date{\today}
+
+%\keywords{}
+
+\begin{abstract} 
+What we know already
+\end{abstract}
+
+\maketitle
+
+\begin{definition}
+Let $A$ be a complex projective torus of dimesion $2$ and $A\hilb{n}$ the corresponding Hilbert scheme of points. Denote $\Sigma : A\hilb{n} \rightarrow A$ the summation morphism. Then the generalized Kummer $K^{n-1} A $ is defined as the fiber over $0$:
+\begin{equation*}
+\begin{CD}
+K^{n-1}A @>\theta >> A\hilb{n}\\
+@VVV @VV\Sigma V\\
+\{0\} @> >> A
+\end{CD}
+\end{equation*}
+\end{definition}
+By \cite{Beauville}, $\theta^{\ast} : H^2(A\hilb{n}) \rightarrow H^2(K^{n-1}A)$ is surjective. We have injections $j : H^2(A)\rightarrow H^2(A\hilb{n})$ and $i = \theta^* j$. The cohomology $H^*(A\hilb{n})$ is described in terms of vertex operators in \cite{LehnSorger} and \cite{LiQinWang}.
+
+We describe now the image of $\theta^*$ in the case $n=3$:
+\begin{itemize}
+\item We know $j(a)=\frac{1}{2}\p_{-1}(a)\p_{-1}(1)^2\vac$, because the two are must be linearly dependent and
+$$ \int_{A\hilb{3}}j(a)^6 = 15 q(a)^3, \quad \left(\frac{1}{2}\p_{-1}(a)\p_{-1}(1)^2\vac\right)^3 = 15 q(a)^3\p_{-1}(x)^3\vac.
+$$
+\item By \cite[p. 8]{Britze}, we have for $\alpha = j(a)=\frac{1}{2}\p_{-1}(a)\p_{-1}(1)^2\vac$: 
+$$ \int_{A\hilb{3}}\alpha^6 = \frac{5}{3} q(a) \int_{K^2} \theta^* \alpha^4
+$$
+On the other hand, 
+$$\alpha^4 = 3 q(a)^2\p_{-1}(x)^2\p_{-1}(0)\vac + 3q(a) \p_{-1}(x) \p_{-1}(a)^2\vac,$$
+so if the image of both summands under $\int\theta^*$ is positive, then 
+$$ \int\theta^*\p_{-1}(x)^2\p_{-1}(0)\vac = \int\theta^* \tfrac{1}{2}\p_{-1}(x) \p_{-1}(a)^2\vac=1 .$$ 
+
+\end{itemize}
+
+
+\bibliographystyle{amsplain}
+\bibliography{Kummer2Bib.tex}
+\end{document}
