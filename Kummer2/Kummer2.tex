@@ -16,6 +16,8 @@
 \DeclareMathOperator{\Ker}{Ker}
 \DeclareMathOperator{\Sym}{Sym}
 \DeclareMathOperator{\Hilb}{Hilb}
+\DeclareMathOperator{\ch}{ch}
+
 
 \newcommand{\hilb}[1]{^{[#1]}}
 \newcommand{\ie}{{\it i.e. }}
@@ -27,16 +29,17 @@
 \newcommand{\tors}{{\rm{tors}}}
 
 \newcommand{\p}{\mathfrak{p}}
+\newcommand{\pone}{ \mathfrak{p}_{ - 1} }
 
 \newcommand{\coloneqq}{:=}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\newcommand{\IC}{\mathbb{C}}
-\newcommand{\IR}{\mathbb{R}}
-\newcommand{\IQ}{\mathbb{Q}}
-\newcommand{\IZ}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -115,7 +118,44 @@ so if the image of both summands under $\int\theta^*$ is positive, then
 $$ \int\theta^*\p_{-1}(x)^2\p_{-1}(0)\vac = \int\theta^* \tfrac{1}{2}\p_{-1}(x) \p_{-1}(a)^2\vac=1 .$$ 
 
 \end{itemize}
-
+Let $\{a_i\}_{i= 1 \ldots 6}$ be a hyperbolic basis of 
+$H^2(A,\Z)$.
+\begin{proposition}
+The classes $\theta^* \left(\p_{-2}(a_i)\pone(1)\vac\right) $ and $\theta^*\left( \p_{-2}(1)\pone(a_i)\vac\right) $ are linearly dependent.
+\end{proposition}
+\begin{proposition}
+$\theta^*\left(\p_{-3}(x)\vac\right) =0$ 
+\end{proposition}
+\begin{corollary}
+$\theta^* \left(\p_{-2}(a_i)\pone(1)\vac\right) = \frac{1}{4}\theta^*\left( \p_{-2}(1)\pone(a_i)\vac\right) $
+\end{corollary}
+\begin{proof}
+Let $a_j$ be complementary, \ie $a_ia_j=1$. Let $\ch_1(a_j) = -\frac{1}{2} \p_{-2}(a_j)\pone(1)\vac$ be the chern character in the vertex algebra description of $H^*(A\hilb{3})$. Then:
+$$
+\theta^*\left(-\frac{1}{2}\ch_1(a_j)\cdot\p_{-2}(a_i)\pone(1)\vac \right) =
+\theta^*\left(\p_{-3}(1)\vac + \frac{1}{2}\pone(x)^2\pone(1)\vac \right)
+$$
+But on the other hand, $\delta \cdot j(a) = \frac{1}{2} \p_{-2}(1)\pone(a_i)\vac+\p_{-2}(a_i)\pone(1)\vac$, and
+$$
+\theta^*\left(\ch_1(a_j)\cdot \delta \cdot j(a)\right) =
+\theta^*\left(-3\p_{-3}(1)\vac  - 3\pone(x)^2\pone(1)\vac \right).
+$$
+\end{proof}
+\begin{corollary}
+$\theta^*\left( \delta \cdot j(a_i) \right) = \theta^*\left( \frac{3}{4} \p_{-2}(1)\pone(a_i)\vac\right)$ is divisible by 3. \qed
+\end{corollary}
+\begin{proposition}
+The classes $\theta^*\left(j(a_i)^2 - \frac{1}{3}j(a_i)\cdot \delta\right)$ are divisible by 2.
+\end{proposition}
+\begin{proof}
+By \cite{QinWang}, the classes $\frac{1}{2} \pone(a_i)^2\pone(1)\vac - \frac{1}{2}\p_{-2}(a_i)\pone(1)\vac$ are integral in $H^4(A\hilb{n})$. But $j(a_i)^2= \pone(a_i)^2\pone(1)\vac $ and $\theta^*\left(\frac{1}{3}j(a_i)\cdot\delta\right) =\theta^*\left(\p_{-2}(a_i)\pone(1)\vac\right)$.
+\end{proof}
+\begin{proposition}
+The class $\theta^*\left(\delta^2 - j(a_1)\cdot j(a_2)- j(a_3)\cdot j(a_4)- j(a_5)\cdot j(a_6)\right)$ is divisible by 3.
+\end{proposition}
+\begin{proof}
+It is equal to $\theta^*\left(\p_{-3}(1)\vac +\frac{3}{2}\pone(x)\pone(1)^2\vac \right)$.
+\end{proof}
 
 \bibliographystyle{amsplain}
 \bibliography{Kummer2Bib.tex}
