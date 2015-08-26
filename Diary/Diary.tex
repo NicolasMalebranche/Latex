@@ -164,4 +164,16 @@ $$
 z_{\lambda^1}\ldots z_{\lambda^k}c^\mu_{\lambda^1\cdots\lambda^k} = \sum_{\nu}  \left(\frac{n!}{f^\nu}\right)^{k-1} \chi_{\lambda^1}^\nu \ldots  \chi_{\lambda^k}^\nu  \chi_{\mu}^\nu
 $$
 
+\eintrag{Theorem von Cantor--Bendixson} Sei $X$ ein polnischer Raum, also metrisch, vollst\"andig und separiert ($\exists$ eine abz\"ahlbare dichte Teilmenge $Q\subset X$). Dann l\"a\ss t sich jede abgeschlossene Teilmenge $A\subset X$ eindeutig als disjunkte Vereinigung $A = P\cup Z$ schreiben, wobei $Z$ abz\"ahlbar und $P$ perfekt ist (das hei\ss t, abgeschlossen ist und keine isolierten Punkte enth\"alt).\\
+Mein Beweis (ohne transfinite Induktion): Setze
+$$
+Z := \left\{ x\in A\;|\; \exists \text{offener Ball $B$ um $x$ vom Radius $r_x$, so da\ss}\ B\cap A\  \text{abz\"ahlbar ist}\right\}
+$$
+und $ P := A\backslash Z$. Zun\"achst zeigen wir, da\ss\ $Z$ abz\"ahlbar ist. W\"ahle dazu f\"ur jeden Punkt $x \in Z$ einen Punkt $q\in Q$ mit $|x-q|<\min \{1,\frac{r_x}{4}\}$, wir haben also eine Funktion $f : Z\rightarrow Q$. Dann wird jeder Punkt $q$ nur abz\"ahlbar oft ausgew\"ahlt: F\"ur solch ein $q$ betrachten wir n\"amlich f\"ur alle Punkte $x\in f^{-1}(q)$ den Abstand $|x-q|$. Dieser hat ein Supremum $s\leq 1$ und wir nehmen einen Punkt $y\in f^{-1}(q)$, dessen Abstand mindestens $\frac{s}{2} $ betr\"agt. Dann enth\"alt der Ball um $y$ vom Radius $r_y$ nur abz\"ahlbar viele Punkte $x\in A$ und au\ss erdem alle $x\in f^{-1}(q)$. Also ist $f^{-1}(q)$ abz\"ahlbar und damit auch $Z=f^{-1}(Q)$.\\
+Zeige nun, da\ss\ $P$ abgeschlossen ist. Sei $(x_n)_n\subset$ eine Cauchyfolge mit Limes $x\in A$. Angenommen, $x\in Z$. Dann w\"ahlen wir $n$ so, da\ss\ $|x-x_n| < \frac{r_x}{2}$. Dann ist $B_{\frac{r_x}{2}}(x)$ eine offene Umgebung von $x_n$, die nur abz\"ahlbar viele Punkte $y\in A$ enth\"alt, Widerspruch. Also $x\in P$. Also ist $P$ abgeschlossen. \\
+Zeige nun, da\ss\ $P$ keine isolierten Punkte enth\"alt: Angenommen, $p\in P$ sei isoliert, das hei\ss t, es gibt eine offene Umgebung $U$ von $p$, die keinen weiteren Punkt aus $P$ enth\"alt. Nach Definiton enth\"alt $U$ \"uberabz\"ahlbar viele Punkte aus $A$, die offenbar alle in $Z$ liegen m\"ussen. Das ist unm\"oglich. Also ist $P$ perfekt.    \\
+Zur Eindeutigkeit: Sei $A=P'\cup Z' $ eine weitere disjunkte Zerlegung. Sei indirekt $ p\in P' \cap Z $ und $U$ eine offene Umgebung von $p$ mit $U\cap A$ abz\"ahlbar. Dann ist $U\cap A \subset Z$. 
+
+
+
 \end{document}          
