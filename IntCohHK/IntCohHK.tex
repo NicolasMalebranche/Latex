@@ -86,7 +86,7 @@
 \begin{abstract} 
 
 We study cup 
-products in integral cohomology of the Hilbert scheme of $n$ points on a K3 surface and present a computer program for this purpose. In particular, we deal with the question, which classes can be represented by products of lower degrees.
+products in the integral cohomology of the Hilbert scheme of $n$ points on a K3 surface and present a computer program for this purpose. In particular, we deal with the question, which classes can be represented by products of lower degrees.
 \end{abstract}
 
 \maketitle
@@ -99,7 +99,7 @@ The Hilbert schemes of $n$ points on a complex surface parametrize all zero-dime
 The Hilbert schemes of points on a K3 surface are one of the few known classes of Irreducible Holomorphic Symplectic Manifolds. Lehn and Sorger \cite{LehnSorger} developed an algebraic model to describe the cohomological ring structure. On the other hand, Qin and Wang \cite{QinWang} found a base for integral cohomology in the projective case. By combining these results, we are able to compute everything explicitely in the cohomology rings of Hilbert schemes of $n$ points on a projective K3 with integral coefficients. 
 For $n=2$, this was done by Boissi\`ere, Nieper-Wi{\ss}kirchen and Sarti \cite{BNS}, who applied their results to automorphism groups of prime order. When $n$ is increasing, the cohomology rings become very large, so we need the help of a computer. The source code is available under \url{https://github.com/s--kapfer/HilbK3}
 
-Our goal here is to give some characteristics for low degrees.
+Our goal here is to give some properties for low degrees.
 Denote by $S\hilb{3}$ the Hilbert scheme of 3 points on a projective K3 surface (or a deformation equivalent space). We identify $\Sym^2H^2(S\hilb{3},\IZ)$ with its image in $H^4(S\hilb{3},\IZ)$ under the cup product mapping. 
 \begin{theorem}
 The cup product mappings for the Hilbert scheme of 3 points on a projective K3 surface have the following cokernels:
@@ -108,7 +108,7 @@ The cup product mappings for the Hilbert scheme of 3 points on a projective K3 s
 \frac{H^6(S\hilb{3},\IZ)}{H^2(S\hilb{3},\IZ)\smile H^4(S\hilb{3},\IZ)} \cong \left(\frac{\IZ}{3\IZ}\right)^{\oplus 23}
 \end{gather}
 \end{theorem}
-Although the case $n=3$ is most interesting for us, our computer program allows computations for arbitrary $n$. We give some numerical results results in Section \ref{CompSection}.\vspace{5pt}
+Although the case $n=3$ is the most interesting for us, our computer program allows computations for arbitrary $n$. We give some numerical results in Section \ref{CompSection}.\vspace{5pt}
 
 \emph{Acknowledgements.} The author thanks Samuel~Boissi\`ere and Marc~Nieper-Wi{\ss}kirchen for their supervision and many helpful comments. He also thanks Gr\'{e}goire~Menet for stimulating proposals and the Laboratoire de Math\'{e}matiques et Applications of the university of Poitiers for its hospitality. This work was partially supported by a DAAD grant.
 \section{Preliminaries}
@@ -126,7 +126,7 @@ The difference between the number of positive eigenvalues and the number of nega
 \end{definition}
 There is the following classification theorem. See \cite[Chap. II]{milnor1973symmetric} for reference.
 \begin{theorem}
-Any two indefinite unimodular lattices $L$, $L'$ are isometric iff they have the same rank, signature and parity. Evenness implies that the signature is divisible by 8. 
+Two indefinite unimodular lattices $L$, $L'$ are isometric iff they have the same rank, signature and parity. Evenness implies that the signature is divisible by 8. 
 In particular, if $L$ is odd, then $L$ possesses an orthogonal basis and is hence isometric to $\left<1\right>^{\oplus k}\oplus\left<-1\right>^{\oplus l}$ for some $k,l\geq 0$. If $L$ is even, then $L$ is isometric to $U^{\oplus k}\oplus (\pm E_8)^{\oplus l}$ for some $k,l\geq 0$.
 \end{theorem}
 \begin{definition}
@@ -143,13 +143,13 @@ induces an adjoint comultiplication $\Delta$ that is coassociative, given by:
 \begin{equation*}
 \Delta : H^\ast(S,\IZ) \longrightarrow \Sym^2H^\ast(S,\IZ),\quad \Delta = -(B\otimes B)^{-1}\mu^TB
 \end{equation*}
-with the property $B\left(\Delta(a),b\otimes c\right)=-B\left(a,b\smile c\right)$. Note that this does not define a bialgebra structure.
+with the property $(B\otimes B)\left(\Delta(a),b\otimes c\right)=-B\left(a,b\smile c\right)$. Note that this does not define a bialgebra structure.
 The image of $\One$ under the composite map $\mu(\Delta(\One)) = B(\Delta(\One),\Delta(\One)) = 24 x$, denoted by $e$ is called the Euler Class.
 \end{definition}
 We denote by $S\hilb{n}$ the Hilbert scheme of $n$ points on $S$, \ie the classifying space of all zero-dimensional closed subschemes of length $n$. $S\hilb{0}$ consists of a single point and $S\hilb{1}=S$. Fogarty proved that the Hilbert scheme is a smooth variety.
 A theorem by Nakajima gives an explicit description of the vector space structure of $H^\ast(S\hilb{n},\IQ)$ in terms of creation operators
 $$
-\kq_l(\beta) :  H^\ast(S\hilb{n},\IQ) \longrightarrow  H^{\ast+k+l-1}(S\hilb{n+l},\IQ)
+\kq_l(\beta) :  H^\ast(S\hilb{n},\IQ) \longrightarrow  H^{\ast+k+2(l-1)}(S\hilb{n+l},\IQ)
 ,$$ 
 where $\beta\in H^k(S,\IQ)$, acting on the direct sum 
 $\mathbb{H}:=\bigoplus_n H^\ast(S\hilb{n},\IQ)$. The operators $\kq_l(\beta)$ are linear and commute with each other. The vacuum vector $\vac$ is defined as the generator of $H^0(S\hilb{0},\IQ)\cong\IQ$. The images of $\vac$ under the polynomial algebra generated by the creation operators span $\mathbb{H}$ as a vector space. 
@@ -169,11 +169,11 @@ $$ \boldsymbol\alpha^{\boldsymbol\lambda} :=
 \frac{1}{z_{\widetilde{\lambda^0}} }
 \kq_{\widetilde{\lambda^0}}(\One)\kq_{\lambda^{23}}(x)\km_{\lambda^1,\alpha_1}\ldots\km_{\lambda^{22},\alpha_{22}}\vac
 $$
-where the partition $\widetilde{\lambda^0}$ is built from $\lambda^0$ by appending sufficiently many Ones, such that $\left\|\widetilde{\lambda^0}\right\| +\sum_{i\geq 1}\left\|\lambda^i\right\| = n $. If $\sum_{n\geq 0}\left\|\lambda^i\right\| > n, $ we put $\boldsymbol\alpha^{\boldsymbol\lambda}=0$. Thus we can interpret $\boldsymbol\alpha^{\boldsymbol\lambda}$ as an element of $H^\ast(S\hilb{n},\IZ)$ for arbitrary $n$. We say that the symbol $\boldsymbol\alpha^{\boldsymbol\lambda}$ is reduced, if $\lambda^0$ contains no Ones. We define also $\left\|\boldsymbol\lambda\right\| := \sum_{n\geq 0}\left\|\lambda^i\right\|$. 
+where the partition $\widetilde{\lambda^0}$ is built from $\lambda^0$ by appending sufficiently many ones, such that $\left\|\widetilde{\lambda^0}\right\| +\sum_{i\geq 1}\left\|\lambda^i\right\| = n $. If $\sum_{i\geq 0}\left\|\lambda^i\right\| > n, $ we put $\boldsymbol\alpha^{\boldsymbol\lambda}=0$. Thus we can interpret $\boldsymbol\alpha^{\boldsymbol\lambda}$ as an element of $H^\ast(S\hilb{n},\IZ)$ for arbitrary $n$. We say that the symbol $\boldsymbol\alpha^{\boldsymbol\lambda}$ is reduced, if $\lambda^0$ contains no ones. We define also $\left\|\boldsymbol\lambda\right\| := \sum_{i\geq 0}\left\|\lambda^i\right\|$. 
 \end{notation}
 \begin{lemma}\label{degBound}
 Let $\boldsymbol\alpha^{\boldsymbol\lambda}$ represent a class of cohomological degree $2k$. If $\boldsymbol\alpha^{\boldsymbol\lambda}$ is reduced, then $\frac{k}{2}\leq\left\|\boldsymbol{\lambda}\right\| \leq 2k$.
-\begin{proof} This is a simple combinatorial observation. The lower bound is witnessed by $x^{(\frac{k}{2})}$ (if $k$ is even)  and the upper bound is witnessed by $\One^{(2^k)}$.
+\begin{proof} This is a simple combinatorial observation. The lower bound is witnessed by $x^{(\frac{k}{2})}$ (if $k$ is even) and the upper bound is witnessed by $\One^{(2^k)}$.
 \end{proof}
 \end{lemma}
 The ring structure of $H^\ast(S\hilb{n}, \IQ)$ has been studied by Lehn and Sorger in \cite{LehnSorger}, where an explicit algebraic model is constructed, which we recall briefly:
