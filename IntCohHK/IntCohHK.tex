@@ -96,8 +96,8 @@ products in the integral cohomology of the Hilbert scheme of $n$ points on a K3 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 The Hilbert schemes of $n$ points on a complex surface parametrize all zero-dimensional subschemes of length $n$. Studying their rational cohomology, Nakajima \cite{Nakajima} was able to give an explicit description of the vector space structure in terms of the action of a Heisenberg algebra.
-The Hilbert schemes of points on a K3 surface are one of the few known classes of Irreducible Holomorphic Symplectic Manifolds. Lehn and Sorger \cite{LehnSorger} developed an algebraic model to describe the cohomological ring structure. On the other hand, Qin and Wang \cite{QinWang} found a base for integral cohomology in the projective case. By combining these results, we are able to compute everything explicitely in the cohomology rings of Hilbert schemes of $n$ points on a projective K3 with integral coefficients. 
-For $n=2$, this was done by Boissi\`ere, Nieper-Wi{\ss}kirchen and Sarti \cite{BNS}, who applied their results to automorphism groups of prime order. When $n$ is increasing, the cohomology rings become very large, so we need the help of a computer. The source code is available under \url{https://github.com/s--kapfer/HilbK3}
+The Hilbert schemes of points on a K3 surface are one of the few known classes of Irreducible Holomorphic Symplectic Manifolds. Lehn and Sorger \cite{LehnSorger} developed an algebraic model to describe the cohomological ring structure. On the other hand, Qin and Wang \cite{QinWang} found a base for integral cohomology in the projective case. By combining these results, we are able to compute everything explicitely in the cohomology rings of Hilbert schemes of $n$ points on a projective K3 surface with integral coefficients. 
+For $n=2$, this was done by Boissi\`ere, Nieper-Wi{\ss}kirchen and Sarti \cite{BNS}, who applied their results to automorphism groups of prime order. When $n$ is increasing, the ranks of the cohomology rings become very large, so we need the help of a computer. The source code is available under \url{https://github.com/s--kapfer/HilbK3}
 
 Our goal here is to give some properties for low degrees.
 Denote by $S\hilb{3}$ the Hilbert scheme of 3 points on a projective K3 surface (or a deformation equivalent space). We identify $\Sym^2H^2(S\hilb{3},\IZ)$ with its image in $H^4(S\hilb{3},\IZ)$ under the cup product mapping. 
@@ -113,10 +113,14 @@ Although the case $n=3$ is the most interesting for us, our computer program all
 \emph{Acknowledgements.} The author thanks Samuel~Boissi\`ere and Marc~Nieper-Wi{\ss}kirchen for their supervision and many helpful comments. He also thanks Gr\'{e}goire~Menet for stimulating proposals and the Laboratoire de Math\'{e}matiques et Applications of the university of Poitiers for its hospitality. This work was partially supported by a DAAD grant.
 \section{Preliminaries}
 \begin{definition}
-Let $n$ be a natural number. A partition of $n$ is a sequence $\lambda = (\lambda_1\geq\ldots\geq\lambda_k>0)$ of natural numbers such that $\sum_i \lambda_i =n$. It is convenient to write $\lambda = (1^{m_1},2^{m_2},\ldots)$ as a sequence of multiplicities. We define the weight $\|\lambda\| :=\sum m_i i =n$ and the length $|\lambda| := \sum_i m_i =k$. We also define $z_\lambda \coloneqq\prod_i i^{m_i} m_i!$. 
+Let $n$ be a natural number. A partition of $n$ is a sequence $\lambda = (\lambda_1\geq\ldots\geq\lambda_k>0)$ of natural numbers such that $\sum_i \lambda_i =n$. Sometimes it is convenient to write $\lambda = (1^{m_1},2^{m_2},\ldots)$ as a sequence of multiplicities. We will use the first notation in this paper but both are used in the source code. We define the weight $\|\lambda\| :=\sum m_i i =n$ and the length $|\lambda| := \sum_i m_i =k$. We also define $z_\lambda \coloneqq\prod_i i^{m_i} m_i!$. 
 \end{definition}
 \begin{definition} \label{SymFun}
-Let $\Lambda$ be the ring of symmetric functions. Let $m_\lambda$ and $p_\lambda$ denote the monomial and the power sum symmetric functions. They are both indexed by partitions and form a basis of $\Lambda$. They are linearly related by $p_\lambda = \sum_{\mu} \psi_{\lambda\mu}m_\mu$, the sum being over partitions with the same weight as $\lambda$. It turns out that the base change matrix $(\psi_{\lambda\mu})$ has integral entries, but its inverse $(\psi_{\mu\lambda}^{-1})$ has not. For example, $p_{(2,1,1)} = 2m_{(2,1,1)} + 2m_{(2,2)}+2m_{(3,1)}+m_{(4)} $ but $ m_{(2,1,1)} = \frac{1}{2}p_{(2,1,1)} -\frac{1}{2}p_{(2,2)} -p_{(3,1)}+p_{(4)}$. A method to determine the $(\psi_{\lambda\mu})$ is given by Lascoux in \cite[Sect. 3.7]{Lascoux}.
+Let $\Lambda_n := \IQ[x_1,\ldots,x_n]^{S_n}$ be the graded ring of symmetric polynomials. There are canonical projections $: \Lambda_{n+1}\rightarrow\Lambda_n$ which send $x_{n+1}$ to zero. The graded projective limit
+$\Lambda:=\lim\limits_{\leftarrow}\Lambda_n$ is called the ring of symmetric functions.
+Let $m_\lambda$ and $p_\lambda$ denote the monomial and the power sum symmetric functions. They are defined as follows: For a monomial $x_{i_1}^{\lambda_1}x_{i_2}^{\lambda_2}\ldots x_{i_k}^{\lambda_k}$ of total degree $n$, the (ordered) sequence of exponents $(\lambda_1,\ldots,\lambda_k)$ defines a partition $\lambda$ of $n$, which is called the shape of the monomial. Then we define $m_\lambda$ being the sum of all monomials of shape $\lambda$. For the power sums, first define $p_n := x_1^n + x_2^n + \ldots$. Then $p_\lambda := p_{\lambda_1}p_{\lambda_2}\ldots p_{\lambda_k}$.
+
+The families $(m_\lambda)_\lambda$ and $(p_\lambda)_\lambda$ form two $\IQ$-bases of $\Lambda$, so they are linearly related by $p_\lambda = \sum_{\mu} \psi_{\lambda\mu}m_\mu$. It turns out that the base change matrix $(\psi_{\lambda\mu})$ has integral entries, but its inverse $(\psi_{\mu\lambda}^{-1})$ has not. A method to determine the $(\psi_{\lambda\mu})$ is given by Lascoux in \cite[Sect. 3.7]{Lascoux}.
 \end{definition}
 \begin{definition}
 A lattice $L$ is a free $\IZ$-module of finite rank, equipped with a non-degenerate symmetric integral bilinear form $B$. The lattice $L$ is called odd, if there exists a $v\in L$, such that $B(v,v)$ is odd, otherwise it is called even. 
@@ -144,7 +148,7 @@ induces an adjoint comultiplication $\Delta$ that is coassociative, given by:
 \Delta : H^\ast(S,\IZ) \longrightarrow \Sym^2H^\ast(S,\IZ),\quad \Delta = -(B\otimes B)^{-1}\mu^TB
 \end{equation*}
 with the property $(B\otimes B)\left(\Delta(a),b\otimes c\right)=-B\left(a,b\smile c\right)$. Note that this does not define a bialgebra structure.
-The image of $\One$ under the composite map $\mu(\Delta(\One)) = B(\Delta(\One),\Delta(\One)) = 24 x$, denoted by $e$ is called the Euler Class.
+The image of $\One$ under the composite map $\mu\circ\Delta$, denoted by $e=24x$ is called the Euler Class.
 \end{definition}
 We denote by $S\hilb{n}$ the Hilbert scheme of $n$ points on $S$, \ie the classifying space of all zero-dimensional closed subschemes of length $n$. $S\hilb{0}$ consists of a single point and $S\hilb{1}=S$. Fogarty proved that the Hilbert scheme is a smooth variety.
 A theorem by Nakajima gives an explicit description of the vector space structure of $H^\ast(S\hilb{n},\IQ)$ in terms of creation operators
