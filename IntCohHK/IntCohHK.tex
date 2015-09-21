@@ -113,7 +113,7 @@ Although the case $n=3$ is the most interesting for us, our computer program all
 \emph{Acknowledgements.} The author thanks Samuel~Boissi\`ere and Marc~Nieper-Wi{\ss}kirchen for their supervision and many helpful comments. He also thanks Gr\'{e}goire~Menet for stimulating proposals and the Laboratoire de Math\'{e}matiques et Applications of the university of Poitiers for its hospitality. This work was partially supported by a DAAD grant.
 \section{Preliminaries}
 \begin{definition}
-Let $n$ be a natural number. A partition of $n$ is a sequence $\lambda = (\lambda_1\geq\ldots\geq\lambda_k>0)$ of natural numbers such that $\sum_i \lambda_i =n$. Sometimes it is convenient to write $\lambda = (1^{m_1},2^{m_2},\ldots)$ as a sequence of multiplicities. We will use the first notation in this paper but both are used in the source code. We define the weight $\|\lambda\| :=\sum m_i i =n$ and the length $|\lambda| := \sum_i m_i =k$. We also define $z_\lambda \coloneqq\prod_i i^{m_i} m_i!$. 
+Let $n$ be a natural number. A partition of $n$ is a decreasing sequence $\lambda = (\lambda_1,\ldots,\lambda_k),\ \lambda_1\geq\ldots\geq\lambda_k>0$ of natural numbers such that $\sum_i \lambda_i =n$. Sometimes it is convenient to write $\lambda = (\ldots,2^{m_2},1^{m_1})$ with multiplicities in the exponent. No confusion should be possible since numerical exponentiation is never meant in this context. We define the weight $\|\lambda\| :=\sum m_i i =n$ and the length $|\lambda| := \sum_i m_i =k$. We also define $z_\lambda \coloneqq\prod_i i^{m_i} m_i!$. 
 \end{definition}
 \begin{definition} \label{SymFun}
 Let $\Lambda_n := \IQ[x_1,\ldots,x_n]^{S_n}$ be the graded ring of symmetric polynomials. There are canonical projections $: \Lambda_{n+1}\rightarrow\Lambda_n$ which send $x_{n+1}$ to zero. The graded projective limit
@@ -150,8 +150,8 @@ induces an adjoint comultiplication $\Delta$ that is coassociative, given by:
 with the property $(B\otimes B)\left(\Delta(a),b\otimes c\right)=-B\left(a,b\smile c\right)$. Note that this does not define a bialgebra structure.
 The image of $\One$ under the composite map $\mu\circ\Delta$, denoted by $e=24x$ is called the Euler Class.
 \end{definition}
-We denote by $S\hilb{n}$ the Hilbert scheme of $n$ points on $S$, \ie the classifying space of all zero-dimensional closed subschemes of length $n$. $S\hilb{0}$ consists of a single point and $S\hilb{1}=S$. Fogarty proved that the Hilbert scheme is a smooth variety.
-A theorem by Nakajima gives an explicit description of the vector space structure of $H^\ast(S\hilb{n},\IQ)$ in terms of creation operators
+We denote by $S\hilb{n}$ the Hilbert scheme of $n$ points on $S$, \ie the classifying space of all zero-dimensional closed subschemes of length $n$. $S\hilb{0}$ consists of a single point and $S\hilb{1}=S$. Fogarty \cite[Thm.~2.4]{Fogarty} proved that the Hilbert scheme is a smooth variety.
+A theorem by Nakajima \cite{Nakajima} gives an explicit description of the vector space structure of $H^\ast(S\hilb{n},\IQ)$ in terms of creation operators
 $$
 \kq_l(\beta) :  H^\ast(S\hilb{n},\IQ) \longrightarrow  H^{\ast+k+2(l-1)}(S\hilb{n+l},\IQ)
 ,$$ 
@@ -177,12 +177,13 @@ where the partition $\widetilde{\lambda^0}$ is built from $\lambda^0$ by appendi
 \end{notation}
 \begin{lemma}\label{degBound}
 Let $\boldsymbol\alpha^{\boldsymbol\lambda}$ represent a class of cohomological degree $2k$. If $\boldsymbol\alpha^{\boldsymbol\lambda}$ is reduced, then $\frac{k}{2}\leq\left\|\boldsymbol{\lambda}\right\| \leq 2k$.
-\begin{proof} This is a simple combinatorial observation. The lower bound is witnessed by $x^{(\frac{k}{2})}$ (if $k$ is even) and the upper bound is witnessed by $\One^{(2^k)}$.
+\begin{proof} This is a simple combinatorial observation. We give the two extremal cases.
+The lowest ratio between $\left\|\boldsymbol{\lambda}\right\|$ and $\deg \boldsymbol\alpha^{\boldsymbol\lambda}$ is achieved by the classes $x^{(1^m)}$, where the degree is $4m$ and the weight of $\boldsymbol{\lambda}$ is $m$. The highest ratio is achieved by the classes $1^{(2^m)}$, where both degree and weight equal $2m$. So $\frac{1}{4}\leq\frac{\left\|\boldsymbol{\lambda}\right\|}{\deg \boldsymbol\alpha^{\boldsymbol\lambda}}\leq 1$.
 \end{proof}
 \end{lemma}
 The ring structure of $H^\ast(S\hilb{n}, \IQ)$ has been studied by Lehn and Sorger in \cite{LehnSorger}, where an explicit algebraic model is constructed, which we recall briefly:
 \begin{definition} \cite[Sect. 2]{LehnSorger}
-Let $\pi$ be a permutation of $n$ letters, written as a sum of disjoint cycles. To each cycle we may associate an element of $A:=H^\ast(S,\IQ)$. This defines an element in $A^{\otimes m}$, $m$ being the number of cycles. For example, a term like $(1\,2\,3)_{\alpha_1}(4\,5)_{\alpha_2}$ may describe a permutation consisting of two cycles with associated classes $\alpha_1,\alpha_2\in A$. Thus we construct a vector space $A\{S_n\}:=\bigoplus_{\pi\in S_n} A^{\otimes(\left<\pi\right>\backslash[n])}$. 
+Let $\pi$ be a permutation of $n$ letters, written as a product of disjoint cycles. To each cycle we may associate an element of $A:=H^\ast(S,\IQ)$. This defines an element in $A^{\otimes m}$, $m$ being the number of cycles. For example, a term like $(1\,2\,3)_{\alpha_1}(4\,5)_{\alpha_2}$ may describe a permutation consisting of two cycles with associated classes $\alpha_1,\alpha_2\in A$. Thus we construct a vector space $A\{S_n\}:=\bigoplus_{\pi\in S_n} A^{\otimes(\left<\pi\right>\backslash[n])}$. 
 
 To define a ring structure, take two permutations $\pi,\tau$ with associated elements of $A$. The result of the multiplication will be the permutation $\pi\tau$, together with a mapping of cycles. To construct the mappings to $A$, look first at the orbit space of the group of permutations $\left<\pi,\tau\right>$, generated by $\pi$ and $\tau$. For each cycle of $\pi, \tau$ contained in one orbit $B$ of $\left<\pi,\tau\right>$, multiply with the associated element of $A$. Also multiply with a certain power of the Euler class $e^g$. Afterwards, apply the comultiplication $\Delta$ repeatedly on the product to get a mapping from the cycles of $\pi\tau$ contained in $B$ to $A$. 
 Here the "graph defect" $g$ is defined as follows: Let $u,v,w$ be the number of cycles contained in $B$ of $\pi,\;\tau,\;\pi\tau$, respectively. Then $g:=\frac{1}{2}\left(|B| + 2- u-v-w\right)$. Now follow this procedure for each orbit $B$. 
@@ -234,7 +235,7 @@ and $\boldsymbol{\alpha}^{\boldsymbol{\nu}}= x^{(1^{2k})}$. Then $c^{\boldsymbol
 \end{example}
 
 \section{Computational results} \label{CompSection}
-We now give some results in low degrees, obtained by computing multiplication matrices with respect to the integral basis. To get their cokernels, one has to reduce them to Smith normal form. Both was done using a computer.
+We now give some results in low degrees, obtained by computing multiplication matrices with respect to the integral bases of $H^*(S\hilb{n},\IZ)$. To get their cokernels, one has to reduce them to Smith normal form. Both results have been obtained using a computer.
 \begin{remark}
 Denote $h^k(S\hilb{n})$ the rank of $H^k(S\hilb{n},\IZ)$. We have:
 \begin{itemize}
@@ -262,14 +263,14 @@ The freeness result for $n\geq 4$ was already proven by Markman, \cite[Thm. 1.10
 \begin{proposition} For triple products of $H^2(S\hilb{n},\IZ)$, we have:
 $$
 \frac{H^6(S\hilb{2},\IZ)}{\Sym^3 H^2(S\hilb{2},\IZ)} \cong 
-\frac{\IZ}{2\IZ}
+\frac{\IZ}{2\IZ}.
 $$
-The quotient is generated by the integral class $x^{(2)}$.
+The quotient is generated by the integral class $x^{(2)}$. Moreover,
 $$
-\frac{H^6(S\hilb{3},\IZ)}{\Sym^3 H^2(S\hilb{3},\IZ)} \cong  \left(\frac{\IZ}{2\IZ}\right)^{\oplus 230}\oplus \left(\frac{\IZ}{36\IZ}\right)^{\oplus 22}\oplus \frac{\IZ}{72\IZ} \oplus \IZ^{\oplus 507}
+\frac{H^6(S\hilb{3},\IZ)}{\Sym^3 H^2(S\hilb{3},\IZ)} \cong  \left(\frac{\IZ}{2\IZ}\right)^{\oplus 230}\oplus \left(\frac{\IZ}{36\IZ}\right)^{\oplus 22}\oplus \frac{\IZ}{72\IZ} \oplus \IZ^{\oplus 254},
 $$
 $$
-\frac{H^6(S\hilb{4},\IZ)}{\Sym^3 H^2(S\hilb{4},\IZ)} \cong  \frac{\IZ}{2\IZ} \oplus \IZ^{\oplus 552}
+\frac{H^6(S\hilb{4},\IZ)}{\Sym^3 H^2(S\hilb{4},\IZ)} \cong  \frac{\IZ}{2\IZ} \oplus \IZ^{\oplus 552}.
 $$
 For $n\geq 5$, the quotient is free.
 \end{proposition}
@@ -280,17 +281,17 @@ We study now cup products between classes of degree 2 and 4. The case of $S\hilb
 \begin{proposition} \label{p24}The cup product mapping $ : H^2(S\hilb{n},\IZ)\otimes H^4(S\hilb{n},\IZ) \rightarrow H^6(S\hilb{n},\IZ) $ is neither injective (unless $n=0$) nor surjective (unless $n\leq 2$). We have:
 \setcounter{equation}{0} 
 \begin{align} 
-\frac{H^6(S\hilb{3},\IZ)}{H^2(S\hilb{3},\IZ)\smile H^4(S\hilb{3},\IZ)} &\cong \left(\frac{\IZ}{3\IZ}\right)^{\oplus 22} \oplus \frac{\IZ}{3\IZ}
+\frac{H^6(S\hilb{3},\IZ)}{H^2(S\hilb{3},\IZ)\smile H^4(S\hilb{3},\IZ)} &\cong \left(\frac{\IZ}{3\IZ}\right)^{\oplus 22} \oplus \frac{\IZ}{3\IZ},
 \\
-\frac{H^6(S\hilb{4},\IZ)}{H^2(S\hilb{4},\IZ)\smile H^4(S\hilb{4},\IZ)} &\cong  \left(\frac{\IZ}{6\IZ}\right)^{\oplus 22}\oplus\frac{\IZ}{108\IZ} \oplus\frac{\IZ}{2\IZ} 
+\frac{H^6(S\hilb{4},\IZ)}{H^2(S\hilb{4},\IZ)\smile H^4(S\hilb{4},\IZ)} &\cong  \left(\frac{\IZ}{6\IZ}\right)^{\oplus 22}\oplus\frac{\IZ}{108\IZ} \oplus\frac{\IZ}{2\IZ} ,
 \\
 \frac{H^6(S\hilb{5},\IZ)}{H^2(S\hilb{5},\IZ)\smile H^4(S\hilb{5},\IZ)} &\cong 
- \IZ^{\oplus 22} \oplus \IZ
+ \IZ^{\oplus 22} \oplus \IZ,
 \\
 \frac{H^6(S\hilb{n},\IZ)}{H^2(S\hilb{n},\IZ)\smile H^4(S\hilb{n},\IZ)} &\cong 
  \IZ^{\oplus 22} \oplus \IZ\oplus\IZ, \ n\geq 6.
 \end{align}
-In each case, the first 22 parts of the quotient are generated by the integral classes 
+In each case, the first 22 factors of the quotient are generated by the integral classes 
  $$
 \alpha_i^{(1,1,1)} -3\cdot \alpha_i^{(2,1)} + 3\cdot \alpha_i^{(3)}+ 3 \cdot \One^{(2)}\alpha_i^{(1,1)} -6\cdot \One^{(2)}\alpha_i^{(2)}+6\cdot \One^{(2,2)}\alpha_i^{(1)}-3\cdot \One^{(3)}\alpha_i^{(1)},
 $$ 
@@ -299,17 +300,17 @@ for $ i=1\ldots 22$. Now define an integral class
 K:=&\;\sum_{i\neq j} B(\alpha_i,\alpha_j)\left[\alpha_i^{(1,1)}\alpha_j^{(1)} - 2\cdot\alpha_i^{(2)}\alpha_j^{(1)}+\frac{3}{2}\cdot \One^{(2)}\alpha_i^{(1)}\alpha_j^{(1)} \right] +\\
 +&\;\sum_{i}B(\alpha_i,\alpha_i)\left[\alpha_i^{(1,1,1)} - 2\cdot\alpha_i^{(2,1)} + \frac{3}{2}\cdot \One^{(2)}\alpha_i^{(1,1)} \right]+  x^{(2)}-\One^{(2)}x^{(1)}.
 \end{align*} 
-In the case $n=3$, the last part of the quotient is generated by $K$. 
-\\In the case $n=4$, the class $ \One^{(4)}$ generates the 2-torsion part and $K-38\cdot\One^{(4)}$ generates the 108-torsion part.
-\\In the case $n=5$, the last part of the quotient is generated by $K - 16\cdot \One^{(4)} + 21\cdot \One^{(3,2)}$.\\
-If $n\geq 6$, the two last parts of the quotient are generated over the rationals by $K +\frac{4}{3}(45-n)\One^{(2,2,2)} - (48-n)\One^{(3,2)}$ and $K+\frac{1}{2}(40-n)\One^{(2,2,2)}- \frac{1}{4}(48-n)\One^{(4)}$. Over $\IZ$, one has to take appropriate multiples depending on $n$, such that the coefficients become integral numbers.
+In the case $n=3$, the last factor of the quotient is generated by $K$. 
+\\In the case $n=4$, the class $ \One^{(4)}$ generates the 2-torsion factor and $K-38\cdot\One^{(4)}$ generates the 108-torsion factor.
+\\In the case $n=5$, the last factor of the quotient is generated by $K - 16\cdot \One^{(4)} + 21\cdot \One^{(3,2)}$.\\
+If $n\geq 6$, the two last factor of the quotient are generated over the rationals by $K +\frac{4}{3}(45-n)\One^{(2,2,2)} - (48-n)\One^{(3,2)}$ and $K+\frac{1}{2}(40-n)\One^{(2,2,2)}- \frac{1}{4}(48-n)\One^{(4)}$. Over $\IZ$, one has to take appropriate multiples depending on $n$, such that the coefficients become integral numbers.
 \end{proposition}
 \begin{proof} The last assertion for arbitrary $n$ follows from Corollary \ref{stabCor}. First observe that for $\boldsymbol{\alpha}^{\boldsymbol{\lambda}}\!\in\! H^2,\  \boldsymbol{\alpha}^{\boldsymbol{\mu}}\!\in\! H^4,\  \boldsymbol{\alpha}^{\boldsymbol{\nu}}\!\in\! H^6 $, we have $\left\| \boldsymbol\lambda\right\| \leq 2$, $\left\| \boldsymbol\mu\right\| \leq 4$ and $\left\| \boldsymbol\nu\right\| \geq 2,$ according to Lemma \ref{degBound}.
 The coefficient of the cup product martix are thus polynomials of degree at most $2+4-2 =4$ and it suffices to compute only a finite number of instances for $n$. It turns out that the maximal degree is $1$ and the cokernel of the multiplication map is given as stated.
 \end{proof}
 
 In what follows, we compare some well-known facts about Hilbert schemes of points on K3 surfaces with our numerical calculations. This means, we have some tests that may justify the correctness of our computer program.
-We state now computational results for the middle cohomology group. Since $S\hilb{n}$ is a projective variety of complex dimension $2n$, Poincar\'{e} duality gives $H^{2n}(S\hilb{n},\IZ)$ the structure of an unimodular lattice.  
+We state now computational results for the middle cohomology group. Since $S\hilb{n}$ is a projective variety of complex dimension $2n$, Poincar\'{e} duality gives $H^{2n}(S\hilb{n},\IZ)$ the structure of a unimodular lattice.  
 \begin{proposition} Let $L$ denote the unimodular lattice $H^{2n}(S\hilb{n},\IZ)$. We have:
 \begin{enumerate}
 \item For $n=2$, $L$ is an odd lattice of rank $276$ and signature $156$.
@@ -322,7 +323,7 @@ For $n$ even, $L$ is always odd.
 \end{proof}
 Another test is to compute the lattice structure of $H^2(S\hilb{2},\IZ)$, with bilinear form given by $(a,b)\longmapsto \int \left(a\smile b\smile \One^{(2)}\smile \One^{(2)}\right)$. The signature of this lattice is $17$, as shown by Boissi\`ere, Nieper-Wi{\ss}kirchen and Sarti \cite[Lemma 6.9]{BNS}.
 
-%\input{IntCode}
+\input{IntCode}
 
 \bibliographystyle{amsplain}
 \bibliography{BiblioAutIHS}
