@@ -165,7 +165,7 @@ Because we have the decomposition $\Sym^k\! K^{d+1} \cong \Sym^k\! K^d \oplus \,
 \binom{k+d}{d} =\binom{k+d}{k} = r_{d,k}=\rank \left(\Sym^k K^{d+1} \right) = \text{card}\big(\{|\alpha| =k\}\big).
 \end{equation}
 
-The following identity for integers $d,k,m\geq 0$ is proven by induction over $k$:
+The following identity for integers $d,k\geq 0$ is proven by induction over $k$:
 \begin{align} \label{facprod1}
 \prod_{j=0}^k (k-j)!^{\binom{j+d-1}{d-1}} &= \ \prod_{i=1}^k i^{\binom{k-i+d}{d}},
 % \\ \label{facprod2}
@@ -322,7 +322,7 @@ First, observe that both sides of the equation are invariant under orthogonal tr
 On the other hand, if $G$ is diagonal, then every partition into pairs in Equation (\ref{mydef}) that contains a pair of two different numbers will not contribute to the sum. Corollary~\ref{multipairs} shows then, that we get the same formula for $\bra x^\alpha ,x^\beta\ket$.
 \end{proof}
 
-The next theorem gives a formula for the determinant of $\G$. This is of particular interest when $K=\Z$, because in this case we are in the setting of lattice theory, and $\left|\det \G\right|$ is the discriminant of the lattice $V$.
+The next theorem gives a formula for the determinant of $\G$. This is of particular interest when $K=\Z$, because in this case we are in the setting of lattice theory, and $\left|\det \G\right|$ is the discriminant of the lattice $\Sym^kV$.
 \begin{theorem} \label{maintheorem}
 The determinant of the Gram matrix $\G$ of $\bra\ ,\;\ket$, the induced bilinear form on $\Sym^kV,\ \rank V = d\!+\!1$, is:
 \begin{equation}\label{maintheorem1}
@@ -614,8 +614,8 @@ Let $X$ be a compact Hyperk\"ahler manifold of complex dimension $2k$. Denote $b
 $$
 Z \coloneqq \{c_X^{b_2} d_2\} \,\cup\, \{1,\ldots ,k\} \,\cup\, \left\{
 \begin{array}{*2{l}p{5cm}}
- \{i \in\Z\,|\,k+b_2 \leq i \leq 2k\!+\!b_2\!-\!2,\; i\; \text{odd}\}   &\text{if }b_2\text{ is odd}, \\
- \{i\in\Z \,|\, \frac{k+b_2}{2}\leq i \leq k\!+\!\frac{b_2}{2}\!-\!1\}   &\text{if }b_2\text{ is even}.
+ \{i \in\Z\,|\,k+b_2 \leq i \leq 2k\!+\!b_2\!-\!2,\; i\; \text{odd}\}   &\text{if }b_2\text{ is odd}, \\
+ \{i\in\Z \,|\, \frac{k+b_2}{2}\leq i \leq k\!+\!\frac{b_2}{2}\!-\!1\}   &\text{if }b_2\text{ is even}.
 \end{array}
 \right.
 $$
