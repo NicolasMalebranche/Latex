@@ -6,7 +6,23 @@
 }
 \appendix
 \section{Source Code}
-We give the source code for our computer program. It is available online under \url{https://github.com/s--kapfer/HilbK3}. We used the language Haskell. The project is divided into 4 modules.
+We give the source code for our computer program. It is available online under \url{https://github.com/s--kapfer/HilbK3}. We used the language Haskell, compiled with the \textsc{GHC} software, version 7.6.3. We make use of two external packages: \textsc{permutation} and \textsc{MemoTrie}.
+
+\subsection{How to use the code}
+The main module is in the file \verb|HilbK3.hs|, which can be opened by \textsc{GHCI} for interactive use. A product of Nakajima operators is represented by a pair consisting of a partition of length $k$ and a list of the same length, filled with indices for the basis elements of $H^*(S)$. For example, the class
+$$
+\kq_{3}(\alpha_6)\kq_{3}(\alpha_7)\kq_2(x)\kq_{1}(\alpha_2)\kq_{1}(1)^2 \vac 
+$$
+in $H^{20}(S\hilb{11})$ is written as
+\begin{verbatim}
+*HilbK3> (PartLambda [3,3,2,1,1,1], [6,7,23,2,0,0]) :: AnBase 
+\end{verbatim}
+Note that the classes $1\in H^0(S)$ and $x\in H^4(S)$ have indices \verb|0| and \verb|23| in the code.
+\begin{example}\label{exampleSource} How to compute Example \ref{example}.
+\end{example}
+
+\subsection{What the code does}
+The project is divided into 4 modules.
 \subsection{Module for cup product structure of K3 surfaces} 
 Here the hyperbolic and the $E_8$ lattice and the bilinear form on the cohomology of a K3 surface are defined. Furthermore, cup products and their adjoints are implemented.
 \input{Sexy/K3.tex}
