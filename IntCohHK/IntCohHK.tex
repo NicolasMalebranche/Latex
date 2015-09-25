@@ -2,6 +2,7 @@
 
 \usepackage{amsmath,amssymb,amsfonts}
 \usepackage[all]{xy}
+\usepackage{fancyvrb}
 \usepackage{appendix,listings,hyperref}
 
 \DeclareMathOperator{\rank}{rank}
@@ -162,13 +163,13 @@ $\mathbb{H}:=\bigoplus_n H^\ast(S\hilb{n},\IQ)$. The operators $\kq_l(\beta)$ ar
 Following \cite{QinWang}, we abbreviate $\kq_{l_1}(\beta)\ldots\kq_{l_k}(\beta)=:\kq_\lambda(\beta)$, where the partition $\lambda$ is composed by the $l_i$. 
 
 An integral basis for $H^\ast(S\hilb{n},\IZ)$ in terms of Nakajima's operators was given by Qin--Wang:
-\begin{theorem} \cite[Thm. 5.4.]{QinWang} Let $\km_{\nu,\alpha} := \sum_\rho \psi_{\nu\rho}^{-1}\,\kq_{\rho}(\alpha)$, with coefficients $ \psi_{\nu\rho}^{-1}$ as in Definition \ref{SymFun}. The classes
+\begin{theorem} \label{QinWangTheorem}\cite[Thm. 5.4.]{QinWang} Let $\km_{\nu,\alpha} := \sum_\rho \psi_{\nu\rho}^{-1}\,\kq_{\rho}(\alpha)$, with coefficients $ \psi_{\nu\rho}^{-1}$ as in Definition \ref{SymFun}. The classes
 $$ \frac{1}{z_\lambda} \kq_\lambda(1)\kq_\mu(x)\km_{\nu^1,\alpha_1}\ldots\km_{\nu^{22},\alpha_{22}}\vac,\quad \|\lambda\| +\|\mu\| + \sum_{i=1}^{22}\|\nu^i\| = n
 $$ 
 form an integral basis for $H^\ast(S\hilb{n},\IZ)$. Here,
 $\lambda,\; \mu,\; \nu^i$ are partitions.
 \end{theorem}
-\begin{notation}
+\begin{notation}\label{notation}
 To enumerate the basis of $H^\ast(S\hilb{n},\IZ)$, we introduce the following abbreviation:
 $$ \boldsymbol\alpha^{\boldsymbol\lambda} :=
 \One^{\lambda^0} \alpha_1^{\lambda^1}\ldots\alpha_{22}^{\lambda^{22}}x^{\lambda^{23}} :=
@@ -245,10 +246,22 @@ If $i \neq j$, then $\alpha_i^{(2)}\smile\alpha_j^{(1)} = \alpha_i^{(2)}\alpha_j
 Otherwise, $\alpha_i^{(2)}\smile\alpha_i^{(1)} = \alpha_i^{(3)}+ \alpha_i^{(2,1)} + 2B(\alpha_i,\alpha_i)\cdot x^{(1)}$.
 \item Set $\boldsymbol{\alpha}^{\boldsymbol{\lambda}} = \One^{(2)}$ and $\boldsymbol{\alpha}^{\boldsymbol{\nu}}=x^{(1)}$. Then $c^{\boldsymbol{\lambda\lambda}}_{\boldsymbol{\nu}} = -(n-1)$.
 \item Set $\boldsymbol{\alpha}^{\boldsymbol{\lambda}} = \One^{(2,2)}$ and $\boldsymbol{\alpha}^{\boldsymbol{\nu}}=x^{(1,1)}$. Then $c^{\boldsymbol{\lambda\lambda}}_{\boldsymbol{\nu}} =\frac{(n-3)(n-2)}{2}$.
-\item \label{oddWitness} Let $i,j$ be indices, such that $B(\alpha_i,\alpha_j)=1,\ B(\alpha_i,\alpha_i)=0=B(\alpha_j,\alpha_j)$ and let $k\geq 0$. Set $\boldsymbol{\alpha}^{\boldsymbol{\lambda}} = \alpha_i^{(1)}\alpha_j^{(1)}x^{(1^k)}$ 
-and $\boldsymbol{\alpha}^{\boldsymbol{\nu}}= x^{(1^{2k})}$. Then $c^{\boldsymbol{\lambda\lambda}}_{\boldsymbol{\nu}} =1$.
 \end{enumerate}
 \end{example}
+\begin{example} \label{oddWitness} Let $i,j$ be indices, such that $B(\alpha_i,\alpha_j)=1,\ B(\alpha_i,\alpha_i)=0=B(\alpha_j,\alpha_j)$ and let $k\geq 0$. Set $\boldsymbol{\alpha}^{\boldsymbol{\lambda}} = \alpha_i^{(1)}\alpha_j^{(1)}x^{(1^k)}$ 
+and $\boldsymbol{\alpha}^{\boldsymbol{\nu}}= x^{(1^{2k+2})}$. Then $c^{\boldsymbol{\lambda\lambda}}_{\boldsymbol{\nu}} =1$.
+\end{example}
+\begin{proof}
+It is not hard to see, that for $\beta_j,\;\gamma_j\in H^*(S),\ j=1,\ldots, n$:
+$$
+\kq_1(\beta_1)\ldots\kq_1(\beta_n)\vac \smile\kq_1(\gamma_1)\ldots\kq_1(\gamma_n)\vac = \sum_{\sigma \in S_n} \kq_1(\beta_1\cdot\gamma_{\sigma(1)})\ldots\kq_1(\beta_n\cdot\gamma_{\sigma(n)})\vac.
+$$ 
+So it follows by a combinatorial investigation, that:
+$$
+\left(\kq_1(\alpha_i)\kq_1(\alpha_j)\kq_1(x)^k\kq_1(1)^{k+m}\vac \right)^2 = \frac{(k+m)!^2}{m!} \kq_1(x)^{2k+2}\kq_1(1)^m\vac + \text{other terms}.
+$$
+Looking at \ref{notation}, the result follows.
+\end{proof}
 
 \section{Computational results} \label{CompSection}
 We now give some results in low degrees, obtained by computing multiplication matrices with respect to the integral bases of $H^*(S\hilb{n},\IZ)$. To get their cokernels, one has to reduce them to Smith normal form. Both results have been obtained using a computer.

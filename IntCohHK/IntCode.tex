@@ -18,7 +18,57 @@ in $H^{20}(S\hilb{11})$ is written as
 *HilbK3> (PartLambda [3,3,2,1,1,1], [6,7,23,2,0,0]) :: AnBase 
 \end{verbatim}
 Note that the classes $1\in H^0(S)$ and $x\in H^4(S)$ have indices \verb|0| and \verb|23| in the code.
-\begin{example}\label{exampleSource} How to compute Example \ref{example}.
+The multiplication in $A\hilb{n}$ is implemented by the method \verb|multAn|. 
+%For instance,
+%\begin{verbatim}
+%*HilbK3> let a = (PartLambda [2,1], [5,0]) :: AnBase 
+%*HilbK3> let b = (PartLambda [2,1], [6,0]) :: AnBase  
+%*HilbK3> multAn a b 
+%[(([1-1-1],[23,23,0]),-2),(([3],[23]),4)]
+%\end{verbatim}
+
+The classes from Theorem \ref{QinWangTheorem} are represented in the same format. The multiplication in $H^*(S\hilb{n},\IZ)$ of such classes is implemented by the method \verb|cupInt|.
+\begin{example}\label{exampleSource} We want to compute the results from Example \ref{example}. We only do one particular instance for every example, since the others are similar. By Corollary \ref{stabCor}, it is sufficient to know the values for finitely many $n$ to deduce the general case.
+\begin{enumerate}
+\item We do the case $n=6,\ i=1$. 
+\begin{Verbatim}[fontsize=\small]
+*HilbK3> let i = 1 :: Int
+*HilbK3> let x = (PartLambda [2,2,1,1], [0,0,0,0]) :: AnBase
+*HilbK3> let y = (PartLambda [2,1,1,1,1], [i,0,0,0,0]) :: AnBase
+*HilbK3> cupInt x y
+[(([2-1-1-1-1],[0,23,1,0,0]),-2),(([2-2-2],[1,0,0]),1),
+(([3-2-1],[1,0,0]),2),(([4-1-1],[1,0,0]),1)]
+\end{Verbatim}
+\item We do the case $n=4,\ i=j=1$. 
+\begin{Verbatim}[fontsize=\small]
+*HilbK3> let i = 1 :: Int; let j = 1 :: Int
+*HilbK3> let x = (PartLambda [2,1,1], [i,0,0]) :: AnBase
+*HilbK3> let y = (PartLambda [1,1,1,1], [j,0,0,0]) :: AnBase
+*HilbK3> cupInt x y
+[(([2-1-1],[1,1,0]),1),(([3-1],[1,0]),1)]
+\end{Verbatim}
+\item We do the case $n=4$. 
+\begin{Verbatim}[fontsize=\small]
+*HilbK3> let d = (PartLambda [2,1,1], [0,0,0]) :: AnBase
+*HilbK3> let y = (PartLambda [1,1,1,1], [23,0,0,0]) :: AnBase
+*HilbK3> [ t | t <- cupInt d d, fst t == y]
+[(([1-1-1-1],[23,0,0,0]),-3)]
+\end{Verbatim}
+\item We do the case $n=5$. 
+\begin{Verbatim}[fontsize=\small]
+*HilbK3> let x = (PartLambda [2,2,1], [0,0,0]) :: AnBase
+*HilbK3> let y = (PartLambda [1,1,1,1,1], [23,23,0,0,0]) :: AnBase
+*HilbK3> [ t | t <- cupInt x x, fst t == y]
+[(([1-1-1-1-1],[23,23,0,0,0]),3)]
+\end{Verbatim}
+\item We set $i=1,\ j= 2,\ k=2, \ n=6$.
+\begin{Verbatim}[fontsize=\small]
+*HilbK3> let x = (PartLambda [1,1,1,1,1,1], [1,2,23,0,0,0]) :: AnBase
+*HilbK3> let y = (PartLambda [1,1,1,1,1,1], [23,23,23,23,0,0]) :: AnBase
+*HilbK3> [ t | t <- cupInt x x, fst t == y]
+[(([1-1-1-1-1-1],[23,23,2,1,0,0]),1),(([1-1-1-1-1-1],[23,23,23,0,0,0]),1)]
+\end{Verbatim}
+\end{enumerate}
 \end{example}
 
 \subsection{What the code does}
