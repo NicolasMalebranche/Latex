@@ -219,7 +219,7 @@ Since $H^\text{odd}(S\hilb{n},\IZ) = 0$ and $H^\text{even}(S\hilb{n},\IZ)$ is to
 \begin{theorem} \emph{(Derived from \cite[Thm.~2.1]{QinWang}).}
 Let $Q_1,\ldots,Q_s$ be products of creation operators, \ie $Q_i = \prod_j \kq_{\lambda_{i,j}}(\beta_{i,j}) $ for some partitions $\lambda_{i,j}$ and classes $\beta_{i,j}\in H^\ast(S,\IZ)$. Set $n_i := \sum_j \left\|\lambda_{i,j}\right\|$.
 Then the cup product 
-$ \prod_{i=1}^s \left(\frac{1}{(n-n_i)!} \kq_{n-n_i}(1) \,Q_i \,\vac \right)$ equals a finite linear combination of classes of the form $\frac{1}{(n-m)!}\kq_{n-m}(1)\prod_j \kq_{\mu_{j}}(\gamma_{j})\vac$, with $\gamma\in H^\ast(S,\IZ)$, $m=\sum_j\left\|\mu_j\right\|$, whose coefficients are independent of $n$. We have the upper bound $m\leq\sum_i n_i$. 
+$ \prod_{i=1}^s \left(\frac{1}{(n-n_i)!} \kq_{1^{n-n_i}}(1) \,Q_i \,\vac \right)$ equals a finite linear combination of classes of the form $\frac{1}{(n-m)!}\kq_{1^{n-m}}(1)\prod_j \kq_{\mu_{j}}(\gamma_{j})\vac$, with $\gamma\in H^\ast(S,\IZ)$, $m=\sum_j\left\|\mu_j\right\|$, whose coefficients are independent of $n$. We have the upper bound $m\leq\sum_i n_i$. 
 \end{theorem}
 \begin{corollary} \label{stabCor} Let $\boldsymbol{\alpha}^{\boldsymbol{\lambda}},\boldsymbol{\alpha}^{\boldsymbol{\mu}},\boldsymbol{\alpha}^{\boldsymbol{\nu}}$ be reduced. Assume $n\geq\left\|\boldsymbol\lambda\right\|,\left\|\boldsymbol\mu\right\| $. Then the coefficients $c^{\boldsymbol{\lambda\mu}}_{\boldsymbol{\nu}}$ of the cup product in $H^\ast(S\hilb{n},\IZ)$
 $$\boldsymbol{\alpha}^{\boldsymbol{\lambda}} \smile
@@ -229,14 +229,13 @@ $$
 are polynomials in $n$ of degree at most $ \left\|\boldsymbol\lambda\right\|+\left\|\boldsymbol\mu\right\|-\left\|\boldsymbol\nu\right\|$.
 \end{corollary}
 \begin{proof} Set $Q_{\boldsymbol{\lambda}}:=  \kq_{\lambda^0}(1)\kq_{\lambda^{23}}(x)\prod_{1\leq j\leq 22}\kq_{\lambda^j}(\alpha_j)$ and $n_{\boldsymbol\lambda}:=\left\|\boldsymbol\lambda\right\|$. Then we have:
-$\boldsymbol{\alpha}^{\boldsymbol{\lambda}} = \frac{1}{(n-n_{\boldsymbol\lambda})!\,z_{\lambda^0}}\kq_{n-n_{\boldsymbol\lambda}}(1)Q_{\boldsymbol\lambda}\vac$ and $
-\boldsymbol{\alpha}^{\boldsymbol{\mu}}=\frac{1}{(n-n_{\boldsymbol\mu})!\,z_{\mu^0}}\kq_{n-n_{\boldsymbol\mu}}(1)Q_{\boldsymbol\mu}\vac $. 
-Thus the coefficient $c^{\boldsymbol{\lambda\mu}}_{\boldsymbol{\nu}}$ in the product expansion is a constant, which depends on $ \left\|\boldsymbol\lambda\right\|,\left\|\boldsymbol\mu\right\|,\left\|\boldsymbol\nu\right\|$, but not on $n$, multiplied with $\frac{(n-n_{\boldsymbol\nu})!}{(n-m)!}$ for a certain $m\leq n_{\boldsymbol\lambda}+n_{\boldsymbol\mu}$. 
+$\boldsymbol{\alpha}^{\boldsymbol{\lambda}} = \frac{1}{(n-n_{\boldsymbol\lambda})!\,z_{\lambda^0}}\kq_{1^{n-n_{\boldsymbol\lambda}}}(1)Q_{\boldsymbol\lambda}\vac$ and $
+\boldsymbol{\alpha}^{\boldsymbol{\mu}}=\frac{1}{(n-n_{\boldsymbol\mu})!\,z_{\mu^0}}\kq_{1^{n-n_{\boldsymbol\mu}}}(1)Q_{\boldsymbol\mu}\vac $. 
+Thus the coefficient $c^{\boldsymbol{\lambda\mu}}_{\boldsymbol{\nu}}$ in the product expansion is a constant, which depends on $ \left\|\boldsymbol\lambda\right\|$, $\left\|\boldsymbol\mu\right\|$, $\left\|\boldsymbol\nu\right\|$, but not on $n$, multiplied with $\frac{(n-n_{\boldsymbol\nu})!}{(n-m)!}$ for a certain $m\leq n_{\boldsymbol\lambda}+n_{\boldsymbol\mu}$. 
 This is a polynomial of degree $m-n_{\boldsymbol\nu}\leq n_{\boldsymbol\lambda}+n_{\boldsymbol\mu}-n_{\boldsymbol\nu} =\left\|\boldsymbol\lambda\right\|+\left\|\boldsymbol\mu\right\|-\left\|\boldsymbol\nu\right\| $.
 \end{proof}
 \begin{remark}
-The above condition,  $n\geq\left\|\boldsymbol\lambda\right\|,\left\|\boldsymbol\mu\right\| $,
-seems to be unnecessary. In particular, if $\left\|\boldsymbol\nu\right\|\leq n<\max\left\{\left\|\boldsymbol\lambda\right\|,\left\|\boldsymbol\nu\right\|\right\}$, the polynomial $ c^{\boldsymbol{\lambda\mu}}_{\boldsymbol{\nu}}$ has a root at $n$.
+It may happen, that for certain $n,\;\boldsymbol\lambda,\;\boldsymbol\mu,\;\boldsymbol\nu$ one has $\boldsymbol{\alpha}^{\boldsymbol{\lambda}}=\boldsymbol{\alpha}^{\boldsymbol{\mu}}=0$ but $\boldsymbol{\alpha}^{\boldsymbol{\nu}}\neq 0$, when interpreted in $H^*(S\hilb{n})$. It seems that in this case $ c^{\boldsymbol{\lambda\mu}}_{\boldsymbol{\nu}}$ always becomes zero when evaluated at $n$. So the $ c^{\boldsymbol{\lambda\mu}}_{\boldsymbol{\nu}}$ seem to be universal in the sense that the above corollary holds true even without the condition $n\geq\left\|\boldsymbol\lambda\right\|,\left\|\boldsymbol\mu\right\| $.
 \end{remark}
 \begin{example}\label{example} Here are some explicit examples for illustration. See \ref{exampleSource} for how to compute them. 
 \begin{enumerate} \item $
@@ -256,7 +255,7 @@ It is not hard to see, that for $\beta_j,\;\gamma_j\in H^*(S),\ j=1,\ldots, n$:
 $$
 \kq_1(\beta_1)\ldots\kq_1(\beta_n)\vac \smile\kq_1(\gamma_1)\ldots\kq_1(\gamma_n)\vac = \sum_{\sigma \in S_n} \kq_1(\beta_1\cdot\gamma_{\sigma(1)})\ldots\kq_1(\beta_n\cdot\gamma_{\sigma(n)})\vac.
 $$ 
-So it follows by a combinatorial investigation, that:
+A combinatorial investigation yields now:
 $$
 \left(\kq_1(\alpha_i)\kq_1(\alpha_j)\kq_1(x)^k\kq_1(1)^{k+m}\vac \right)^2 = \frac{(k+m)!^2}{m!} \kq_1(x)^{2k+2}\kq_1(1)^m\vac + \text{other terms}.
 $$
