@@ -9,15 +9,15 @@
 
 \bibitem{BNS}
 S.~Boissi\`ere, M.~Nieper-Wi{\ss}kirchen and A.~Sarti, \emph{Smith theory and 
-  Irreducible Holomorphic Symplectic Manifolds}, Journal of Topology 6 (2013), no.~2, 361–-390.
+  Irreducible Holomorphic Symplectic Manifolds}, Journal of Topology \textbf{6} (2013), no.~2, 361–-390.
 
 \bibitem{EGL}
 G.~Ellingsrud, L.~G\"ottsche and M.~Lehn, \emph{On the Cobordism Class of the Hilbert 
-  Scheme of a Surface}, Journal of Algebraic Geometry 10 (2001), 81--100. 
+  Scheme of a Surface}, Journal of Algebraic Geometry \textbf{10} (2001), 81--100. 
 
 \bibitem{Fogarty}
 J.~Fogarty, \emph{Algebraic Families on an Algebraic Surface},
-  Am.~J.~Math.~10 (1968), 511--521.
+  Am.~J.~Math.~\textbf{10} (1968), 511--521.
 
 \bibitem{Lascoux}
 A.~Lascoux, \emph{Symmetric functions}, Notes of the course given at Nankai University (2001),
@@ -46,8 +46,8 @@ H.~Nakajima, \emph{Heisenberg algebra and Hilbert schemes of points on
   projective surfaces}, Ann. of Math. (2) \textbf{145} (1997), no.~2, 379--388.
 
 \bibitem{OEIS}
-\emph{The On-Line Encyclopedia of Integer Sequences}, published electronically at 
-  \href{http://oeis.org}{http://oeis.org}, 2015
+\emph{The On-Line Encyclopedia of Integer Sequences} (2015), 
+  \href{http://oeis.org}{http://oeis.org}.
 
 \bibitem{QinWang}
 Z.~Qin and W.~Wang, \emph{Integral operators and integral cohomology classes of

@@ -282,17 +282,17 @@ Now, by the definition of $\psi_{\lambda\mu}$, $\kq_{1^k}(\alpha_i) = \km_{(k),\
 \begin{equation}
 \left(\alpha_i^{(1)}\right)^k  = \alpha_i^{(k)} + \text{other terms}.
 \end{equation}
-Next, we determine the coefficients of $1^{(k+1)}$ and $1^{(k,2)}$ in the expansion of $\left(1^{(2)}\right)^k$. Using Definition \ref{model}, we observe that these coefficients do not depend on $H^*(S)$ but only on the combinatorics of the symmetric group. We may interpret the coefficient of $1^{(k+1)}$ as the number of ways to write a $(k+1)$-cycle as a product of transpositions. By \cite[Sequence A000272]{OEIS}, this is $(k\!+\!1)^{k-1}$. For the $1^{(k,2)}$-coefficient, we have to choose one transposition, and write a $k$-cyle as a product of the remaining $k-1$ transpositions. The number of possibilities is therefore $k\cdot k^{k-2} = k^{k-1}$. So
+Next, we determine the coefficients of $1^{(k+1)}$ and $1^{(k,2)}$ in the expansion of $\left(1^{(2)}\right)^k$. Considering Definition \ref{model}, we observe that here the graph defect is zero and the adjoint map is trivial, so the problem reduces to combinatorics of the symmetric group: the coefficient of $1^{(k+1)}$ is the number of ways to write a $(k+1)$-cycle as a product of $k$ transpositions. A result of D\'enes \cite[Seq.~ A000272]{OEIS} states that this is $(k\!+\!1)^{k-1}$. For the $1^{(k,2)}$-coefficient, we have to choose one transposition, and write a $k$-cyle as a product of the remaining $k-1$ transpositions. The number of possibilities is therefore $k\cdot k^{k-2} = k^{k-1}$. So
 \begin{equation}
 \left(1^{(2)}\right)^k = (k\!+\! 1)^{k-1} \cdot 1^{(k+1)} \;+\; k^{k-1}\cdot 1^{(k,2)} \;+\; \text{other terms}.
 \end{equation}
-Note that these two coefficients have no common divisors. 
-Putting the two cases together, one gets
+Note that these two coefficients are coprime. 
+Putting the two cases together, one gets for a general element of $\Sym^kH^2(S\hilb{n},\IZ)$, $k=k_0+\ldots+k_{22}$:
 \begin{align*}
 \left(1^{(2)}\right)^{k_0}\prod_{i=1}^{22}\left(\alpha_i^{(1)}\right)^{k_i} &=  (k_0\!+\! 1)^{k_0-1} \cdot 1^{(k_0+1)}\alpha_1^{(k_1)}\ldots \alpha_{22}^{(k_{22})} \\
 &+k_0^{k_0-1}\cdot 1^{(k_0,2)}\alpha_1^{(k_1)}\ldots \alpha_{22}^{(k_{22})} +\text{other terms}.
 \end{align*}
-
+One checks, that this is the only element of $\Sym^kH^2(S\hilb{n},\IZ)$ having a nonzero coefficient at $1^{(k_0+1)}\alpha_1^{(k_1)}\ldots \alpha_{22}^{(k_{22})}$ and $1^{(k_0,2)}\alpha_1^{(k_1)}\ldots \alpha_{22}^{(k_{22})}$. Now it is easy to show the existence of a complementary basis.
 \end{proof}
 
 
