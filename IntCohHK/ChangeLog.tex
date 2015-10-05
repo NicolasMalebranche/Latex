@@ -1,0 +1,60 @@
+\documentclass[11pt]{scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+\usepackage{fourier}  % Use the Adobe Utopia font for the document
+\usepackage{amsmath,amsthm,amssymb,amscd,color,graphicx}
+
+%Struktur
+\newcommand{\point}{\vspace{3mm}\par \noindent \refstepcounter{subsection}{\bf \thesubsection.} }
+	\numberwithin{equation}{subsection}
+\newcommand{\tpoint}[1]{\vspace{3mm}\par \noindent \refstepcounter{subsection}{\bf \thesubsection.} 
+  \numberwithin{equation}{subsection} {\em #1. ---} }
+\newcommand{\epoint}[1]{\vspace{3mm}\par \noindent \refstepcounter{subsection}{\bf \thesubsection.} 
+  \numberwithin{equation}{subsection} {\em #1.} }
+\newcommand{\bpoint}[1]{\vspace{3mm}\par \noindent \refstepcounter{subsection}{\bf \thesubsection.} 
+  \numberwithin{equation}{subsection} {\bf\em #1.} }
+  
+%Abkürzungen
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+\renewcommand{\O}{\mathcal{O}}
+
+\newcommand{\vac}{\left|0\right>}
+\newcommand{\hilb}[1]{^{[#1]}}
+
+
+
+% Title Page
+\title{Computing Cup-Products in integral cohomology of Hilbert schemes of points on K3 surfaces}
+\subtitle{LMS Journal of Computation and Mathematics, Ref.: JCM 150225}
+
+\author{Simon Kapfer}
+
+
+\begin{document}
+\maketitle
+
+The following changements were made due to the suggestions:
+\begin{itemize}
+\item Corrected the typos and changed the wording as suggested.
+\item Definition 1.1: Improved the verbalisation.
+\item Definition 1.2: Added definitions of the Ring of Symmetric Functions, monomial symmetric functions and power sums. Dropped the example, as suggested. Left the defition of the $\psi_{\lambda\mu}$ since they are needed in Theorem 1.7.
+\item Definition 1.6: Corrected $B$ to $B\otimes B$, as suggested. Erased the questionable $B(\Delta(1),\Delta(1))$. Added a definition of a general adjoint map.
+\item Added references for Fogarty and Nakajima result. Corrected the degree of $\mathfrak{q}_l(\beta)$.
+\item Proof of Lemma 1.9: The original proof and the suggested correction were both wrong (maybe because of the confusion with the notation of partitions?). The necessary corrections were made.
+\item Definition 1.10: Replaced the old incomprehensible description of $A\{S_n\}$ by a longer one, more close to Lehn and Sorger's paper.
+\item Theorem 1.11: Changed the formulation a bit.
+\item Theorem 1.12: Wrote an addendum to the statement of the theorem, which is already mentioned in the original Li--Qin--Wang version. 
+\item Remark 1.14: I admit that the inequality in the second line was confusing, though correct. Replaced it by a clearer formulation, I hope.
+\item Example 1.15 (5) is now Example 1.16. In the appendix it is shown how to get the results of Example 1.15 using the code. Example 1.16 can be computed by hand, as shown in the proof.
+\item Theorem 1.17: This theorem is new. 
+\item Remark 2.1: Left this remark unchanged. The rank of $H^6(S\hilb{n})$ stabilizes to 2876, not 2300, e.~g.~as shown by Göttsche's formula. Indeed, 2300 is the rank of $Sym^3H^2(S\hilb{n})$.
+\item Proposition 2.4: Changed the rank of the second quotient to 254, as suggested. The freeness result is now an instance of Theorem 1.17.
+\item Proof of Proposition 2.5. Lemma 1.9 says $\|\nu\|\geq \frac{3}{2}$ which is equivalent to $\|\nu\|\geq 2$. 
+\item Appendix: following the suggestions, I added two more subsections describing the usage of the code (including Example 1.15) and the rough structure of the program.
+\item Bibliography: Changed reference 1. Added pages and number of reference 3. Added references 2 and 4. Various improvements in the formatting.
+\end{itemize}
+
+\end{document}          
