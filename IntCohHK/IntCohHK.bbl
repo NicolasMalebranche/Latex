@@ -11,6 +11,11 @@
 S.~Boissi\`ere, M.~Nieper-Wi{\ss}kirchen and A.~Sarti, \emph{Smith theory and 
   Irreducible Holomorphic Symplectic Manifolds}, Journal of Topology \textbf{6} (2013), no.~2, 361–-390.
 
+\bibitem{Denes}
+J.~D\'enes, \emph{The representation of a permutation as the product of a minimal number of
+  transpositions, and its connection with the theory of graphs}, Publ. Math. Institute Hung. Acad. Sci.
+  \textbf{4} (1959), 63--71.
+
 \bibitem{EGL}
 G.~Ellingsrud, L.~G\"ottsche and M.~Lehn, \emph{On the Cobordism Class of the Hilbert 
   Scheme of a Surface}, Journal of Algebraic Geometry \textbf{10} (2001), 81--100. 
@@ -45,16 +50,12 @@ J.~Milnor and D.~Husem{\"o}ller, \emph{Symmetric bilinear forms},
 H.~Nakajima, \emph{Heisenberg algebra and Hilbert schemes of points on
   projective surfaces}, Ann. of Math. (2) \textbf{145} (1997), no.~2, 379--388.
 
-\bibitem{OEIS}
-\emph{The On-Line Encyclopedia of Integer Sequences} (2015), 
-  \href{http://oeis.org}{http://oeis.org}.
-
 \bibitem{QinWang}
 Z.~Qin and W.~Wang, \emph{Integral operators and integral cohomology classes of
   Hilbert schemes}, Math. Ann. \textbf{331} (2005), no.~3, 669--692.
 
 \bibitem{Verbitsky}
-M.~Verbitsky, \emph{Cohomology of compact hyper-{K}\"ahler manifolds and its
+M.~Verbitsky, \emph{Cohomology of compact hyperk\"ahler manifolds and its
   applications}, Geom. Funct. Anal. \textbf{6} (1996), no.~4, 601--611.
 
 \end{thebibliography}

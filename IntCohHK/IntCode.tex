@@ -9,7 +9,10 @@
 We give the source code for our computer program. It is available online under \url{https://github.com/s--kapfer/HilbK3}. We used the language Haskell, compiled with the \textsc{GHC} software, version 7.6.3. We make use of two external packages: \textsc{permutation} and \textsc{MemoTrie}. The project is divided into 4 modules. 
 
 \subsection{How to use the code}
-The main module is in the file \verb|HilbK3.hs|, which can be opened by \textsc{GHCI} for interactive use. A product of Nakajima operators is represented by a pair consisting of a partition of length $k$ and a list of the same length, filled with indices for the basis elements of $H^*(S)$. For example, the class
+The main module is in the file \verb|HilbK3.hs|, which can be opened by \textsc{GHCI} for interactive use. It provides an implementation of the ring structure of $A\hilb{n}=H^*(S\hilb{n},\IQ)$, for all $n\in\mathbb{N}$. 
+%There are multiplication methods for two kinds of classes: the classes of the form $\kq_{n_1}(\beta_1)\ldots\kq_{n_k}(\beta_k)\vac$ and those of the form given in Theorem \ref{QinWangTheorem}.
+It computes cup--products in reasonable time up to $n=8$.
+A product of Nakajima operators is represented by a pair consisting of a partition of length $k$ and a list of the same length, filled with indices for the basis elements of $H^*(S)$. For example, the class
 $$
 \kq_{3}(\alpha_6)\kq_{3}(\alpha_7)\kq_2(x)\kq_{1}(\alpha_2)\kq_{1}(1)^2 \vac 
 $$
@@ -27,8 +30,8 @@ The multiplication in $A\hilb{n}$ is implemented by the method \verb|multAn|.
 %[(([1-1-1],[23,23,0]),-2),(([3],[23]),4)]
 %\end{verbatim}
 
-The classes from Theorem \ref{QinWangTheorem} are represented in the same format. The multiplication in $H^*(S\hilb{n},\IZ)$ of such classes is implemented by the method \verb|cupInt|.
-\begin{example}\label{exampleSource} We want to compute the results from Example \ref{example}. We only do one particular instance for every example, since the others are similar. By Corollary \ref{stabCor}, it is sufficient to know the values for finitely many $n$ to deduce the general case.
+The classes from Theorem \ref{QinWangTheorem} are represented in the same format, as shown in the following example. The multiplication in $H^*(S\hilb{n},\IZ)$ of such classes is implemented by the method \verb|cupInt|.
+\begin{example}\label{exampleSource} We want to compute the results from Example \ref{example}. We only do one particular instance for every example, since the others are similar. By Corollary \ref{stabCor}, it suffices to know the values for finitely many $n$ to deduce the general case.
 \begin{enumerate}
 \item We do the case $n=6,\ i=1$. 
 \begin{Verbatim}[fontsize=\small]

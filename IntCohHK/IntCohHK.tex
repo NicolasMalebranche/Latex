@@ -97,11 +97,11 @@ products in the integral cohomology of the Hilbert scheme of $n$ points on a K3 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 The Hilbert schemes of $n$ points on a complex surface parametrize all zero-dimensional subschemes of length $n$. Studying their rational cohomology, Nakajima \cite{Nakajima} was able to give an explicit description of the vector space structure in terms of the action of a Heisenberg algebra.
-The Hilbert schemes of points on a K3 surface are one of the few known classes of Irreducible Holomorphic Symplectic Manifolds. Lehn and Sorger \cite{LehnSorger} developed an algebraic model to describe the cohomological ring structure. On the other hand, Qin and Wang \cite{QinWang} found a base for integral cohomology in the projective case. By combining these results, we are able to compute everything explicitely in the cohomology rings of Hilbert schemes of $n$ points on a projective K3 surface with integral coefficients. 
+The Hilbert schemes of points on a K3 surface are one of the few known classes of Irreducible Holomorphic Symplectic Manifolds. Lehn and Sorger \cite{LehnSorger} developed an algebraic model to describe the cohomological ring structure. On the other hand, Qin and Wang \cite{QinWang} found a base for integral cohomology in the projective case. By combining these results, we are able to compute all cup-products in the cohomology rings of Hilbert schemes of $n$ points on a projective K3 surface with integral coefficients. 
 For $n=2$, this was done by Boissi\`ere, Nieper-Wi{\ss}kirchen and Sarti \cite{BNS}, who applied their results to automorphism groups of prime order. When $n$ is increasing, the ranks of the cohomology rings become very large, so we need the help of a computer. The source code is available under \url{https://github.com/s--kapfer/HilbK3}
 
 Our goal here is to give some properties for low degrees.
-Denote by $S\hilb{3}$ the Hilbert scheme of 3 points on a projective K3 surface (or a deformation equivalent space). We identify $\Sym^2H^2(S\hilb{3},\IZ)$ with its image in $H^4(S\hilb{3},\IZ)$ under the cup product mapping. 
+Denote by $S\hilb{3}$ the Hilbert scheme of 3 points on a projective K3 surface (or a deformation equivalent space). We identify $\Sym^kH^2(S\hilb{n},\IZ)$ with its image in $H^{2k}(S\hilb{n},\IZ)$ under the cup product mapping. 
 \begin{theorem}
 The cup product mappings for the Hilbert scheme of 3 points on a projective K3 surface have the following cokernels:
 \begin{gather}
@@ -235,7 +235,7 @@ Thus the coefficient $c^{\boldsymbol{\lambda\mu}}_{\boldsymbol{\nu}}$ in the pro
 This is a polynomial of degree $m-n_{\boldsymbol\nu}\leq n_{\boldsymbol\lambda}+n_{\boldsymbol\mu}-n_{\boldsymbol\nu} =\left\|\boldsymbol\lambda\right\|+\left\|\boldsymbol\mu\right\|-\left\|\boldsymbol\nu\right\| $.
 \end{proof}
 \begin{remark}
-It may happen, that for certain $n,\;\boldsymbol\lambda,\;\boldsymbol\mu,\;\boldsymbol\nu$ one has $\boldsymbol{\alpha}^{\boldsymbol{\lambda}}=\boldsymbol{\alpha}^{\boldsymbol{\mu}}=0$ but $\boldsymbol{\alpha}^{\boldsymbol{\nu}}\neq 0$, when interpreted in $H^*(S\hilb{n})$. It seems that in this case $ c^{\boldsymbol{\lambda\mu}}_{\boldsymbol{\nu}}$ always becomes zero when evaluated at $n$. So the $ c^{\boldsymbol{\lambda\mu}}_{\boldsymbol{\nu}}$ seem to be universal in the sense that the above corollary holds true even without the condition $n\geq\left\|\boldsymbol\lambda\right\|,\left\|\boldsymbol\mu\right\| $.
+If $n<\left\|\boldsymbol\lambda\right\|$ or $n<\left\|\boldsymbol\mu\right\| $, one has $\boldsymbol{\alpha}^{\boldsymbol{\lambda}}=0$, resp.~$\boldsymbol{\alpha}^{\boldsymbol{\mu}}=0$. But it is still possible that $\boldsymbol{\alpha}^{\boldsymbol{\nu}}\neq 0$ in $H^*(S\hilb{n})$. It seems that in this case the polynomial $ c^{\boldsymbol{\lambda\mu}}_{\boldsymbol{\nu}}$ always becomes zero when evaluated at $n$. So the $ c^{\boldsymbol{\lambda\mu}}_{\boldsymbol{\nu}}$ seem to be universal in the sense that the above corollary holds true even without the condition $n\geq\left\|\boldsymbol\lambda\right\|,\left\|\boldsymbol\mu\right\| $.
 \end{remark}
 \begin{example}\label{example} Here are some explicit examples for illustration. See \ref{exampleSource} for how to compute them. 
 \begin{enumerate} \item $
@@ -251,7 +251,7 @@ Otherwise, $\alpha_i^{(2)}\smile\alpha_i^{(1)} = \alpha_i^{(3)}+ \alpha_i^{(2,1)
 and $\boldsymbol{\alpha}^{\boldsymbol{\nu}}= x^{(1^{2k+2})}$. Then $c^{\boldsymbol{\lambda\lambda}}_{\boldsymbol{\nu}} =1$.
 \end{example}
 \begin{proof}
-It is not hard to see, that for $\beta_j,\;\gamma_j\in H^*(S),\ j=1,\ldots, n$:
+It is not hard to see from the definition, that for $\beta_j,\;\gamma_j\in H^*(S)$:
 $$
 \kq_1(\beta_1)\ldots\kq_1(\beta_n)\vac \smile\kq_1(\gamma_1)\ldots\kq_1(\gamma_n)\vac = \sum_{\sigma \in S_n} \kq_1(\beta_1\cdot\gamma_{\sigma(1)})\ldots\kq_1(\beta_n\cdot\gamma_{\sigma(n)})\vac.
 $$ 
@@ -271,7 +271,7 @@ is a free $\IZ$-module for $n\geq k+2$.
 \begin{proof}
 The idea of the proof is to modify the basis of $H^{2k}(S\hilb{n},\IZ)$, given in Theorem~\ref{QinWangTheorem}, in a way that $\Sym^k H^{2}(S\hilb{n},\IZ)$ splits as a direct summand. 
 
-Given a free $\IZ$-module $M$ with basis $(b_i)_{i=1\ldots m}$ and a vector $v = a_1b_1 + \ldots + a_mb_m$. Then there is another basis of $M$ which contains $v$, iff $\gcd\{a_1,\ldots,a_m\} = 1$. More generally, given a set of vectors $(v_i)_{i=1\ldots r}$, $v_i=a_{i1}b_1+\ldots+a_{im}b_m$, we can complete it to a basis of $M$, iff the $r\times r$-minors of the matrix $(a_{ij})_{ij}$ share no common divisor. We want to show, that the canonical basis of $\Sym^k H^{2}(S\hilb{n},\IZ)$ is such a set.
+Given a free $\IZ$-module $M$ with basis $(b_i)_{i=1\ldots m}$ and a vector $v = a_1b_1 + \ldots + a_mb_m$. Then there is another basis of $M$ which contains $v$, iff $\gcd\{a_1,\ldots,a_m\} = 1$. More generally, given a set of vectors $(v_i)_{i=1\ldots r}$, $v_i=a_{i1}b_1+\ldots+a_{im}b_m$, we can complete it to a basis of $M$, iff the $r\times r$-minors of the matrix $(a_{ij})_{ij}$ share no common divisor. We want to show that the canonical basis of $\Sym^k H^{2}(S\hilb{n},\IZ)$ is such a set.
 
 A basis of $ H^{2}(S\hilb{n},\IZ)$ is given by the classes $\alpha_i^{(1)}=\frac{1}{(n-1)!}\kq_{1^{n-1}}(1)\kq_1(\alpha_i)\vac$, $i=1,\ldots ,22$ and $1^{(2)} =\frac{1}{2(n-2)!}\kq_{(2,1^{n-2})}(1)\vac$.
 A power of $\alpha_i^{(1)}$ looks like (Thm.~\ref{stability}):
@@ -282,7 +282,7 @@ Now, by the definition of $\psi_{\lambda\mu}$, $\kq_{1^k}(\alpha_i) = \km_{(k),\
 \begin{equation}
 \left(\alpha_i^{(1)}\right)^k  = \alpha_i^{(k)} + \text{other terms}.
 \end{equation}
-Next, we determine the coefficients of $1^{(k+1)}$ and $1^{(k,2)}$ in the expansion of $\left(1^{(2)}\right)^k$. Considering Definition \ref{model}, we observe that here the graph defect is zero and the adjoint map is trivial, so the problem reduces to combinatorics of the symmetric group: the coefficient of $1^{(k+1)}$ is the number of ways to write a $(k+1)$-cycle as a product of $k$ transpositions. A result of D\'enes \cite[Seq.~ A000272]{OEIS} states that this is $(k\!+\!1)^{k-1}$. For the $1^{(k,2)}$-coefficient, we have to choose one transposition, and write a $k$-cyle as a product of the remaining $k-1$ transpositions. The number of possibilities is therefore $k\cdot k^{k-2} = k^{k-1}$. So
+Next, we determine the coefficients of $1^{(k+1)}$ and $1^{(k,2)}$ in the expansion of $\left(1^{(2)}\right)^k$. Considering Definition \ref{model}, we observe that here the graph defect is zero and the adjoint map is trivial, so the problem reduces to combinatorics of the symmetric group: the coefficient of $1^{(k+1)}$ is the number of ways to write a $(k+1)$-cycle as a product of $k$ transpositions. A result of D\'enes \cite{Denes} states that this is $(k\!+\!1)^{k-1}$. For the $1^{(k,2)}$-coefficient, we have to choose one transposition, and write a $k$-cyle as a product of the remaining $k-1$ transpositions. The number of possibilities is therefore $k\cdot k^{k-2} = k^{k-1}$. So
 \begin{equation}
 \left(1^{(2)}\right)^k = (k\!+\! 1)^{k-1} \cdot 1^{(k+1)} \;+\; k^{k-1}\cdot 1^{(k,2)} \;+\; \text{other terms}.
 \end{equation}
