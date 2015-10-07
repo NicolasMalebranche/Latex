@@ -75,7 +75,7 @@
 
 \begin{document}
 
-\title{Integral cohomology of $K^2(A)$}
+\title{Integral cohomology of $\kum{A}{2}$}
 
 
 \author{Simon Kapfer}
@@ -154,10 +154,11 @@ Next we focus on the structure of $H^2(A\hilb{n},\Z)$ for $n\geq 2$. It has rank
 \begin{itemize}
  \item $\frac{1}{(n-1)!}\p_{-1}(1)^{n-1}\p_{-1}(a_{ij})\vac,\ 1\leq i < j\leq 4$,
  \item $\frac{1}{(n-2)!}\p_{-1}(1)^{n-2}\p_{-1}(a_{i})\p_{-1}(a_{j})\vac,\ 1\leq i < j\leq 4$,
- \item $\frac{1}{2(n-2)!}\p_{-1}(1)^{n-2}\p_{-2}(1) \vac$.
+ \item $\frac{1}{2(n-2)!}\p_{-1}(1)^{n-2}\p_{-2}(1) \vac$. We denote this class by $\delta$.
 \end{itemize}
-TODO: Show that these are indivisible.
-The first $6$ classes give an injection $j : H^2(A,\Z)\rightarrow H^2(A\hilb{n},\Z)$.
+It is clear that these classes form a basis of $H^2(A\hilb{n},\Q)$. By \cite[Thm.~4.6,Lemma~5.2]{QinWang}, they also form a basis for $H^2(A\hilb{n},\Z)$. TODO: refine this argument
+
+The first $6$ classes give an injection $j : H^2(A,\Z)\rightarrow H^2(A\hilb{n},\Z)$. 
 
 \section{Generalized Kummer varieties}
 \begin{definition}
@@ -170,7 +171,13 @@ K^{n-1}A @>\theta >> A\hilb{n}\\
 \end{CD}
 \end{equation}
 \end{definition}
-Our first objective is to collect some information about this pullback diagram. Or main reference is \cite{Beauville}.
+Our first objective is to collect some information about this pullback diagram. 
+Or main reference is \cite{Beauville} where it is shown, that $K^{n-1}$ is an irreducible holomorphically symplectic manifold. So $H^2(\kum{A}{n-1},\Z)$ admits an integer-valued nondegenerated quadratic form (called Beauville--Bogomolov form) $q$ which gives $H^2(\kum{A}{n-1},\Z)$ the structure of a lattice isomorphic to $U^{\oplus 3}\oplus \left< -2n \right>$, for $n\geq 3$. We have the following formula for $\alpha\in H^2(\kum{A}{n-1},\Z)$:
+\begin{equation} \label{fujiki}
+\int_{\kum{A}{n-1}} \alpha^{2n-2} = n\frac{(2n-2)!}{2^{n-1}(n-1)!} q(a)^{n-1}
+\end{equation}
+
+
 The morphism $\theta$ induces a homomorphism of graded rings
 \begin{equation}
 \theta^* :H^*(A\hilb{n},\Z)\longrightarrow H^*(\kum{A}{n-1},\Z).
@@ -185,81 +192,71 @@ The morphism $\theta$ induces a homomorphism of graded rings
 \begin{proof}
 The first statement is clear since $H^1(\kum{A}{n-1})$ is always zero \cite[Thm.~3]{Beauville}. Furthermore, by \cite[Sect.~7]{Beauville}, $\theta^{\ast} : H^2(A\hilb{n},\C) \rightarrow H^2(\kum{A}{n-1},\C)$ is surjective. The second Betti numbers of $A\hilb{n}$ and $\kum{A}{n-1}$ are $13$ and $7$, respectively. It is clear that $\Lambda^2H^1(A\hilb{n},\Z)$ is contained in the kernel, and since the dimension of the kernel has to be $6$, it must be all.
 
-It remains to show that $\theta^*$  is surjective for integral coefficients, too.
+It remains to show that $\theta^*$  is surjective for integral coefficients, too. We do it only for $n=3$. We use a formula in \cite[p. 8]{Britze}, namely:
+\begin{equation} \int_{A\hilb{3}}j(a)^6 = \frac{5}{3} \int_A a^2 \int_{\kum{A}{2}} \theta^* j(a)^4
+\end{equation}
+for all $a\in H^2(A)$. One computes $\int_{A\hilb{3}}j(a)^6 = 15 \left(\int_A a^2\right)^3$. Comparing this with (\ref{fujiki}), we see that the sublattice given by the image of $\theta^*\circ j$ is unimodular. Secondly, we must show that $q(\theta^*\delta) = -6$. TODO: show this!
 \end{proof}
 
 
-We have injections $j : H^2(A)\rightarrow H^2(A\hilb{n})$ and $i = \theta^* j$. The cohomology $H^*(A\hilb{n})$ is described in terms of vertex operators in \cite{LehnSorger} and \cite{LiQinWang}.
-
-We describe now the image of $\theta^*$ in the case $n=3$:
-\begin{itemize}
-\item We know $j(a)=\frac{1}{2}\p_{-1}(a)\p_{-1}(1)^2\vac$, because the two must be linearly dependent and
-$$ \int_{A\hilb{3}}j(a)^6 = 15 q(a)^3, \quad \left(\frac{1}{2}\p_{-1}(a)\p_{-1}(1)^2\vac\right)^3 = 15 q(a)^3\p_{-1}(x)^3\vac.
-$$
-\item By \cite[p. 8]{Britze}, we have for $\alpha = j(a)=\frac{1}{2}\p_{-1}(a)\p_{-1}(1)^2\vac$: 
-$$ \int_{A\hilb{3}}\alpha^6 = \frac{5}{3} q(a) \int_{K^2} \theta^* \alpha^4
-$$
-On the other hand, 
-$$\alpha^4 = 3 q(a)^2\p_{-1}(x)^2\p_{-1}(0)\vac + 3q(a) \p_{-1}(x) \p_{-1}(a)^2\vac,$$
-so if the image of both summands under $\int\theta^*$ is positive, then 
-$$ \int\theta^*\p_{-1}(x)^2\p_{-1}(0)\vac = \int\theta^* \tfrac{1}{2}\p_{-1}(x) \p_{-1}(a)^2\vac=1 .$$ 
-
-\end{itemize}
 \begin{proposition}
-The class of $K^2(A)$ in $H^4(A\hilb{3},\Q)$ is given by
+Set $a_i^{(1)}:= \frac{1}{2}\kq_1(1)^2\kq_1(a_i)\vac$. The class of $\kum{A}{2}$ in $H^4(A\hilb{3},\Q)$ is given by
 $$
 %\prod_{i=1}^4 \left(\tfrac{1}{2}\pone(1)^2\pone(\alpha_i)\vac\right).
 a_1^{(1)}\cdot a_2^{(1)}\cdot a_3^{(1)}\cdot a_4^{(1)}.
 $$ 
+Conjecture: This is true for all $n$, not only $n=3$.
 \end{proposition}
 \begin{proof}
-We know that for all $i$ and all $\beta\in H^7(A\hilb{3})$, we have $\int_ {K^2(A)}\theta^*(\alpha_i\cdot\beta) = \int_ {A\hilb{3}}\alpha_i\cdot\beta \cdot[K^2(A)]= 0$ and
+We know that for all $i$ and all $\beta\in H^7(A\hilb{3})$, we have $\int_ {\kum{A}{2}}\theta^*(\alpha_i\cdot\beta) = \int_ {A\hilb{3}}\alpha_i\cdot\beta \cdot[\kum{A}{2}]= 0$ and
 for a basis $(\gamma_i) $ of  $H^2(A\hilb{3})$,
 $$
-\int_ {A\hilb{3}}\gamma_i\cdot\gamma_j\cdot\gamma_k\cdot\gamma_l\cdot[K^2(A)] =
+\int_ {A\hilb{3}}\gamma_i\cdot\gamma_j\cdot\gamma_k\cdot\gamma_l\cdot[\kum{A}{2}] =
  3\left(\left<\gamma_i,\gamma_j\right>\left<\gamma_k,\gamma_l\right>+\left<\gamma_i,\gamma_k\right>\left<\gamma_j,\gamma_l\right>+\left<\gamma_i,\gamma_l\right>\left<\gamma_j,\gamma_k\right>  \right)
 $$
 These equations admit a unique solution.
 \end{proof}
-
-Let $\{a_i\}_{i= 1 \ldots 6}$ be a hyperbolic basis of 
-$H^2(A,\Z)$.
+Now we focus on classes of cohomological degree 4.
 \begin{proposition}
-The classes $\theta^* \left(\p_{-2}(a_i)\pone(1)\vac\right) $ and $\theta^*\left( \p_{-2}(1)\pone(a_i)\vac\right) $ are linearly dependent.
+The classes $\theta^* \left(\p_{-2}(a_{ij})\pone(1)\vac\right) $ and $\theta^*\left( \p_{-2}(1)\pone(a_{ij})\vac\right) $ are linearly dependent.
 \end{proposition}
+\begin{proof}
+We can compute the product of these two classes with $[ \kum{A}{2} ] $ in $H^*(A\hilb{3})$. The two results are linearly dependent. Is this sufficient? If not, is there a direct geometric proof?
+\end{proof}
+
 \begin{proposition}
 $\theta^*\left(\p_{-3}(x)\vac\right) =0$ 
 \end{proposition}
 \begin{corollary}
-$\theta^* \left(\p_{-2}(a_i)\pone(1)\vac\right) = \frac{1}{4}\theta^*\left( \p_{-2}(1)\pone(a_i)\vac\right) $
+$\theta^* \left(\p_{-2}(a_{ij})\pone(1)\vac\right) = \frac{1}{4}\theta^*\left( \p_{-2}(1)\pone(a_{ij})\vac\right) $
 \end{corollary}
 \begin{proof}
-Let $a_j$ be complementary, \ie $a_ia_j=1$. Let $\ch_1(a_j) = -\frac{1}{2} \p_{-2}(a_j)\pone(1)\vac$ be the chern character in the vertex algebra description of $H^*(A\hilb{3})$. Then:
+Let  $a_{ij}$ and $a_{kl}$ be complementary, \ie $a_{ij}a_{kl}=1$. Let $\ch_1(a_{kl}) = -\frac{1}{2} \p_{-2}(a_{kl})\pone(1)\vac$ be the chern character in the vertex algebra description of $H^*(A\hilb{3})$. Then:
 $$
-\theta^*\left(-\frac{1}{2}\ch_1(a_j)\cdot\p_{-2}(a_i)\pone(1)\vac \right) =
+\theta^*\left(-\frac{1}{2}\ch_1(a_{kl})\cdot\p_{-2}(a_{ij})\pone(1)\vac \right) =
 \theta^*\left(\p_{-3}(1)\vac + \frac{1}{2}\pone(x)^2\pone(1)\vac \right)
 $$
-But on the other hand, $\delta \cdot j(a) = \frac{1}{2} \p_{-2}(1)\pone(a_i)\vac+\p_{-2}(a_i)\pone(1)\vac$, and
+But on the other hand, $\delta \cdot j(a) = \frac{1}{2} \p_{-2}(1)\pone(a_{ij})\vac+\p_{-2}(a_{ij})\pone(1)\vac$, and
 $$
-\theta^*\left(\ch_1(a_j)\cdot \delta \cdot j(a)\right) =
+\theta^*\left(\ch_1(a_{kl})\cdot \delta \cdot j(a)\right) =
 \theta^*\left(-3\p_{-3}(1)\vac  - 3\pone(x)^2\pone(1)\vac \right).
 $$
 \end{proof}
 \begin{corollary}
-$\theta^*\left( \delta \cdot j(a_i) \right) = \theta^*\left( \frac{3}{4} \p_{-2}(1)\pone(a_i)\vac\right)$ is divisible by 3. \qed
+$\theta^*\left( \delta \cdot j(a_{ij}) \right) = \theta^*\left( \frac{3}{4} \p_{-2}(1)\pone(a_{ij})\vac\right)$ is divisible by 3. \qed
 \end{corollary}
 \begin{proposition}
-The classes $\theta^*\left(j(a_i)^2 - \frac{1}{3}j(a_i)\cdot \delta\right)$ are divisible by 2.
+The classes $\theta^*\left(j(a_{ij})^2 - \frac{1}{3}j(a_{ij})\cdot \delta\right)$ are divisible by 2.
 \end{proposition}
 \begin{proof}
-By \cite{QinWang}, the classes $\frac{1}{2} \pone(a_i)^2\pone(1)\vac - \frac{1}{2}\p_{-2}(a_i)\pone(1)\vac$ are integral in $H^4(A\hilb{n})$. But $j(a_i)^2= \pone(a_i)^2\pone(1)\vac $ and $\theta^*\left(\frac{1}{3}j(a_i)\cdot\delta\right) =\theta^*\left(\p_{-2}(a_i)\pone(1)\vac\right)$.
+By \cite{QinWang}, the classes $\frac{1}{2} \pone(a_{ij})^2\pone(1)\vac - \frac{1}{2}\p_{-2}(a_{ij})\pone(1)\vac$ are integral in $H^4(A\hilb{n})$. But $j(a_{ij})^2= \pone(a_{ij})^2\pone(1)\vac $ and $\theta^*\left(\frac{1}{3}j(a_{ij})\cdot\delta\right) =\theta^*\left(\p_{-2}(a_{ij})\pone(1)\vac\right)$.
 \end{proof}
 \begin{proposition}
 The class $\delta^2$ is divisible by 2.
 \end{proposition}
 \begin{proof}
 By \cite[Prop.~4.1]{HassettTschinkel}, $\Sym^2H^2 \oplus \left(\Sym^2H^2\right)^\perp = H^4$. 
-We want to show that $\delta^2\cdot \Sym^2H^2 = 2\Z$. We know a $\Q$--basis of $\Sym^2H^2$ with at most one class divisible by 2, given by $j(a_i)j(a_j)$, $\delta^2$ and the above proposition. By computation, $\int \delta^4$ is divisible by 4 and $\int \delta^2 j(a_i)j(a_j)$ and $\int \delta^3 j(a_i)$ are all divisible by 2.
+We want to show that $\delta^2\cdot \Sym^2H^2 = 2\Z$. We know a $\Q$--basis of $\Sym^2H^2$ with at most one class divisible by 2, given by $j(a_{ij})j(a_{kl})$, $\delta^2$ and the above proposition. By computation, $\int \delta^4$ is divisible by 4 and $\int \delta^2 j(a_{ij})j(a_{kl})$ and $\int \delta^3 j(a_{ij})$ are all divisible by 2.
 So $\delta^2\cdot H^4 = 2\Z$ and therefore $\delta^2$ is divisible by $2$, since $ H^4 $ is unimodular.
 \end{proof}
 
@@ -272,9 +269,9 @@ It is equal to $\theta^*\left(\p_{-3}(1)\vac +\frac{3}{2}\pone(x)\pone(1)^2\vac 
 
 Next we look at the Chern classes of the tangent sheaves. Since the morphism $\Sigma$ from the defining pullback diagram (\ref{square}) is a submersion, the normal bundle of $\kum{A}{n-1}$ in $A\hilb{n}$ is trivial. Hence $c(\kum{A}{2}) = \theta^* c(A\hilb{3})$. Looking in \cite[Sect.~8]{Generating}, we find a general formula for Chern classes of Hilbert schemes of points on surfaces. So we deduce
 \begin{align*}
-c_2(A\hilb{3}) &= \left(\tfrac{3}{2} \mathfrak{q}_{(1,1)}(\Delta 1) \mathfrak{q}_1(1) -\tfrac{1}{3} \mathfrak{q}_3\right)\vac \\
+c_2(A\hilb{3}) &= \left(\tfrac{3}{2} \mathfrak{q}_{*(1,1)}(1) \mathfrak{q}_1(1) -\tfrac{1}{3} \mathfrak{q}_3\right)\vac \\
  &= 10(1\hilb{\bullet}_{(4)})  -2(1\hilb{\bullet}_{(2)})^2 \\
-c_4(A\hilb{3}) &= \tfrac{4}{3} \mathfrak{q}_{(1,1,1)}(\Delta 1)\vac = 4 (1\hilb{\bullet}_{(4)})^2. 
+c_4(A\hilb{3}) &= \tfrac{4}{3} \mathfrak{q}_{*(1,1,1)}( 1)\vac = 4 (1\hilb{\bullet}_{(4)})^2. 
 \end{align*}
 
 
