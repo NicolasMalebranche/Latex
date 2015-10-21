@@ -1,49 +1,10 @@
-\begin{thebibliography}{10}
-
-\bibitem{Beauville}
-A.~Beauville, \emph{Variétés kähleriennes dont la première classe de Chern est nulle}, 
-  J. Differential geometry, 18 (1983) 755-782
-
-\bibitem{Generating}
-S.~Boissi\`ere and M.~Nieper-Wi{\ss}kirchen, \emph{Generating series in the cohomology 
-  of Hilbert schemes of points on surfaces}, LMS J.~of Computation and Mathematics 10 (2007), 254--270 .
-
-\bibitem{BNS}
-S.~Boissi\`ere, M.~Nieper-Wi{\ss}kirchen, and A.~Sarti, \emph{Smith theory and 
-  Irreducible Holomorphic Symplectic Manifolds}, Journal of Topology 6 (2013), no.~2, 361–390.
-
-\bibitem{Britze} 
-M.~Britze, \emph{On the cohomology of generalized Kummer varieties}, (2003) 
-
-\bibitem{HassettTschinkel}
-B.~Hassett and Y.~Tschinkel, \emph{ Hodge theory and Lagrangian planes on 
-  generalized Kummer fourfolds}, Moscow Math. Journal, 13, no. 1, 33-56, (2013) 
-  
-\bibitem{LehnSorger}
-M.~Lehn and C.~Sorger, \emph{The cup product of {H}ilbert schemes for {$K3$}
-  surfaces}, Invent. Math. \textbf{152} (2003), no.~2, 305--329.
-
-\bibitem{LiQinWang}
-W.~Li, Z.~Qin and W.~Wang, \emph{Vertex algebras and the cohomology ring structure of 
-  Hilbert schemes of points on surfaces} (2002)
-
-\bibitem{Markman}
-E.~Markman, \emph{Integral generators for the cohomology ring of moduli spaces of
-  sheaves over {P}oisson surfaces}, Adv. Math. \textbf{208} (2007), no.~2,
-  622--646.
-
-\bibitem{Markman2}
-E.~Markman, \emph{Integral constraints on the monodromy group of the
-  hyper{K}\"ahler resolution of a symmetric product of a {$K3$} surface},
-  Internat. J. Math. \textbf{21} (2010), no.~2, 169--223.
-
-\bibitem{Nakajima}
-H.~Nakajima, \emph{Heisenberg algebra and {H}ilbert schemes of points on
-  projective surfaces}, Ann. of Math. (2) \textbf{145} (1997), no.~2, 379--388.
-
-\bibitem{QinWang}
-Z.~Qin and W.~Wang, \emph{Integral operators and integral cohomology classes of
-  {H}ilbert schemes}, Math. Ann. \textbf{331} (2005), no.~3, 669--692.
-
+\providecommand{\bysame}{\leavevmode\hbox to3em{\hrulefill}\thinspace}
+\providecommand{\MR}{\relax\ifhmode\unskip\space\fi MR }
+% \MRhref is called by the amsart/book/proc definition of \MR.
+\providecommand{\MRhref}[2]{%
+  \href{http://www.ams.org/mathscinet-getitem?mr=#1}{#2}
+}
+\providecommand{\href}[2]{#2}
+\begin{thebibliography}{}
 
 \end{thebibliography}

@@ -17,7 +17,7 @@
 \DeclareMathOperator{\Sym}{Sym}
 \DeclareMathOperator{\Hilb}{Hilb}
 \DeclareMathOperator{\ch}{ch}
-
+\DeclareMathOperator{\rk}{rk}
 
 \newcommand{\hilb}[1]{^{[#1]}}
 \newcommand{\ie}{{\it i.e. }}
@@ -79,6 +79,7 @@
 
 
 \author{Simon Kapfer}
+\author{Gr\'egoire Menet}
 \address{Simon Kapfer, Laboratoire de Math\'ematiques et Applications, UMR CNRS 6086, Universit\'e de Poitiers, T\'el\'eport 2, Boulevard Marie et Pierre Curie, F-86962 Futuroscope Chasseneuil}
 \email{simon.kapfer@math.univ-poitiers.fr}
 %\urladdr{http://www.math.uni-augsburg.de/alg/}
@@ -172,6 +173,10 @@ K^{n-1}A @>\theta >> A\hilb{n}\\
 \end{equation}
 \end{definition}
 Our first objective is to collect some information about this pullback diagram. 
+We recall Theorem 2 of \cite{Spanier}.
+\begin{theorem}\label{torsion}
+The cohomology of $K_{2}(A)$ is torsion free. 
+\end{theorem}
 Or main reference is \cite{Beauville} where it is shown, that $K^{n-1}$ is an irreducible holomorphically symplectic manifold. So $H^2(\kum{A}{n-1},\Z)$ admits an integer-valued nondegenerated quadratic form (called Beauville--Bogomolov form) $q$ which gives $H^2(\kum{A}{n-1},\Z)$ the structure of a lattice isomorphic to $U^{\oplus 3}\oplus \left< -2n \right>$, for $n\geq 3$. We have the following formula for $\alpha\in H^2(\kum{A}{n-1},\Z)$:
 \begin{equation} \label{fujiki}
 \int_{\kum{A}{n-1}} \alpha^{2n-2} = n\frac{(2n-2)!}{2^{n-1}(n-1)!} q(a)^{n-1}
@@ -255,20 +260,35 @@ The classes $\theta^*\left(j(a_{ij})^2 - \frac{1}{3}j(a_{ij})\cdot \delta\right)
 \begin{proof}
 By \cite{QinWang}, the classes $\frac{1}{2} \pone(a_{ij})^2\pone(1)\vac - \frac{1}{2}\p_{-2}(a_{ij})\pone(1)\vac$ are integral in $H^4(A\hilb{n})$. But $j(a_{ij})^2= \pone(a_{ij})^2\pone(1)\vac $ and $\theta^*\left(\frac{1}{3}j(a_{ij})\cdot\delta\right) =\theta^*\left(\p_{-2}(a_{ij})\pone(1)\vac\right)$.
 \end{proof}
-\begin{proposition}
-The class $\delta^2$ is divisible by 2.
+
+
+\begin{proposition}\label{DelSum3}
+The class $\theta^*\left(\delta^2+j(a_{12})\cdot j(a_{34})-j(a_{13})\cdot j(a_{24})+j(a_{14})\cdot j(a_{23})\right)$ is divisible by 3.
 \end{proposition}
 \begin{proof}
-By \cite[Prop.~4.1]{HassettTschinkel}, $\Sym^2H^2 \oplus \left(\Sym^2H^2\right)^\perp = H^4$. 
-We want to show that $\delta^2\cdot \Sym^2H^2 = 2\Z$. We know a $\Q$--basis of $\Sym^2H^2$ with at most one class divisible by 2, given by $j(a_{ij})j(a_{kl})$, $\delta^2$ and the above proposition. By computation, $\int \delta^4$ is divisible by 4 and $\int \delta^2 j(a_{ij})j(a_{kl})$ and $\int \delta^3 j(a_{ij})$ are all divisible by 2.
-So $\delta^2\cdot H^4 = 2\Z$ and therefore $\delta^2$ is divisible by $2$, since $ H^4 $ is unimodular.
+It is equal to $\theta^*\left(\p_{-3}(1)\vac -\frac{3}{2}\pone(x)\pone(1)^2\vac \right)$.
 \end{proof}
 
-\begin{proposition}
-The class $\theta^*\left(\delta^2 - j(a_1)\cdot j(a_2)- j(a_3)\cdot j(a_4)- j(a_5)\cdot j(a_6)\right)$ is divisible by 3.
+\begin{proposition}\label{Pi'}
+We have:
+$$H^{4}(K_{2}(A),\Q)=\Sym^2 H^{2}(K_{2}(A),\Q)\oplus^{\bot} \Pi'\otimes\Q.$$
 \end{proposition}
 \begin{proof}
-It is equal to $\theta^*\left(\p_{-3}(1)\vac +\frac{3}{2}\pone(x)\pone(1)^2\vac \right)$.
+In Section 4 of \cite{HassettTschinkel}, we can find the following formula:
+\begin{equation}
+Z_{\tau}\cdot D_{1}\cdot D_{2}=2\cdot q(D_{1},D_{2}),
+\label{ZT}
+\end{equation}
+for all $D_{1}$, $D_{2}$ in $H^{2}(K_{2}(A),\Z)$, $\tau\in A[3]$ and $q$ the Beauville-Bogomolov form.
+It follows that $\Pi'\subset \Sym^2 H^{2}(K_{2}(A),\Z)^{\bot}$.
+Since the cup-product is non-degenerated and by Proposition 4.3 of \cite{HassettTschinkel}, 
+we have: 
+\begin{align*}
+\rk \left(\Sym^2 H^{2}(K_{2}(A),\Z) \oplus\Pi'\right)&=\rk \Sym^2 H^{2}(K_{2}(A),\Z) + \rk\Pi'\\
+&=28+80\\
+&= \rk H^{4}(K_{2}(A),\Z).
+\end{align*}
+It follows that $$H^{4}(K_{2}(A),\Q)=\Sym^2 H^{2}(K_{2}(A),\Q)\oplus^{\bot} \Pi'\otimes\Q.$$
 \end{proof}
 
 Next we look at the Chern classes of the tangent sheaves. Since the morphism $\Sigma$ from the defining pullback diagram (\ref{square}) is a submersion, the normal bundle of $\kum{A}{n-1}$ in $A\hilb{n}$ is trivial. Hence $c(\kum{A}{2}) = \theta^* c(A\hilb{3})$. Looking in \cite[Sect.~8]{Generating}, we find a general formula for Chern classes of Hilbert schemes of points on surfaces. So we deduce
@@ -278,7 +298,49 @@ c_2(A\hilb{3}) &= \left(\tfrac{3}{2} \mathfrak{q}_{*(1,1)}(1) \mathfrak{q}_1(1) 
 c_4(A\hilb{3}) &= \tfrac{4}{3} \mathfrak{q}_{*(1,1,1)}( 1)\vac = 4 (1\hilb{\bullet}_{(4)})^2. 
 \end{align*}
 
+\begin{proposition}
+We have:
+$$c_{2}(K_{2}(A))=\theta^{*}\left(4j(a_{12})\cdot j(a_{34})-4j(a_{13})\cdot j(a_{24})+4j(a_{14})\cdot j(a_{23})-\frac{1}{3}\delta^{2}\right).$$
+In particular $c_{2}(K_{2}(A))\in \Sym^2 H^{2}(K_{2}(A),\Z).$
+\end{proposition}
+\begin{proof}
+We can write:
+$$c_{2}(K_{2}(A))=a+b,$$
+with $a\in \Sym^2 H^{2}(K_{2}(A),\Q)$ and $b\in \Pi'$.
+First, we prove that $b=0$.
+We have $c_{2}(K_{2}(A))\in \Pi'^{\bot}$ and also $a\in \Pi'^{\bot}$, it follows that 
+$b\in \Pi'^{\bot}$. 
+Since the cup-product is non-degenerated, it follows that $b$ is of torsion. 
+Then by Theorem \ref{torsion}, $b=0$.
 
+By (\ref{ZT}) and Proposition 5.1 of \cite{HassettTschinkel}, we can see that for all $D_{1}$ and $D_{2}$ in $H^{2}(K_{2}(A),\Z)$, we have:
+$$c_{2}(K_{2}(A))\cdot D_{1}\cdot D_{2}=54\cdot q(D_{1},D_{2}),$$
+where $q$ is the Beauville-Bogomolov form.
+Then we can calculate that:
+$$c_{2}(K_{2}(A))=\theta^{*}\left(4j(a_{12})\cdot j(a_{34})-4j(a_{13})\cdot j(a_{24})+4j(a_{14})\cdot j(a_{23})-\frac{1}{3}\delta^{2}\right).$$
+\end{proof}
+\begin{corollary}\label{DeltaSquare3}
+The class $\theta^* \delta^2$ is divisible by 3.
+\end{corollary}
+
+\begin{proposition}
+The element 
+$$\theta^{*}\left(j(a_{12})\cdot j(a_{34})-j(a_{13})\cdot j(a_{24})+j(a_{14})\cdot j(a_{23})\right)$$ 
+is divisible by 6.
+\end{proposition}
+\begin{proof}
+Again by Section 4 of \cite{HassettTschinkel}, we have:
+$$W=\frac{3}{8}(c_{2}(K_{2}(A))+3\theta^{*}(\delta)^2).$$
+It follows:
+\begin{equation}
+W=\frac{3}{8}\theta^{*}\left(4j(a_{12})\cdot j(a_{34})-4j(a_{13})\cdot j(a_{24})+4j(a_{14})\cdot j(a_{23})+\frac{8}{3}\delta^{2}\right).
+\label{W}
+\end{equation}
+It follows that 
+$$\theta^{*}(j(a_{12})\cdot j(a_{34})-j(a_{13})\cdot j(a_{24})+j(a_{14})\cdot j(a_{23})).$$
+is divisible by 2.
+For the divisibility by 3 combine Proposition \ref{DelSum3} with Corollary \ref{DeltaSquare3}.
+\end{proof}
 
 \bibliographystyle{amsplain}
 \bibliography{Kummer2.tex}
