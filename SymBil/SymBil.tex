@@ -103,7 +103,7 @@ Finally, we construct a basis of homogeneous polynomials that are orthogonal whe
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Introduction}
-Our motivation originated in Hyperk\"ahler theory. The Beauville--Bogomolov--Fujiki form $q$ for a compact Hyperk\"ahler manifold $X$ is a quadratic form on the integral cohomology group $H^2$ which is defined by an equation of the structure
+Our motivation originated in Hyperk\"ahler theory. The Beauville--Bogomolov--Fujiki form $q$ for a compact Hyperk\"ahler manifold $X$ is a quadratic form on the integral cohomology $H^2:=H^2(X,\Z)$, defined by an equation of the structure
 \begin{equation} \label{initialeq}
 q(x)^k = I(x^{2k}),
 \end{equation}
@@ -234,7 +234,7 @@ Let $f:\R^{d+1}\rightarrow\R$ be a continuous homogeneous function of degree $k$
 \end{lemma}
 
 
-\subsection{Lattices}\label{latticeSubsection} By a lattice $L$ we mean a free $\Z$--module of finite rank, equipped with a non--degenerate, integer--valued symmetric bilinear form $\left<\ ,\;\right>$. By a homomorphism or embedding $L\subset M$ of lattices we mean a map $:L\rightarrow M$ that preserves the bilinear forms on $L$ and $M$ respectively. It is automatically injective. We always have the injection of a lattice $L$ into its dual space $L^*\coloneqq \Hom(L,\Z)$, given by $x \mapsto \left<x,\ \right>$. A lattice is called unimodular, if this injection is an isomorphism, \ie if it is surjective. By tensoring with $\Q$, we can interpret $L$ as well as $L^*$ as a discrete subset of the $\Q$--vector space $L\otimes \Q$. Note that this gives a kind of lattice structure to $L^*$, too, but the symmetric bilinear form on $L^*$ may now take rational coefficients.
+\subsection{Lattices}\label{latticeSubsection}A reference for this subsection is Chapter 8.2.1 of \cite{Dolgachev}. By a lattice $L$ we mean a free $\Z$--module of finite rank, equipped with a non--degenerate, integer--valued symmetric bilinear form $\left<\ ,\;\right>$. By a homomorphism or embedding $L\subset M$ of lattices we mean a map $:L\rightarrow M$ that preserves the bilinear forms on $L$ and $M$ respectively. It is automatically injective. We always have the injection of a lattice $L$ into its dual space $L^*\coloneqq \Hom(L,\Z)$, given by $x \mapsto \left<x,\ \right>$. A lattice is called unimodular, if this injection is an isomorphism, \ie if it is surjective. By tensoring with $\Q$, we can interpret $L$ as well as $L^*$ as a discrete subset of the $\Q$--vector space $L\otimes \Q$. Note that this gives a kind of lattice structure to $L^*$, too, but the symmetric bilinear form on $L^*$ may now take rational coefficients.
 
 If $L\subset M$ is an embedding of lattices of the same rank, then the index $|M\DP L|$ of $L$ in $M$ is defined as the order of the finite group $M/L$.
 There is a chain of embeddings $L\subset M \subset M^* \subset L^*$ with $|L^*\DP M^*| =|M\DP L| $.
@@ -346,7 +346,7 @@ where $\theta_{d,k}$ is a combinatorial factor given by:
 \end{remark}
 \begin{proof}
 We prove the theorem in three steps.
-Let us first consider the case when $V$ is a vector space over $\R$ and $G$ is positive definite. We further reduce this to the special case when $G$ is the identity matrix. That is the essential part of the proof, which we have to postpone to Section~\ref{hsection}.
+Let us first consider the case when $V$ is a vector space over $\R$ and $G$ is positive definite. We further reduce this to the special case when $G$ is the identity matrix. That is the essential difficulty of the proof, which we will treat in Section~\ref{hsection}.
 
 Any orthogonal transformation $U\in O(V)$ induces a transformation $U^{\otimes k} \in O(\Sym^k V)$ and thus doesn't affect determinants. Since over $\R$, every symmetric matrix can be diagonalized by applying an orthogonal coordinate change, we may assume that $G=\text{diag}\left(a_0,\ldots,a_d\right)$ is a diagonal matrix. 
 Let us check, what happens if we apply a coordinate transformation $x\mapsto\tilde x$ that changes the last coordinate by $\tilde{x}_d = \gamma x_d$ and leaves the other coordinates invariant. Let $\tilde{G}$ and $\tilde{\G}$ be the Gram matrices corresponding to the new coordinates.
@@ -658,7 +658,48 @@ If the torsion part of $H^{2k}/(\Sym^kH^2)$ is unknown, then Corollary~\ref{latt
 \emph{Acknowledgements.} We thank Samuel Boissi\`ere, Cl\'ement Chesseboeuf, K\'evin Tari and Yuan Xu for useful conversations and the University of Poitiers for its hospitality. The author was supported by a DAAD grant.
 
 \bibliographystyle{amsplain}
-\bibliography{SymBil.tex}
+\begin{thebibliography}{10}
+
+\bibitem{BNS}
+Samuel~Boissi\`ere, Marc~Nieper-Wi{\ss}kirchen and Alessandra~Sarti, \emph{Smith theory and 
+  Irreducible Holomorphic Symplectic Manifolds}, Journal of Topology 6 (2013), no. 2, 361–-390 
+
+\bibitem{Chihara}
+Theodore~S.~Chihara, \emph{An introduction to orthogonal polynomials},
+  Mathematics and its Applications 13, Gordon and Breach Science Publishers (1978)
+
+\bibitem{Dai}
+Feng~Dai and Yuan~Xu, \emph{Spherical Harmonics}, eprint arXiv:1304.2585 (2013)
+
+\bibitem{Dolgachev}
+Igor V.~Dolgachev, \emph{Classical Algebraic Geometry}, 
+  Cambridge University Press (2012)
+
+\bibitem{Dunkl}
+Charles~F.~Dunkl and Yuan~Xu, \emph{Orthogonal Polynomials of Several Variables},
+  Encyclopedia of Mathematics and its Applications, Vol.~81, Cambridge University Press (2001)
+
+\bibitem{Folland}
+Gerald~B.~Folland, \emph{How to Integrate a Polynomial over a Sphere}, The American
+  Mathematical Monthly, Vol.~108, no.~5, (May,~2001)
+
+\bibitem{Huybrechts}
+Mark~Gross, Daniel~Huybrechts, Dominic~Joyce, \emph{Calabi-Yau Manifolds and Related Geometries},
+  Universitext, Springer (2003)
+
+\bibitem{Kapfer}
+Simon~Kapfer, \emph{Computing Cup-Products in integral cohomology of Hilbert schemes 
+  of points on K3 surfaces}, eprint arXiv:1410.8398 (2014)
+
+\bibitem{McGarr}
+Se\'an McGarraghy, \emph{Symmetric Powers of Symmetric Bilinear Forms}, 
+  Algebra Colloquium 12:1 (2005) 41-57
+
+\bibitem{OGrady}
+Kieran~G.~O'Grady, \emph{Compact Hyperk\"ahler manifolds: general theory}, lecture notes (2014)
+  \url{www.mimuw.edu.pl/~gael/Document/hk-theory.pdf}
+
+\end{thebibliography}
 
 
 \end{document}
