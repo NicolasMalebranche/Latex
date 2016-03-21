@@ -324,47 +324,47 @@ If $(p_n)_{n\leq N}$ is a finite sequence that satisfies a three-term recurrence
 
 \subsection{A polynomial family} 
 Our construction of homogeneous polynomials orthogonal on the sphere is formally similar to the definition of spherical harmonics, see \cite[p.~35]{Dunkl}. Those are defined by recursion over the number of variables, as products of Chebychev and Gegenbauer polynomials. Inspired by that procedure, we introduce the following polynomial family in lieu thereof:
-\begin{definition} Let $n,\ m$ be integers with $0\leq 2n\leq m+1$, a condition that we always will assume silently. We define monic polynomials $\p{n}{m}$ of degree $n$ with rational coefficients:
+\begin{definition} Let $n,\ m$ be integers with $0\leq 2n\leq m+1$, a condition that we always will assume silently. We define monic polynomials $\pol{n}{m}$ of degree $n$ with rational coefficients:
 \begin{equation*}
-\p{n}{m}(x) \coloneqq \sum_{\substack{j=0\\ n-j\ \text{even}}}^n (-1)^{\frac{n-j}{2}} \frac{n!\,(m-2n)!!}{j!\,(m-n-j)!!\,(n-j)!!}\:x^j.
+\pol{n}{m}(x) \coloneqq \sum_{\substack{j=0\\ n-j\ \text{even}}}^n (-1)^{\frac{n-j}{2}} \frac{n!\,(m-2n)!!}{j!\,(m-n-j)!!\,(n-j)!!}\:x^j.
 \end{equation*}
 \end{definition}
 \begin{remark}
-As Yuan Xu pointed out to the author, this can be written in terms of the hypergeometric function, namely $\p{n}{m}(x) = x^n\vphantom{}_2F_1\!\left( \genfrac{}{}{0pt}{}{-\frac{n}{2},\,\frac{1-n}{2}}{\frac{m}{2}-n+1} ; -\frac{1}{x^2}\right)$. To see this, first change summation from $j$ to $n-j$, so that the sum is over $j\! =$ even, then set $j\! =\!2i$ and rewrite the sum in the notation of the rising Pochhammer symbol $(a)_n = a (a\!+\!1)\ldots(a\!+\!n\!-\!1)$. Comparing this formula with \cite[Prop.~1.4.11]{Dunkl}, it follows that the $\p{n}{m}$ are in fact a variant of the Gegenbauer polynomials $C_n^\lambda$. More precisely, $\p{n}{m}(x)$ is a multiple of $C^{-\frac{m}{2}}_n\!\!\left(\sqrt{-1}\,x\right)$, where the factor is chosen such that the polynomial becomes monic.
+As Yuan Xu pointed out to the author, this can be written in terms of the hypergeometric function, namely $\pol{n}{m}(x) = x^n\vphantom{}_2F_1\!\left( \genfrac{}{}{0pt}{}{-\frac{n}{2},\,\frac{1-n}{2}}{\frac{m}{2}-n+1} ; -\frac{1}{x^2}\right)$. To see this, first change summation from $j$ to $n-j$, so that the sum is over $j\! =$ even, then set $j\! =\!2i$ and rewrite the sum in the notation of the rising Pochhammer symbol $(a)_n = a (a\!+\!1)\ldots(a\!+\!n\!-\!1)$. Comparing this formula with \cite[Prop.~1.4.11]{Dunkl}, it follows that the $\pol{n}{m}$ are in fact a variant of the Gegenbauer polynomials $C_n^\lambda$. More precisely, $\pol{n}{m}(x)$ is a multiple of $C^{-\frac{m}{2}}_n\!\!\left(\sqrt{-1}\,x\right)$, where the factor is chosen such that the polynomial becomes monic.
 \end{remark}
 
 \begin{lemma} \label{trigonometric}
 For $n\geq 1$, we have a trigonometric differential relation:
 \begin{equation*}
-\frac{d}{d\omega} \Big[\p{n-1}{m-2}\big(\tan(\omega)\big)\cos(\omega)^{m-1} \Big]= (n-m)\, \p{n}{m}\big(\tan(\omega)\big)\cos(\omega)^{m-1}.
+\frac{d}{d\omega} \Big[\pol{n-1}{m-2}\big(\tan(\omega)\big)\cos(\omega)^{m-1} \Big]= (n-m)\, \pol{n}{m}\big(\tan(\omega)\big)\cos(\omega)^{m-1}.
 \end{equation*} 
 \end{lemma}
 \begin{proof} This is straightforward.
 Firstly, we calculate $ \frac{d}{d\omega}\! \left[\sin(\omega)^j \cos(\omega)^{m-j-1}\right] = j \sin(\omega)^{j-1} \cos(\omega)^{m-j}-(m\!-\!j\!-\!1)\sin(\omega)^{j+1} \cos(\omega)^{m-j-2}$, and so
 \begin{align*}% \textstyle
-\frac{d}{d\omega} &\Big[\p{n-1}{m-2}\big(\tan(\omega)\big)\cos(\omega)^{m-1} \Big] 
+\frac{d}{d\omega} &\Big[\pol{n-1}{m-2}\big(\tan(\omega)\big)\cos(\omega)^{m-1} \Big] 
 \\&=\!\! \textstyle \sum\limits_{\substack{j=0\\ n-j\ \text{odd}}}^{n-1} \!\!\!\frac{(-1)^{\frac{n-j-1}{2}}  (n-1)!\,(m-2n)!!}{j!\,(m-n-j-1)!!\,(n-j-1)!!}\frac{d}{d\omega}\! \left[\sin(\omega)^j \cos(\omega)^{m-j-1}\right]
 \\ &=\!\!\textstyle\sum\limits_{\substack{j=0\\ n-j\ \text{even}}}^{n-2} \!\!\!\frac{(-1)^{\frac{n-j-2}{2}}(n-1)!\,(m-2n)!!}{j!\,(m-n-j-2)!!\,(n-j-2)!!}\sin(\omega)^{j} \cos(\omega)^{m-j-1} \\[-3mm]
 &\hspace{3cm}-\textstyle\sum\limits_{\substack{j=1\\ n-j\ \text{even}}}^{n}\!\!\! \frac{(-1)^{\frac{n-j}{2}}(n-1)!\,(m-2n)!!\,(m-j)}{(j-1)!\,(m-n-j)!!\,(n-j)!!}\sin(\omega)^{j} \cos(\omega)^{m-j-1} \\
 &=\!\!\textstyle\sum\limits_{\substack{j=0\\ n-j\ \text{even}}}^{n} \!\!\!\frac{(-1)^{\frac{n-j}{2}}(n-1)!\,(m-2n)!!}{j!\,(m-n-j)!!\,(n-j)!!}\underbrace{\big[(j\!-\!n)(m\!-\!n\!-\!j)-j(m\!-\!j)\big] }_{=n(n-m)}\tan(\omega)^{j} \cos(\omega)^{m-1}
-\\ &= \textstyle(n-m)\, \p{n}{m}\big(\tan(\omega)\big)\cos(\omega)^{m-1}. \qedhere
+\\ &= \textstyle(n-m)\, \pol{n}{m}\big(\tan(\omega)\big)\cos(\omega)^{m-1}. \qedhere
 \end{align*} 
 \end{proof}
 
-Our next goal is to show that the $\p{n}{m}$, for fixed $m$, form a set of orthogonal polynomials in the sense of the above subsection. In order to apply Favard's theorem, we claim:
+Our next goal is to show that the $\pol{n}{m}$, for fixed $m$, form a set of orthogonal polynomials in the sense of the above subsection. In order to apply Favard's theorem, we claim:
 \begin{proposition} \label{threeterm} For $0\leq 2n\leq m-1$, we have a three-term recurrence:
 \begin{equation*}
-\p{0}{m}(x) = 1,\qquad \p{1}{m}(x) = x, \qquad \p{n+1}{m}(x) = x\p{n}{m}(x) -d_n^m \p{n-1}{m}(x),
+\pol{0}{m}(x) = 1,\qquad \pol{1}{m}(x) = x, \qquad \pol{n+1}{m}(x) = x\pol{n}{m}(x) -d_n^m \pol{n-1}{m}(x),
 \end{equation*} 
 where $d_n^m\coloneqq \frac{n(m-n+1)}{(m-2n)(m-2n+2)}$.
 \end{proposition}
 \begin{proof}
-We start from the right: $ x\p{n}{m}(x) -d_n^m \p{n-1}{m}(x)$ gives
+We start from the right: $ x\pol{n}{m}(x) -d_n^m \pol{n-1}{m}(x)$ gives
 \begin{align*}
  &\textstyle \sum\limits_{\substack{j=1\\ n-j\ \text{odd}}}^{n+1} \!\!\!\frac{(-1)^{\frac{n-j+1}{2}} n!\,(m-2n)!!}{(j-1)!\,(m-n-j+1)!!\,(n-j+1)!!}\: x^j 
 \ - \sum\limits_{\substack{j=0\\ n-j\ \text{odd}}}^{n-1} \!\!\!d_n^m\frac{(-1)^{\frac{n-j-1}{2}} (n-1)!\,(m-2n+2)!!}{j!\,(m-n-j+1)!!\,(n-j-1)!!}\: x^j 
 \\=&\textstyle \sum\limits_{\substack{j=0\\ n-j\ \text{odd}}}^{n+1} \!\!\!\frac{(-1)^{\frac{n-j+1}{2}} (n+1)!\,(m-2n-2)!!}{j!\,(m-n-j-1)!!\,(n-j+1)!!}\underbrace{\textstyle
-\frac{j(m-2n)+(m-n+1)(n-j+1)}{(n+1)(m-n-j+1)}}_{=1} \,x^j = \p{n+1}{m}(x) .\qedhere
+\frac{j(m-2n)+(m-n+1)(n-j+1)}{(n+1)(m-n-j+1)}}_{=1} \,x^j = \pol{n+1}{m}(x) .\qedhere
 \end{align*} 
 \end{proof}
 The next theorem gives a useful analytic form of the corresponding linear functional.
@@ -372,19 +372,19 @@ The next theorem gives a useful analytic form of the corresponding linear functi
 \begin{equation}
 \L: f \longmapsto \int_0^\infty\!\!\! \int_{-\infty}^\infty z^{m-1}f\left(\frac{y}{z}\right) e^{-\frac{y^2+z^2}{2}} dydz.
 \end{equation}
-Then the $\p{n}{m}$ form a set of orthogonal polynomials with respect to the induced bilinear form, \ie for $k\neq n,\ k\!+\! n\leq m\!-\!1$, we have $\L(\p{k}{m}\p{n}{m})=0$ and for $2n\leq m\!-\!1$:
+Then the $\pol{n}{m}$ form a set of orthogonal polynomials with respect to the induced bilinear form, \ie for $k\neq n,\ k\!+\! n\leq m\!-\!1$, we have $\L(\pol{k}{m}\pol{n}{m})=0$ and for $2n\leq m\!-\!1$:
 \begin{equation} \label{Lpn2}
-\L(\p{n}{m}\p{n}{m}) = 2^{\frac{3}{2}m-2n-\frac{1}{2}}  \frac{n!}{(m-n)!}
+\L(\pol{n}{m}\pol{n}{m}) = 2^{\frac{3}{2}m-2n-\frac{1}{2}}  \frac{n!}{(m-n)!}
 \Gamma\left(\frac{m}{2}-n\right)\Gamma\left(\frac{m}{2}-n+1\right)\Gamma\left(\frac{m+1}{2}\right).
 \end{equation}
 \end{theorem}
 \begin{proof}
-Since $\p{n}{m}$ satisfy the three-term relation in Prop.~\ref{threeterm}, by Favard's theorem and Remark \ref{finiteFarvard}, there exists a unique functional $\L'$ with $\L'(1)=1$, such that the $\p{n}{m}$ form an orthogonal basis with respect to the bilinear form induced by $\L'$. We claim that $\L$ is a scalar multiple of $\L'$.
-Since $(\p{n}{m})_{n} $ is a basis of the space of polynomials, we must show that, for $n\geq 1$, $\L(\p{n}{m}) = \L(\p{n}{m}\p{0}{m}) =0$.
+Since $\pol{n}{m}$ satisfy the three-term relation in Prop.~\ref{threeterm}, by Favard's theorem and Remark \ref{finiteFarvard}, there exists a unique functional $\L'$ with $\L'(1)=1$, such that the $\pol{n}{m}$ form an orthogonal basis with respect to the bilinear form induced by $\L'$. We claim that $\L$ is a scalar multiple of $\L'$.
+Since $(\pol{n}{m})_{n} $ is a basis of the space of polynomials, we must show that, for $n\geq 1$, $\L(\pol{n}{m}) = \L(\pol{n}{m}\pol{0}{m}) =0$.
 Using polar coordinates $(y,z) = (r\cos\omega,r\sin\omega)$ and Lemma \ref{trigonometric}, we get:
 \begin{align*}
-\L(\p{n}{m}) &= \int_0^\pi\!\!\int_0^\infty\p{n}{m}\!\left(\tfrac{\cos\omega}{\sin\omega}\right)\sin(\omega)^{m-1} r^m e^{-\frac{r^2}{2}}dr d\omega \\
-&=\int_0^\infty r^m e^{-\frac{r^2}{2}}dr \int_{\frac{\pi}{2}}^{\frac{3\pi}{2}} (-1)^n \p{n}{m}\big(\tan(\omega)\big)\cos(\omega)^{m-1}d\omega\\
+\L(\pol{n}{m}) &= \int_0^\pi\!\!\int_0^\infty\pol{n}{m}\!\left(\tfrac{\cos\omega}{\sin\omega}\right)\sin(\omega)^{m-1} r^m e^{-\frac{r^2}{2}}dr d\omega \\
+&=\int_0^\infty r^m e^{-\frac{r^2}{2}}dr \int_{\frac{\pi}{2}}^{\frac{3\pi}{2}} (-1)^n \pol{n}{m}\big(\tan(\omega)\big)\cos(\omega)^{m-1}d\omega\\
 &= 2^{\frac{m-1}{2}}\Gamma\left(\tfrac{m+1}{2}\right)\Big[\tfrac{(-1)^n}{n-m}p_{n-1}^{m-2}\big(\tan(\omega)\big)\cos(\omega)^{m-1} \Big]_{\frac{\pi}{2}}^{\frac{3\pi}{2}} =0,
 \end{align*}
 while $\L(1) = 2^{\frac{m-1}{2}}\sqrt{\pi}\,\Gamma\!\left(\frac{m}{2}\right)=2^{\frac{3m-1}{2}}  \frac{1}{m!}
@@ -397,11 +397,11 @@ $$
 $$
 \end{proof}
 \begin{corollary} \label{pcor}
- $\L(x^{k}\p{n}{m}) = 0$ for $k < n$ and $\L(x^n\p{n}{m})= \L(\p{n}{m}\p{n}{m})$.
+ $\L(x^{k}\pol{n}{m}) = 0$ for $k < n$ and $\L(x^n\pol{n}{m})= \L(\pol{n}{m}\pol{n}{m})$.
 \end{corollary}
-\begin{proof} By the theorem, we have $\L(x^{0}\p{n}{m}) = 0$ for $n>0$, so the case $k=0$ holds true.
-Now the three-term recurrence from Proposition \ref{threeterm} allows us to inductively conclude that $\L(x^k\p{n}{m}) = \L(x^{k-1}\p{n+1}{m})+d_n^m\L(x^{k-1}\p{n-1}{m}) =0$.
-The second assertion, $\L(x^n\p{n}{m})= \L(\p{n}{m}\p{n}{m})$ is trivial in the case $n\leq 1$. For $n\geq 1$, the three-term recurrence yields now $\L(x^n\p{n}{m}) = \L(x^{n-1}\p{n+1}{m})+d_n^m\L(x^{n-1}\p{n-1}{m})=d_n^m\L(x^{n-1}\p{n-1}{m})$, so $\L(x^n\p{n}{m})$ and $\L(\p{n}{m}\p{n}{m})$ (by Theorem \ref{generalLnorm}) satisfy the same recurrence relation and therefore must be equal.
+\begin{proof} By the theorem, we have $\L(x^{0}\pol{n}{m}) = 0$ for $n>0$, so the case $k=0$ holds true.
+Now the three-term recurrence from Proposition \ref{threeterm} allows us to inductively conclude that $\L(x^k\pol{n}{m}) = \L(x^{k-1}\pol{n+1}{m})+d_n^m\L(x^{k-1}\pol{n-1}{m}) =0$.
+The second assertion, $\L(x^n\pol{n}{m})= \L(\pol{n}{m}\pol{n}{m})$ is trivial in the case $n\leq 1$. For $n\geq 1$, the three-term recurrence yields now $\L(x^n\pol{n}{m}) = \L(x^{n-1}\pol{n+1}{m})+d_n^m\L(x^{n-1}\pol{n-1}{m})=d_n^m\L(x^{n-1}\pol{n-1}{m})$, so $\L(x^n\pol{n}{m})$ and $\L(\pol{n}{m}\pol{n}{m})$ (by Theorem \ref{generalLnorm}) satisfy the same recurrence relation and therefore must be equal.
 \end{proof}
 
 
@@ -411,9 +411,9 @@ We are now ready to give the desired basis $(h_\alpha)_\alpha$ of homogeneous po
 \begin{definition} \label{hdef}
 For multi-indices $\alpha=(\alpha_0,\ldots,\alpha_d)$ we recursively define homogeneous polynomials $h_\alpha$ of degree $|\alpha |$ by $h_{(\alpha_0)}(x) \coloneqq x_0^{\alpha_0}$ and, for $d\geq 1$,
 $$
-h_\alpha(x) \coloneqq \p{\alpha_d}{2|\alpha |+d}\left(\frac{x_d}{r}\right) r^{\alpha_d}h_{\alpha'}(x'),
+h_\alpha(x) \coloneqq \pol{\alpha_d}{2|\alpha |+d}\left(\frac{x_d}{r}\right) r^{\alpha_d}h_{\alpha'}(x'),
 $$
-where we have set $r=\sqrt{x_0^2 +\ldots+x_{d-1}^2}=\|x'\|$. Note that the definition of $\p{n}{m}$ implies that $\p{n}{m}(\frac{1}{y})y^n$ is an even polynomial, so all square roots vanish.
+where we have set $r=\sqrt{x_0^2 +\ldots+x_{d-1}^2}=\|x'\|$. Note that the definition of $\pol{n}{m}$ implies that $\pol{n}{m}(\frac{1}{y})y^n$ is an even polynomial, so all square roots vanish.
 \end{definition}
 \begin{theorem} Let $\bra\ ,\;\ket$ be defined as in (\ref{spherebracket}).
 For all multi-indices $\alpha,\;\beta$ of length $\len(\alpha)=\len(\beta)=d+1$ and degree $|\alpha|=|\beta|$ we have:
@@ -433,8 +433,8 @@ This means that the $h_\alpha(x),\ |\alpha|=k$ form an orthogonal basis of $\R[x
 \begin{proof}
 We begin with equation (\ref{hth1}). The term $\bra h_{\alpha '},h_{\alpha '}\ket$ on the right hand side means of course the form in $d$ instead of $d\!+\!1$ variables. We use polar coordinates on $\R^d$ to compute:
 \begin{align*}
- & \sqrt{2\pi}^{d+1}\!\bra h_\alpha ,h_\alpha \ket = \int_{\R^{d+1}}\left[\p{\alpha_d}{2|\alpha|+d}\left(\frac{x_d}{r}\right) r^{\alpha_d}h_{\alpha'}(x)\right]^2 e^{-\frac{1}{2}\|x\|^2} dx \\
- = & \underbrace{ \int_0^\infty\!\!\int_{\R} \left[\p{\alpha_d}{2|\alpha|+d}\left(\frac{x_d}{r}\right)\right]^2 r^{2|\alpha'|+2\alpha_d+d-1} e^{-\frac{r^2+x_d^2}{2} }dx_ddr}_{= \L\left(\left(\p{\alpha_d}{2|\alpha|+d}\right)^2\right)}
+ & \sqrt{2\pi}^{d+1}\!\bra h_\alpha ,h_\alpha \ket = \int_{\R^{d+1}}\left[\pol{\alpha_d}{2|\alpha|+d}\left(\frac{x_d}{r}\right) r^{\alpha_d}h_{\alpha'}(x)\right]^2 e^{-\frac{1}{2}\|x\|^2} dx \\
+ = & \underbrace{ \int_0^\infty\!\!\int_{\R} \left[\pol{\alpha_d}{2|\alpha|+d}\left(\frac{x_d}{r}\right)\right]^2 r^{2|\alpha'|+2\alpha_d+d-1} e^{-\frac{r^2+x_d^2}{2} }dx_ddr}_{= \L\left(\left(\pol{\alpha_d}{2|\alpha|+d}\right)^2\right)}
  \int_{\S^{d-1}}\left[h_{\alpha'}(\omega)\right]^2 d\omega \\
 \myeq{(\ref{Lpn2})}& \  \frac{\alpha_d!\, 2^{2|\alpha '|+|\alpha|+\frac{3}{2}d-\frac{1}{2}} }{\left(|\alpha|+|\alpha'|+d\right)!} { \textstyle
 \Gamma\!\left( |\alpha'| \!+\!\frac{d}{2}\right)\Gamma\!\left( |\alpha'|\!+\! \frac{d}{2}\!+\! 1\right) \Gamma\!\left( |\alpha| \!+\! \frac{d+1}{2}\right) }\int_{\S^{d-1}}\!\!\left[h_{\alpha'}(\omega)\right]^2 d\omega \\
