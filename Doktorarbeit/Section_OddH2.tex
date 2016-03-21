@@ -1,0 +1,164 @@
+
+\section{Odd cohomology of the Hilbert scheme of two points}
+Let $A$ be a complex torus \textbf{TODO: Does it work if $A$ is a general (projective) surface with torsion-free cohomology?} of dimension $2$ and $A\hilb{2}$ the Hilbert scheme of 2 points. 
+It can be constructed as follows: Consider the direct product $A\times A$. Denote 
+$$b: \widetilde{A\times A} \rightarrow A\times A $$ 
+the blow-up along the diagonal $\Delta \cong A$ with exceptional divisor $E$, so we have $i: E\rightarrow \widetilde{A\times A}  $. Since the normal bundle of $\Delta$ in $A\times A$ is trivial, we have:
+$$
+E \cong  \Delta\times \mathbb{P}^1.
+$$
+The action of $\mathfrak{S}_2$ on $A\times A$ lifts to an action on $\widetilde{A\times A}$. 
+We have the pushforward $i_*:H^*(E,\Z)\rightarrow H^*(\widetilde{A\times A} ,\Z) $.
+
+The quotient by the action of $\mathfrak{S}_2$ is 
+$$ \pi:\widetilde{A\times A} \rightarrow A\hilb{2}.$$ 
+Now, $A\hilb{2}$ is a compact complex manifold with torsion-free cohomology, \cite[Theorem~2.2]{Totaro}.
+By \cite[Proposition~0.1]{Menet}, there is an exact sequence
+$$
+0 \rightarrow \pi_*(H^k(\widetilde{A\times A,\Z})) \rightarrow H^k(A\hilb{2},\Z) \rightarrow \left(\frac{\Z}{2{\Z}}\right)^{\alpha_k}\rightarrow 0
+$$
+with $k\in \left\{1,...,8\right\}$.
+\begin{proposition} \label{Alpha35}
+We have:
+$$\alpha_3=0\ \text{ and }\ \alpha_5=4.$$
+\end{proposition}
+\subsection{Preliminary Lemmas}
+%Fist we need to calculate the following invariant:
+We denote $V=\widetilde{A\times A}\smallsetminus E$ and $U=V/\mathfrak S_{2}$, where $\mathfrak{S}_{2}=\left\langle \sigma_{2}\right\rangle$. 
+\begin{lemma}\label{1}
+We have: $H^{k}(A\times A,\Z)=H^{k}(V,\Z)$
+for all $k\leq 3$.
+\end{lemma}
+\begin{proof}
+We have $V=A\times A\smallsetminus \Delta$.
+We have the following natural exact sequence:
+$$\xymatrix{ \cdots\ar[r]&H^{k}(A\times A,V,\Z)\ar[r] & H^{k}(A\times A,\Z)\ar[r] & H^{k}(V,\Z)\ar[r]& \cdots}$$
+Moreover, by Thom isomorphism $H^{k}(A\times A,V,\Z)=H^{k-4}(\Delta,\Z)=H^{k-4}(A,\Z)$.
+Hence $H^{k}(A\times A,V,\Z)=0$ for all $k\leq 3$.
+Hence $H^{k}(A\times A,\Z)=H^{k}(V,\Z)$
+for all $k\leq 2$. It remains to consider the following exact sequence:
+$$\xymatrix{ 0\ar[r]&H^{3}(A\times A,\Z)\ar[r]&H^{3}(V,\Z)\ar[r] & H^{4}(A\times A,V,\Z)\ar[r]^{\rho} & H^{4}(A\times A,\Z)}.$$
+The map $\rho$ is given by $\Z \left[\Delta\right] \rightarrow H^{4}(A\times A,\Z)$.
+The class $\left\{x\right\}\times A$ is also in $H^{4}(A\times A,\Z)$ and intersects $\Delta$ in one point.
+Hence the class of $\Delta$ in $H^{4}(A\times A,\Z)$ is not trivial and the map $\rho$ is injective.
+%Moreover, we know by Künneth formula that:
+%$$H^{4}(A\times A,\Z)=H^{0}(A,\
+It follows $$H^{3}(A\times A,\Z)=H^{3}(V,\Z).$$
+\end{proof}
+Now we will calculate the invariant $l_{1,-}^{2}(A\times A)$ and $l_{1,+}^{1}(A\times A)$ defined in Section 1.2 of \cite{Menet} 
+
+\textbf{TODO : recall the definition in the redaction of the application.}
+\begin{lemma}\label{2}
+We have: $l_{1,-}^{2}(A\times A)=l_{1,+}^{1}(A\times A)=0$.
+\end{lemma}
+\begin{proof}
+By Künneth formula we have:
+$$H^{1}(A\times A,\Z)=H^{0}(A,\Z)\otimes H^{1}(A,\Z)\oplus H^{1}(A,\Z)\otimes H^{0}(A,\Z).$$
+The elements of $H^{0}(A,\Z)\otimes H^{1}(A,\Z)$ and $H^{1}(A,\Z)\otimes H^{0}(A,\Z)$ are exchanged under the action of $\sigma_2$. It follows that $l_{2}^{1}(A\times A)=4$ and necessary $l_{1,-}^{1}(A\times A)=l_{1,+}^{1}(A\times A)=0$.
+
+By Künneth formula we also have:
+\begin{align*}
+H^{2}(A\times A,\Z)&=H^{0}(A,\Z)\otimes H^{2}(A,\Z)\oplus H^{1}(A,\Z)\otimes H^{1}(A,\Z)\\
+&\oplus H^{2}(A,\Z)\otimes H^{0}(A,\Z).
+\end{align*}
+As before every elements $x\otimes y\in H^{2}(A\times A,\Z)$ are sent to $y\otimes x$ by the action of $\sigma_2$. A such element is fixed by the action of $\sigma_2$ if $x=y$. It follows:
+$$l_{2}^{2}(A\times A)=6+6=12,$$
+$$l_{1,+}^{2}(A\times A)=4,$$
+and necessary:
+$$l_{1,-}^{2}(A\times A)=0.$$
+\end{proof}
+\begin{lemma}\label{3}
+The group $H^{3}(U,\Z)$ is torsion free.
+\end{lemma}
+\begin{proof}
+Using the spectral sequence of equivariant cohomology, it follows from Proposition 2.6 of \cite{Menet}, Lemma \ref{1} and \ref{2}.
+\end{proof}
+\subsection{In degree 3}\label{=}
+%Now, we prove that $\alpha_3=0$.
+By Theorem 7.31 of \cite{Voisin}, we have:
+\begin{equation}
+H^{3}(\widetilde{A\times A},\Z)=H^{3}(A\times A,\Z)\oplus H^{1}(\Delta,\Z).
+\label{voisin1}
+\end{equation}
+It follows that $$H^{3}(A^{[2]},\Z)\supset \pi_{*}(H^{3}(A\times A,\Z))\oplus \pi_{*}(H^{1}(\Delta,\Z)).$$
+Moreover, by Künneth formula, we have:
+\begin{align*}
+H^{3}(A\times A,\Z)&=H^{0}(A,\Z)\otimes H^{3}(A,\Z)\oplus H^{1}(A,\Z)\otimes H^{2}(A,\Z)\\
+&\oplus H^{2}(A,\Z)\otimes H^{1}(A\Z)\oplus H^{3}(A,\Z)\otimes H^{0}(A,\Z).
+\end{align*}
+Hence all elements in $H^{3}(A\times A,\Z)^{\mathfrak{S}_2}$ are written $x+\sigma_{2}^{*}(x)$ with $x\in H^{3}(A\times A,\Z)$.
+Since $\frac{1}{2}\pi_{*}(x+\sigma_{2}^{*}(x))=\pi_{*}(x)$, it follows that $\pi_{*}(H^{3}(A\times A,\Z))$ is primitive in $H^{3}(A^{[2]},\Z)$.
+Moreover by (\ref{voisin1}):
+\begin{equation}
+l_2^3(\widetilde{A\times A})=\rk H^{3}(A\times A,\Z)^{\mathfrak{S}_2}=28.
+\label{l1}
+\end{equation}
+and
+\begin{equation}
+l_{1,+}^3(\widetilde{A\times A})=\rk H^{1}(\Delta,\Z)^{\mathfrak{S}_2}=4,\ \text{ and }\ l_{1,-}^3(\widetilde{A\times A})=0.
+\label{l4}
+\end{equation}
+It remains to prove the following lemma.
+\begin{lemma}
+The group $\pi_{*}(H^{1}(\Delta,\Z))$ is primitive in $H^{3}(A^{[2]},\Z)$.
+\end{lemma}
+\begin{proof}
+We consider the following commutative diagram:
+\begin{equation}
+\xymatrix@C=10pt{ \ar[d]^{d\widetilde{\pi}^{*}}H^{3}(\mathscr{N}_{A^{[2]}/E},\mathscr{N}_{A^{[2]}/E}-0,\Z)=H^{3}(A^{[2]},U,\Z)\ar[r]^{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ g}&\ar[d]_{\pi^{*}}H^{3}(A^{[2]},\Z)\\
+H^{3}(\mathscr{N}_{\widetilde{A\times A}/E},\mathscr{N}_{\widetilde{A\times A}/E}-0,\Z)=H^{3}(\widetilde{A\times A},V,\Z)\ar[r]^{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ h}&H^{3}(\widetilde{A\times A},\Z),
+}
+\label{ThomII}
+\end{equation}
+By proof of Theorem 7.31 of \cite{Voisin}, the map $h$ is injective and its image in $H^{3}(\widetilde{A\times A},\Z)$ is $H^{1}(\Delta,\Z)$. Hence Diagram (\ref{ThomII}) shows that $g$ is also injective and has image $\pi_{*}(H^{1}(\Delta,\Z))$ in $H^{3}(A^{[2]},\Z)$.
+It follows the exact sequence:
+$$\xymatrix{ 0\ar[r]&H^{3}(A^{[2]},U,\Z)\ar[r]^g&H^{3}(A^{[2]},\Z)\ar[r]&H^{3}(U,\Z)}.$$
+However, by Lemma \ref{3}, $H^{3}(U,\Z)$ is torsion free; it follows that $\pi_{*}(H^{1}(\Delta,\Z))$ is primitive in $H^{3}(A^{[2]},\Z)$.
+\end{proof}
+\subsection{In degree 5}
+By Theorem 7.31 of Voisin, we have:
+\begin{equation}
+H^{5}(\widetilde{A\times A},\Z)=H^{5}(A\times A,\Z)\oplus H^{3}(\Delta,\Z).
+\label{voisin2}
+\end{equation}
+It follows that $$H^{5}(A^{[2]},\Z)\supset \pi_{*}(H^{5}(A\times A,\Z))\oplus \pi_{*}(H^{3}(\Delta,\Z)).$$
+Moreover, by Künneth formula, we have:
+\begin{align*}
+H^{5}(A\times A,\Z)&=H^{1}(A,\Z)\otimes H^{4}(A,\Z)\oplus H^{2}(A,\Z)\otimes H^{3}(A,\Z)\\
+&\oplus H^{3}(A,\Z)\otimes H^{2}(A,\Z)\oplus H^{4}(A,\Z)\otimes H^{1}(A,\Z).
+\end{align*}
+As before, $\pi_{*}(H^{5}(A\times A,\Z))$ is primitive in $H^{5}(A^{[2]},\Z)$.
+Moreover by (\ref{voisin2}):
+\begin{equation}
+l_2^5(\widetilde{A\times A})=\rk H^{5}(A\times A,\Z)^{\mathfrak{S}_2}=28,
+\label{l2}
+\end{equation}
+and 
+\begin{equation}
+l_{1,+}^5(\widetilde{A\times A})=\rk H^{3}(\Delta,\Z)^{\mathfrak{S}_2}=4,\ \text{ and }\ l_{1,-}^5(\widetilde{A\times A})=0.
+\label{l3}
+\end{equation}
+\begin{lemma}
+The lattice $\pi_{*}(H^{3}(\widetilde{A\times A},\Z)\oplus H^{5}(\widetilde{A\times A},\Z))$ has discriminant $2^8$.
+\end{lemma}
+\begin{proof}
+By Definition-Proposition 1.7 2) and 3) of \cite{Menet}, (\ref{l1}) and (\ref{l2}):
+
+\footnotesize
+$$\frac{H^{3}(\widetilde{A\times A},\Z)\oplus H^{5}(\widetilde{A\times A},\Z)}{H^{3}(\widetilde{A\times A},\Z)^{\mathfrak{S}_2}\oplus H^{5}(\widetilde{A\times A},\Z)^{\mathfrak{S}_2}\oplus \left(H^{3}(\widetilde{A\times A},\Z)^{\mathfrak{S}_2}\oplus H^{5}(\widetilde{A\times A},\Z)^{\mathfrak{S}_2}\right)^\bot}=\left(\Z/2\Z\right)^{l_2^3(\widetilde{A\times A})+l_2^5(\widetilde{A\times A})}.$$
+\normalsize
+Since $H^{3}(\widetilde{A\times A},\Z)\oplus H^{5}(\widetilde{A\times A},\Z)$ is an unimodular lattice, 
+it follows that 
+$$\discr H^{3}(\widetilde{A\times A},\Z)^{\mathfrak{S}_2}\oplus H^{5}(\widetilde{A\times A},\Z)^{\mathfrak{S}_2}=2^{l_2^3(\widetilde{A\times A})+l_2^5(\widetilde{A\times A})}.$$
+Then by Lemma 2.18 3) of \cite{Menet},
+$$\discr \pi_{*}(H^{3}(\widetilde{A\times A},\Z)^{\mathfrak{S}_2}\oplus H^{5}(\widetilde{A\times A},\Z)^{\mathfrak{S}_2})=2^{l_2^3(\widetilde{A\times A})+l_2^5(\widetilde{A\times A})+\rk \left[H^{3}(\widetilde{A\times A},\Z)^{\mathfrak{S}_2}\oplus H^{5}(\widetilde{A\times A},\Z)^{\mathfrak{S}_2}\right]}.$$
+Then by Proposition 1.6 of \cite{Menet}:
+$$\discr \pi_{*}(H^{3}(\widetilde{A\times A},\Z)^{\mathfrak{S}_2}\oplus H^{5}(\widetilde{A\times A},\Z)^{\mathfrak{S}_2})=2^{2\left( l_2^3(\widetilde{A\times A})+ l_2^5(\widetilde{A\times A})\right)+l_{1,+}^3(\widetilde{A\times A})+l_{1,+}^5(\widetilde{A\times A})}.$$
+Then by Lemma 2.17 and 2.3 of \cite{Menet}, 
+$$\discr \pi_{*}(H^{3}(\widetilde{A\times A},\Z)\oplus H^{5}(\widetilde{A\times A},\Z))=2^{l_{1,+}^3(\widetilde{A\times A})+l_{1,+}^5(\widetilde{A\times A})}=2^8.$$
+\end{proof}
+The lattice $H^{3}(A^{[2]},\Z)\oplus H^{5}(A^{[2]},\Z)$ is unimodular. Hence:
+$$\frac{H^{3}(A^{[2]},\Z)\oplus H^{5}(A^{[2]},\Z)}{\pi_{*}(H^{3}(\widetilde{A\times A},\Z)\oplus H^{5}(\widetilde{A\times A},\Z))}=(\Z/2\Z)^{4}.$$
+However, by Lemma \ref{1}, we know that $\pi_{*}(H^{3}(\widetilde{A\times A},\Z))=H^{3}(A^{[2]},\Z)$.
+It follows that
+$$\frac{H^{5}(A^{[2]},\Z)}{\pi_{*}(H^{5}(\widetilde{A\times A},\Z))}=(\Z/2\Z)^{4}.$$

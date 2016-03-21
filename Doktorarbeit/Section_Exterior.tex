@@ -1,0 +1,79 @@
+\section{Super algebras} \label{SuperSection}
+\begin{definition}
+ A super vector space $V$ over a field $k$ is a vector space with a $\Z/2\Z$-graduation, that is a decomposition
+$$
+ V = V^{+} \oplus V^{-},
+$$
+called the even and the odd part of $V$. Elements of $V^{+}$ are called homogeneous of even degree, elements of $V^{-}$ are called homogeneous of odd degree.
+The degree of a homogeneous element $v$ is denoted by $|v|\in \Z/2\Z$.
+Direct sum and tensor product of two super vector spaces $V$ and $W$ yield again super vector spaces:
+\begin{align*}
+ (V\oplus W)^{+} &= V^{+}\oplus W^{+}, & (V\oplus W)^{-} &= V^{-}\oplus W^{-}, \\
+ (V\otimes W)^{+} &= (V^{+}\otimes W^{+})\oplus (V^{-}\otimes W^{-}), & (V\otimes W)^{-} &=(V^{+}\otimes W^{-})\oplus (V^{-}\otimes W^{+}).
+\end{align*}
+\end{definition}
+\begin{definition}
+A superalgebra $R$ is a unital associative $k$-algebra which carries a super vector space structure. Define the supercommutator by setting for homogeneous elements $u,v \in R$:
+\begin{align*}
+[u,v] := uv - (-1)^{|u||v|} v u.
+\end{align*}
+$R$ is called supercommutative, if $[u,v]=0$ for all $u,v\in R$. Note that a graded commutative algebra $R = \bigoplus\limits_n R^n$ is supercommutative in a natural way, by setting $R^{+}=\bigoplus\limits_{n\text{ even}} R^n$, $R^{-}=\bigoplus\limits_{n\text{ odd}} R^n$.
+
+For a supercommutative algebra $R$, the tensor power $R^{\otimes n}$ is again a supercommutative algebra, if we set for the product:
+$$
+(u_1\otimes\cdots\otimes u_n)\cdot(v_1\otimes\cdots\otimes v_n) 
+=  (-1)^{\sum\limits_{i>j}|u_i||v_j|} u_1v_1\otimes\cdots\otimes u_nv_n.
+%,\quad \text{where } k= {\sum_{j<i}|u_i||v_j|}.
+$$
+\end{definition}
+\begin{definition}
+Let $V$ be a super vector space over $k$ and $n\geq 0$. Then the supersymmetric power $\SSym^n(V)$ of $V$ is a super vector space, given by
+\begin{align*}
+\SSym^n(V) &= \bigoplus_{p+q=n} \Sym^p(V^{+}) \otimes \Lambda^q(V^{-}), \\
+\SSym^n(V)^{+} &= \bigoplus_{\substack{p+q=n \\ q\text{ even} }} \Sym^p(V^{+}) \otimes \Lambda^q(V^{-}), &
+\SSym^n(V)^{-} &= \bigoplus_{\substack{p+q=n \\ q\text{ odd} }} \Sym^p(V^{+}) \otimes \Lambda^q(V^{-}).
+\end{align*}
+The supersymmetric algebra $\SSym^*(V):= \bigoplus\limits_n \SSym^n(V)$ on $V$ is a supercommutative algebra over $k$, where the product of two elements $s\otimes e \in \Sym^p(V^{+}) \otimes \Lambda^q(V^{-})$ and $s'\otimes e' \in \Sym^{p'}(V^{+}) \otimes \Lambda^{q'}(V^{-})$ is given by 
+$$
+(s\otimes e)\diamond (s'\otimes e') = (s s')\otimes (e\wedge e') \ \  \in \Sym^{p+p'}(V^{+}) \otimes \Lambda^{q+q'}(V^{-}).
+$$
+\end{definition}
+\begin{remark}
+The supersymmetric power $\SSym^n (V)$ can be realized as a quotient of $V^{\otimes n}$ by an action of the symmetric group $\mathfrak S_n$. This action can be described as follows: If $\tau\in \mathfrak S_n$ is a transposition that exchanges two numbers $i<j$, then $\tau$ permutes the corresponding tensor factors in $v_1\otimes  \cdots\otimes v_n$ introducing a sign
+$(-1)^{|v_i||v_j|+(|v_i|+|v_j|)\sum_{i<k<j} |v_k|}$.
+\end{remark}
+
+
+Now let $U$ be a vector space over a field $k$ of characteristic $0$ and look at the exterior algebra $H:= \Lambda^* U$. 
+Since $H$ is a super vector space, we can construct the supersymmetric power $S^n:= \SSym^n( H)$.
+We may identify $S^n$ with the space of $\mathfrak S_n$-invariants in $H^{\otimes n}$ by means of the linear projection operator
+$$
+\pr : H^{\otimes n} \longrightarrow S^n , \quad \pr = \frac{1}{n!}\sum_{\pi \in\mathfrak S_n} \pi.
+$$
+The multiplication in $H^{\otimes n}$ induces a multiplication on the subspace of invariants, which makes $S^n$ a supercommutative algebra. Of course, it is different from the product $\diamond$ discussed above.
+
+Since $H$ is generated as an algebra by $U=\Lambda^1(U)\subset H$, we may define a homomorphism of algebras:
+$$ s : H \longrightarrow S^n, \quad s(u) = \pr( u \otimes 1\otimes\cdots\otimes 1)\text{ for }u\in U, $$
+so $S$ becomes an algebra over $H$.
+\begin{lemma}
+\label{SuperFree}
+The morphism $s$ turns $S^n$ into a free module over $H$, for $n\geq 1$.
+\end{lemma}
+\begin{proof}
+We start with the tensor power $H^{\otimes n}$ and the ring homomorphism 
+$$
+\iota : H \longrightarrow H^{\otimes n},\quad h\longmapsto h\otimes 1\otimes\cdots\otimes 1
+$$
+that makes $H^{\otimes n}$ a free $H$-module. Note that $\pr \iota \neq s$, since $\pr$ is not a ring homomorphism.
+(For example, $\pr\iota(h)\neq s(h)$ for any nonzero $h\in\Lambda^2(U)$.)
+We therefore modify the $H$-module structure of $H^{\otimes n}$:
+
+For some $u\in U$, denote $u^{(i)} := 1^{\otimes i-1}\otimes u\otimes 1^{\otimes n-i+1} \in H^{\otimes n}$. Then $H^{\otimes n}$ is generated as a $k$-algebra by the elements $\{u^{(i)}\,,\,u\in U\}$. Now consider the ring automorphism
+$$
+\sigma : H^{\otimes n} \longrightarrow H^{\otimes n}, \quad u^{(1)} \longmapsto u^{(1)} +u^{(2)} + \ldots + u^{(n)}, \quad
+u^{(i)} \longmapsto u^{(i)} \text{ for } i>1.
+$$
+Then we have $\sigma\iota = s$ on $S^n$. On the other hand, if $\{b_i\}$ is a $k$-basis of $V$, then $\{b_i^{(j)},\,j>1\} $ is a $\iota$-basis for $H^{\otimes n}$, and $\{\sigma(b_i^{(j)})\}$ is a $\sigma\iota$-basis for $H^{\otimes n}$.
+Now if we project the basis elements, we get a set $\{\pr(\sigma(b_i^{(j)}))\}$ that spans $S^n$. Eliminating linear dependent vectors (this is possible over the rationals), we get a $s$-basis of $S^n$.
+\end{proof}
+
