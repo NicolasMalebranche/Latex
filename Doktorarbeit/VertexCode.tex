@@ -4,6 +4,8 @@ We give the source code for our tool implementing the rational cohomology of Hil
 We follow the notational conventions of \cite{LehnSorger}. The description given there in Section 3 allows to deduce an algorithm for operator actions on $\H$. The Chern classes of  tangent bundles of Hilbert schemes is computed with the help of the description from \cite[Section 3]{Boissiere}.
 %It is available online under \url{https://github.com/s--kapfer/HilbK3}. We used the language Haskell, compiled with the \textsc{GHC} software, version 7.6.3.
 
+In contrast to the code in the previous section, we are not restricted to K3 surfaces. Indeed, the surface may have cohomology in odd degree as well as a non-vanishing canonical class. On the other hand, the implemention of the cup product in general is slower than the model for K3 surfaces. 
+
 \subsection{How to use the code}
 The main module is \verb|LS_Operators.hs|, which can be opened with ghci.
 We implemented the actions of the following operators:
@@ -36,7 +38,9 @@ An important observation is that we do not need to know explicitly the commutato
 Indeed, every element of $\H$ can be written as the action on the vacuum of either a polynomial in Nakajima operators $\mathfrak p_n(a)$ or of a polynomial in the operators $\partial$ and $\mathfrak p_{-1}(a)$. We call the two representations \verb|nakaState| and \verb|delState|, respectively. For the action of a Nakajima operator, the first one is more appropriate, while a multiplication operator acts better on the second one (multiplication commutes with $\partial$ and the commutators with $\mathfrak p_n(a)$ are known). 
 In addition, the necessary commutation relations to switch between the two representations are known. This is the guiding philosophy for the algorithms contained in \verb|LS_Operators.hs|.
 
-The other module, \verb|LS_Frobenius.hs| contains nothing but the definition of a graded Frobenius algebra according to \cite[Section 2.1]{LehnSorger} and some instances, namely the cohomologies of K3 surfaces, complex tori and projective space$\C\mathbb P^2$.
+The other module, \verb|LS_Frobenius.hs| contains nothing but the definition of a graded Frobenius algebra according to \cite[Section 2.1]{LehnSorger} and some instances, namely the cohomologies of K3 surfaces, complex tori and projective space $\C\mathbb P^2$.
+
+The datatype that models $\H$ is called \verb|State|. It consists of linear combinations of ordered operator products, implemented as lists of pairs, containing the product (as a list) and the scalar. 
 
 \subsection{Module for graded Frobenius algebras} 
 \input{Sexy/LS_Frobenius.tex}
