@@ -27,17 +27,7 @@ Let $m_\lambda$ and $p_\lambda$ denote the monomial and the power sum symmetric 
 
 The families $(m_\lambda)_\lambda$ and $(p_\lambda)_\lambda$ form two $\IQ$-bases of $\Lambda$, so they are linearly related by $p_\lambda = \sum_{\mu} \psi_{\lambda\mu}m_\mu$. It turns out that the base change matrix $(\psi_{\lambda\mu})$ has integral entries, but its inverse $(\psi_{\mu\lambda}^{-1})$ has not. A method to determine the $(\psi_{\lambda\mu})$ is given by Lascoux in \cite[Sect. 3.7]{Lascoux}.
 \end{definition}
-\begin{definition}
-A lattice $L$ is a free $\IZ$-module of finite rank, equipped with a non-degenerate symmetric integral bilinear form $B$. The lattice $L$ is called odd, if there exists a $v\in L$, such that $B(v,v)$ is odd, otherwise it is called even. 
-If the map $v \mapsto B(v,v)$ takes both negative and positive values on $L$, the lattice is called indefinite. 
-Choosing a base $\{e_i\}_i$ of our lattice, we can write $B$ as a symmetric matrix. $L$ is called unimodular, if the matrix $B$ has determinant $\pm 1$. 
-The difference between the number of positive eigenvalues and the number of negative eigenvalues of $B$ (regarded as a matrix over $\IR$) is called the signature.
-\end{definition}
-There is the following classification theorem. See \cite[Chap. II]{Milnor} for reference.
-\begin{theorem}
-Two indefinite unimodular lattices $L$, $L'$ are isometric iff they have the same rank, signature and parity. Evenness implies that the signature is divisible by 8. 
-In particular, if $L$ is odd, then $L$ possesses an orthogonal basis and is hence isometric to $\left<1\right>^{\oplus k}\oplus\left<-1\right>^{\oplus l}$ for some $k,l\geq 0$. If $L$ is even, then $L$ is isometric to $U^{\oplus k}\oplus (\pm E_8)^{\oplus l}$ for some $k,l\geq 0$.
-\end{theorem}
+
 \begin{definition}
 Let $S$ be a projective K3 surface. We fix integral bases $\One$ of $H^0(S,\IZ)$, $x$ of $H^4(S,\IZ)$ and $\alpha_1,\ldots ,\alpha_{22}$ of $H^2(S,\IZ)$. The cup product induces a symmetric bilinear form $B_{H^2}$ on $H^2(S,\IZ)$ and thus the structure of a unimodular lattice.
 We may extend $B_{H^2}$ to a symmetric non-degenerate bilinear form $B$ on $H^\ast(S,\IZ)$ by setting $ B(\One,\One) = 0,\ B(\One,\alpha_i) = 0,\ B(\One,x) = 1, \ B(x,x) = 0$.
