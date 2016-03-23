@@ -97,7 +97,7 @@ Equations (\ref{DiffNaka}) and (\ref{NakaDel}) permit now to switch between the 
 \end{remark}
 
 \begin{lemma}
-Suppose $K=0$.
+Suppose $Ka=0$.
 For all $k,m$, the following formulas hold:
 \begin{align}
 \label{adq}
@@ -108,40 +108,54 @@ For all $k,m$, the following formulas hold:
 %For all $s,t,k\geq 0$ the following formula holds:
 \end{lemma}
 \begin{proof}
-Let us first do the computation in the case $ae=0$. We claim:
-$$
-%(-1)^k
-\q_m^{(k)}(a) = \frac{m^k}{k+1}\sum_{i_0+\ldots+i_k=m}\q_{i_0}\cdots \q_{i_k} (\Delta^k(a))
-$$
-(\ref{adq'}) follows from (\ref{adq}) using the Jacobi identity: $\ad \q' = \ad [\mathfrak d,\q] = \ad \mathfrak d  \ad \q - \ad \q\ad \mathfrak d  $.
+Let us start with (\ref{adq}). This is a consequence of Theorem 4.2 of \cite{LiQinWang2} which states that 
+\begin{align*}
+\frac{\q_m^{(k)}(a)}{m^k}
+& = \frac{1}{k+1}\sum_{i_0+\ldots+i_k=m} \nor \q_{i_0}\cdots \q_{i_k} \mal  (\Delta^k(a)) \\
+& +  k \sum_{j_0+\ldots+j_{k-2}=m} \frac{j_0^2+\ldots+j_{k-2}^2-1}{24}\nor \q_{j_0}\cdots \q_{j_{k-2}} \mal  (\Delta^{k-2}(ae)) .
+\end{align*}
+Using that 
+$[\q,\nor \q_{i_0}\cdots \q_{i_k} \mal  (\Delta^k(a)) ] = \sum_{r=0}^k \delta_{i_r+1} \nor\q_{i_0}\cdots \widehat{\q}_{i_r} \cdots \q_{i_k} \mal (\Delta^{k-1}(a))$, 
+we calculate:
+\begin{align*}
+\ad\q \frac{\q_m^{(k+1)}(a)}{m^{k+1}} 
+  =\, &\frac{1}{k+2}\sum_{i_0+\ldots+i_{k+1}=m} \left[\q,\nor \q_{i_0}\cdots \q_{i_{k+1}} \mal (\Delta^{k+1}(a))\right] \\
+ & + (k+1) \sum_{j_0+\ldots+j_{k-1}=m} \frac{j_0^2+\ldots+j_{k-1}^2-1}{24}\left[\q,\nor \q_{j_0}\cdots \q_{j_{k-1}} \mal (\Delta^{k-1}(ae)) \right]\\
+  =\, & \sum_{i_0+\ldots+i_{k}=m+1} \nor \q_{i_0}\cdots \q_{i_{k}} \mal  (\Delta^{k}(a)) \\
+ & + k(k+1) \sum_{j_0+\ldots+j_{k-2}=m+1} \frac{j_0^2+\ldots+j_{k-2}^2}{24}\nor \q_{j_0}\cdots \q_{j_{k-2}} \mal (\Delta^{k-2}(ae)) \\
+  =\, & (k+1)  \frac{\q_{m+1}^{(k)}(a)}{(m+1)^{k}} + \frac{k^3-k}{24}\frac{\q_{m+1}^{(k-2)}(ae)}{(m+1)^{k-2}}.
+\end{align*}
+Equation (\ref{adq'}) follows from (\ref{adq}) using the Jacobi identity: $\ad \q' = \ad [\mathfrak d,\q] = \ad \mathfrak d  \ad \q - \ad \q\ad \mathfrak d  $.
 \end{proof}
 \begin{corollary} \label{adqCorollary}
-Suppose $ae=0$. Then
-iterated application of the above lemma gives
+Suppose $Ka=0$.
+Iterated application of the above lemma gives
  \begin{equation}
- \ad(\q)^s \frac{\q_{m}^{(k+s)}(a)}{m^{k+s}(k+s)!} =\frac{\q_{m+s}^{(k)}(a)}{(m+s)^kk!} + \ldots
+ \ad(\q)^s \frac{\q_{m}^{(k+s)}(a)}{m^{k+s}(k+s)!} =\frac{\q_{m+s}^{(k)}(a)}{(m+s)^kk!} + \frac{s}{24}\frac{\q_{m+s}^{(k-2)}(ae)}{(m+s)^{k-2}(k-2)!}.
 \end{equation}
 \end{corollary}
 
 
 \begin{proposition}
-Assume $e=0$. In the formal completion of $\H$ we have:
+Suppose $Ka=0$.
+In the formal completion of $\H$ we have:
 $$
 \left[ \G(a),\exp(\q)\right] =
-\exp(\q) \sum_{\substack{s\geq 1\\k\geq 0}}\frac{(-1)^{s-1}}{s!}\frac{\q_s^{(k)}(a)}{s^{k}k!}
+\exp(\q) \sum_{\substack{s\geq 1\\k\geq 0}}\frac{(-1)^{s-1}}{s!}\left(\frac{\q_s^{(k)}(a)}{s^{k}k!} + \frac{s-1}{24}\frac{\q_s^{(k)}(ae)}{s^{k}k!}\right).
 $$
-More explicitely, we have for the class $\G_r(a)1$:
-$$
-\G_r(a)\frac{1}{n!}\q^n\vac = 
-\sum_{\substack{s+k=r+1\\s>k}} \frac{(-1)^{s+1}}{k!\, s^k}\frac{1}{s!(n-s)!} \q_1(1)^{n-s} \mathfrak d^k \q_s(a)\vac.
-$$
+%More explicitely, we have for the class $\G_r(a)1$:
+%$$
+%\G_r(a)\frac{1}{n!}\q^n\vac = 
+%\sum_{\substack{s+k=r+1\\s>k}} \frac{(-1)^{s+1}}{k!\, s^k}\frac{1}{s!(n-s)!} \q_1(1)^{n-s} \mathfrak d^k \q_s(a)\vac.
+%$$
 \end{proposition}
 \begin{proof}
 Equation (4.6) of \cite{LehnSorger} evaluates 
 \begin{align*}
 \left[ \G(a),\exp(\q)\right] &= \exp(\q) \sum_{\substack{s\geq 1\\k\geq 0}} \frac{(-\ad \q)^{s-1}}{s!}\left(\frac{(\ad \mathfrak d)^k}{k!} (\q_1(a)) \right) \\
- &\stackrel{\text{Cor \ref{adqCorollary}}}{=} \exp(\q)  \sum_{\substack{s\geq 1\\k\geq s-1}}\frac{(-1)^{s-1}}{s!}\frac{\q_s^{(k-s+1)}(a)}{s^{k-s+1}(k-s+1)!}\\
-  &=\exp(\q)  \sum_{\substack{s\geq 1\\k\geq 0}}\frac{(-1)^{s-1}}{s!}\frac{\q_s^{(k)}(a)}{s^{k}k!}.
+ &\stackrel{\text{Cor \ref{adqCorollary}}}{=} \exp(\q)  \sum_{s\geq 1}\frac{(-1)^{s-1}}{s!}\left(\sum_{k\geq s-1}\frac{\q_s^{(k-s+1)}(a)}{s^{k-s+1}(k-s+1)!}
+  + \sum_{k\geq s+1}\frac{s-1}{24}\frac{\q_s^{(k-s-1)}(a)}{s^{k-s-1}(k-s-1)!} \right)\\
+  &=\exp(\q) \sum_{\substack{s\geq 1\\k\geq 0}}\frac{(-1)^{s-1}}{s!}\left(\frac{\q_s^{(k)}(a)}{s^{k}k!} + \frac{s-1}{24}\frac{\q_s^{(k)}(ae)}{s^{k}k!}\right).
 \end{align*}
 %\begin{gather*}
 %\sum_{n,k}\G_k(a)\frac{\q_1(1)^n}{n!}\vac = \G(a)\exp(\q_1(1))\vac \\
