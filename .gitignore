@@ -10,6 +10,7 @@
 *.nav
 *.snm
 *.toc
+*.backup
 *~
 CandidatureAuto
 DAAD_Bewerbung
