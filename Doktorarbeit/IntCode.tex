@@ -1,0 +1,104 @@
+
+\section{Source Code for the combinatorial model of Lehn and Sorger}
+We give the source code for our tool implementing the integral cohomology of Hilbert schemes of points on K3 surfaces. It is available online under \url{https://github.com/s--kapfer/HilbK3}. We used the language Haskell, compiled with the \textsc{GHC} software, version 7.6.3. We make use of two external packages: \textsc{permutation} and \textsc{MemoTrie}. The project is divided into 4 modules. 
+
+\subsection{How to use the code}
+The main module is in the file \verb|HilbK3.hs|, which can be opened by \textsc{GHCI} for interactive use. It provides an implementation of the ring structure of $A\hilb{n}=H^*(S\hilb{n},\IQ)$, for all $n\in\mathbb{N}$. 
+%There are multiplication methods for two kinds of classes: the classes of the form $\kq_{n_1}(\beta_1)\ldots\kq_{n_k}(\beta_k)\vac$ and those of the form given in Theorem \ref{QinWangTheorem}.
+It computes cup--products in reasonable time up to $n=8$.
+A product of Nakajima operators is represented by a pair consisting of a partition of length $k$ and a list of the same length, filled with indices for the basis elements of $H^*(S)$. For example, the class
+$$
+\kq_{3}(\alpha_6)\kq_{3}(\alpha_7)\kq_2(x)\kq_{1}(\alpha_2)\kq_{1}(1)^2 \vac 
+$$
+in $H^{20}(S\hilb{11})$ is written as
+\begin{verbatim}
+*HilbK3> (PartLambda [3,3,2,1,1,1], [6,7,23,2,0,0]) :: AnBase 
+\end{verbatim}
+Note that the classes $1\in H^0(S)$ and $x\in H^4(S)$ have indices \verb|0| and \verb|23| in the code.
+The multiplication in $A\hilb{n}$ is implemented by the method \verb|multAn|. 
+%For instance,
+%\begin{verbatim}
+%*HilbK3> let a = (PartLambda [2,1], [5,0]) :: AnBase 
+%*HilbK3> let b = (PartLambda [2,1], [6,0]) :: AnBase  
+%*HilbK3> multAn a b 
+%[(([1-1-1],[23,23,0]),-2),(([3],[23]),4)]
+%\end{verbatim}
+
+The classes from Theorem \ref{QinWangTheorem} are represented in the same format, as shown in the following example. The multiplication in $H^*(S\hilb{n},\IZ)$ of such classes is implemented by the method \verb|cupInt|.
+\begin{example}\label{exampleSource} We want to compute the results from Example \ref{example}. We only do one particular instance for every example, since the others are similar. By Corollary \ref{stabCor}, it suffices to know the values for finitely many $n$ to deduce the general case.
+\begin{enumerate}
+\item We do the case $n=6,\ i=1$. 
+\begin{Verbatim}[fontsize=\small]
+*HilbK3> let i = 1 :: Int
+*HilbK3> let x = (PartLambda [2,2,1,1], [0,0,0,0]) :: AnBase
+*HilbK3> let y = (PartLambda [2,1,1,1,1], [i,0,0,0,0]) :: AnBase
+*HilbK3> cupInt x y
+[(([2-1-1-1-1],[0,23,1,0,0]),-2),(([2-2-2],[1,0,0]),1),
+(([3-2-1],[1,0,0]),2),(([4-1-1],[1,0,0]),1)]
+\end{Verbatim}
+\item We do the case $n=4,\ i=j=1$. 
+\begin{Verbatim}[fontsize=\small]
+*HilbK3> let i = 1 :: Int; let j = 1 :: Int
+*HilbK3> let x = (PartLambda [2,1,1], [i,0,0]) :: AnBase
+*HilbK3> let y = (PartLambda [1,1,1,1], [j,0,0,0]) :: AnBase
+*HilbK3> cupInt x y
+[(([2-1-1],[1,1,0]),1),(([3-1],[1,0]),1)]
+\end{Verbatim}
+\item We do the case $n=4$. 
+\begin{Verbatim}[fontsize=\small]
+*HilbK3> let d = (PartLambda [2,1,1], [0,0,0]) :: AnBase
+*HilbK3> let y = (PartLambda [1,1,1,1], [23,0,0,0]) :: AnBase
+*HilbK3> [ t | t <- cupInt d d, fst t == y]
+[(([1-1-1-1],[23,0,0,0]),-3)]
+\end{Verbatim}
+\item We do the case $n=5$. 
+\begin{Verbatim}[fontsize=\small]
+*HilbK3> let x = (PartLambda [2,2,1], [0,0,0]) :: AnBase
+*HilbK3> let y = (PartLambda [1,1,1,1,1], [23,23,0,0,0]) :: AnBase
+*HilbK3> [ t | t <- cupInt x x, fst t == y]
+[(([1-1-1-1-1],[23,23,0,0,0]),3)]
+\end{Verbatim}
+%\item We set $i=1,\ j= 2,\ k=2, \ n=6$.
+%\begin{Verbatim}[fontsize=\small]
+%*HilbK3> let x = (PartLambda [1,1,1,1,1,1], [1,2,23,0,0,0]) :: AnBase
+%*HilbK3> let y = (PartLambda [1,1,1,1,1,1], [23,23,23,23,0,0]) :: AnBase
+%*HilbK3> [ t | t <- cupInt x x, fst t == y]
+%[(([1-1-1-1-1-1],[23,23,2,1,0,0]),1),(([1-1-1-1-1-1],[23,23,23,0,0,0]),1)]
+%\end{Verbatim}
+\end{enumerate}
+\end{example}
+
+\subsection{What the code does}
+The goal is to multiply two elements in $H^*(S\hilb{n},\IZ)$. To do this, one has to execute the following steps:
+\begin{enumerate}
+ \item Compute the base change matrices $\psi_{\rho\nu}$ and $\psi_{\nu\rho}^{-1}$ between monomial and power sum symmetric functions.
+ \item Provide a basis and the ring structure of $A=H^*(S,\IZ)$.
+ \item Create a data structure for elements in $A\hilb{n}$ and $A\{S_n\}$.
+ \item Implement the multiplication in $A\{S_n\}$, \ie the map $m_{\pi,\tau}$ from Definition \ref{model}.
+ \item Implement the symmetrisation $A\hilb{n} = A\{S_n\}^{S_n}$.
+ \item Use the isomorphism from Theorem \ref{LSThm} to get the ring structure of $A\hilb{n}$.
+ \item Write an element in $H^*(S\hilb{n},\IZ)$ as a linear combination of products of creation operators acting on the vacuum, using Theorem \ref{QinWangTheorem}.
+\end{enumerate}
+We now describe, where to find these steps in the code.
+\begin{enumerate}
+ \item The $\psi_{\rho\nu}$ are computed by the function \verb|monomialPower| in the module \verb|SymmetricFunctions.hs|, using the theory from \cite[Sect.~3.7]{Lascoux}. The idea is to use the scalar product on the space of symmetric functions, so that the power sums become orthogonal: $(p_\lambda,p_\mu) = z_\lambda \delta_{\lambda\mu}$. The values for $(p_\lambda,m_\mu)$ are given by \cite[Lemma~3.7.1]{Lascoux}, so we know how to get the matrix $\psi_{\nu\rho}^{-1}$. Since it is triangular with respect to some ordering of partitions, matrix inversion is easy.
+ \item The ring structure of $H^*(S,\IZ)$ is stored in the module \verb|K3.hs|. The only nontrivial multiplications are the products of two elements in $H^2(S,\IZ)$, where the intersection matrix is composed by the matrices for the hyperbolic and the $E_8$ lattice. The cup product and the adjoint comultiplication from Definition~\ref{comult} are implemented by the methods \verb|cup| and \verb|cupAd|.
+ \item The data structures for basis elements of $A\hilb{n}$ and $A\{S_n\}$ are given by \verb|AnBase| and \verb|SnBase| in the module \verb|HilbK3.hs|. Linear combinations of basis elements are always stored as lists of pairs, each pair consisting of a basis element and a scalar factor.
+ \item The function $m_{\pi,\tau}$ from Definition~\ref{model} is computed by the method \verb|multSn|. It contains the following substeps: First, the orbits of $\left<\pi,\tau\right>$ are computed recursively by glueing together the orbits of $\pi$ if they have both non-emtpty intersection with an orbit of $\tau$. Second, the composition $\pi\tau$ is computed using a method from the external library \verb|Data.Permute|. Third, the functions $f^{\pi,\left<\pi,\tau\right>}$ and $f_{\left<\pi,\tau\right>,\pi\tau}$ using the (co--)products from \verb|K3.hs|.
+ \item The symmetrisation morphism is implemented by \verb|toSn|. We don't konw a better way to do this than the naive approach which is summation over all elements in $S_n$.
+ \item The multiplication in $A\hilb{n}$ is carried out by the method \verb|multAn|.
+ \item The base change matrices between the canonical base of $A\hilb{n}$ and the base of $H^*(S\hilb{n},\IZ)$ are given by \verb|creaInt| and \verb|intCrea|. By composing \verb|multAn| with these matrices, one gets the desired multiplication in $H^*(S\hilb{n},\IZ)$, called \verb|cupInt|.
+\end{enumerate}
+
+\subsection{Module for cup product structure of K3 surfaces} 
+Here the hyperbolic and the $E_8$ lattice and the bilinear form on the cohomology of a K3 surface are defined. Furthermore, cup products and their adjoints are implemented.
+\input{Sexy/K3.tex}
+\subsection{Module for handling partitions} 
+This module defines the data structures and elementary methods to handle partitions. We define both partitions written as descending sequences of integers ($\lambda$-notation) and as sequences of multiplicities ($\alpha$-notation).
+\input{Sexy/Partitions.tex}
+\subsection{Module for coefficients on Symmetric Functions} 
+This module provides nothing but the base change matrices $\psi_{\lambda\mu}$ and $\psi^{-1}_{\mu\lambda}$ from Definition \ref{SymFun}.
+\input{Sexy/SymmetricFunctions.tex} 
+\subsection{Module implementing cup products for Hilbert schemes} This is our main module. We implement the algebraic model developped by Lehn and Sorger and the change of base due to Qin and Wang. The cup product on the Hilbert scheme is computed by the function \texttt{cupInt}.
+\input{Sexy/HilbK3.tex}
+ 
