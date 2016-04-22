@@ -1,7 +1,7 @@
 \section{Generalized Kummer varieties and the morphism to the Hilbert scheme}
-
+\label{Section_GeneralKummer}
 \begin{definition}
-Let $A$ be a complex projective torus of dimension $2$ and $A\hilb{n}$, $n\geq 1$, the corresponding Hilbert scheme of points. Denote $\Sigma : A\hilb{n} \rightarrow A$ the summation morphism, a smooth submersion that factorizes via the Hilbert--Chow morphism $: A\hilb{n}\stackrel{\rho}{\rightarrow}\Sym^n(A)\stackrel{\sigma}{\rightarrow} A$. Then the generalized Kummer variety $\kum{A}{n-1}$ is defined as the fiber over $0$:
+Let $A$ be a complex projective torus of dimension $2$ and $A\hilb{n}$, $n\geq 1$, the corresponding Hilbert scheme of points. Denote $\Sigma : A\hilb{n} \rightarrow A$ the summation morphism, a smooth submersion that factorizes via (\ref{HilbertChow}) the Hilbert--Chow morphism $: A\hilb{n}\stackrel{\rho}{\rightarrow}\Sym^n(A)\stackrel{\sigma}{\rightarrow} A$. Then the generalized Kummer variety $\kum{A}{n-1}$ is defined as the fiber over $0$:
 \begin{equation}\label{square}
 \begin{CD}
 \kum{A}{n-1} @>\theta >> A\hilb{n}\\
@@ -14,17 +14,20 @@ Let $A$ be a complex projective torus of dimension $2$ and $A\hilb{n}$, $n\geq 1
 The cohomology of the generalized Kummer, $H^*(\kum{A}{n-1},\Z)$, is torsion free. 
 \end{theorem}
 Our first objective is to collect some information about this pullback diagram. 
-Recall Notation \ref{TorusClasses}.
+We use Notation \ref{TorusClasses}.
 
-\begin{proposition}
-Let $\alpha_i := \frac{1}{(n-1)!}\kq_{1}(1)^{n-1}\kq_1(a_i)\vac = \G_0(a_i)1$. The class of the Poincar\'e dual of $\kum{A}{n-1}$ in $H^4(A\hilb{n},\Z)$ is given by
+\begin{proposition}\label{KummerClass}
+Let $\alpha_i := \frac{1}{(n-1)!}\kq_{1}(1)^{n-1}\kq_1(a_i)\vac = \G_0(a_i)1$. The class of %the Poincar\'e dual of 
+$\kum{A}{n-1}$ in $H^4(A\hilb{n},\Z)$ is given by
 $$
 %\prod_{i=1}^4 \left(\tfrac{1}{2}\pone(1)^2\pone(\alpha_i)\vac\right).
 [\kum{A}{n-1}]=\alpha_1\cdot\alpha_2\cdot\alpha_3\cdot\alpha_4.
 $$ 
 \end{proposition}
 \begin{proof}
-Since the generalized Kummer variety is the fiber over a point, its Poincar\'e dual must be the pullback of $x\in H^4(A)$ under $\Sigma$. But $\Sigma^* (x) = \Sigma^*(a_1)\cdot \Sigma^*(a_2)\cdot \Sigma^*(a_3)\cdot \Sigma^*(a_4)$, so we have to verify that $\Sigma^* (a_i) = \alpha_i$. To do this, we want to use the decomposition $\Sigma = \sigma\rho$.
+Since the generalized Kummer variety is the fiber over a point, its 
+%Poincar\'e dual 
+class must be the pullback of $x\in H^4(A)$ under $\Sigma$. But $\Sigma^* (x) = \Sigma^*(a_1)\cdot \Sigma^*(a_2)\cdot \Sigma^*(a_3)\cdot \Sigma^*(a_4)$, so we have to verify that $\Sigma^* (a_i) = \alpha_i$. To do this, we want to use the decomposition $\Sigma = \sigma\rho$.
 The pullback along $\sigma$ of a class $a\in H^1(A,\Q)$ on $H^1(\Sym^n(A),\Q)$ 
 %$\cong H^1(A^n,\Q)^{\mathfrak{S}_n}$ 
 is given by $a\otimes 1\otimes \cdots\otimes 1 + \ldots + 1\otimes \cdots\otimes 1\otimes a$. It follows from (\ref{q1primitive}) that $\Sigma^* (a_i) = \frac{1}{(n-1)!}\kq_{1}(1)^{n-1}\kq_1(a_i)\vac $.
@@ -33,51 +36,74 @@ The morphism $\theta$ induces a homomorphism of graded rings
 \begin{equation}
 \theta^* :H^*(A\hilb{n})\longrightarrow H^*(\kum{A}{n-1})
 \end{equation}
-and on the image of $\theta^*$, the integral over $\kum{A}{n-1}$ can be written as follows:
+and by the projection formula, we have
 \begin{equation}
-\int\limits_{\kum{A}{n-1}}\theta^*(\alpha)\; =\; \int\limits_{A\hilb{n}} [\kum{A}{n-1}]\cdot\alpha .
+\theta_*\theta^*(\alpha)  = [\kum{A}{n-1}]\cdot\alpha.
 \end{equation}
-\begin{lemma}\label{IntegralityCheck}
-Let $\alpha\in H^*(A\hilb{n},\Q)$ be such that $\theta^*(\alpha)\in  H^*(\kum{A}{n-1},\Z)$. Then $[\kum{A}{n-1}]\cdot\alpha \in H^*(A\hilb{n},\Z)$. 
+
+\begin{lemma}\label{petitlemmeenplus}
+ Let $\beta\in H^*(K_{n-1}(A),\Q)$. Then there is a class $B\in H^{*}(A\hilb{n},\Q)$ such that 
+ $$\theta_*(\beta)=\frac{1}{n^4}B\cdot [\kum{A}{n-1}].$$
 \end{lemma}
 \begin{proof}
-The integrality of $\theta^*(\alpha)$ implies that, for all $\beta \in H^*(A\hilb{n},\Z)$,
+For a point $a\in A$, we denote by $t_a$ the morphism on $A\hilb{n}$ induced by the translation by $a$.
+Then we consider the morphism $\Theta :\kum{A}{n-1}\times A \longrightarrow A\hilb{n}$ defined by $\Theta(\xi,a)=t_a(\theta(\xi))$. It fits in a pullback diagram
+\begin{equation}
+\begin{CD}
+\kum{A}{n-1}\times A @>\Theta >> A\hilb{n}\\
+@VV\pr_2V @VV\Sigma V\\
+A @> n\cdot >> A
+\end{CD}
+\end{equation}
+that realizes $\kum{A}{n-1}\times A$ as a $n^4$-fold covering of $A\hilb{n}$ over $A$.
+Now, for $\beta\in H^*(K_{n-1}(A),\Q)$ set
 $$
-\int\limits_{\kum{A}{n-1}} \theta^*(\alpha)\cdot\theta^*(\beta) = \int\limits_{A\hilb{n}} [\kum{A}{n-1}]\cdot\alpha\cdot\beta
+B:=\Theta_*(\beta\otimes 1).
 $$
-is integral. Since the Poincar\'e pairing on $A\hilb{n}$ is unimodular, $[\kum{A}{n-1}]\cdot\alpha$ must be integral.
+Then the projection formula gives
+\begin{align*}
+B\cdot [K_{n-1}(A)]&= \Theta_*\left(\beta\otimes 1\cdot \Theta^*[\kum{A}{n-1}]\right) \\
+&=n^4 \Theta_*\left((\beta\otimes 1)\cdot  (1\otimes x)\right)\\
+&=n^4 \Theta_*(\beta \otimes x)\\
+&=n^4\theta_*(\beta).
+\end{align*}
 \end{proof}
 
-\begin{proposition}
+\begin{proposition}\label{annihilator}
 The kernel of $\theta^*$ is equal to the annihilator of $[\kum{A}{n-1}]$.
 \end{proposition}
 \begin{proof}
-Assume $\alpha\in \ker(\theta^*)$. Then, for all $\beta \in H^*(A\hilb{n})$, we have
-$$
-\int\limits_{A\hilb{n}} [\kum{A}{n-1}]\cdot \alpha \cdot \beta = \int\limits_{\kum{A}{n-1}}\theta^*(\alpha)\cdot\theta^*(\beta) = 0.
-$$
-Since the Poincar\'e pairing on $A\hilb{n}$ is non-degenerate, this implies $ [\kum{A}{n-1}]\cdot \alpha=0$. 
-
-Conversely, suppose that $ [\kum{A}{n-1}]\cdot \alpha=0$. Then, for all $\beta \in H^*(A\hilb{n})$, we have 
-$$
-\int\limits_{\kum{A}{n-1}}\theta^*(\alpha)\cdot\theta^*(\beta) = 0,
-$$
-so $\theta^*(\alpha) \in \im(\theta^*)\cap\im(\theta^*)^\perp$. The Poincar\'e pairing on $\kum{A}{n-1}$ is non-degenerate when restricted to $\im(\theta^*)$. To see this, observe that the dual element of $\theta^*(\alpha)$ in $\im(\theta^*)$ is given by $\theta^*(\alpha^*)$, where $\alpha^* $ is the Poincar\'e dual of $[\kum{A}{n-1}]\cdot \alpha$. So it follows that $\im(\theta^*)\cap\im(\theta^*)^\perp=0$.
+Assume $\alpha\in \ker(\theta^*)$. Then we have
+$
+[\kum{A}{n-1}]\cdot \alpha = \theta_*\theta^*(\alpha) = 0
+$. 
+Consersely, if $\alpha\notin \ker(\theta^*)$,
+let $\beta\in H^*(\kum{A}{n-1},\Q)$ be the Poincar\'e dual of $\theta^*(\alpha)$, so $\beta\cdot \theta^*(\alpha)\neq 0$.
+Then by projection formula:
+$
+\theta_*(\beta)\cdot \alpha\neq 0.
+$
+By Lemma \ref{petitlemmeenplus}, there exists $B\in H^*(A\hilb{n},\Q)$ such that 
+$B\cdot [\kum{A}{n-1}]\cdot \alpha\neq 0$. It follows that $ [\kum{A}{n-1}]\cdot \alpha\neq 0$.
 \end{proof}
+
 \begin{corollary} \label{KummerEquality}
 $\theta^*(\alpha) = \theta^*(\beta)$ if and only if $[\kum{A}{n-1}]\cdot \alpha = [\kum{A}{n-1}]\cdot \beta$. 
 \qed
 \end{corollary}
 
-\begin{proposition}
+\begin{proposition}\label{Annihideal}
 The annihilator of $[\kum{A}{n-1}]$ in $H^*(A\hilb{n},\Q)$ is the ideal generated by $H^1(A\hilb{n})$. 
 \end{proposition}
 \begin{proof}
 Set $H=H^*(A,\Q)$ and consider the exact sequence of $H$-modules
 $$
-0 \longrightarrow H^{\geq 1}(A,\Q)  \longrightarrow H \stackrel{x\cdot}{\longrightarrow} H.
+0 \longrightarrow 
+%H^{\geq 1}(A,\Q)  
+J
+\longrightarrow H \stackrel{x\cdot}{\longrightarrow} H.
 $$
-It is clear that $H^{\geq 1}(A,\Q)$ is the ideal in $H$ generated by $H^{1}(A,\Q)$. 
+It is clear that $J$ is the ideal in $H$ generated by $H^{1}(A,\Q)$. 
 Now denote $J^{(n)}$ the ideal generated by $H^1(\Sym^n(A),\Q)$ in $H^*(\Sym^n(A),\Q)\cong\SSym^n(H)$.
 By the freeness result of Lemma \ref{SuperFree}, tensoring with $\SSym^n(H)$ yields another exact sequence of $H$-modules
 $$
@@ -105,34 +131,29 @@ Since $\rho^*$ is injective, $\tilde y$ is in the annihilator of $\sigma^*(x)$, 
 \begin{theorem}\cite[Th\'eor\`eme 4]{Beauville}
 $\kum{A}{n-1}$ is a irreducible holomorphically symplectic manifold. In particular, it is simply connected and the canonical bundle is trivial.
 \end{theorem}
-This implies that $H^2(\kum{A}{n-1},\Z)$ admits an integer-valued nondegenerated quadratic form (called Beauville--Bogomolov form) $q$ which gives $H^2(\kum{A}{n-1},\Z)$ the structure of a lattice. This lattice is
+This implies that $H^2(\kum{A}{n-1},\Z)$ admits an integer-valued nondegenerated symmetric bilinear form (called Beauville--Bogomolov form) $B$ which gives $H^2(\kum{A}{n-1},\Z)$ the structure of a lattice. Looking for instance, the useful table in the introduction of \cite{Rapagnetta}, we know that this lattice is
 isomorphic to $U^{\oplus 3}\oplus \left< -2n \right>$, for $n\geq 3$. 
-
-\textbf{TODO:} find a reference for Beauville-Bogomolov form
-
-We have the following formula for $\alpha\in H^2(\kum{A}{n-1},\Z)$:
+We have the Fujiki formula for $\alpha\in H^2(\kum{A}{n-1},\Z)$:
 \begin{equation} \label{fujiki}
 %\int_{\kum{A}{n-1}} \alpha^{2n-2} = n\frac{(2n-2)!}{2^{n-1}(n\! - \! 1)!} q(a)^{n-1}
-\int_{\kum{A}{n-1}} \alpha^{2n-2} = n\cdot(2n-3)!!\cdot q(\alpha)^{n-1}
+\int_{\kum{A}{n-1}} \alpha^{2n-2} = n\cdot(2n-3)!!\cdot B(\alpha,\alpha)^{n-1}
 \end{equation}
-
-
 
 \begin{proposition}\label{H2Sur} Assume $n\geq 3$. Then
 $\theta^*$ is surjective on $H^2(A\hilb{n},\Z)$.
 \end{proposition}
 \begin{proof}
 By \cite[Sect.~7]{Beauville}, $\theta^{\ast} : H^2(A\hilb{n},\C) \rightarrow H^2(\kum{A}{n-1},\C)$ is surjective. 
-Then the idea is to prove that the lattice structure of $\im \theta^*$ is the same as of $H^2(\kum{A}{n-1})$.
-We use two formulas in \cite[pp.~8--11]{Britze}. Let $b\in H^2(A,\Z)$ and set $\alpha = \frac{1}{(n-1)!}\kq_{1}(1)^{n-1}\kq_1(b)\vac\in H^2(A\hilb{n},\Z)$. Then  
-\begin{equation} 
-\int_{A\hilb{n}}\alpha^{2n} = \binom{2n}{2} \frac{\int_A b^2}{n^2} \int_{\kum{A}{n-1}} \theta^* \alpha^{2n-2}
+But by Proposition 1 of \cite{Britze}, the lattice structure of $\im \theta^*$ is the same as of $H^2(\kum{A}{n-1})$, so the image of $H^2(A\hilb{n},\Z)$ must be primitive. The result follows.
+%We use two formulas in \cite[pp.~8--11]{Britze}. Let $b\in H^2(A,\Z)$ and set $\alpha = \frac{1}{(n-1)!}\kq_{1}(1)^{n-1}\kq_1(b)\vac\in H^2(A\hilb{n},\Z)$. Then  
+%\begin{equation} 
+%\int_{A\hilb{n}}\alpha^{2n} = \binom{2n}{2} \frac{\int_A b^2}{n^2} \int_{\kum{A}{n-1}} \theta^* \alpha^{2n-2}
 %\int_{A\hilb{3}}j(a)^6 = \frac{5}{3} \int_A a^2 \int_{\kum{A}{2}} \theta^* j(a)^4
-\end{equation}
-By Proposition (TODO), the left hand side of this equation equals $(2n-1)!!\cdot \left(\int_a b^2\right)^n$. By (\ref{fujiki}), the right hand side gives $(2n-1)!! \cdot \left(\int_A b^2\right) \cdot q(\alpha)^{n-1}$. So
-we get
-$\int_A b^2 = q(\alpha)$, giving the set of all $\alpha$ a lattice structure isomorphic to $H^2(A,\Z)$. 
-Secondly, we must show that for $\delta=$ half of the exceptional divisor: $q(\theta^*\delta) = -2n$. But this follows now from Proposition 1 in \cite{Britze}.
+%\end{equation}
+%By Lemma \ref{maxPower}, the left hand side of this equation equals $(2n-1)!!\cdot \left(\int_a b^2\right)^n$. By (\ref{fujiki}), the right hand side gives $(2n-1)!! \cdot \left(\int_A b^2\right) \cdot B(\alpha,\alpha)^{n-1}$. So
+%we get
+%$\int_A b^2 = B(\alpha,\alpha)$, giving the set of all $\alpha$ a lattice structure isomorphic to $H^2(A,\Z)$. 
+%Secondly, we must show that for $e:=\theta^*\delta$ we get: $B(e,e) = -2n$. But this follows now from Proposition 1 in \cite{Britze}.
 %Remark: $\theta^*\delta$ seems to be indivisible (because of (\ref{fujiki})), but every product with $\theta^*\delta$ is divisible by 3. Indeed, the value of (\ref{fujiki}) for $\alpha=\theta^*\delta$ is 324.
 \end{proof}
 \begin{notation}\label{BasisH2KA}
@@ -140,15 +161,19 @@ Secondly, we must show that for $\delta=$ half of the exceptional divisor: $q(\t
  $$
  H^2(\kum{A}{n-1},\Z) \cong H^2(A,\Z) \oplus\left<\theta^*(\delta)\right>.
  $$
-We denote the injection $ : H^2(A,\Z) \rightarrow H^2(\kum{A}{n-1},\Z)$ by $j$. Further, we set $e:=\theta^*(\delta)$. We give the following names for classes in $H^2(\kum{A}{n-1},\Z)$:
+We denote the injection $ : H^2(A,\Z) \rightarrow H^2(\kum{A}{n-1},\Z)$ by $j$. It can be described by 
+$$
+j : a \longmapsto \frac{1}{(n-1)!}\theta^*\left(\q_1(a)\q_1(1)^{n-1}\vac\right).
+$$ 
+Further, we set $e:=\theta^*(\delta)$. Using Notation \ref{TorusClasses}, we give the following names for classes in $H^2(\kum{A}{n-1},\Z)$:
 \begin{align*}
 u_1 &:= j(a_1 a_2), & v_1 &:= j(a_1 a_3), & w_1 &:= j(a_1 a_4), \\ 
 u_2 &:= j(a_3 a_4), & v_2 &:= j(a_4 a_2), & w_2 &:= j(a_2 a_3),
 \end{align*}
 These elements form a basis of $H^2(\kum{A}{n-1},\Z)$ with the following intersection relations under the Beauville-Bogomolov form:
 \begin{align*}
-q(u_1,u_2) &= 1, & q(v_1,v_2) &= 1, & q(w_1,w_2) &= 1,  &
-q(e,e)&= -2n,
+B(u_1,u_2) &= 1, & B(v_1,v_2) &= 1, & B(w_1,w_2) &= 1,  &
+B(e,e)&= -2n,
 \end{align*}
 and all other pairs of basis elements are orthogonal.
 \end{notation}

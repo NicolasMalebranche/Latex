@@ -1,4 +1,4 @@
- b
+
  \section{Middle cohomology}\label{Middle}
 The middle cohomology $H^4(\X,\Z)$ has been studied by Hassett and Tschinkel in \cite{Hassett}. We first recall some of their results,
 then we proceed by using $\theta^*$ to give a partial description of $H^4(\X,\Z)$ in terms of the well-understood cohomology of $A\hilb{3}$. 
@@ -22,6 +22,23 @@ is a sublattice  of full rank.
 This follows from \cite[Proposition 4.3]{Hassett}.
 \end{proof}
 
+In Section 4 of \cite{Hassett}, one finds the following formula:
+\begin{equation}
+Z_{\tau}\cdot D_{1}\cdot D_{2}=2\cdot B(D_{1},D_{2}),
+\label{ZT}
+\end{equation}
+for all $D_{1}$, $D_{2}$ in $H^{2}(\X,\Z)$, $\tau\in A[3]$ and $B$ the Beauville-Bogomolov form on $\X$.
+
+\begin{definition}\label{defiPi}
+We define $\Pi' := \Pi \cap \Sym^{\perp}$. It follows from (\ref{ZT}) that $\Pi'$ can be described as the span of all classes of the form $Z_\tau -Z_0$ or alternatively as the set of all
+$
+\sum_\tau \alpha_\tau Z_\tau $, such that $ \sum_\tau \alpha_\tau =0$.
+Note that in \cite{Hassett} the symbol $\Pi'$ denotes something different.
+\end{definition}
+\begin{remark}
+Since $\rk \Sym = 28$ and $\rk \Pi' = 80$, the lattice $\Sym\oplus\Pi'\subset H^4\left(\X,\Z\right)$ has full rank.
+\end{remark}
+
 \begin{proposition}
 The class $W$ can be written with the help of the square of half the diagonal as
 \begin{align} 
@@ -40,36 +57,73 @@ The second Chern class is non-divisible and given by
 \begin{proof} 
 In Section 4 of \cite{Hassett} one finds the equations
 \begin{gather}
-W = \frac{3}{8}\Big(\cc + 3e^2\Big), \\
-Y_p = \frac{1}{72}\Big(\cc + e^2\Big),
+W = \frac{3}{8}\Big(\cc + 3e^2\Big),\label{WW} \\
+Y_p = \frac{1}{72}\Big(3\cc + e^2\Big),
 \end{gather}
 from which we deduce (\ref{WFormula}) and (\ref{ChernY}).
 Equation (\ref{sumZ}) and the non-divisibility are from \cite[Proposition 5.1]{Hassett}.
 \end{proof}
+
+\begin{proposition}\label{ImSym}
+The image of $H^4(A\hilb{3},\Q)$ under the morphism $\theta^*$ is equal to $\Sym^2H^2(\X,\Q)$.
+\end{proposition}
+\begin{proof}
+We start by giving a set of generators of $H^4(A\hilb{n},\Q)$. Theorem 5.30 of \cite{LiQinWang} ensures that it is possible to do this in terms of multiplication operators. To enumerate elements of $H^*(A,\Q)$, we follow Notation \ref{TorusClasses}. Bais elements of $H^2(A,\Q)$ will be denoted by $b_i$ for $1\leq i\leq 6$. Then our set of generators is given by:
+\begin{center}
+\begin{tabular}{l|c}
+multiplication operator & number of classes \\ \hline
+$\G_0(a_1)\G_0(a_2)\G_0(a_3)\G_0(a_4) $  & $1$ \\
+$\G_0(a_i)\G_0(a_j)\G_0(b_k)$ for $i<j$  & $\binom{4}{2}\cdot 6 = 36$ \\
+$\G_0(a_i)\G_0(a_j^*)$ & $4\cdot 4 = 16$ \\
+$\G_0(b_i)\G_0(b_j)$ for $i\leq j$& $\binom{6+1}{2}= 21$ \\
+$\G_0(x)$ &  $1$  \\ \hline
+$\G_0(a_i)\G_0(a_j)\G_1(1)$ for $i<j$ & $\binom{4}{2} = 6$ \\
+$\G_0(a_i)\G_1(a_j)$ & $4\cdot 4=16$ \\
+$\G_0(b_i)\G_1(1)$ & $6$ \\
+$\G_1(b_i)$ & $6$ \\
+$\G_1(1)^2 $ & $1$ \\ \hline
+$\G_2(1) $ &$1$
+\end{tabular}
+\end{center}
+Any multiplication operator of degree $4$ can be written as a linear combination of these $111$ classes. Likewise, the dimension of $H^4(A\hilb{n},\Q)$ is $111$ for all $n\geq 4$, according to G\"ottsche's formula \cite{Gottsche}. However, for $n=3$, the $8$ classes $\G_0(x)$, $\G_1(b_i)$ and $\G_2(1) $ can be expressed as linear combinations of the others, so we are left with $103$ linearly independent classes that form a basis of $H^4(A\hilb{3},\Q)$. Multiplication with the class $[\X]$ is given by the operator $\G_0(a_1)\G_0(a_2)\G_0(a_3)\G_0(a_4) $ and annihilates every class that contains an operator of the form $\G_0(a_i)$. There are $75$ such classes, so by Proposition \ref{annihilator}, $\ker \theta^*\subset H^4(A\hilb{3},\Q)$ has dimension at least $75$ and $\im\theta^*$ has dimension at most $103-75=28$. However, since the image of $\theta^*$ must contain $\Sym^2H^2(\X,\Q)$, which is $28$-dimensional, equality follows.
+\end{proof}
+
 
 \begin{proposition} \label{ChernSym}
 We have:
 \begin{equation}
 \cc= 4 u_1u_2 + 4v_1v_2 + 4 w_1 w_2 - \frac{1}{3} e^2. 
 \end{equation}
-In particular, $\cc\in \Sym $.
+In particular, $\cc\in \Sym \otimes\Q $.
 \end{proposition}
-\begin{proof}
-First note that the defining diagram (\ref{square}) of the Kummer manifold is the pullback of the inclusion of a point, so the normal bundle of $\X$ in $A\hilb{3}$ is trivial. The Chern class of the tangent bundle of $\X$ is therefore given by the pullback from $A\hilb{3}$: $c(\X) = \theta^*\left(c(A\hilb{3})\right)$. Theorem \ref{thetaTheorem} allows now to conclude that $\cc\in \Sym$.
+We shall give two different proofs. The first one uses Nakajima operators, the second one is based on results of \cite{Hassett}.
+\begin{proof}[Proof 1]
+First note that the defining diagram (\ref{square}) of the Kummer manifold is the pullback of the inclusion of a point, so the normal bundle of $\X$ in $A\hilb{3}$ is trivial. The Chern class of the tangent bundle of $\X$ is therefore given by the pullback from $A\hilb{3}$: $c(\X) = \theta^*\left(c(A\hilb{3})\right)$. Proposition \ref{ImSym} allows now to conclude that $\cc\in \Sym \otimes \Q$.
 
-To obtain the precise formula, we use a result of Boissi\`ere, \cite[Lemma 3.12]{Boissiere}, giving a commutation relation for the multiplication operator with the Chern class on the Hilbert scheme. We get:
-$$
-c_2(A\hilb{3}) = 3\q_1(1)\mathfrak L_2(1)\vac - \frac{8}{3} \q_3(1)\vac.
-$$
+To obtain the precise formula, we use a result of Boissi\`ere, \cite[Lemma 3.12]{Boissiere}, giving a commutation relation for the Chern character multiplication operator on the Hilbert scheme. We get:
+\begin{align*}
+c_2(A\hilb{3}) & = 3\q_1(1)\mathfrak L_2(1)\vac - \frac{1}{3} \q_3(1)\vac \\
+ & =\frac{8}{3}\q_1(1)\mathfrak L_2(1)\vac - \frac{1}{3} \delta^2 .
+\end{align*}
 With Corollary \ref{KummerEquality} one shows now, that $\cc$ is given as stated.
+\end{proof}
+\begin{proof}[Proof 2]
+It follows from (\ref{sumZ}) that $\cc\in \Pi'^\perp$, so $\cc \in \Sym\otimes\Q$. Moreover, together with (\ref{ZT}) we get that
+\begin{equation*}
+\cc\cdot D_{1}\cdot D_{2}=54\cdot B(D_{1},D_{2})
+\end{equation*}
+for all $D_{1}$, $D_{2}$ in $H^{2}(\X,\Z)$. Using the non-degeneracy of the Poincar\'e pairing and our knowledge about the Beauville--Bogomolov form on $\X$, we can calculate that
+$$
+\cc= 4 u_1u_2 + 4v_1v_2 + 4 w_1 w_2 - \frac{1}{3} e^2.  \qedhere
+$$
 \end{proof}
 
 
 \begin{corollary}\label{Pi'}
-The intersection $\Sym\cap \Pi$ is one-dimensional and spanned by $\cc$. 
+The intersection $\Sym\cap \Pi$ is one-dimensional and spanned by $3\cc$. 
 \end{corollary}
 \begin{proof}
-By Proposition \ref{ChernSym} and (\ref{sumZ}), $\cc\in \Sym\cap \Pi$. Since the ranks of $\Sym$, $\Pi$ and $H^4(\X,\Z)$ are $28$, $81$ and $108$, respectively, the intersection cannot contain more.
+By Proposition \ref{ChernSym} and (\ref{sumZ}), $3\cc\in \Sym\cap \Pi$. Since the ranks of $\Sym$, $\Pi$ and $H^4(\X,\Z)$ are $28$, $81$ and $108$, respectively, the intersection cannot contain more.
 \end{proof}
 
 \begin{corollary}\label{Classuvw}
@@ -80,25 +134,25 @@ Y_p =  \frac{1}{6}\Big(u_1u_2 + v_1v_2 +  w_1 w_2 \Big).
 \begin{remark}
 Using Nakajima operators, we may write
 \begin{gather}
-Y_p = \frac{1}{9} \theta^*\Big( \q_1(1)\mathfrak L_2(1) \vac \Big).
+Y_p = \frac{1}{9} \theta^*\Big( \q_1(1)\mathfrak L_2(1) \vac \Big) =  \frac{1}{2}\theta^*\Big(\q_1(x)\q_1(1)^2\vac\Big).
 \end{gather}
-
 \end{remark}
-\begin{definition}
-We set $\Pi' := \Sym^\perp \subset \Pi$. This lattice can be described as the span of all classes of the form $Z_\tau -Z_0$ or alternatively as the set of all
-$
-\sum_\tau \alpha_\tau Z_\tau $, such that $ \sum_\tau \alpha_\tau =0$.
-\end{definition}
+
 From the intersection properties $Z_\tau \cdot Z_{\tau'} = 1$ for $\tau\neq \tau'$ and $Z_\tau^2 = 4$ from Section 4 of \cite{Hassett}, we compute
 \begin{equation}
  \discr \Pi' = 3^{84}.
+ \label{discrPi}
 \end{equation}
-Since $\Sym$ has discriminant $2^{14}\cdot 3^{38}$, the lattices $\Sym$ and $\Pi'$ cannot be primitive. To obtain a basis of $H^4(\X,\Z)$, we are now going to find
+On the other hand, a formula developed in \cite{Kapfer} evaluates
+\begin{equation} \label{DiscrSym}
+\discr \Sym \ = 2^{14}\cdot 3^{38},
+\end{equation}
+so the lattices $\Sym$ and $\Pi'$ cannot be primitive. Denote $\Sym^{sat}$ and $\Pi'^{sat}$ the respective primitive overlattices. $\Sym \oplus\Pi'$ is a sublattice of $H^4(\X,\Z)$ of index $2^{7}\cdot 3^{61}$ and we claim that $\Sym^{sat}\oplus \Pi'^{sat}$ has index $3^{22}$. To obtain a basis of $H^4(\X,\Z)$, we are now going to find
 \begin{itemize}
  \item $7$ classes in $\Sym$ divisible by $2$,
  \item $8$ classes in $\Sym$ divisible by $3$,
  \item $31$ classes in $\Pi'$ divisible by $3$ and
- \item $22$ classes in $\Sym\oplus\Pi'$ divisible by $3$.
+ \item $20$ classes in $\Sym^{sat}\oplus \Pi'^{sat}$, one divisible by $3^3$ and $19$ divisible by $3$.
 \end{itemize}
 
 \begin{proposition}\label{classedivisibleSym}
@@ -119,7 +173,7 @@ e\cdot y = 3\cdot \theta^*\Big( \q_2(a)\q_1(1)\vac \Big)
 \quad \text{and}\quad
 y^2 = \theta^*\Big(\q_1(a)^2\q_1(1)\vac\Big)
 $$
-so $e\cdot y$ is divisible by $3$. Furthermore, by Lemma \ref{IntegralOperators}, the class 
+so $e\cdot y$ is divisible by $3$. Furthermore, by Corollary \ref{IntegralOperatorsTorus}, the class 
 $
 \frac{1}{2} \q_1(a)^2\q_1(1)\vac - \frac{1}{2} \q_2(a)\q_1(1)\vac 
 $
@@ -129,18 +183,47 @@ $
 $
 is an integral class, too.
 \end{proof}
-Looking at Proposition \ref{ChernSym}, we see that
-$e^2$ is divisible by $3$ and by (\ref{YSym}),
+From Proposition \ref{ChernSym} we see that
+$e^2$ is divisible by $3$ and by Corollary \ref{Classuvw}
 the class $u_1u_2 + v_1v_2+w_1w_2$ is divisible by 6.
-
-Now we come to $\Pi'$. For a non-isotropic plane $\Lambda \subset A[3]$ and any $\tau_0\in A[3]$, the classes 
+\begin{corollary}\label{SymSatImage}
+The image of $H^4(A\hilb{3},\Z)$ under $\theta^*$ is equal to $\Sym^{sat}$. \qed
+\end{corollary}
+Now we come to $\Pi'$. 
+The first thing to note is that $\Pi'$ is defined topologically for all deformations of $\X$ and the primitive overlattice of $\Pi'$ is a topological invariant, too.  
+By applying a suitable deformation, we may therefore assume without loss of generality that $A$ is the product of two elliptic curves $A=E_1\times E_2$. After \cite[Eq.~(12)]{Hassett}, for a non-isotropic plane $\Lambda \subset A[3]$ and any $\tau_0\in A[3]$, the classes 
 \begin{equation}
  \frac{1}{3}\sum_{\tau\in\Lambda} \Big(Z_{\tau} - Z_{\tau+\tau_0}\Big)
 \end{equation}
-are integral (cf. (12) of \cite{Hassett}). By the considerations after Definition \ref{SymplecticIdeal}, these give a space of rank $31$ of classes in $\Pi'$ divisible by $3$.
+are integral. The monodromy representation acts on the $Z_\tau$ via the symplectic group $\Sp(4,\mathbb F_3)$. Modulo $\Pi'$, the orbit of these classes is a $\mathbb F_3$-vector space naturally isomorphic to $D$ as introduced in Definition \ref{SymplecticIdeal}, so by Proposition \ref{SymplecticIdealsDimension}, we get a subspace of $\Pi'$ of rank $31$ of classes divisible by $3$.
 
-Furthermore, to obtain the remaining $22$ classes in $\Sym\oplus \Pi'$, we ask Gr\'egoire for the argument that I've forgotten.
+The class $Z_0$ is not contained in $\Sym$ nor in $\Pi'$.
+It can be written as follows:
+$$
+Z_0=\frac{\sum_{\tau\in A[3]}Z_\tau-\sum_{\tau\in A[3]}(Z_\tau-Z_0)}{81}
+\stackrel{(\ref{sumZ})}{=} \frac{c_2(K_2(A))-\frac{1}{3}\sum_{\tau\in A[3]}(Z_\tau-Z_0)}{27},
+$$
+This is the class in $\Sym^{sat}\oplus \Pi'^{sat}$ divisible by $27$. Let us now find the remaining $19$ classes divisible by $3$.
 
 
-
-
+Hassett and Tschinkel in Proposition 7.1 of \cite{Hassett} provide the class of a Lagrangian plane $P\subset K_2(A)$, which can be expressed as follows:
+$$\left[P\right]=\frac{1}{216}(6u_1-3e)^2+\frac{1}{8}\cc-\frac{1}{3}\sum_{\tau\in \Lambda'} Z_{\tau},$$
+where $\Lambda'=E_1[3]\times 0\subset A[3]$. We rearrange this expression a bit using (\ref{WW}):
+\begin{align*}
+\left[P\right]&=\frac{1}{216}(6u_1-3e)^2+\frac{1}{8}\cc-\frac{1}{3}\sum_{\tau\in \Lambda'} Z_{\tau}\\
+&=\frac{36u_1^2+9e^2-36u_1\cdot e}{216} +\frac{W}{3}-\frac{3}{8}e^2-\frac{1}{3}\sum_{\tau\in \Lambda'} Z_{\tau}\\
+%&=\frac{36u_1^2-72e^2-36u_1\cdot e}{216} +\frac{W}{3}-\frac{1}{3}\sum_{\tau\in \Lambda'} Z_{\tau}\\
+&=\frac{u_1^2-2e^2-u_1\cdot e}{6} +\frac{W}{3}-\frac{1}{3}\sum_{\tau\in \Lambda'} Z_{\tau}.
+\end{align*}
+The classes $e^2$ and $u_1\cdot e$ are both divisible by 3 and by (\ref{WW}), $W$ is divisible by 3, so the following class is integral:
+$$
+\mathfrak{N}:=\frac{u_1^2+\sum_{\tau\in \Lambda'} (Z_{\tau}-Z_0)}{3}
+.
+$$
+Now we will conclude using the action of the monodromy group $\Sp(A[3])\ltimes A[3]$ on the element $\mathfrak{N}$ and the considerations from Section \ref{Section_Symplectic}. 
+%Before, we have to introduce some notation.
+%Let denote by $O_1$ the $\Ft$ vector space generated by the elements of the orbit of $u_1^2+\sum_{\tau\in \Lambda'} Z_{\tau}$ under the action of $\Sp(A[3])\ltimes A[3]$. We denote by $O_2$ the $\Ft$ vector space generated by the orbit, under the action of $\Sp(A[3])$, of the elements $u_1^2+\sum_{\tau\in\Lambda'} (Z_{\tau} - Z_{\tau+\tau_0})$, with $\tau_0\in A[3]$.
+%We denote by $\Sym^{o}=\Sym\cap c_2(K_2(A))^{\bot}\otimes $ and the projection $\Pr_1:\Sym^{o} $
+Proposition \ref{CombinedSymplectic} states now that
+the orbit of $\mathfrak{N}$ under the action of $\Sp(A[3])\ltimes A[3]$ is spanning a space of rank $51$ modulo $\Sym\oplus\Pi'$. However, by Lemma \ref{cleffinclassesdiv}, the intersection of that space with $\Sym^{sat}$ is one-dimensional and the intersection with $\Pi'^{sat}$ has dimension $31$, so we are left with $19$ linearly independent elements of the form:
+$\frac{x+y}{3}$ with $x\in \Sym\smallsetminus \left\{0\right\}$, and $y\in \Pi'\smallsetminus \left\{0\right\}$. These are the 19 classes which were missing. 
