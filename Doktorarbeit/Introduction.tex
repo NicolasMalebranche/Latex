@@ -6,10 +6,10 @@ Another name, compact Hyperk\"ahler manifolds, is therefore common to emphasize 
 %BERGER classification
 It can be shown that any such manifold must have even complex dimension. IHS manifolds in dimension 2 are the K3 surfaces, and the concept of an IHS manifold can be seen as a generalization of them. The two main example series are given by the deformation classes of Hilbert schemes of points on K3 surfaces and Generalized Kummer varieties. Both were identified by Beauville \cite{Beauville}. Apart from that, only two further examples due to O'Grady are known up to now.
 
-An important structure of any IHS manifold $X$ is the so-called Beauville-Bogomolov form, a non-degenerate quadratic form on $H^2(X,\Z)$ that can be described with the help of the map of the symmetric power of $H^2(X,\Z)$ to the middle cohomology group via the cup product, that relates the Beauville-Bogomolov form with the form given by Poincar\'e duality. This is called the Fujiki relation. It implies that the map $\Sym^k H^2(X,\Z)\rightarrow H^{2k}(X,\Z)$ is an embedding of lattices. We study the algebraic properties of that situation in part \textbf{XY}.
+An important structure of any IHS manifold $X$ of complex dimension $2n$ is the so-called Beauville-Bogomolov form, a non-degenerate quadratic form on $H^2(X,\Z)$ that can be described with the help of the map of the symmetric power of $H^2(X,\Z)$ to the middle cohomology group via the cup product, that relates the Beauville-Bogomolov form with the form given by Poincar\'e duality. This is called the Fujiki relation. It implies that the map $\Sym^n H^2(X,\Z)\rightarrow H^{2n}(X,\Z)$ is an embedding of lattices. We shall study the algebraic properties of that situation and give an explicit formula for the discriminant of the embedded lattice. This result depends only on the Fujiki relation and therefore holds, whenever such an equation is fulfilled. In particular, it applies also to IHS varieties with singularities.
 
-An automorphism of an IHS manifold $X$ induces a lattice automorphism on $H^2(X,\Z)$. This obviously gives some restrictions on the set of possible automorphisms and
-in recent years lattice theoretic methods have been used by
+An automorphism of an IHS manifold $X$ induces a lattice automorphism on $H^2(X,\Z)$. This obviously gives some restrictions on the set of possible automorphisms.
+In recent years lattice theoretic methods have been used by
 Boiss\`ere, Camere, Joumaah, Menet, Mongardi, Nieper-Wi\ss kirchen, Oguiso, Sarti, Tari, Wandel and others to give results on
 automorphisms of finite order. 
 An important information in this setting is given by the quotient of lattices
@@ -18,11 +18,19 @@ $$
 $$
 ($2n$ being the dimension of $X$) and we determine this explicitly for $X$ deformation equivalent to the Hilbert scheme of $n$ points on a K3 surface, $n=2,3$ or the Generalized Kummer in dimension four. 
 
-Moreover, for these examples, we give a complete description of $H^*(X,\Z)$. In the Generalized Kummer case, this description, based on preliminary work of Hassett and Tschinkel \cite{Hassett}, is new. I want to thank Gr\'egoire Menet here for giving me the initiation to do this and for his kind support. He also showed me how to apply these results to the construction of new IHS manifolds with singularities.
-
+Moreover, for these examples, we give a complete description of $H^*(X,\Z)$. In the Generalized Kummer case, this description, based on preliminary work of Hassett and Tschinkel \cite{Hassett}, is new. 
+%I want to thank Gr\'egoire Menet here for giving me the initiation to do this and for his kind support. He also showed me how to apply these results to the construction of new IHS manifolds with singularities.
 The method we use is to study in detail the cohomology of Hilbert schemes of points on surfaces. This has been started by Nakajima \cite{Nakajima} and was further developped by Ellingsrud, G\"ottsche, Lehn, Sorger \cite{EGL,LehnSorger} and Li, Qin and Wang \cite{LiQinWang,LiQinWang2,QinWang}.
 We wrote two computer programs implementing their results. The first one models integral cohomology of Hilbert schemes points on K3 surfaces. The second one computes rational cohomology for Hilbert schemes of points on general surfaces. The source code is in the appendix. 
 
 Cohomology of Generalized Kummer manifolds is more subtle. Over complex coefficients, a modification of the above mentioned model was developed by Britze \cite{Britze}. This includes representation theory and prevents the methods from applying to cohomology with rational coeffients, too, although a general roadmap is contained in \cite{Twisted}.
 However, in low dimensions it can be done otherwise: while in dimension two the resulting manifolds are the well-known K3 surfaces, the four dimensional case is much less studied. It turns out that the cohomology can by described by pulling back from the surrounding Hilbert scheme of three points on a torus and this description is sufficient for all degrees except $4$, where the ideas from \cite{Hassett} complete the picture.
 
+\subsection{Overview on the results}
+
+\subsection{Acknowledgements}
+I am most grateful to my advisors Marc Nieper-Wi\ss kirchen and Samuel Boissi\`ere for their constant support
+and to my collaborator Gr\'egoire Menet who suggested to me the project on Generalized Kummer varieties.
+%I thank Sven Prüfer, K\'evin Tari, 
+I also want to thank my office mates Christian Hübschmann, Cl\'ement Chesseboeuf and Caren Schinko for many diverting discussions.
+I got a one year scholarship from the DAAD, which helped me a lot in progressing on my doctorate.
