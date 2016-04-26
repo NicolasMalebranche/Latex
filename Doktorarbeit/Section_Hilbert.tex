@@ -269,18 +269,26 @@ If $A$ is a torus, the operator $\frac{1}{2}\q_1(b)^2 - \frac{1}{2}\q_2(b)$ is i
 \end{corollary}
 \begin{proof}
 The Nakajima operators are preserved under deformations of $A$. 
-The monodromy operators induce the entire automorphism group $SL(4,\Z)$ on $H^1(A,\Z)$.
-Since $H^2(A,\Z)= \Lambda^2H^1(A,\Z)$, we see with a similar argument as in Remark \ref{simplePlanes} that the monodromy operators act transitively on the simple tensors of $\Lambda^2H^1(A,\Z)$ with fixed norm.
-Suppose that the N\'eron-Severi group $\NS(A)$ contains a basis element of $H^2(A,\Z)$ which can be written as a simple tensor (such $A$ exist).
-Then, by action of monodromy operators, we see that the claim holds for all simple tensors.
-An arbitrary element in $H^2(A,\Z)$ is linear combination of simple tensors. Since the integrality of our operator is preserved under linear combinations, the corollary is proved for that particular torus $A$.
-%By \cite[Thm.~II]{Shioda}, the group of monodromy actions spans the entire automorphism group of $H^2(A,\Z)$.
+Moreover, by %\cite[Thm.~II]{Shioda},
+\cite{Borcea}, 
+the image of the monodromy representation on $H^2(A,\Z)$ is given by $O^{+,+}(H^2(A,\Z))$, the group of isometry on $H^2(A,\Z)$ which preserve the orientation of the negative and positive definite part of $H^2(A,\R)$.
 %Since the lattice is even and contains two copies of the hyperbolic lattice, a theorem of Eichler \cite[Prop.~3.7.3]{Scattone} states that the automorphism group of $H^2(A,\Z)$ acts transitively on classes of the same norm. 
-%
-%Suppose now that the N\'eron-Severi group $\NS(A)$ contains a copy of the hyperbolic lattice $U$ (such $A$ exist).
+
+%%The monodromy operators induce the entire automorphism group $SL(4,\Z)$ on $H^1(A,\Z)$.
+%%Since $H^2(A,\Z)= \Lambda^2H^1(A,\Z)$, we see with a similar argument as in Remark \ref{simplePlanes} that the monodromy operators act transitively on the simple tensors of $\Lambda^2H^1(A,\Z)$ with fixed norm.
+%%Suppose that the N\'eron-Severi group $\NS(A)$ contains a basis element of $H^2(A,\Z)$ which can be written as a simple tensor (such $A$ exist).
+%%Then, by action of monodromy operators, we see that the claim holds for all simple tensors.
+%%An arbitrary element in $H^2(A,\Z)$ is linear combination of simple tensors. Since the integrality of our operator is preserved under linear combinations, the corollary is proved for that particular torus $A$.
+
+Suppose now that the N\'eron-Severi group $\NS(A)$ contains a copy of the hyperbolic lattice $U$ (such $A$ exist).
 %Since $U\subset \NS(A)$, there are divisors of arbitrary even norm,
-%so every class can be mapped to a divisor by the action of a monodromy and Lemma \ref{IntegralOperators} establishes proposition for that particular $A$. 
-Now, since all tori are equivalent by deformation, a general torus can always be deformed to our special $A$. Since the integrality of an operator is a topolocial invariant, $\frac{1}{2}\q_1(b)^2 - \frac{1}{2}\q_2(b)$ remains integral for all $b$.
+%so every class can be mapped to a divisor by the action of a monodromy 
+Let denote $H^2(A,\Z)=U_1\oplus U_2\oplus U_3$ with $\NS(A)=U_1$.
+We consider the two isometries in $O^{+,+}(H^2(A,\Z))$, $\varphi_2$ and $\varphi_3$ defined as follows:
+$\varphi_2$ exchange $U_1$ and $U_2$ and acts as $-\id$ on $U_3$ and $\varphi_3$ exchange $U_1$ and $U_3$ and acts as $-\id$ on $U_2$.
+Using these two isometries, all elements of $U_2$ and $U_3$ are monodromy equivalent to a divisor.
+Then Lemma \ref{IntegralOperators} establishes proposition for that particular $A$. 
+Now, since all tori are equivalent by deformation, a general torus can always be deformed to our special $A$. Since the integrality of an operator is a topolocial invariant, $\frac{1}{2}\q_1(a)^2 - \frac{1}{2}\q_2(a)$ remains integral for all $a\in H^2(A,\Z)$.
 \end{proof}
 
 \begin{proposition} Assume that $H^*(A,\Z)$ is free of torsion.
