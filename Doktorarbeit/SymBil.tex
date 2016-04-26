@@ -1,9 +1,7 @@
 
-\renewcommand{\S}{\mathbb{S}}
-\part{Symmetric Powers of Symmetric Bilinear Forms, Homogeneous Orthogonal Polynomials on the Sphere and an Application to Compact Hyperk\"ahler Manifolds}
-
-\section{Introduction}
-Our motivation originated in Hyperk\"ahler theory. The Beauville--Bogomolov--Fujiki form $q$ for a compact Hyperk\"ahler manifold $X$ is a quadratic form on the integral cohomology $H^2:=H^2(X,\Z)$, defined by an equation of the structure
+\renewcommand{\G}{\mathbb{G}}
+\section{Polarized Fujiki relation}
+The Beauville--Bogomolov--Fujiki form $q$ for a compact Hyperk\"ahler manifold $X$ is a quadratic form on the integral cohomology $H^2:=H^2(X,\Z)$, defined by an equation of the structure
 \begin{equation} \label{initialeq}
 q(x)^k = I(x^{2k}),
 \end{equation}
@@ -29,15 +27,12 @@ Since we are interested in the determinant of the Gram matrix of $\bra\ ,\;\ket$
 and for computing determinants it is good to have diagonal matrices, we look for polynomials that are mutually orthogonal on the sphere. The theory of orthogonal polynomials is well developped, and a basis of such polynomials is given by spherical harmonics, see Remark~\ref{sphericalharmonics}. But as spherical harmonics are not suitable for our determinant problem, we construct a different (and slightly simpler)
 basis of homogeneous polynomials that are orthogonal on the sphere in Section~\ref{polynomialSection}.
 
-After doing that, we come back to our starting point and apply our results to Hyperk\"ahler manifolds. The bilinear form on $\Sym^kH^2$ allows us to compare $\Sym^kH^2$ with $H^{2k}$. We give some results on torsion factors of the quotient $\frac{H^{2k}}{\Sym^kH^2}$ in Section \ref{hyper}, similar to those the author studied in \cite{Kapfer}.
-
-Sections \ref{symSection}, \ref{polynomialSection} and \ref{hyper} treat rather different aspects and can be read independently.
-
+After doing that, we come back to our starting point and apply our results to Hyperk\"ahler manifolds. The bilinear form on $\Sym^kH^2$ allows us to compare $\Sym^kH^2$ with $H^{2k}$. We give some results on torsion factors of the quotient $\frac{H^{2k}}{\Sym^kH^2}$ in Section \ref{hyper}, similar to those studied in Section \ref{CompSection}.
 
 
 \section{Terminology and helper formulas} \label{boring}
 In this section 
-we give a few standard definitions and recall some facts on elementary calculus and lattice theory. We also mention technical formulas needed for our proofs.
+we give a few standard definitions and recall some facts on elementary calculus. We also mention technical formulas needed for our proofs.
 \subsection{Combinatorial formulas}
 \begin{definition}\label{multiindex}
 For a multi-index $\alpha=(\alpha_0,\ldots,\alpha_d)$ of length $\len(\alpha)\coloneqq d+1$ we define: $x^\alpha \coloneqq x_0^{\alpha_0}\ldots x_d^{\alpha_d}$. The degree is defined by $|\alpha |\coloneqq\sum\alpha_i$, the factorial is $\alpha! \coloneqq \prod \alpha_i!$. Further, we set
@@ -518,4 +513,4 @@ in the case $X\defeq S^{[3]}$, Theorem~\ref{maintheorem} says that the discrimin
 
 If the torsion part of $H^{2k}/(\Sym^kH^2)$ is unknown, then Corollary~\ref{latticeCor} still allows the conclusion, that the square-free parts of the discriminants of $\Sym^kH^2$ and its orthogonal complement are equal.
 \end{remark}
-
+\renewcommand{\G}{\mathfrak{G}}
