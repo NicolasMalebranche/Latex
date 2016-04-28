@@ -1,5 +1,5 @@
 \section{Introduction}
-
+\subsection{IHS manifolds}
 Irreducible holomorphically symplectic (IHS) manifolds have been introduced by Beauville \cite{Beauville} as simply-connected compact K\"ahler manifolds admitting a everywhere non-degenerate holomorohic two-form, unique up to scalar. 
 Alternatively, they can be described in a differential geometric setting, according to Berger's classification as compact Riemannian manifolds with holonomy group isomorphic to the symplectic group $\Sp(n,\R)$. This implies the existence of a set of complex structures, parametrized by imaginary quaternions of unit norm, such that the metric is K\"ahler with respect to all of these, \cite[Sect~.23]{Huybrechts}. 
 Another name, compact Hyperk\"ahler manifolds, is therefore common to emphasize this aspect of our class of manifolds. We will use the two names interchangeably.
@@ -30,7 +30,8 @@ Cohomology of Generalized Kummer manifolds is more subtle. Over complex coeffici
 However, in low dimensions it can be done otherwise: while in dimension two the resulting manifolds are the well-known Kummer K3 surfaces, the four dimensional case is much less studied. It turns out that the cohomology can by described by pulling back from the surrounding Hilbert scheme of three points on a torus and this description is sufficient for all degrees except $4$, where the ideas from \cite{Hassett} complete the picture.
 
 \subsection{Overview on the results}
-This work has partly been published in \cite{Kapfer2} and \cite{Kapfer}. Accordingly, the thesis is divided into several parts:
+This work has partly been published in \cite{Kapfer2} and \cite{Kapfer}. 
+Accordingly, the thesis is divided into several parts:
 
 The first part \cite{Kapfer} studies the algebraic properties of the Fujiki relation. For a compact Hyperk\"ahler manifold $X$ of dimension $2n$ this allows to equip the symmetric power $\Sym^nH^2(X)$ with a symmetric bilinear form induced by the Beauville--Bogomolov form. We develop a formula for its discriminant and compare it to the form given by the Poincar\'e pairing.
 We get:
@@ -86,8 +87,10 @@ The appendix dumps the source code for computing Hilbert scheme cohomology. In A
 Appendix \ref{VertexCode} implements rational cohomology of $A\hilb{n}$ for general surfaces $A$. 
 We use the functional programming language Haskell. 
 The source code is also available under \url{https://github.com/s--kapfer}.
+\vspace{5pt}
 
-
+Some of the results have been obtained in joint work with Gr\'egoire Menet. In particular, the application on quotients of irreducible symplectic manifolds is due to him.
+He contributed the essential of Sections \ref{IntegralTools}, \ref{OddHilb2}, \ref{Involution} and \ref{BeauvilleForm}.
 
 \subsection{Acknowledgements}
 I am most grateful to my advisors Marc Nieper-Wi\ss kirchen and Samuel Boissi\`ere for their constant support
