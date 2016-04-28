@@ -30,7 +30,7 @@ Cohomology of Generalized Kummer manifolds is more subtle. Over complex coeffici
 However, in low dimensions it can be done otherwise: while in dimension two the resulting manifolds are the well-known Kummer K3 surfaces, the four dimensional case is much less studied. It turns out that the cohomology can by described by pulling back from the surrounding Hilbert scheme of three points on a torus and this description is sufficient for all degrees except $4$, where the ideas from \cite{Hassett} complete the picture.
 
 \subsection{Overview on the results}
-This work has partly been published in \cite{Kapfer2} and \cite{Kapfer}. Accordingly, the thesis is divided into three parts:
+This work has partly been published in \cite{Kapfer2} and \cite{Kapfer}. Accordingly, the thesis is divided into several parts:
 
 The first part \cite{Kapfer} studies the algebraic properties of the Fujiki relation. For a compact Hyperk\"ahler manifold $X$ of dimension $2n$ this allows to equip the symmetric power $\Sym^nH^2(X)$ with a symmetric bilinear form induced by the Beauville--Bogomolov form. We develop a formula for its discriminant and compare it to the form given by the Poincar\'e pairing.
 We get:
@@ -72,6 +72,14 @@ The cup product mappings have the following cokernels:
 \frac{H^4(S\hilb{3},\IZ)}{\Sym^2 H^2(S\hilb{3},\IZ)}  \cong \frac{\IZ}{3\IZ} \oplus \IZ^ {\oplus 23}\\
 \frac{H^6(S\hilb{3},\IZ)}{H^2(S\hilb{3},\IZ)\smile H^4(S\hilb{3},\IZ)} \cong \left(\frac{\IZ}{3\IZ}\right)^{\oplus 23}
 \end{gather}
+\end{theorem}
+We also get the following freeness result for Hilbert schemes of points on K3 surfaces, which is obtained by analyzing the structure of the computational model (Theorem \ref{freeness}):
+\begin{theorem}
+The quotient
+$$
+ \frac{H^{2k}(S\hilb{n},\IZ)}{\Sym^k H^{2}(S\hilb{n},\IZ)}
+$$
+is a free $\IZ$-module for $n\geq k+2$.
 \end{theorem}
 
 The appendix dumps the source code for computing Hilbert scheme cohomology. In Appendix \ref{IntCode} an implementation for integral cohomology of K3$\hilb{n}$ is given. 

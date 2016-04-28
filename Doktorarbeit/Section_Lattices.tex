@@ -1,18 +1,18 @@
 
 \section{Lattices}\label{latticeSubsection}A reference for this section is Chapter 8.2.1 of \cite{Dolgachev}. 
 \begin{definition}
-By a lattice $L$ we mean a free $\Z$--module of finite rank, equipped with a non--degenerate, integer--valued symmetric bilinear form, denoted by $B$ or $\left(\ ,\;\right)$. 
-By a homomorphism or embedding $L\subset M$ of lattices we mean a map $:L\rightarrow M$ that preserves the bilinear forms on $L$ and $M$ respectively. It is automatically injective. We always have the injection of a lattice $L$ into its dual space $L^*\coloneqq \Hom(L,\Z)$, given by $x \mapsto \left(x,\ \right)$. A lattice is called unimodular, if this injection is an isomorphism, \ie if it is surjective. By tensoring with $\Q$, we can interpret $L$ as well as $L^*$ as a discrete subset of the $\Q$--vector space $L\otimes \Q$. Note that this gives a kind of lattice structure to $L^*$, too, but the symmetric bilinear form on $L^*$ may now take rational coefficients.
+By a lattice $L$ we mean a free $\Z$--module of finite rank, equipped with a non--degenerate, integer--valued symmetric bilinear form, denoted by $B$ or $\left<\ ,\;\right>$. 
+By a homomorphism or embedding $L\subset M$ of lattices we mean a map $:L\rightarrow M$ that preserves the bilinear forms on $L$ and $M$ respectively. It is automatically injective. We always have the injection of a lattice $L$ into its dual space $L^*\coloneqq \Hom(L,\Z)$, given by $x \mapsto \left<x,\ \right>$. A lattice is called unimodular, if this injection is an isomorphism, \ie if it is surjective. By tensoring with $\Q$, we can interpret $L$ as well as $L^*$ as a discrete subset of the $\Q$--vector space $L\otimes \Q$. Note that this gives a kind of lattice structure to $L^*$, too, but the symmetric bilinear form on $L^*$ may now take rational coefficients.
 
 
 If $L\subset M$ is an embedding of lattices of the same rank, then the index $|M\DP L|$ of $L$ in $M$ is defined as the order of the finite group $M/L$.
 There is a chain of embeddings $L\subset M \subset M^* \subset L^*$ with $|L^*\DP M^*| =|M\DP L| $.
 
 The quotient $L^*/L$ is called the discriminant group and denoted $A_L$. The index of $L$ in $L^*$ is called $\discr L$, the discriminant of $L$.
-Choosing a basis $(x_i)_i$ of $L$, we may express $\discr L$ as the absolute value of the determinant of the so--called Gram matrix $G$ of $L$, which is defined by $G_{ij}\coloneqq \left(x_i,x_j\right)$. $L$ is unimodular, iff $\det G =\pm 1$.
+Choosing a basis $(x_i)_i$ of $L$, we may express $\discr L$ as the absolute value of the determinant of the so--called Gram matrix $G$ of $L$, which is defined by $G_{ij}\coloneqq \left<x_i,x_j\right>$. $L$ is unimodular, iff $\det G =\pm 1$.
 
-The lattice $L$ is called odd, if there exists a $v\in L$, such that $(v,v)$ is odd, otherwise it is called even. 
-If the map $v \mapsto (v,v)$ takes both negative and positive values on $L$, the lattice is called indefinite. 
+The lattice $L$ is called odd, if there exists a $v\in L$, such that $\left<v,v\right>$ is odd, otherwise it is called even. 
+If the map $v \mapsto \left<v,v\right>$ takes both negative and positive values on $L$, the lattice is called indefinite. 
 \end{definition}
 \begin{example}
 Up to isomorphism there is a unique even unimodular lattice of rank two. It is called the hyperbolic lattice $U$. Its Gram matrix is given by 
@@ -44,7 +44,10 @@ Let $L\subset M$ be an embedding of lattices with unimodular $M$. Let $n$ be the
 \end{corollary}
 
 \begin{example}
-Given a free $\Z$-module $L$ with the structure of a commutative ring and a linear form $I:V\rightarrow \Z$, the setting $\left(v,w\right)=I(vw)$ defines a bilinear form giving $L$ the structure of a lattice if it is non-degenerate. This is the case in topology:
-For a compact complex manifold $X$ of dimension $d$ Poincar\'e duality induces a non-degenerate bilinear form on $H^d(X,\Z)$: $$\left(\alpha,\beta\right) = \int_X\alpha\beta.$$ 
+Given a free $\Z$-module $L$ with the structure of a commutative ring and a linear form $I:V\rightarrow \Z$, the setting $\left<v,w\right>=I(vw)$ defines a bilinear form giving $L$ the structure of a lattice if it is non-degenerate. This is the case in topology:
+For a compact complex manifold $X$ of dimension $d$ Poincar\'e duality induces a non-degenerate bilinear form on $H^d(X,\Z)$: 
+$$
+\left<\alpha,\beta\right> = \int_X\alpha\beta.
+$$ 
 This unimodular lattice will be referred to as the Poincar\'e lattice.
 \end{example}
