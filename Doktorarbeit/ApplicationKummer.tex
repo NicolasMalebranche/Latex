@@ -14,20 +14,20 @@ When $X=K_2(A)$, we have more precisely, by Corollary 3.3 of \cite{BNS2}, $$\Ker
 \subsection{Uniqueness and fixed locus}
 \begin{thm}\label{SymplecticInvo}
 Let $X$ be an irreducible symplectic fourfold of Kummer type and $\iota$ a symplectic involution on $X$. Then:
-\begin{itemize}
-\item[(1)]
+\begin{enumerate}
+\item
 We have $\iota\in \Ker \nu$.
-\item[(2)]
+\item
 Let $A$ be an abelian surface. Then 
 the couple $(X,\iota)$ is deformation equivalent to $(K_2(A),t_\tau \circ (-\id_A)^{[[3]]})$,
 where $t_\tau$ is the morphism induced on $K_2(A)$ by the translation by $\tau\in A[3]$.
-\item[(3)]
+\item
 The fixed locus of $\iota$ is given by a K3 surface and 36 isolated points.
-\end{itemize}
+\end{enumerate}
 \end{thm}
 \begin{proof}
-\begin{itemize}
-\item[(1)]
+\begin{enumerate}
+\item
 If $\iota\notin \Ker \nu$, by the classification of Section 5 of \cite{MongWanTari}, the unique possible action of $\iota$ on $H^{2}(X,\Z)$ is given by $H^{2}(X,\Z)^{\iota}=U\oplus (2)^2\oplus(-6)$. We will show that it is impossible. Let us assume that $H^{2}(X,\Z)^{\iota}=U\oplus (2)^2\oplus(-6)$, we will find a contradiction.
 
 As done in Section 3 of \cite{Mongardi}, consider a local universal deformation space of $X$:
@@ -57,22 +57,22 @@ Let also denote by $g$ the automorphism on $K_2(A)$ induced by $g$. By construct
 By Corollary \ref{actionH3}, $t_\tau$ acts trivially on $H^{3}(K_2(A),\Z)$. Hence by Corollary 3.3 of \cite{BNS2}, we have necessarily:
 $$g^{*}_{|H^{3}(K_2(A),\Z)}=i^{*}_{|H^{3}(K_2(A),\Z)}\circ (-\id_A)^{*}_{|H^{3}(K_2(A),\Z)}\ \ou\ g^{*}_{|H^{3}(K_2(A),\Z)}=i^{*}_{|H^{3}(K_2(A),\Z)}.$$
 But by Corollary \ref{actionH3}, $g^{*}_{|H^{3}(K_2(A),\Z)}$ has order 4 and $i^{*}_{|H^{3}(K_2(A),\Z)}\circ (-\id_A)^{*}_{|H^{3}(K_2(A),\Z)}$ and $i^{*}_{|H^{3}(K_2(A),\Z)}$ have order 2, which is a contradiction.
-\item[(2)]
+\item
 Let $X$ be a irreducible symplectic fourfold of Kummer type and $\iota$ a symplectic involution on $X$. By (1) of the above theorem, we have $\iota\in\Ker \nu$. Then by Theorem 2.1 of \cite{Hassett}, the couple $(X,\iota)$ deform to a couple $(K_2(A),\iota')$ with $A$ an abelian surface and $\iota'\in\Ker \nu$ a symplectic involution on $ K_2(A)$. Then we conclude with Corollary 3.3 of \cite{BNS2}.
-\item[(3)]
+\item
 Let $A$ be an abelian surface. By Section 1.2.1 of \cite{Tari}, the fixed locus of $t_\tau \circ (-\id_A)^{[[3]]}$ on $K_2(A)$ is given by a K3 surface an 36 isolated points. 
 Now let $X$ be a irreducible symplectic fourfold of Kummer type and $\iota$ a symplectic involution on $X$. 
 By (2) of the above theorem, $\Fix\iota$ deforms to the disjoint union of a K3 surface and 36 isolated points. Moreover, $\iota$ is a symplectic involution, so the holomorphic 2-form of $X$ restricts to a non-degenerated holomorphic 2-form on $\Fix\iota$. Then necessarily, $\Fix\iota$ consists of a K3 surface and 36 isolated points.
-\end{itemize}
+\end{enumerate}
 \end{proof}
 \begin{rmk}\label{RemarkSymplecticInv}
-\begin{itemize}
-\item[(1)]
+\begin{enumerate}
+\item
 We also remark that the K3 surface fixed by $(t_\tau \circ (-\id_A))$ is given by the sub-manifold $$Z_{-\tau}=\overline{\left\{\left.(a_1,a_2,a_3)\ \right|\ a_1=-\tau,\ a_2=-a_3+\tau,\ a_2\neq -\tau\right\}}$$ defined in Section 4 of \cite{Hassett}. 
-\item[(2)]
+\item
 Considering the involution $-\id_A$,
 the set $$\mathcal{P}:=\left\{\left.\xi\in K_{2}(A)\right|\ \Supp \xi= \left\{a_{1},a_{2},a_{3}\right\},\ a_{i}\in A[2]\smallsetminus \left\{0\right\}, 1\leq i\leq 3 \right\}$$ provides 35 fixed points and the vertex of $$W_{0}:=\left\{\left.\xi\in K_{2}(A)\right|\ \Supp \xi=\left\{0\right\}\right\}$$ supplies the 36th point. We denote by $p_1,...,p_{35}$ the points of $\mathcal{P}$ and by $p_{36}$ the vertex of $W_{0}$.
-\end{itemize}
+\end{enumerate}
 \end{rmk}
 \subsection{Action on the cohomology}\label{actioncoh}
 From Theorem \ref{SymplecticInvo}, we can assume that $X=K_2(A)$ and $\iota=-\id_A$. To consider $t_\tau \circ (-\id_A)$ instead of  $-\id_A$ only has the effect of exchanging the role of $[Z_0]$ and $[Z_{-\tau}]$.
@@ -196,16 +196,16 @@ The Beauville-Bogomolov form is a topological invariant, hence from Theorem \ref
 \subsection{Overview on the proof of Theorem \ref{theorem}}
 We first provide all the notation that we will need during the proof in Section \ref{nota}.
 Then the proof is divided into the following steps:
-\begin{itemize}
-\item[(1)]
+\begin{enumerate}
+\item
 First (\ref{l22}), (\ref{l3}), Proposition \ref{invariants} and Corollary \ref{utile'} will provide the $H^4$-normality of $(K_2(A),\iota)$ in Section \ref{H4}.
-\item[(2)]
+\item
 The knowledge of the elements divisible by 2 in $\Sym^{2} H^{2}(K_2(A),\Z)$ from Section \ref{Middle} and the $H^4$-normality allow us to prove the $H^2$-normality of $(K_2(A),\iota)$ in Section \ref{H2}. 
-\item[(3)]
+\item
 An adaptation of the $H^2$-normality (Lemma \ref{primitive2}) and several lemmas in Section \ref{basisinteK'} will provide an integral basis of $H^{2}(K',\Z)$ (Theorem \ref{fin}).
-\item[(4)]
+\item
 Knowing an integral basis of $H^{2}(K',\Z)$, we end the calculation of the Beauville--Bogomolov form in Section \ref{beauK'} using intersection theory and the generalized Fujiki formula (Theorem \ref{Form}).
-\end{itemize}
+\end{enumerate}
 \subsection{Notation}\label{nota}
 Let $K_{2}(A)$ be a generalized Kummer fourfold endowed with the symplectic involution $\iota$ induced by $-\id_A$.
 We denote by $\pi$ the quotient map $K_{2}(A)\rightarrow K_{2}(A)/\iota$.
@@ -241,17 +241,17 @@ The couple $(K_{2}(A),\iota)$ is $H^{4}$-normal.
 \end{prop}
 \begin{proof}
 We apply Theorem \ref{utile'}.
-\begin{itemize}
-\item[i)]
+\begin{enumerate}
+\item
 By Theorem \ref{torsion}, $H^{*}(K_{2}(A),\Z)$ is torsion-free. 
-\item[ii)]
+\item
 From Remark \ref{RemarkSymplecticInv} (1), we know that the connected component of dimension 2 of $\Fix \iota$  is given by $Z_{0}$ which is a K3 surface, hence is simply connected. 
 Moreover by Proposition 4.3 of \cite{Hassett} $Z_{0}\cdot Z_{\tau}=1$ for all $\tau\in A[3]\smallsetminus \left\{0\right\}$. Hence the class of $Z_{0}$ in $H^{4}(K_{2}(A),\Z)$ is primitive. It follows that $\Fix \iota$ is almost negligible (Definition \ref{negligible}). 
-\item[iii)]
+\item
 By (\ref{l22}) and Proposition \ref{invariants}, we have $l_{1,-}^{2}(K_{2}(A))=l_{1,-}^{4}(K_{2}(A))=0.$
-\item[iv)]
+\item
 By (\ref{l3}) and Proposition \ref{invariants}, we have $l_{1,+}^{3}(K_{2}(A))=0.$ Moreover $H^{1}(K_{2}(A))=0$, so $l_{1,+}^{1}(K_{2}(A))=0.$
-\item[v)]
+\item
 We have to check the following equality:
 \begin{align*}
 &l_{1,+}^{4}(K_{2}(A))+2\left[l_{1,-}^{1}(X)+l_{1,-}^{3}(X)+l_{1,+}^{0}(X)+l_{1,+}^{2}(X)\right]\\
@@ -261,7 +261,7 @@ By (\ref{l22}), (\ref{l3}) and Proposition \ref{invariants}:
 $$l_{1,+}^{4}(K_{2}(A))+2\left[l_{1,-}^{1}(X)+l_{1,-}^{3}(X)+l_{1,+}^{0}(X)+l_{1,+}^{2}(X)\right]=28+2(8+1+7)=60.$$
 Moreover since $Z_{0}$ is a K3 surface, we have:
 $$36h^{0}(pt)+h^{0}(Z_{0})+h^{2}(Z_{0})+h^{4}(Z_{0})=36+1+22+1=60.$$
-\end{itemize}
+\end{enumerate}
 It follows from Corollary \ref{utile'} that $(K_{2}(A),\iota)$ is $H^4$-normal.
 \end{proof} 
 \begin{rmk}\label{primitive1}
@@ -332,37 +332,37 @@ We have $$H^{2}(K',\Z)=\pi_{1*}(s_{1}^{*}(H^2(K_2(A),\Z)))\oplus\Z\left(\frac{\p
 
 First we need to calculate some intersections.
 \begin{lemme}\label{Fulton}
-\begin{itemize}
-\item[(i)]
+\begin{enumerate}
+\item
 We have $E_{l}\cdot E_{k}=0$ if $l\neq k$, $E_{l}^{4}=-1$ and $E_{l}\cdot z=0$ for all $(l,k)\in \left\{1,...,28\right\}^{2}$
 and for all $z\in s^{*}(H^{2}(K_2(A),\Z))$.
-\item[(ii)]
+\item
 We have $e^4=324$.\newline
-\end{itemize}
+\end{enumerate}
 We already have some properties of primitivity:
 
-\begin{itemize}
-\item[(iii)]
+\begin{enumerate}
+\item
 $\pi_{1*}(s_1^{*}(H^{2}(K_{2}(A),\Z)))$ is primitive in $H^{2}(K',\Z)$,
-\item[(iv)]
+\item
 The group $\widetilde{\mathcal{D}}=\left\langle \widetilde{\overline{Z_0}},D_{1},...,D_{36},\frac{\widetilde{\overline{Z_0}}+D_{1}+...+D_{36}}{2}\right\rangle$ is primitive in $H^{2}(\widetilde{K},\Z)$.
-\item[(v)]
+\item
 $\overline{Z_{0}}'$ is primitive in $H^{2}(K',\Z)$,
 %\item[3)]
 %$\pi_{*}(e^{2})+\overline{Z_{0}}$ is divisible by 2.
-\end{itemize}
+\end{enumerate}
 \end{lemme}
 \begin{proof}
-\begin{itemize}
-\item[(i)]
+\begin{enumerate}
+\item
 It is proven using adjunction formula. 
 It is the same statement as Proposition 4.6.16 1) of \cite{Lol}.
-\item[(ii)]
+\item
 It follows directly from the Fujiki formula (\ref{fujiki}).
-\item[(iii)]
+\item
 By Lemma \ref{primitive2}, $\pi_{2*}(s^*(H^2(K_2(A),\Z)))$ is primitive in $H^{2}(\widetilde{K},\Z)$. Then by Remark \ref{commut2}, $r'^*(\pi_{*}(H^2(K_2(A),\Z)))$ is primitive in $H^{2}(K',\Z)$. Using again Remark \ref{commut2}, we get the result.
 \item[]
-The proof of (iv) and (v) is the same as Lemma 4.6.14 of \cite{Lol} and will be omitted. 
+The proof of the last two points is the same as Lemma 4.6.14 of \cite{Lol} and will be omitted. 
 %%If $\overline{Z_{0}}'$ is divisible by 2, by Lemma \ref{Fulton}, $r^{*}(\overline{Z_{0}})$ is divisible by 2. 
 %%Since $r^{*}(\pi_{*}(H^{4}(K_{2}(A),\Z)))$ primitive in $H^{4}(K',\Z)$, it means that $Z_{0}=a+\iota^{*}(a)$ with $a\in H^{4}(K_{2}(A),\Z)$. 
 %%But this is impossible since $Z_{0}\cdot \frac{u_{1}\cdot u_{2}+v_{1}\cdot v_{2}+w_{1}\cdot w_{2}}{2}=3$ is odd.
@@ -388,7 +388,7 @@ The proof of (iv) and (v) is the same as Lemma 4.6.14 of \cite{Lol} and will be 
 %Using the same method as in Section \ref{H2}, it proves that 
 %$$b=e \mod 2 H^{2}(K_{2}(A),\Z).$$
 %%Hence $\pi_{*}(e^{2}+Z_{0})$ is divisible by 2.
-\end{itemize}
+\end{enumerate}
 \end{proof}
 With Lemma \ref{Fulton} (iii) and (v), it only remains to prove that $\pi_{1*}(s_{1}^{*}(e))+\overline{Z_{0}}'$ is divisible by 2 which will be done in Lemma \ref{dernierlemme}. To prove this lemma, we first prove that $\pi_{2*}(s^{*}(e))+\widetilde{\overline{Z_{0}}}$ is divisible by 2. Knowing that $\widetilde{\overline{Z_0}}+D_{1}+...+D_{36}$ is divisible by 2, we only have to show that $\pi_{2*}(s^{*}(e))+D_{1}+...+D_{36}$ is divisible by 2 which is done by Lemma \ref{exist} and \ref{Ddelta}.
 %We have the following exact sequence:
@@ -515,14 +515,14 @@ The group $G$ extends naturally to an automorphism group of $N_2$ which we denot
 Hence the combined action of $G$ and $\Sp A[2]$ acts transitively on $\mathfrak{D}$.
 Since $\pi_{2*}(s^{*}(e))$ is fixed by the action of $G$ and $\Sp A[2]$, $D_e$ has also to be fixed by the action of $G$ and $\Sp A[2]$ else it will contradict Lemma \ref{Fulton} (iv).
 It follows that there are only 3 possibilities for $D_e$: 
-\begin{itemize}
-\item[(1)]
+\begin{enumerate}
+\item
 $D_e=D_{36}$,
-\item[(2)]
+\item
 $D_e=D_1+...+D_{35}$,
-\item[(3)]
+\item
 or $D_e=D_1+...+D_{36}$.
-\end{itemize}
+\end{enumerate}
 Let $d$ be the number of $D_i$ with coefficient equal to 1 in the linear decomposition of $D_e$. The number $d$ can be 1, 35 or 36.
 %Let denote by $E_e$ be a linear combination of the $E_i$ with coefficient 0 or 1 such that $\pi_{2*}(E_e)=D_e$. Let $d$ be the number of $E_i$ with coefficient equal to 1. We know that $d$ can be 1, 35 or 36.
 

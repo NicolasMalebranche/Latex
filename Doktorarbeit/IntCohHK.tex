@@ -1,21 +1,10 @@
 
-The Hilbert schemes of $n$ points on a complex surface parametrize all zero-dimensional subschemes of length $n$. Studying their rational cohomology, Nakajima \cite{Nakajima} was able to give an explicit description of the vector space structure in terms of the action of a Heisenberg algebra.
-The Hilbert schemes of points on a K3 surface are one of the few known classes of Irreducible Holomorphic Symplectic Manifolds. Lehn and Sorger \cite{LehnSorger} developed an algebraic model to describe the cohomological ring structure. On the other hand, Qin and Wang \cite{QinWang} found a base for integral cohomology in the projective case. By combining these results, we are able to compute all cup-products in the cohomology rings of Hilbert schemes of $n$ points on a projective K3 surface with integral coefficients. 
-For $n=2$, this was done by Boissi\`ere, Nieper-Wi{\ss}kirchen and Sarti \cite{BNS}, who applied their results to automorphism groups of prime order. When $n$ is increasing, the ranks of the cohomology rings become very large, so we need the help of a computer. The source code is available under \url{https://github.com/s--kapfer/HilbK3}
-
+Lehn and Sorger in \cite{LehnSorger} developed an algebraic model to describe the cohomological ring structure of Hilbert schemes of points on a K3 surface. On the other hand, Qin and Wang \cite{QinWang} found a base for integral cohomology in the projective case. By combining these results, we are able to compute all cup-products in the cohomology rings of Hilbert schemes of $n$ points on a projective K3 surface with integral coefficients. 
+For $n=2$, this was done by Boissi\`ere, Nieper-Wi{\ss}kirchen and Sarti \cite{BNS}, who applied their results to automorphism groups of prime order. When $n$ is increasing, the ranks of the cohomology rings become very large, so we need the help of a computer. 
 Our goal here is to give some properties for low degrees.
-Denote by $S\hilb{3}$ the Hilbert scheme of 3 points on a projective K3 surface (or a deformation equivalent space). We identify $\Sym^kH^2(S\hilb{n},\IZ)$ with its image in $H^{2k}(S\hilb{n},\IZ)$ under the cup product mapping. 
-\begin{theorem}
-The cup product mappings for the Hilbert scheme of 3 points on a projective K3 surface have the following cokernels:
-\begin{gather}
-\frac{H^4(S\hilb{3},\IZ)}{\Sym^2 H^2(S\hilb{3},\IZ)}  \cong \frac{\IZ}{3\IZ} \oplus \IZ^ {\oplus 23}\\
-\frac{H^6(S\hilb{3},\IZ)}{H^2(S\hilb{3},\IZ)\smile H^4(S\hilb{3},\IZ)} \cong \left(\frac{\IZ}{3\IZ}\right)^{\oplus 23}
-\end{gather}
-\end{theorem}
 Although the case $n=3$ is the most interesting for us, our computer program allows computations for arbitrary $n$. We give some numerical results in Section \ref{CompSection}.\vspace{5pt}
 
-\emph{Acknowledgements.} The author thanks Samuel~Boissi\`ere and Marc~Nieper-Wi{\ss}kirchen for their supervision and many helpful comments. He also thanks Gr\'{e}goire~Menet for stimulating proposals and the Laboratoire de Math\'{e}matiques et Applications of the university of Poitiers for its hospitality. This work was partially supported by a DAAD grant.
-\section{Preliminaries}
+\section{The combinatorial model of Lehn and Sorger}
 \begin{definition}
 Let $n$ be a natural number. A partition of $n$ is a decreasing sequence $\lambda = (\lambda_1,\ldots,\lambda_k),\ \lambda_1\geq\ldots\geq\lambda_k>0$ of natural numbers such that $\sum_i \lambda_i =n$. Sometimes it is convenient to write $\lambda = (\ldots,2^{m_2},1^{m_1})$ with multiplicities in the exponent. No confusion should be possible since numerical exponentiation is never meant in this context. We define the weight $\|\lambda\| :=\sum m_i i =n$ and the length $|\lambda| := \sum_i m_i =k$. We also define $z_\lambda \coloneqq\prod_i i^{m_i} m_i!$. 
 \end{definition}
