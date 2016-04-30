@@ -180,9 +180,18 @@ $$
 \lim\limits_{n\rightarrow\infty}\frac{1}{p^n} \left[ \left(1-px\right)^{p^n}-1\right]\; =\; \log\big(1-px\big).
 $$
 
-\eintrag{Fibonacci-Produkt} Bezeichne mit $*$ das Fibonacci-Product und mit $n^{*k}$ die $k$-fache Fibonacci-Potenz. Dann gilt vermutlich für alle $n,k\geq 1$:
+\eintrag{Fibonacci-Produkt} Bezeichne mit $*$ das Fibonacci-Product. Seien $a,b,m \in \N$ so, daß $m$ sowohl $a$ als auch $b$ teilt. Dann ist $m$ auch ein Teiler von $a*b$.
+\begin{proof}
+Seien $a = \sum\limits_{i\in A} f_i$ und $b = \sum\limits_{j\in B} f_j$ die Zeckendorf-Darstellungen. Führe die Translationsoperation $T: f_n\longmapsto f_{n+1}$ ein. 
+Wir wollen zeigen:
+\begin{equation*}
+\forall b: \quad a*b = T(a)b.
+\end{equation*}
+Wir haben die Fibonacci-Rekurrenz: $T^n(a) + T^{n+1}(a)= T^{n+2}(a)$. Daraus folgt nun:
 $$
-n\ |\ n^{*k}.
+T^n(a) = \sum_{i\in A} f_{i+n} \equiv T(a) f_n \quad (\text{mod }m )
 $$
+und somit $a*b =  \sum\limits_{j\in B}\sum\limits_{i\in A}f_{i+j} \equiv  \sum\limits_{j\in B} T(a)f_j \equiv T(a) b\ \ (\text{mod }m) $.
+\end{proof}
 
 \end{document}          
