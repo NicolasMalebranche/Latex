@@ -16,7 +16,7 @@ Direct sum and tensor product of two super vector spaces $V$ and $W$ yield again
 \begin{definition}
 A superalgebra $R$ is a unital associative $k$-algebra which carries a super vector space structure. Define the supercommutator by setting for homogeneous elements $u,v \in R$:
 \begin{align*}
-[u,v] := uv - (-1)^{|u||v|} v u.
+[u,v] \defIs  uv - (-1)^{|u||v|} v u.
 \end{align*}
 $R$ is called supercommutative, if $[u,v]=0$ for all $u,v\in R$. Note that a graded commutative algebra $R = \bigoplus\limits_n R^n$ is supercommutative in a natural way, by setting $R^{+}=\bigoplus\limits_{n\text{ even}} R^n$, $R^{-}=\bigoplus\limits_{n\text{ odd}} R^n$.
 
@@ -34,7 +34,7 @@ Let $V$ be a super vector space over $k$ and $n\geq 0$. Then the supersymmetric 
 \SSym^n(V)^{+} &= \bigoplus_{\substack{p+q=n \\ q\text{ even} }} \Sym^p(V^{+}) \otimes \Lambda^q(V^{-}), &
 \SSym^n(V)^{-} &= \bigoplus_{\substack{p+q=n \\ q\text{ odd} }} \Sym^p(V^{+}) \otimes \Lambda^q(V^{-}).
 \end{align*}
-The supersymmetric algebra $\SSym^*(V):= \bigoplus\limits_n \SSym^n(V)$ on $V$ is a supercommutative algebra over $k$, where the product of two elements $s\otimes e \in \Sym^p(V^{+}) \otimes \Lambda^q(V^{-})$ and $s'\otimes e' \in \Sym^{p'}(V^{+}) \otimes \Lambda^{q'}(V^{-})$ is given by 
+The supersymmetric algebra $\SSym^*(V)\defIs  \bigoplus\limits_n \SSym^n(V)$ on $V$ is a supercommutative algebra over $k$, where the product of two elements $s\otimes e \in \Sym^p(V^{+}) \otimes \Lambda^q(V^{-})$ and $s'\otimes e' \in \Sym^{p'}(V^{+}) \otimes \Lambda^{q'}(V^{-})$ is given by 
 $$
 (s\otimes e)\diamond (s'\otimes e') = (s s')\otimes (e\wedge e') \ \  \in \Sym^{p+p'}(V^{+}) \otimes \Lambda^{q+q'}(V^{-}).
 $$
@@ -45,8 +45,8 @@ $(-1)^{|v_i||v_j|+(|v_i|+|v_j|)\sum_{i<k<j} |v_k|}$.
 \end{remark}
 
 
-Now let $U$ be a vector space over a field $k$ of characteristic $0$ and look at the exterior algebra $H:= \Lambda^* U$. 
-Since $H$ is a super vector space, we can construct the supersymmetric power $S^n:= \SSym^n( H)$.
+Now let $U$ be a vector space over a field $k$ of characteristic $0$ and look at the exterior algebra $H\defIs  \Lambda^* U$. 
+Since $H$ is a super vector space, we can construct the supersymmetric power $S^n\defIs  \SSym^n( H)$.
 We may identify $S^n$ with the space of $\mathfrak S_n$-invariants in $H^{\otimes n}$ by means of the linear projection operator
 $$
 \pr : H^{\otimes n} \longrightarrow S^n , \quad \pr = \frac{1}{n!}\sum_{\pi \in\mathfrak S_n} \pi.
@@ -69,7 +69,7 @@ that makes $H^{\otimes n}$ a free $H$-module. Note that $\pr \iota \neq s$, sinc
 (For example, $\pr\iota(h)\neq s(h)$ for any nonzero $h\in\Lambda^2(U)$.)
 We therefore modify the $H$-module structure of $H^{\otimes n}$:
 
-For some $u\in U$, denote $u^{(i)} := 1^{\otimes i-1}\otimes u\otimes 1^{\otimes n-i+1} \in H^{\otimes n}$. Then $H^{\otimes n}$ is generated as a $k$-algebra by the elements $\{u^{(i)}\,,\,u\in U\}$. Now consider the ring automorphism
+For some $u\in U$, denote $u^{(i)} \defIs  1^{\otimes i-1}\otimes u\otimes 1^{\otimes n-i+1} \in H^{\otimes n}$. Then $H^{\otimes n}$ is generated as a $k$-algebra by the elements $\{u^{(i)}\,,\,u\in U\}$. Now consider the ring automorphism
 $$
 \sigma : H^{\otimes n} \longrightarrow H^{\otimes n}, \quad u^{(1)} \longmapsto u^{(1)} +u^{(2)} + \ldots + u^{(n)}, \quad
 u^{(i)} \longmapsto u^{(i)} \text{ for } i>1.

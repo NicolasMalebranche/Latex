@@ -1,13 +1,13 @@
 \section{Nakajima operators for Hilbert schemes of points on surfaces}
 \label{Section_Hilbert}
 Let $A$ be a smooth projective complex surface. 
-%Set $H:=H^*(A,\Q)$. 
+%Set $H\defIs H^*(A,\Q)$. 
 Let $A\hilb{n}$ the Hilbert scheme of $n$ points on the surface, \ie the moduli space of finite subschemes of $A$ of length $n$.
 %$$\Hilb^ n : S \mapsto \left\{ Z\subset S\times A\,|\,Z\text{ closed subscheme, } p_1 : Z\rightarrow S \text{ flat and finite of degree }n\right\}.$$
 $A\hilb{n}$ is again smooth and projective of dimension $2n$, cf.~\cite{Fogarty}. 
 Their rational cohomology can be described in terms of Nakajima's \cite{Nakajima} operators. First consider the direct sum
 $$
-\H := \bigoplus_{n=0}^{\infty} H^*(A\hilb{n},\Q).
+\H \defIs  \bigoplus_{n=0}^{\infty} H^*(A\hilb{n},\Q).
 $$
 This space is bigraded by cohomological \emph{degree} and the \emph{weight}, which is given by the number of points $n$. The unit element in $H^0(A\hilb{0},\Q) \cong \Q$ is denoted by $\vac$, called the \emph{vacuum}.
 \begin{defipro}
@@ -17,7 +17,7 @@ $$
 $$
 To construct them, first define incidence varieties $\mathcal Z_m\subset A\hilb{n}\times A\times A\hilb{n+m}$ by
 $$
-\mathcal Z_m := \left\{(\xi,x,\xi')\, |\, \xi\subset\xi',\, \supp(\xi') -\supp(\xi) = mx \right\}.
+\mathcal Z_m \defIs  \left\{(\xi,x,\xi')\, |\, \xi\subset\xi',\, \supp(\xi') -\supp(\xi) = mx \right\}.
 $$
 Then $\q_m(a)(\beta) $ is defined as the Poincar\'e dual of 
 $$
@@ -30,7 +30,7 @@ In other words, the $\q_m(a)$ generate $\H$ and there are no algebraic relations
 \begin{example}
 The unit $1_{A\hilb{n}} \in H^0({A\hilb{n}},\Q)$ is given by $\frac{1}{n!}\q_1(1)^n\vac$. The sum of all $1_{A\hilb{n}}$ in the formal completion of $\H$ is sometimes denoted by
 $
-\left|1\right> := \exp(\q_1(1))\vac.
+\left|1\right> \defIs  \exp(\q_1(1))\vac.
 $
 \end{example}
 
@@ -42,23 +42,23 @@ $$
 For $a \in H^k(A)$, we define $\G_i(a)$ as the component of $\G(a)$ of cohomological degree $k+2i$. A differential operator $\mathfrak{d}$ is given by $\G_1(1)$. It means multiplication with the first Chern class of the tautological sheaf $\pr_{1*}\left( \mathcal{O}_{\Xi_n}\right)$.
 \end{definition}
 \begin{notation} 
-We abbreviate $\q := \q_1(1)$ and for its derivative $\q':= [\mathfrak d, \q]$. For any operator $X$ we write $X^{(k)}$ for the $k$-fold derivative: $X^{(k)} :=\ad^k(\d) (X)$.
+We abbreviate $\q \defIs  \q_1(1)$ and for its derivative $\q'\defIs  [\mathfrak d, \q]$. For any operator $X$ we write $X^{(k)}$ for the $k$-fold derivative: $X^{(k)} \defIs \ad^k(\d) (X)$.
 \end{notation}
 In \cite{LehnSorger} and \cite{LiQinWang} we find various commutation relations between these operators, that allow to determine all multiplications in the cohomology of the Hilbert scheme. First of all, if $X$ and $Y$ are operators of degree $d$ and $d'$, their commutator is defined in the super sense: 
 $$
-[X,Y] := XY - (-1)^{dd'}YX.
+[X,Y] \defIs  XY - (-1)^{dd'}YX.
 $$
 The integral on $A\hilb{n}$ induces a non-degenerate bilinar form on $\H$: for classes $\alpha,\,\beta\in H^*(A\hilb{n})$ it is given by
 $$
-(\alpha,\beta)_{A\hilb{n}} :=  \int_{A\hilb{n}}\alpha\cdot\beta.
+(\alpha,\beta)_{A\hilb{n}} \defIs   \int_{A\hilb{n}}\alpha\cdot\beta.
 $$
 If $X$ is a homogeneous linear operator of degree $d$ and weight $m$, acting on $\H$, define its adjont $X^\dagger$ by
 $$
 (X(\alpha),\beta)_{A\hilb{n+m}}  = (-1)^{d|\alpha|}( \alpha , X^\dagger (\beta))_{A\hilb{n}}.
 $$
-We put $\q_0(a) :=0$ and for $m<0$, $\q_m(a) := (-1)^m \q_{-m}(a)^\dagger$. Note that, for all $m\in\Z$, the bidegree of $\q_m(a)$ is $(m,|a| + 2(|m|-1))$. If $m$ is positive, $\q_m$ is called a creation operator, otherwise it is called annihiliation operator. Now define
+We put $\q_0(a) \defIs 0$ and for $m<0$, $\q_m(a) \defIs  (-1)^m \q_{-m}(a)^\dagger$. Note that, for all $m\in\Z$, the bidegree of $\q_m(a)$ is $(m,|a| + 2(|m|-1))$. If $m$ is positive, $\q_m$ is called a creation operator, otherwise it is called annihiliation operator. Now define
 $$
-\mathfrak{L}_m(a) := \left\{ 
+\mathfrak{L}_m(a) \defIs  \left\{ 
 \begin{array}{ll}
  \tfrac{1}{2}\sum\limits_{k\in\Z}\sum\limits_{i}\q_k( a_{(1)})\q_{m-k}( a_{(2)}), & \text{ if } m\neq 0, \vspace{4mm}\\
  \sum\limits_{k>0}\sum\limits_{i}\q_k( a_{(1)})\q_{-k}( a_{(2)}), & \text{ if } m= 0. \\
@@ -110,7 +110,7 @@ Equations (\ref{DiffNaka}) and (\ref{NakaDel}) permit now to switch between the 
 Next we give some formulas involving higher derivatives of Nakajima operators that can be of use in formal computations.
 \begin{proposition}
 Suppose $K_Aa=0$. 
-Denote $\mathbf e:=-\chi(A)x$ the Euler class of $A$.
+Denote $\mathbf e\defIs -\chi(A)x$ the Euler class of $A$.
 Note that if $A$ is a torus, $\mathbf e=0$. 
 For all $k,m$, the following formulas hold:
 \begin{align}
@@ -228,13 +228,13 @@ Under this isomorphism the ring structure of $\SSym^n(H^*(A,\Q))$ corresponds to
 \end{remark}
 
 %\begin{lemma}\label{maxPower}
-%Assume $b\in H^2(A,\Q)$ and set $B_n:=\frac{1}{(n-1)!}\q_1(b)\q^{n-1}\vac =\G_0(b)1$. With the notion of double factorial $(2n-1)!! := \frac{(2n)!}{2^n n!}$ we have
+%Assume $b\in H^2(A,\Q)$ and set $B_n\defIs \frac{1}{(n-1)!}\q_1(b)\q^{n-1}\vac =\G_0(b)1$. With the notion of double factorial $(2n-1)!! \defIs  \frac{(2n)!}{2^n n!}$ we have
 %$$
 %\left(B_n\right)^{2n} = (2n-1)!! \q_1(b^2)^n\vac.
 %$$
 %\end{lemma}
 %\begin{proof}
-%Multiplication with the class $\frac{1}{(n-1)!}\q_1(b)\q^{n-1}\vac$ is given by the operator $\G_0(b)$. Set $\alpha_{i,j} := \q^i\q_1(b)^j\q_1(b^2)^{n-i-j}\vac$. Then we have with Lemma \ref{commutators}:
+%Multiplication with the class $\frac{1}{(n-1)!}\q_1(b)\q^{n-1}\vac$ is given by the operator $\G_0(b)$. Set $\alpha_{i,j} \defIs  \q^i\q_1(b)^j\q_1(b^2)^{n-i-j}\vac$. Then we have with Lemma~\ref{commutators}:
 %\begin{equation}
 %\G_0(b) \alpha_{i,j} = i\cdot\alpha_{i-1,j+1} + j\cdot \alpha_{i,j-1}.
 %\end{equation}
@@ -285,7 +285,7 @@ Let us denote $H^2(A,\Z)=U_1\oplus U_2\oplus U_3$ with $\NS(A)=U_1$.
 We consider two isometries in $O^{+,+}(H^2(A,\Z))$, $\varphi_2$ and $\varphi_3$, defined in the following way:
 $\varphi_2$ exchanges $U_1$ and $U_2$ and acts as $-\id$ on $U_3$ and $\varphi_3$ exchanges $U_1$ and $U_3$ and acts as $-\id$ on $U_2$.
 Using these two isometries, all elements of $U_2$ and $U_3$ are monodromy equivalent to a divisor.
-Then Lemma \ref{IntegralOperators} establishes the corollary for that particular $A$. 
+Then Lemma~\ref{IntegralOperators} establishes the corollary for that particular $A$. 
 Now, since all tori are equivalent by deformation, a general torus can always be deformed to our special $A$. Since the integrality of an operator is a topological invariant, $\frac{1}{2}\q_1(b)^2 - \frac{1}{2}\q_2(b)$ remains integral for all $b\in H^2(A,\Z)$.
 \end{proof}
 
@@ -356,7 +356,7 @@ Let $A$ be a complex abelian surface. Let $(b_i)\subset H^2(A,\Z)$ be an integra
 \begin{proof}
 The Betti numbers come from G\"ottsche's formula \cite{Gottsche}.
 One computes the intersection matrix of all classes under the Poincar\'e duality pairing and finds that it is unimodular. 
-So it remains to show that all these classes are integral. By Lemma \ref{IntegralOperators} this is clear for all classes except 
+So it remains to show that all these classes are integral. By Lemma~\ref{IntegralOperators} this is clear for all classes except 
 those of the form $\frac{1}{2}\q_2(a^*_i)\vac \in H^5(A\hilb{2},\Z)$.
 
 Evaluating the Poincar\'e duality pairing between degrees 3 and 5 gives:
@@ -371,7 +371,7 @@ the pushforward of a class $a\otimes 1 \in H^{k}(E,\Z)$ is given by
 $$
 \pi_* j_*(a\otimes 1) = \q_2(a)\vac \in H^{k+2}(A\hilb{n},\Z).
 $$
-When pushing forward to the Hilbert scheme, the only possibility to get a factor $2$ is in degree $5$, by Proposition \ref{Alpha35}. 
+When pushing forward to the Hilbert scheme, the only possibility to get a factor $2$ is in degree $5$, by Proposition~\ref{Alpha35}. 
 \end{proof}
 
 \end{proposition}

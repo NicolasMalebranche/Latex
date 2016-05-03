@@ -1,7 +1,7 @@
 
 \renewcommand{\G}{\mathbb{G}}
 \section{Polarized Fujiki relation}\label{SymIntro}
-The Beauville--Bogomolov--Fujiki form $q$ for a compact Hyperk\"ahler manifold $X$ is a quadratic form on the integral cohomology $H^2:=H^2(X,\Z)$, defined by an equation of the structure
+The Beauville--Bogomolov--Fujiki form $q$ for a compact Hyperk\"ahler manifold $X$ is a quadratic form on the integral cohomology $H^2\defIs H^2(X,\Z)$, defined by an equation of the structure
 \begin{equation} \label{initialeq}
 q(x)^k = I(x^{2k}),
 \end{equation}
@@ -233,7 +233,7 @@ In this section we will construct a basis for the space of homogeneous polynomia
 \end{equation}
 where the measure is $d\mu(x) = (2\pi)^{-\frac{d+1}{2}}e^{-\frac{1}{2}\|x\|^2}dx$. In order to do this, we wish to apply the Gram-Schmidt process to the (lexicographically ordered) monomial basis $(x^\alpha)_{|\alpha |=k}$. Our result is stated in Subsection \ref{hsection}. 
 \begin{remark}
-Although the above definition of $\bra\ ,\;\ket$ doesn't mention the sphere, in view of Lemma \ref{homosphere}, we could equivalently consider the integral:
+Although the above definition of $\bra\ ,\;\ket$ doesn't mention the sphere, in view of Lemma~\ref{homosphere}, we could equivalently consider the integral:
 $$
  \bra f,g\ket = c_{d,k} \int_{\S^{d}}f(\omega)g(\omega) d\omega, \qquad c_{d,k} = 2^{\frac{k}{2}-1}\pi^{-\frac{d+1}{2}}\Gamma\!\left(\tfrac{k+d+1}{2}\right).
 $$ 
@@ -342,7 +342,7 @@ Then the $\pol{n}{m}$ form a set of orthogonal polynomials with respect to the i
 \begin{proof}
 Since $\pol{n}{m}$ satisfy the three-term relation in Prop.~\ref{threeterm}, by Favard's theorem and Remark \ref{finiteFarvard}, there exists a unique functional $\L'$ with $\L'(1)=1$, such that the $\pol{n}{m}$ form an orthogonal basis with respect to the bilinear form induced by $\L'$. We claim that $\L$ is a scalar multiple of $\L'$.
 Since $(\pol{n}{m})_{n} $ is a basis of the space of polynomials, we must show that, for $n\geq 1$, $\L(\pol{n}{m}) = \L(\pol{n}{m}\pol{0}{m}) =0$.
-Using polar coordinates $(y,z) = (r\cos\omega,r\sin\omega)$ and Lemma \ref{trigonometric}, we get:
+Using polar coordinates $(y,z) = (r\cos\omega,r\sin\omega)$ and Lemma~\ref{trigonometric}, we get:
 \begin{align*}
 \L(\pol{n}{m}) &= \int_0^\pi\!\!\int_0^\infty\pol{n}{m}\!\left(\tfrac{\cos\omega}{\sin\omega}\right)\sin(\omega)^{m-1} r^m e^{-\frac{r^2}{2}}dr d\omega \\
 &=\int_0^\infty r^m e^{-\frac{r^2}{2}}dr \int_{\frac{\pi}{2}}^{\frac{3\pi}{2}} (-1)^n \pol{n}{m}\big(\tan(\omega)\big)\cos(\omega)^{m-1}d\omega\\
@@ -361,8 +361,8 @@ $$
  $\L(x^{k}\pol{n}{m}) = 0$ for $k < n$ and $\L(x^n\pol{n}{m})= \L(\pol{n}{m}\pol{n}{m})$.
 \end{corollary}
 \begin{proof} By the theorem, we have $\L(x^{0}\pol{n}{m}) = 0$ for $n>0$, so the case $k=0$ holds true.
-Now the three-term recurrence from Proposition \ref{threeterm} allows us to inductively conclude that $\L(x^k\pol{n}{m}) = \L(x^{k-1}\pol{n+1}{m})+d_n^m\L(x^{k-1}\pol{n-1}{m}) =0$.
-The second assertion, $\L(x^n\pol{n}{m})= \L(\pol{n}{m}\pol{n}{m})$ is trivial in the case $n\leq 1$. For $n\geq 1$, the three-term recurrence yields now $\L(x^n\pol{n}{m}) = \L(x^{n-1}\pol{n+1}{m})+d_n^m\L(x^{n-1}\pol{n-1}{m})=d_n^m\L(x^{n-1}\pol{n-1}{m})$, so $\L(x^n\pol{n}{m})$ and $\L(\pol{n}{m}\pol{n}{m})$ (by Theorem \ref{generalLnorm}) satisfy the same recurrence relation and therefore must be equal.
+Now the three-term recurrence from Proposition~\ref{threeterm} allows us to inductively conclude that $\L(x^k\pol{n}{m}) = \L(x^{k-1}\pol{n+1}{m})+d_n^m\L(x^{k-1}\pol{n-1}{m}) =0$.
+The second assertion, $\L(x^n\pol{n}{m})= \L(\pol{n}{m}\pol{n}{m})$ is trivial in the case $n\leq 1$. For $n\geq 1$, the three-term recurrence yields now $\L(x^n\pol{n}{m}) = \L(x^{n-1}\pol{n+1}{m})+d_n^m\L(x^{n-1}\pol{n-1}{m})=d_n^m\L(x^{n-1}\pol{n-1}{m})$, so $\L(x^n\pol{n}{m})$ and $\L(\pol{n}{m}\pol{n}{m})$ (by Theorem~\ref{generalLnorm}) satisfy the same recurrence relation and therefore must be equal.
 \end{proof}
 
 
@@ -406,7 +406,7 @@ We begin with equation (\ref{hth1}). The term $\bra h_{\alpha '},h_{\alpha '}\ke
 \end{align*}
 For the proof of (\ref{hth2}), let $i$ be the highest index where $\alpha$ and $\beta$ differ. Due to the recursive nature of (\ref{hth1}) and the definition of $h_\alpha$, we may assume $i=d$, so $\alpha_d \neq \beta_d$. Then we use the calculation above to see that Theorem~\ref{pthm} now implies the vanishing of the integral. Equations (\ref{hth3}) and (\ref{hth4}) follow analogously from Corollary~\ref{pcor}.
 \end{proof}
-\begin{theorem}\label{thetaCor} Let the bilinear form $\bra\ ,\;\ket$ on $\R[x_0,\ldots x_d]_k$ be defined as in (\ref{spherebracket}). Let $D(d,k):=\det\limits_{|\alpha|,|\beta|=k}\bra x^\alpha ,x^\beta \ket $ be the determinant of its Gram matrix. Then:
+\begin{theorem}\label{thetaCor} Let the bilinear form $\bra\ ,\;\ket$ on $\R[x_0,\ldots x_d]_k$ be defined as in (\ref{spherebracket}). Let $D(d,k)\defIs \det\limits_{|\alpha|,|\beta|=k}\bra x^\alpha ,x^\beta \ket $ be the determinant of its Gram matrix. Then:
 $$
 D(d,k) = \theta_{d,k}
 $$
@@ -469,7 +469,7 @@ with the induced form $\bra\ ,\;\ket$ on $\Sym^kH^2(X,\Z)$, according to Definit
 \end{equation}
 In general, this embedding is not primitive.
 
-From Theorem \ref{maintheorem} and Proposition~\ref{TorsionQuotient} we now get some interesting corollaries, by looking at the prime factors contained in (\ref{maintheorem1}):
+From Theorem~\ref{maintheorem} and Proposition~\ref{TorsionQuotient} we now get some interesting corollaries, by looking at the prime factors contained in (\ref{maintheorem1}):
 \begin{corollary}
 Let $X$ be a compact Hyperk\"ahler manifold of complex dimension $2k$. Denote $b_2$ resp.~$d_2$ the rank and the discriminant of $H^2(X,\Z)$. Define a set of integers $Z$ by
 $$
