@@ -4,10 +4,10 @@ Irreducible holomorphically symplectic (IHS) manifolds have been introduced by B
 Alternatively, they can be described in a differential geometric setting, according to Berger's classification as compact Riemannian manifolds with holonomy group isomorphic to the symplectic group $\Sp(n,\R)$. This implies the existence of a set of complex structures, parametrized by imaginary quaternions of unit norm, such that the metric is K\"ahler with respect to all of these, \cite[Sect~.23]{Huybrechts}. 
 Another name, compact Hyperk\"ahler manifolds, is therefore common to emphasize this aspect of our class of manifolds. We will use the two names interchangeably.
 %BERGER classification
-It can be shown that any such manifold must have even complex dimension. IHS manifolds in dimension 2 are the K3 surfaces, and the concept of an IHS manifold can be seen as a generalization of them. The two main example series are given by the deformation classes of Hilbert schemes of points on K3 surfaces and Generalized Kummer varieties. Both were identified by Beauville \cite{Beauville}. Apart from that, only two further examples due to O'Grady are known up to now.
+It can be shown that any such manifold must have even complex dimension. IHS manifolds in dimension 2 are the K3 surfaces, and the concept of an IHS manifold can be seen as a generalization of them. The two main example series are given by the deformation classes of Hilbert schemes of points on K3 surfaces and generalized Kummer varieties. Both were identified by Beauville \cite{Beauville}. Apart from that, only two further examples due to O'Grady are known up to now.
 
 To generalize the short list of known IHS manifolds, it is possible to consider irreducible symplectic V-manifolds. A V-manifold is an algebraic variety with at worst finite quotient singularities. It is called symplectic if the nonsingular locus is endowed with an everywhere non-degenerate holomorphic 2-form. 
-A symplectic V-manifold is called irreducible if it is complete, simply connected, and if the holomorphic 2-form is unique up to scalar. They have been studied by Gr\'egoire Menet, and we include one of his results as an application of our result on the Generalized Kummer fourfold.
+A symplectic V-manifold is called irreducible if it is complete, simply connected, and if the holomorphic 2-form is unique up to scalar. They have been studied by Gr\'egoire Menet, and we include one of his results as an application of our result on the generalized Kummer fourfold.
 
 An important structure of any IHS variety $X$ of complex dimension $2n$ is the so-called Beauville-Bogomolov form, a non-degenerate quadratic form on $H^2(X,\Z)$ that can be described with the help of the map of the symmetric power of $H^2(X,\Z)$ to the middle cohomology group via the cup product, that relates the Beauville-Bogomolov form with the form given by Poincar\'e duality. This is called the Fujiki relation. It implies that the map $\Sym^n H^2(X,\Z)\rightarrow H^{2n}(X,\Z)$ is an embedding of lattices. We shall study the algebraic properties of that situation and give an explicit formula for the discriminant of the embedded lattice. This result depends only on the Fujiki relation and therefore holds, whenever such an equation is fulfilled. In particular, it applies also to IHS varieties with singularities.
 
@@ -19,14 +19,14 @@ An important information in this setting is given by the quotient of lattices
 $$
 \frac{H^{2n}(X,\Z)}{\Sym^n H^2(X,\Z)}
 $$
-($2n$ being the dimension of $X$) and we determine this explicitly for $X$ deformation equivalent to the Hilbert scheme of $n$ points on a K3 surface, $n=2,3$ or the Generalized Kummer in dimension four. 
+($2n$ being the dimension of $X$) and we determine this explicitly for $X$ deformation equivalent to the Hilbert scheme of $n$ points on a K3 surface, $n=2,3$ or the generalized Kummer in dimension four. 
 
-Moreover, for these examples, we give a complete description of $H^*(X,\Z)$. In the Generalized Kummer case, this description, based on preliminary work of Hassett and Tschinkel \cite{Hassett}, is new. 
+Moreover, for these examples, we give a complete description of $H^*(X,\Z)$. In the generalized Kummer case, this description, based on preliminary work of Hassett and Tschinkel \cite{Hassett}, is new. 
 %I want to thank Gr\'egoire Menet here for giving me the initiation to do this and for his kind support. He also showed me how to apply these results to the construction of new IHS manifolds with singularities.
 The method we use is to study in detail the cohomology of Hilbert schemes of points on surfaces. This has been started by Nakajima \cite{Nakajima} and was further developed by Ellingsrud, G\"ottsche, Lehn, Sorger \cite{EGL,LehnSorger} and Li, Qin and Wang \cite{LiQinWang,LiQinWang2,QinWang}.
 We wrote two computer programs implementing their results. The first one models integral cohomology of Hilbert schemes points on K3 surfaces. The second one computes rational cohomology for Hilbert schemes of points on general surfaces. The source code is in the appendix. 
 
-Cohomology of Generalized Kummer manifolds is more subtle. Over complex coefficients, a modification of the above mentioned model was developed by Britze \cite{Britze}. This includes representation theory and prevents the methods from applying to cohomology with rational coeffients, too, although a general roadmap is contained in \cite{Twisted}.
+Cohomology of generalized Kummer manifolds is more subtle. Over complex coefficients, a modification of the above mentioned model was developed by Britze \cite{Britze}. This includes representation theory and prevents the methods from applying to cohomology with rational coeffients, too, although a general roadmap is contained in \cite{Twisted}.
 However, in low dimensions it can be done otherwise: while in dimension two the resulting manifolds are the well-known Kummer K3 surfaces, the four dimensional case is much less studied. It turns out that the cohomology can by described by pulling back from the surrounding Hilbert scheme of three points on a torus and this description is sufficient for all degrees except $4$, where the ideas from \cite{Hassett} complete the picture.
 
 \subsection{Overview of the results}
@@ -57,15 +57,15 @@ In Definition \ref{hdef} we construct a basis of homogeneous polynomials that ar
 In the second part we recall the theory on cohomology of Hilbert schemes of points on surfaces, using the Nakajima operator technique, working a bit on commutator relations (Section \ref{Section_Hilbert}).
 We give a description of the Hilbert scheme of two points on a torus via Nakajima operators in Proposition~\ref{A2Basis}, but it is clear how to derive the generalization on general surfaces.
 
-We proceed by describing the integral cohomology of the Generalized Kummer fourfold giving an explicit basis, using Hilbert scheme cohomology and tools developed by Hassett and Tschinkel in Theorem~\ref{thetaTheorem}. It turns out that Hilbert scheme cohomology is almost sufficient:
+We proceed by describing the integral cohomology of the generalized Kummer fourfold giving an explicit basis, using Hilbert scheme cohomology and tools developed by Hassett and Tschinkel in Theorem~\ref{thetaTheorem}. It turns out that Hilbert scheme cohomology is almost sufficient:
 \begin{theorem}
-Let $A$ be a complex abelian surface and denote $\theta: \kum{A}{2}\hookrightarrow A^{[3]}$ the embedding of the Generalized Kummer fourfold into the Hilbert scheme of three points on $A$.
+Let $A$ be a complex abelian surface and denote $\theta: \kum{A}{2}\hookrightarrow A^{[3]}$ the embedding of the generalized Kummer fourfold into the Hilbert scheme of three points on $A$.
 The homomorphism $\theta^*:H^*(A\hilb{3},\Z)\rightarrow H^*(\kum{A}{2},\Z)$ of graded rings is surjective in every degree except $4$. Moreover, the image of $H^4(A\hilb{3},\Z)$ is the primitive overlattice of $\Sym^2(H^2(\kum{A}{2},\Z))$. 
 The kernel of $\theta^*$ is the ideal generated by $H^1(A\hilb{3},\Z)$.
 \end{theorem}
-The remaining discussion of the middle cohomology group is summarized in Theorem~\ref{integralbasistheorem}. Roughly, the idea is to start with some extra classes in $H^4(A\hilb{3},\Z)$ and apply a suitable set of diffeomorphisms of the Generalized Kummer, obtained through deformations, to get all missing classes.
+The remaining discussion of the middle cohomology group is summarized in Theorem~\ref{integralbasistheorem}. Roughly, the idea is to start with some extra classes in $H^4(A\hilb{3},\Z)$ and apply a suitable set of diffeomorphisms of the generalized Kummer, obtained through deformations, to get all missing classes.
 
-As an illustration of the result, I include an application due to Gr\'egoire Menet to a IHS variety with singularities, obtained by a partial resolution of the Generalized Kummer quotiented by a symplectic involution. The Beauville--Bogomolov form of this new variety is the first example of such a form that is odd.
+As an illustration of the result, I include an application due to Gr\'egoire Menet to a IHS variety with singularities, obtained by a partial resolution of the generalized Kummer quotiented by a symplectic involution. The Beauville--Bogomolov form of this new variety is the first example of such a form that is odd.
 
 The last part \cite{Kapfer2} is computational. In Section \ref{CompSection} we work out some structural results for integral cohomology of Hilbert schemes on K3 surfaces, using a computer based method. As an example, we get:
 \begin{theorem}
@@ -96,7 +96,7 @@ He contributed the essential of Sections \ref{OddHilb2}, \ref{Involution} and \r
 
 \subsection{Acknowledgments}
 I am most thankful to my advisors Marc Nieper-Wi\ss kirchen and Samuel Boissi\`ere for their constant support
-and to my collaborator Gr\'egoire Menet who suggested to me the project on Generalized Kummer varieties.
+and to my collaborator Gr\'egoire Menet who suggested to me the project on generalized Kummer varieties.
 Further, I thank Sven Pr\"ufer, K\'evin Tari and Yuan Xu for useful conversations.
 I do not mention Ingo Blechschmidt who helped me substantially in formatting the text.
 I also want to thank my office mates Christian H\"ubschmann, Cl\'ement Chesseboeuf and Caren Schinko for many diverting discussions.
