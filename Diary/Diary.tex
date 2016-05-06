@@ -201,4 +201,20 @@ $$
 Dann scheint es für jedes $s$ Schranken $n_1$ und $n_2$ zu geben, so daß $s$ mod-$n$-speziell ist genau dann wenn $n\in[n_1,n_2]$. Beispielsweise ist $34$ speziell für $n\in[30,105]$. Fibonacci-Zahlen mit geradem Index sind für kein $n$ speziell, bei Fibonacci-Zahlen mit ungeradem Index ist das Intervall dafür besonders lang: die Länge des Intervalls für $f_{2n+1}$ ist die Lucas-Zahl $L_{2n+1}$.
 
 Noch besser wird das ganze, wenn man die Darstellung mit Negafibonaccis verwendet, dann gilt das gleiche und man hat immer $n_1 = 1$.
+
+\eintrag{Fibonacci-Äquivalenzen} Betrachte $Z$, die Menge der formalen Zeckendorf-Summen
+$$
+Z = \left\{ \sum_{i=-N}^N \alpha_i f_i, \  \ \alpha_i\in \{0,1\},\ \text{min}\{\alpha_i,\alpha_{i+1} \}= 0  \right\}.
+$$
+Es ist klar, daß es einen surjektiven, additiven Morphismus $g : Z \rightarrow \Z$ gibt. Beachte, daß nicht jedes Element aus $Z$ ein additives Inverses besitzt. Nun gibt es für jedes $a\in\N$ eine eindeutige Summe $\overline a \in Z$ mit der Eigenschaft 
+$$
+g(\overline a * z) = a\cdot g(z)\quad \forall z\in Z.
+$$
+und es gilt:
+\begin{align*}
+g(\overline a) &= 0, &
+\overline{ab} &= \overline{a}*\overline b, &
+\overline{a+b} &= \overline a +\overline b.
+\end{align*}
+Vermutung: Jedes Element im Kern von $g$ ist von der Gestalt $\overline{a}$.
 \end{document}          
