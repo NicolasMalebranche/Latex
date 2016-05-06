@@ -1,4 +1,4 @@
-\documentclass[letterpaper]{amsart}
+\documentclass{scrreprt}
 
 \input{HeaderFile.tex}
 
@@ -89,6 +89,7 @@ am Soundsovielten Mai 2016 \\
 \input{SymBil.tex}
 \newpage
 \part{Hilbert schemes and generalized Kummer varieties}
+\chapter{Cohomology of Hilbert schemes of points on surfaces}
 \input{Section_Exterior.tex}
 \input{Section_Symplectic.tex}
 \input{Section_Abelian.tex}
@@ -96,13 +97,16 @@ am Soundsovielten Mai 2016 \\
 \input{Section_OddH2.tex}
 \input{Section_Hilbert.tex}
 \label{integralcohomology}
+\chapter{Cohomology of generalized Kummer manifolds}
 \input{Section_GeneralKummer.tex}
 \input{Section_Kummer4.tex}
 \input{Section_H4.tex}
 \input{SummaryKummerFourfold.tex}
+\chapter{A quotient of the generalized Kummer fourfold}
 \input{ApplicationKummer.tex}
 \newpage
 \part{Computing Cup-Products in integral cohomology of Hilbert schemes of points on K3 surfaces}
+\chapter{Integral cohomology of $S\hilb{n}$}
 \input{IntCohHK.tex}
 
 \lstset{
@@ -113,9 +117,10 @@ am Soundsovielten Mai 2016 \\
 }
 
 \appendix
+\chapter{Source code}
 \input{IntCode.tex}
 \input{VertexCode.tex}
-\newpage
+
 \input{SpecialClasses.tex}
 \newpage
 \input{Bibliography.tex}
