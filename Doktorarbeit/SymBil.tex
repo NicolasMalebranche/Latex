@@ -469,7 +469,24 @@ with the induced form $\bra\ ,\;\ket$ on $\Sym^kH^2(X,\Z)$, according to Definit
 \end{equation}
 In general, this embedding is not primitive.
 
-From Theorem~\ref{maintheorem} and Proposition~\ref{TorsionQuotient} we now get some interesting corollaries, by looking at the prime factors contained in (\ref{maintheorem1}):
+From Theorem~\ref{maintheorem} and Proposition~\ref{TorsionQuotient} we deduce
+\begin{theorem}\label{FujikiDiscr}
+Let $d+1$ be the rank of $H^2(X,\Z)$ and denote $c_X$ the Fujiki constant.
+The discriminant of $\Sym^n\!H^2(X,\Z)$ is given by
+\begin{gather*}
+\left(\discr \left(H^2(X,\Z)\right)\right)^{\binom{d+n}{d+1}}\cdot c_X^{\binom{d+n}{d}} \cdot \prod_{i=1}^n i^{\binom{n-i+d}{d}d} 
+\cdot C, \\
+\qquad \text{with } \ 
+C=
+\left\{
+ \begin{array}{*2{l}p{5cm}}
+ \displaystyle\prod_{\substack{i=1 \\ i\ \text{odd}\\\ }}^{2n+d-1}i^{\binom{n-i+d}{d}} &\text{if }d\!+\! 1\text{ is odd}, \\
+ \displaystyle\prod_{i=1}^{n+\frac{d-1}{2}} i^{\binom{n-i+d}{d} - \binom{n-2i+d}{d}} &\text{if }d\! +\! 1\text{ is even}.
+\end{array}
+\right.
+\end{gather*}
+\end{theorem}
+We get some interesting corollaries, by looking at the prime factors contained in this formula:
 \begin{corollary}
 Let $X$ be a compact Hyperk\"ahler manifold of complex dimension $2k$. Denote $b_2$ resp.~$d_2$ the rank and the discriminant of $H^2(X,\Z)$. Define a set of integers $Z$ by
 $$
@@ -505,11 +522,11 @@ In particular, the torsion part of $\frac{H^{2k}(X,\Z)}{\Sym^kH^2(X,\Z)}$ contai
 \item $5$, if $X\defeq OG_{10}$.
 \end{itemize} 
 \begin{remark}
-The case $X\defeq S^{[2]}$ was already studied in \cite[Prop.~6.6]{BNS}, using explicit calculations. It is special, because $\Sym^2H^2(S^{[2]},\Z)$ and $H^4(S^{[2]},\Z)$ have the same rank. So Proposition~\ref{squareDiscr}, together with Theorem~\ref{maintheorem} imply that the cardinality of the quotient is precisely $\sqrt{2^{24}\cdot2^{22}\cdot(22+3)} = 2^{23}\cdot5$.
+The case $X\defeq S^{[2]}$ was already studied in \cite[Prop.~6.6]{BNS}, using explicit calculations. It is special, because $\Sym^2H^2(S^{[2]},\Z)$ and $H^4(S^{[2]},\Z)$ have the same rank. So Theorem~\ref{FujikiDiscr} implies that the cardinality of the quotient is precisely $\sqrt{2^{24}\cdot2^{22}\cdot(22+3)} = 2^{23}\cdot5$.
 \end{remark}
 \begin{remark}
 If the exact value of the torsion part of $H^{2k}/(\Sym^kH^2)$ is known, we can say more, by applying Corollary~\ref{latticeCor}. For instance,
-in the case $X\defeq S^{[3]}$, Theorem~\ref{maintheorem} says that the discriminant of $\Sym^3H^2$ is equal to $2^{1106}\cdot 3^{92}$. But on the other hand, according to \cite[Prop.~2.4]{Kapfer}, the torsion part of $H^6/(\Sym^3H^2)$ has order $2^{277}\cdot 3^{46}$. So it follows that both the orthogonal complement and the primitive overlattice of $\Sym^3H^2$ must have discriminant $\frac{2^{1106}\cdot 3^{92}}{(2^{277}\cdot 3^{46})^2}=2^{552}$.
+in the case $X\defeq S^{[3]}$, Theorem~\ref{FujikiDiscr} says that the discriminant of $\Sym^3H^2$ is equal to $2^{1106}\cdot 3^{92}$. But on the other hand, according to~\cite[Prop.~2.4]{Kapfer}, the torsion part of $H^6/(\Sym^3H^2)$ has order $2^{277}\cdot 3^{46}$. So it follows that both the orthogonal complement and the primitive overlattice of $\Sym^3H^2$ must have discriminant $\frac{2^{1106}\cdot 3^{92}}{(2^{277}\cdot 3^{46})^2}=2^{552}$.
 
 If the torsion part of $H^{2k}/(\Sym^kH^2)$ is unknown, then Corollary~\ref{latticeCor} still allows the conclusion, that the square-free parts of the discriminants of $\Sym^kH^2$ and its orthogonal complement are equal.
 \end{remark}
