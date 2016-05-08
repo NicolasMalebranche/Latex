@@ -1,5 +1,6 @@
 
 \section{Source Code for the combinatorial model of Lehn and Sorger}\label{IntCode}
+\sectionmark{Source Code for the combinatorial model}
 We give the source code for our tool implementing the integral cohomology of Hilbert schemes of points on K3 surfaces. It is available online under \url{https://github.com/s--kapfer/HilbK3}. We used the language Haskell, compiled with the \textsc{GHC} software, version 7.6.3. We make use of two external packages: \textsc{permutation} and \textsc{MemoTrie}. The project is divided into 4 modules. 
 
 \subsection{How to use the code}
@@ -81,7 +82,7 @@ The goal is to multiply two elements in $H^*(S\hilb{n},\IZ)$. To do this, one ha
 \end{enumerate}
 We now describe, where to find these steps in the code.
 \begin{enumerate}
- \item The $\psi_{\rho\nu}$ are computed by the function \verb|monomialPower| in the module \verb|SymmetricFunctions.hs|, using the theory from \cite[Sect.~3.7]{Lascoux}. The idea is to use the scalar product on the space of symmetric functions, so that the power sums become orthogonal: $(p_\lambda,p_\mu) = z_\lambda \delta_{\lambda\mu}$. The values for $(p_\lambda,m_\mu)$ are given by \cite[Lemma~3.7.1]{Lascoux}, so we know how to get the matrix $\psi_{\nu\rho}^{-1}$. Since it is triangular with respect to some ordering of partitions, matrix inversion is easy.
+ \item The coefficients $\psi_{\rho\nu}$ are computed by the function \verb|monomialPower| in the module \verb|SymmetricFunctions.hs|, using the theory from \cite[Sect.~3.7]{Lascoux}. The idea is to use the scalar product on the space of symmetric functions, so that the power sums become orthogonal: $(p_\lambda,p_\mu) = z_\lambda \delta_{\lambda\mu}$. The values for $(p_\lambda,m_\mu)$ are given by \cite[Lemma~3.7.1]{Lascoux}, so we know how to get the matrix $\psi_{\nu\rho}^{-1}$. Since it is triangular with respect to some ordering of partitions, matrix inversion is easy.
  \item The ring structure of $H^*(S,\IZ)$ is stored in the module \verb|K3.hs|. The only nontrivial multiplications are the products of two elements in $H^2(S,\IZ)$, where the intersection matrix is composed by the matrices for the hyperbolic and the $E_8$ lattice. The cup product and the adjoint comultiplication from Definition~\ref{comult} are implemented by the methods \verb|cup| and \verb|cupAd|.
  \item The data structures for basis elements of $A\hilb{n}$ and $A\{S_n\}$ are given by \verb|AnBase| and \verb|SnBase| in the module \verb|HilbK3.hs|. Linear combinations of basis elements are always stored as lists of pairs, each pair consisting of a basis element and a scalar factor.
  \item The function $m_{\pi,\tau}$ from Definition~\ref{model} is computed by the method \verb|multSn|. It contains the following substeps: First, the orbits of $\left<\pi,\tau\right>$ are computed recursively by glueing together the orbits of $\pi$ if they have both non-emtpty intersection with an orbit of $\tau$. Second, the composition $\pi\tau$ is computed using a method from the external library \verb|Data.Permute|. Third, the functions $f^{\pi,\left<\pi,\tau\right>}$ and $f_{\left<\pi,\tau\right>,\pi\tau}$ using the (co--)products from \verb|K3.hs|.

@@ -23,12 +23,14 @@ class (Ix k,Ord k)=> GradedFrobeniusAlgebra k where
 	gfa_bilinearInverse :: Num a => k -> [(k, a)]
 
 -- Tensor product
-instance (GradedFrobeniusAlgebra k, GradedFrobeniusAlgebra k') => GradedFrobeniusAlgebra (k,k') where
+instance (GradedFrobeniusAlgebra k, GradedFrobeniusAlgebra k') 
+		=> GradedFrobeniusAlgebra (k,k') where
 	gfa_deg (i,j) = gfa_deg i + gfa_deg j
 	gfa_base = [(i,j) | i<-gfa_base, j<-gfa_base]
 	gfa_baseOfDeg n = [(i,j) | i<-gfa_base, j<-gfa_baseOfDeg (n-gfa_deg i) ]
 	gfa_1 = [((i,j),x*y) | (i,x) <- gfa_1, (j,y) <- gfa_1]
-	gfa_K = [ ((i,j),x*y) | (i,x) <- gfa_K, (j,y) <- gfa_1] ++ [ ((i,j),x*y) | (i,x) <- gfa_1, (j,y) <- gfa_K] 
+	gfa_K = [ ((i,j),x*y) | (i,x) <- gfa_K, (j,y) <- gfa_1] ++ 
+			[ ((i,j),x*y) | (i,x) <- gfa_1, (j,y) <- gfa_K] 
 	gfa_T (i,j) = gfa_T i * gfa_T j
 	gfa_mult (i,j) (k,l) = [((m,n),ep*x*y) | (m,x)<-gfa_mult i k, (n,y)<-gfa_mult j l] where
 		ep = if odd (gfa_deg j * gfa_deg k) then (-1) else 1
@@ -58,7 +60,8 @@ gfa_multList (i:r) = sparseNub [ (k,y*x) | (j,x)<-gfa_multList r, (k,y)<-gfa_mul
 
 gfa_adjoint f = adj where
 	b i = [(j,x) | j<-gfa_base, let x = gfa_bilinear j i, x/=0]
-	ftrans = accumArray (flip (:)) [] (head gfa_base, last gfa_base)  [ (j,(i,x)) | i <-gfa_base, (j,x) <- f i] 
+	ftrans = accumArray (flip (:)) [] (head gfa_base, last gfa_base)
+			[ (j,(i,x)) | i <-gfa_base, (j,x) <- f i] 
 	ftb i = sparseNub [ (k,y*x) | (j,x) <- b i, (k,y) <- ftrans!j]
 	adj i = sparseNub [ (k,y*x) | (j,x) <- ftb i, (k,y) <- gfa_bilinearInverse j]
 
@@ -126,7 +129,8 @@ e8 = array ((1,1),(8,8)) $
 	0, 0, 0, 0, 0, 1, 0, -2 :: Int]
 
 inve8= array ((1,1),(8,8)) $
-	zip [(i,j) | i <- [1..8],j <-[1..8]] [-2, -3, -4, -5, -6, -4, -3, -2, -3, -6, -8, -10, -12, -8, -6, -4,
+	zip [(i,j) | i <- [1..8],j <-[1..8]] 
+	    [-2, -3, -4, -5, -6, -4, -3, -2, -3, -6, -8, -10, -12, -8, -6, -4,
 		-4, -8, -12, -15, -18, -12, -9, -6, -5, -10, -15, -20, -24, -16, -12,
 		-8, -6, -12, -18, -24, -30, -20, -15, -10, -4, -8, -12, -16, -20,
 		-14, -10, -7, -3, -6, -9, -12, -15, -10, -8, -5, -2, -4, -6, -8,

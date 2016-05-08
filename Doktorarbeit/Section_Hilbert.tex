@@ -1,4 +1,6 @@
-\section{Nakajima operators for Hilbert schemes of points on surfaces}
+\section[Nakajima operators for Hilbert schemes of points on surfaces]{Nakajima operators for Hilbert schemes of points on surfaces%
+\sectionmark{Nakajima operators}}
+\sectionmark{Nakajima operators}
 \label{Section_Hilbert}
 Let $A$ be a smooth projective complex surface. 
 %Set $H\defIs H^*(A,\Q)$. 
@@ -133,10 +135,10 @@ $[\q,\nor \q_{i_0}\cdots \q_{i_k} \mal  (\Delta^k(a)) ] = \sum_{r=0}^k \delta_{i
 we calculate:
 \begin{align*}
 \ad\q \frac{\q_m^{(k+1)}(a)}{m^{k+1}} 
-  =\, &\frac{1}{k+2}\sum_{i_0+\ldots+i_{k+1}=m} \left[\q,\nor \q_{i_0}\cdots \q_{i_{k+1}} \mal (\tau_*(a))\right] \\
- & + (k+1) \sum_{j_0+\ldots+j_{k-1}=m} \frac{j_0^2+\ldots+j_{k-1}^2-1}{24}\left[\q,\nor \q_{j_0}\cdots \q_{j_{k-1}} \mal (\tau_*(a\mathbf e)) \right]\\
-  =\, & \sum_{i_0+\ldots+i_{k}=m+1} \nor \q_{i_0}\cdots \q_{i_{k}} \mal  (\tau_*(a)) \\
- & + k(k+1) \sum_{j_0+\ldots+j_{k-2}=m+1} \frac{j_0^2+\ldots+j_{k-2}^2}{24}\nor \q_{j_0}\cdots \q_{j_{k-2}} \mal (\tau_*(a\mathbf e)) \\
+  =\, &\frac{1}{k+2}\sum_{i_0+\ldots+i_{k+1}=m}\!\! \left[\q,\nor \q_{i_0}\cdots \q_{i_{k+1}} \mal (\tau_*(a))\right] \\
+ & + (k+1)\!\! \sum_{j_0+\ldots+j_{k-1}=m}\!\! \frac{j_0^2+\ldots+j_{k-1}^2-1}{24}\left[\q,\nor \q_{j_0}\cdots \q_{j_{k-1}} \mal (\tau_*(a\mathbf e)) \right]\\
+  =\, & \sum_{i_0+\ldots+i_{k}=m+1} \!\!\nor \q_{i_0}\cdots \q_{i_{k}} \mal  (\tau_*(a)) \\
+ & + k(k+1)\!\! \sum_{j_0+\ldots+j_{k-2}=m+1}\!\! \frac{j_0^2+\ldots+j_{k-2}^2}{24}\nor \q_{j_0}\cdots \q_{j_{k-2}} \mal (\tau_*(a\mathbf e)) \\
   =\, & (k+1)  \frac{\q_{m+1}^{(k)}(a)}{(m+1)^{k}} + \frac{k^3-k}{24}\frac{\q_{m+1}^{(k-2)}(a\mathbf e)}{(m+1)^{k-2}}.
 \end{align*}
 Equation (\ref{adq'}) follows from (\ref{adq}) using the Jacobi identity: $\ad \q' = \ad [\mathfrak d,\q] = \ad \mathfrak d  \ad \q - \ad \q\ad \mathfrak d  $.
@@ -168,7 +170,7 @@ Equation (4.6) of \cite{LehnSorger} evaluates
 \begin{align*}
 \left[ \G(a),\exp(\q)\right] &= \exp(\q) \sum_{\substack{s\geq 1\\k\geq 0}} \frac{(-\ad \q)^{s-1}}{s!}\left(\frac{(\ad \mathfrak d)^k}{k!} (\q_1(a)) \right) \\
  &\stackrel{\text{Cor \ref{adqCorollary}}}{=} \exp(\q)  \sum_{s\geq 1}\frac{(-1)^{s-1}}{s!}\left(\sum_{k\geq s-1}\frac{\q_s^{(k-s+1)}(a)}{s^{k-s+1}(k-s+1)!}
-  + \sum_{k\geq s+1}\frac{s-1}{24}\frac{\q_s^{(k-s-1)}(a)}{s^{k-s-1}(k-s-1)!} \right)\\
+  \right.\\&\hspace{140pt} \left. + \sum_{k\geq s+1}\frac{s-1}{24}\frac{\q_s^{(k-s-1)}(a)}{s^{k-s-1}(k-s-1)!} \right)\\
   &=\exp(\q) \sum_{\substack{s\geq 1\\k\geq 0}}\frac{(-1)^{s-1}}{s!}\left(\frac{\q_s^{(k)}(a)}{s^{k}k!} + \frac{s-1}{24}\frac{\q_s^{(k)}(a\mathbf e)}{s^{k}k!}\right).
 \qedhere
 \end{align*}

@@ -5,7 +5,8 @@ module LS_Operators
 
 import LS_Frobenius
 
-data VertexOperator k = P Int k | L Int k | Del | Ch Int k | GV Int k | ChT Int deriving (Show,Eq,Ord)
+data VertexOperator k = P Int k | L Int k | Del | Ch Int k | GV Int k | ChT Int 
+		deriving (Show,Eq,Ord)
 
 newtype State a k = Vak { unVak:: [([VertexOperator k],a)] }
 
@@ -73,7 +74,8 @@ commutator Del (P n a) = ([L n a], fromIntegral n) :
 commutator p@(P _ _) Del = scal (-1) $ commutator Del p
 commutator (L n a) (P m b) = [ ([P (n+m) c], x*fromIntegral(-m)) | (c,x) <- gfa_mult a b ]
 commutator (Ch _ _) Del = []
-commutator (Ch n a) (P (-1) y) = [ (c,x*fromRational z) | (b,x) <- gfa_mult a y, (c,z) <- facDiff n (P (-1) b) ]
+commutator (Ch n a) (P (-1) y) = 
+	[ (c,x*fromRational z) | (b,x) <- gfa_mult a y, (c,z) <- facDiff n (P (-1) b) ]
 commutator (GV _ _) Del = []
 commutator (GV n a) (P (-1) y) = if odd n then [(s,negate x) | (s,x) <-csn] else csn where
 	csn = commutator (Ch n a) (P (-1) y) 
@@ -86,11 +88,13 @@ commutator (ChT n) p@(P (-1) y) =  sparseNub $ first ++ second ++ third ++ fourt
 		[ (b,x*xx/2)| (a,x) <-k2, (b,xx) <- gfa_mult a y ] ]
 	expTodd_y = zipWith scal [1,-1,1] todd_Inv_y
 	first = [ (c,x) | (c,x) <-facDiff n p ]
-	second = [ ( o++[GV gn b2], x*xx*z) | k <- [0..2] , (a,x) <- todd_Inv_y!!k, ((b1,b2),xx) <- gfa_comult a, 
+	second = [ ( o++[GV gn b2], x*xx*z) | k <- [0..2] , 
+				(a,x) <- todd_Inv_y!!k, ((b1,b2),xx) <- gfa_comult a, 
 		nu <- [0..n-k-2], let gn = n-nu-k-2, (o,z) <- facDiff nu (P (-1) b1) ]
 	third = [ (c,x*xx*(-1)^nu) | nu<-[max (n-2) 0..n], 
 		(a,x) <- exp_K_y !! (n-nu), (c,xx) <-facDiff nu (P (-1) a) ]
-	fourth = [ ( o++[Ch gn b2], x*xx*z*(-1)^nu) | k <- [0..2] , (a,x) <- expTodd_y!!k, ((b1,b2),xx) <- gfa_comult a, 
+	fourth = [ ( o++[Ch gn b2], x*xx*z*(-1)^nu) | k <- [0..2] , 
+				(a,x) <- expTodd_y!!k, ((b1,b2),xx) <- gfa_comult a, 
 		nu <- [0..n-k-2], let gn = n-nu-k-2, (o,z) <- facDiff nu (P (-1) b1) ]
 	fifth = if n==2 then [ ([P(-1) b], x*xx) | (a,x) <- gfa_euler, (b,xx) <- gfa_mult a y] else []
 
