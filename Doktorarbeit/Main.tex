@@ -18,6 +18,7 @@
 
 
 \date{\today}
+\pagenumbering{gobble} 
 \thispagestyle{empty}
 \begin{center}
 \ \\
@@ -27,35 +28,35 @@
 \textbf{ \LARGE On the cohomology of irreducible\\holomorphically symplectic varieties}
 \\
 \vspace{1cm}
-\Large \textbf{Dissertation} \\
-\Large 
-\vspace{0.5cm}
-\textnormal\large zur Erlangung des akademischen Grades \\
-\vspace{5mm}
-Dr.~rer.~nat. \\
-\vspace{1cm}
 \setstretch{1.5}
+\Large \textbf{Dissertation} \\
+%\vspace{1mm}
+\textnormal\large zur Erlangung des akademischen Grades \\
+\vspace{1mm}
+Dr.~rer.~nat. \\
+\vspace{8mm}
+\setstretch{1.3}
 eingereicht an der \\
 Mathematisch--Naturwissenschaftlich--Technischen Fakult\"at\\
 der Universit\"at Augsburg
-\\ \vspace{1cm}
+\\ \vspace{6mm}
 von \\
 \textbf{Simon Kapfer}\\
-\vspace{8mm}
+\vspace{5mm}
 am Soundsovielten Mai 2016 \\
-\vspace{15mm}
+\vspace{8mm}
 \includegraphics[height=30mm]{LogoInstitut.png}
-\vspace{-10mm}
+\vspace{-13mm}
 \begin{align*}
 \text{Betreuer: }\ 
-& \text{Prof.~Dr.~Marc Nieper-Wi\ss kirchen}\\
+& \text{Prof.~Dr.~Marc Nieper-Wi\ss kirchen}\\\vspace{-1cm}
 & \text{Prof.~Dr.~Samuel Boissi\`ere}
 \end{align*}
 \end{center}
 \cleardoublepage
 
-\setstretch{1.1}
-\pagenumbering{gobble} 
+\setstretch{1.12}
+
 
 
 %\section*{Preface}
@@ -63,20 +64,19 @@ am Soundsovielten Mai 2016 \\
 %After a year, financial support from the DAAD allowed me to move to Poitiers, where I continued my studies under the supervision of Samuel Boissi\`ere, before returning to Augsburg in fall 2015.
 
 %This thesis is composed from three different research papers of which two (\cite{Kapfer2} and \cite{Kapfer}) already have appeared. The third paper is joint work with Gr\'egoire Menet. When he contacted me in spring 2015, I did not know that it would take until now to finish the project, but it made me learn a lot about generalized Kummer varieties.
+\section*{Acknowledgments}
+I am most thankful to my advisors Marc Nieper-Wi\ss\-kir\-chen and Samuel Boissi\`ere for their constant support
+and to my collaborator Gr\'egoire Menet who suggested to me the project on generalized Kummer varieties.
+Further, I thank Sven Pr\"ufer, K\'evin Tari and Yuan Xu for useful conversations and
+Ingo Blechschmidt who helped me formatting the text.
+I also want to thank my office mates Christian H\"ubschmann, Cl\'ement Chesseboeuf and Caren Schinko for many diverting discussions.
+I am also very grateful to the DAAD granting me a one year scholarship, which helped me a lot in progressing on my doctorate. 
 
-%I am most thankful to my advisors Marc Nieper-Wi\ss kirchen and Samuel Boissi\`ere for their constant support
-%and to my collaborator Gr\'egoire Menet who suggested to me the project on generalized Kummer varieties.
-%Further, I thank Sven Pr\"ufer, K\'evin Tari and Yuan Xu for useful conversations.
-%I also want to thank my office mates Christian H\"ubschmann, Cl\'ement Chesseboeuf and Caren Schinko for many diverting discussions.
-%I am also very grateful to the DAAD granting me a one year scholarship, which helped me a lot in progressing on my doctorate. 
+Some of the results have been obtained in joint work with Gr\'egoire Menet. In particular, the application on quotients of irreducible symplectic manifolds is due to him.
+He contributed the essentials of Sections~ \ref{OddHilb2},~\ref{Involution} and~\ref{BeauvilleForm} and the proof in Section~\ref{IntegralTools}.
 
 
-%\vspace{20pt}
-%Simon Kapfer
-
-%May 2016
-
-\newpage
+\cleardoublepage
 
 \tableofcontents
 
@@ -126,7 +126,7 @@ am Soundsovielten Mai 2016 \\
 \chapter{Source code}
 \input{IntCode.tex}
 \input{VertexCode.tex}
-
+\clearpage
 \input{SpecialClasses.tex}
 \newpage
 \input{Bibliography.tex}
