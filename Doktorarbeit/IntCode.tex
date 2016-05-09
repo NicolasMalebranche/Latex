@@ -1,5 +1,6 @@
 
-\section{Source Code for the combinatorial model of Lehn and Sorger}\label{IntCode}
+\section[Source Code for the combinatorial model of Lehn and Sorger]{Source Code for the combinatorial model of Lehn and Sorger%
+\sectionmark{Source Code for the combinatorial model}}\label{IntCode}
 \sectionmark{Source Code for the combinatorial model}
 We give the source code for our tool implementing the integral cohomology of Hilbert schemes of points on K3 surfaces. It is available online under \url{https://github.com/s--kapfer/HilbK3}. We used the language Haskell, compiled with the \textsc{GHC} software, version 7.6.3. We make use of two external packages: \textsc{permutation} and \textsc{MemoTrie}. The project is divided into 4 modules. 
 
@@ -26,7 +27,7 @@ The multiplication in $A\hilb{n}$ is implemented by the method \verb|multAn|.
 %\end{verbatim}
 
 The classes from Theorem~\ref{QinWangTheorem} are represented in the same format, as shown in the following example. The multiplication in $H^*(S\hilb{n},\IZ)$ of such classes is implemented by the method \verb|cupInt|.
-\begin{example}\label{exampleSource} We want to compute the results from Example \ref{example}. We only do one particular instance for every example, since the others are similar. By Corollary~\ref{stabCor}, it suffices to know the values for finitely many $n$ to deduce the general case.
+\begin{example}\label{exampleSource} We want to compute the results from Example~\ref{example}. We only do one particular instance for every example, since the others are similar. By Corollary~\ref{stabCor}, it suffices to know the values for finitely many $n$ to deduce the general case.
 \begin{enumerate}
 \item We do the case $n=6,\ i=1$. 
 \begin{Verbatim}[fontsize=\small]
@@ -75,14 +76,14 @@ The goal is to multiply two elements in $H^*(S\hilb{n},\IZ)$. To do this, one ha
  \item Compute the base change matrices $\psi_{\rho\nu}$ and $\psi_{\nu\rho}^{-1}$ between monomial and power sum symmetric functions.
  \item Provide a basis and the ring structure of $A=H^*(S,\IZ)$.
  \item Create a data structure for elements in $A\hilb{n}$ and $A\{S_n\}$.
- \item Implement the multiplication in $A\{S_n\}$, \ie the map $m_{\pi,\tau}$ from Definition \ref{model}.
+ \item Implement the multiplication in $A\{S_n\}$, \ie the map $m_{\pi,\tau}$ from Definition~\ref{model}.
  \item Implement the symmetrisation $A\hilb{n} = A\{S_n\}^{S_n}$.
  \item Use the isomorphism from Theorem~\ref{LSThm} to get the ring structure of $A\hilb{n}$.
  \item Write an element in $H^*(S\hilb{n},\IZ)$ as a linear combination of products of creation operators acting on the vacuum, using Theorem~\ref{QinWangTheorem}.
 \end{enumerate}
 We now describe, where to find these steps in the code.
 \begin{enumerate}
- \item The coefficients $\psi_{\rho\nu}$ are computed by the function \verb|monomialPower| in the module \verb|SymmetricFunctions.hs|, using the theory from \cite[Sect.~3.7]{Lascoux}. The idea is to use the scalar product on the space of symmetric functions, so that the power sums become orthogonal: $(p_\lambda,p_\mu) = z_\lambda \delta_{\lambda\mu}$. The values for $(p_\lambda,m_\mu)$ are given by \cite[Lemma~3.7.1]{Lascoux}, so we know how to get the matrix $\psi_{\nu\rho}^{-1}$. Since it is triangular with respect to some ordering of partitions, matrix inversion is easy.
+ \item The coefficients $\psi_{\rho\nu}$ are computed by the function \verb|monomialPower| in the module \verb|SymmetricFunctions.hs|, using the theory from~\cite[Sect.~3.7]{Lascoux}. The idea is to use the scalar product on the space of symmetric functions, so that the power sums become orthogonal: $(p_\lambda,p_\mu) = z_\lambda \delta_{\lambda\mu}$. The values for $(p_\lambda,m_\mu)$ are given by~\cite[Lemma~3.7.1]{Lascoux}, so we know how to get the matrix $\psi_{\nu\rho}^{-1}$. Since it is triangular with respect to some ordering of partitions, matrix inversion is easy.
  \item The ring structure of $H^*(S,\IZ)$ is stored in the module \verb|K3.hs|. The only nontrivial multiplications are the products of two elements in $H^2(S,\IZ)$, where the intersection matrix is composed by the matrices for the hyperbolic and the $E_8$ lattice. The cup product and the adjoint comultiplication from Definition~\ref{comult} are implemented by the methods \verb|cup| and \verb|cupAd|.
  \item The data structures for basis elements of $A\hilb{n}$ and $A\{S_n\}$ are given by \verb|AnBase| and \verb|SnBase| in the module \verb|HilbK3.hs|. Linear combinations of basis elements are always stored as lists of pairs, each pair consisting of a basis element and a scalar factor.
  \item The function $m_{\pi,\tau}$ from Definition~\ref{model} is computed by the method \verb|multSn|. It contains the following substeps: First, the orbits of $\left<\pi,\tau\right>$ are computed recursively by glueing together the orbits of $\pi$ if they have both non-emtpty intersection with an orbit of $\tau$. Second, the composition $\pi\tau$ is computed using a method from the external library \verb|Data.Permute|. Third, the functions $f^{\pi,\left<\pi,\tau\right>}$ and $f_{\left<\pi,\tau\right>,\pi\tau}$ using the (co--)products from \verb|K3.hs|.
@@ -98,7 +99,7 @@ Here the hyperbolic and the $E_8$ lattice and the bilinear form on the cohomolog
 This module defines the data structures and elementary methods to handle partitions. We define both partitions written as descending sequences of integers ($\lambda$-notation) and as sequences of multiplicities ($\alpha$-notation).
 \input{Sexy/Partitions.tex}
 \subsection{Module for coefficients on Symmetric Functions} 
-This module provides nothing but the base change matrices $\psi_{\lambda\mu}$ and $\psi^{-1}_{\mu\lambda}$ from Definition \ref{SymFun}.
+This module provides nothing but the base change matrices $\psi_{\lambda\mu}$ and $\psi^{-1}_{\mu\lambda}$ from Definition~\ref{SymFun}.
 \input{Sexy/SymmetricFunctions.tex} 
 \subsection{Module implementing cup products for Hilbert schemes} This is our main module. We implement the algebraic model developed by Lehn and Sorger and the change of base due to Qin and Wang. The cup product on the Hilbert scheme is computed by the function \texttt{cupInt}.
 \input{Sexy/HilbK3.tex}

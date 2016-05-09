@@ -7,7 +7,7 @@ Let $A$ be a smooth projective complex surface.
 Let $A\hilb{n}$ the Hilbert scheme of $n$ points on the surface, \ie the moduli space of finite subschemes of $A$ of length $n$.
 %$$\Hilb^ n : S \mapsto \left\{ Z\subset S\times A\,|\,Z\text{ closed subscheme, } p_1 : Z\rightarrow S \text{ flat and finite of degree }n\right\}.$$
 $A\hilb{n}$ is again smooth and projective of dimension $2n$, cf.~\cite{Fogarty}. 
-Their rational cohomology can be described in terms of Nakajima's \cite{Nakajima} operators. First consider the direct sum
+Their rational cohomology can be described in terms of Nakajima's~\cite{Nakajima} operators. First consider the direct sum
 $$
 \H \defIs  \bigoplus_{n=0}^{\infty} H^*(A\hilb{n},\Q).
 $$
@@ -46,7 +46,7 @@ For $a \in H^k(A)$, we define $\G_i(a)$ as the component of $\G(a)$ of cohomolog
 \begin{notation} 
 We abbreviate $\q \defIs  \q_1(1)$ and for its derivative $\q'\defIs  [\mathfrak d, \q]$. For any operator $X$ we write $X^{(k)}$ for the $k$-fold derivative: $X^{(k)} \defIs \ad^k(\d) (X)$.
 \end{notation}
-In \cite{LehnSorger} and \cite{LiQinWang} we find various commutation relations between these operators, that allow to determine all multiplications in the cohomology of the Hilbert scheme. First of all, if $X$ and $Y$ are operators of degree $d$ and $d'$, their commutator is defined in the super sense: 
+In~\cite{LehnSorger} and~\cite{LiQinWang} we find various commutation relations between these operators, that allow to determine all multiplications in the cohomology of the Hilbert scheme. First of all, if $X$ and $Y$ are operators of degree $d$ and $d'$, their commutator is defined in the super sense: 
 $$
 [X,Y] \defIs  XY - (-1)^{dd'}YX.
 $$
@@ -77,7 +77,7 @@ In a similar manner as above, we can use the integral over $A$ to define a bilin
 $$
 \Delta : H^*(A,\Q) \longrightarrow H^*(A,\Q)\otimes H^*(A,\Q)
 $$
-that corresponds to $\tau_{2*}$. The sign convention in \cite{LehnSorger} is such that $-\Delta =  \tau_{2*}$. We denote by $\Delta^k$ the $k$-fold composition of $\Delta$.
+that corresponds to $\tau_{2*}$. The sign convention in~\cite{LehnSorger} is such that $-\Delta =  \tau_{2*}$. We denote by $\Delta^k$ the $k$-fold composition of $\Delta$.
 \end{remark}
 \begin{lemma}\cite[Thm.~2.16]{LiQinWang} Denote $K_A\in H^2(A,\Q)$ the class of the canonical divisor. We have:
 \label{commutators}
@@ -124,7 +124,7 @@ For all $k,m$, the following formulas hold:
 %For all $s,t,k\geq 0$ the following formula holds:
 \end{proposition}
 \begin{proof}
-Let us start with (\ref{adq}). This is a consequence of Theorem 4.2 of \cite{LiQinWang2} which states that 
+Let us start with (\ref{adq}). This is a consequence of Theorem 4.2 of~\cite{LiQinWang2} which states that 
 \begin{align*}
 \frac{\q_m^{(k)}(a)}{m^k}
 & = \frac{1}{k+1}\sum_{i_0+\ldots+i_k=m} \nor \q_{i_0}\cdots \q_{i_k} \mal  (\tau_*(a)) \\
@@ -166,10 +166,10 @@ $$
 %$$
 \end{proposition}
 \begin{proof}
-Equation (4.6) of \cite{LehnSorger} evaluates 
+Equation (4.6) of~\cite{LehnSorger} evaluates 
 \begin{align*}
 \left[ \G(a),\exp(\q)\right] &= \exp(\q) \sum_{\substack{s\geq 1\\k\geq 0}} \frac{(-\ad \q)^{s-1}}{s!}\left(\frac{(\ad \mathfrak d)^k}{k!} (\q_1(a)) \right) \\
- &\stackrel{\text{Cor \ref{adqCorollary}}}{=} \exp(\q)  \sum_{s\geq 1}\frac{(-1)^{s-1}}{s!}\left(\sum_{k\geq s-1}\frac{\q_s^{(k-s+1)}(a)}{s^{k-s+1}(k-s+1)!}
+ &\stackrel{\text{Cor~\ref{adqCorollary}}}{=} \exp(\q)  \sum_{s\geq 1}\frac{(-1)^{s-1}}{s!}\left(\sum_{k\geq s-1}\frac{\q_s^{(k-s+1)}(a)}{s^{k-s+1}(k-s+1)!}
   \right.\\&\hspace{140pt} \left. + \sum_{k\geq s+1}\frac{s-1}{24}\frac{\q_s^{(k-s-1)}(a)}{s^{k-s-1}(k-s-1)!} \right)\\
   &=\exp(\q) \sum_{\substack{s\geq 1\\k\geq 0}}\frac{(-1)^{s-1}}{s!}\left(\frac{\q_s^{(k)}(a)}{s^{k}k!} + \frac{s-1}{24}\frac{\q_s^{(k)}(a\mathbf e)}{s^{k}k!}\right).
 \qedhere
@@ -188,10 +188,10 @@ Equation (4.6) of \cite{LehnSorger} evaluates
 \end{example}
 
 \begin{remark}
-We adopted the notation from \cite{LiQinWang}, which differs from the conventions in \cite{LehnSorger}. Here is part of a dictionary:
+We adopted the notation from~\cite{LiQinWang}, which differs from the conventions in~\cite{LehnSorger}. Here is part of a dictionary:
 \begin{center}
 \begin{tabular}{c|c} 
-Notation from \cite{LiQinWang} & Notation from \cite{LehnSorger} \\\hline
+Notation from~\cite{LiQinWang} & Notation from~\cite{LehnSorger} \\\hline
 operator of weight $w$ and degree $d$ & operator of weight $w$ and degree $d-2w$\\
 $\q_m(a) $ & $\p_{-m}(a)$ \\
 $ \mathfrak{L}_m(a) $ & $ - L_{-m}(a)$ \\
@@ -218,7 +218,7 @@ where signs arise from permuting factors of odd degrees. In particular,
 \frac{1}{(n-1)!}\q_1(b)\q^{n-1}\vac =\rho^*\Big( b\otimes\! 1\!\otimes\ldots\otimes\! 1\; + \;\ldots\; +\; 1\!\otimes\ldots\otimes\! 1\! \otimes b\Big) .
 \end{gather}
 \begin{remark}
-With the notation from Section \ref{SuperSection}, we have that
+With the notation from Section~\ref{SuperSection}, we have that
 $$
 H^*(\Sym^n(A),\Q) \cong \SSym^n(H^*(A,\Q)).
 $$
@@ -248,20 +248,20 @@ Under this isomorphism the ring structure of $\SSym^n(H^*(A,\Q))$ corresponds to
 %$$
 %(B_n)^k = \rho^*\left(\sum_{i_1+\ldots+i_n= k}b^{i_1}\otimes\cdots\otimes b^{i_n}\right).
 %$$
-%Since the case $k=2n$ implies that all the $i_r$ are equal to $2$, the number of non-zero summands equals the number of partitions of a set of cardinality $2n$ into pairs. By \cite[Prop.~2,4]{Kapfer}, this is $(2n-1)!!$.
+%Since the case $k=2n$ implies that all the $i_r$ are equal to $2$, the number of non-zero summands equals the number of partitions of a set of cardinality $2n$ into pairs. By~\cite[Prop.~2,4]{Kapfer}, this is $(2n-1)!!$.
 %\end{proof}
 
 
 \section{On integral cohomology of Hilbert schemes}\label{basisHilb2}
 
-For the study of integral cohomology, first note that if $a \in H^*(A,\Z)$ is an integral class, then $\q_{m}(a) $ maps integral classes to integral classes. Such operators are called integral. Qin and Wang studied them in \cite{QinWang}. We need the following results:
+For the study of integral cohomology, first note that if $a \in H^*(A,\Z)$ is an integral class, then $\q_{m}(a) $ maps integral classes to integral classes. Such operators are called integral. Qin and Wang studied them in~\cite{QinWang}. We need the following results:
 
 \begin{lemma} (\cite{QinWang}\label{IntegralOperators}, see also Thm.~\ref{QinWangTheorem}).
 The operators $\frac{1}{n!}\q_1(1)^n$ and $\frac{1}{2}\q_2(1) $ are integral.
 Let $b\in H^2(A,\Z)$ be monodromy equivalent to a divisor. Then the operator $\frac{1}{2}\q_1(b)^2 - \frac{1}{2}\q_2(b)$ is integral. 
 \end{lemma}
 \begin{remark}
-Qin and Wang \cite[Thm 1.1 et seq.]{QinWang} conjecture that their theory works even without the restriction on $b\in H^2(A,\Z)$. 
+Qin and Wang~\cite[Thm 1.1 et seq.]{QinWang} conjecture that their theory works even without the restriction on $b\in H^2(A,\Z)$. 
 \end{remark}
 
 \begin{corollary} \label{IntegralOperatorsTorus}
@@ -272,10 +272,10 @@ The Nakajima operators are preserved under deformations of $A$.
 Moreover, by %\cite[Thm.~II]{Shioda},
 \cite{Borcea}, 
 the image of the monodromy representation on $H^2(A,\Z)$ is given by $O^{+,+}(H^2(A,\Z))$, the group of isometry on $H^2(A,\Z)$ which preserve the orientation of the negative and positive definite part of $H^2(A,\R)$.
-%Since the lattice is even and contains two copies of the hyperbolic lattice, a theorem of Eichler \cite[Prop.~3.7.3]{Scattone} states that the automorphism group of $H^2(A,\Z)$ acts transitively on classes of the same norm. 
+%Since the lattice is even and contains two copies of the hyperbolic lattice, a theorem of Eichler~\cite[Prop.~3.7.3]{Scattone} states that the automorphism group of $H^2(A,\Z)$ acts transitively on classes of the same norm. 
 
 %%The monodromy operators induce the entire automorphism group $SL(4,\Z)$ on $H^1(A,\Z)$.
-%%Since $H^2(A,\Z)= \Lambda^2H^1(A,\Z)$, we see with a similar argument as in Remark \ref{simplePlanes} that the monodromy operators act transitively on the simple tensors of $\Lambda^2H^1(A,\Z)$ with fixed norm.
+%%Since $H^2(A,\Z)= \Lambda^2H^1(A,\Z)$, we see with a similar argument as in Remark~\ref{simplePlanes} that the monodromy operators act transitively on the simple tensors of $\Lambda^2H^1(A,\Z)$ with fixed norm.
 %%Suppose that the N\'eron-Severi group $\NS(A)$ contains a basis element of $H^2(A,\Z)$ which can be written as a simple tensor (such $A$ exist).
 %%Then, by action of monodromy operators, we see that the claim holds for all simple tensors.
 %%An arbitrary element in $H^2(A,\Z)$ is linear combination of simple tensors. Since the integrality of our operator is preserved under linear combinations, the corollary is proved for that particular torus $A$.
@@ -306,7 +306,7 @@ Their respective duals in $H^{2n-2}(A\hilb{n},\Z)$ are given by
 \end{itemize}
 \end{proposition}
 \begin{proof} It is clear from the above lemma that these classes are all integral.
-G\"ottsche's formula \cite[p.~35]{Gottsche} gives the Betti numbers of $A\hilb{n}$ in terms of the Betti numbers of $A$: 
+G\"ottsche's formula~\cite[p.~35]{Gottsche} gives the Betti numbers of $A\hilb{n}$ in terms of the Betti numbers of $A$: 
 $h^1(A\hilb{n}) = h^1(A)$, and $h^2(A\hilb{n}) = h^2(A)+ \frac{h^1(A)(h^1(A)-1)}{2} + 1$. It follows that the given classes span a lattice of full rank.
 
 Next we have to show that the intersection matrix between these classes is in fact the identity matrix. Most of the entries can be computed easily using the simplification from (\ref{qSym}). For products involving $\delta$ (this is the action of $\mathfrak{d}$) or its dual, first observe that $\mathfrak{d}\q_1(x)^m\vac = 0 $ and $ \mathfrak{L}_1(a)\q_1(x)^m\vac =0$ for every class $a$ of degree at least 1. Then compute:
@@ -326,7 +326,7 @@ Next we have to show that the intersection matrix between these classes is in fa
 \end{proof}
 
 \begin{remark}
-If $A$ is a complex torus, a theorem of Markman \cite{Markman} ensures that $H^*(A\hilb{n},\Z)$ is free of torsion.
+If $A$ is a complex torus, a theorem of Markman~\cite{Markman} ensures that $H^*(A\hilb{n},\Z)$ is free of torsion.
 \end{remark} 
 
 \begin{proposition} \label{A2Basis}
@@ -356,7 +356,7 @@ Let $A$ be a complex abelian surface. Using Notation~\ref{TorusClasses}, a basis
 \end{tabular}
 \end{center}
 \begin{proof}
-The Betti numbers come from G\"ottsche's formula \cite{Gottsche}.
+The Betti numbers come from G\"ottsche's formula~\cite{Gottsche}.
 One computes the intersection matrix of all classes under the Poincar\'e duality pairing and finds that it is unimodular. 
 So it remains to show that all these classes are integral. By Lemma~\ref{IntegralOperators} this is clear for all classes except 
 those of the form $\frac{1}{2}\q_2(a^*_i)\vac \in H^5(A\hilb{2},\Z)$.
@@ -368,7 +368,7 @@ Evaluating the Poincar\'e duality pairing between degrees 3 and 5 gives:
  \q_1(1)\q_1(a^*_i)\vac \cdot \q_1(x)\q_1(a_i)\vac = 1,
 \end{gather*}
 while the other pairings vanish. Therefore, one of $\q_2(a_i)\vac$ and $\q_2(a^*_i)\vac$ must be divisible by $2$. 
-With the considerations from Section \ref{OddHilb2} in mind, we can interpret $\q_2(a_i)\vac\in H^3(A\hilb{2},\Z)$ and $\q_2(a^*_i)\vac\in H^5(A\hilb{2},\Z)$ as classes concentrated on the exceptional divisor, that is, as elements of $\pi_* j_*H^*(E,\Z)$. Indeed,
+With the considerations from Section~\ref{OddHilb2} in mind, we can interpret $\q_2(a_i)\vac\in H^3(A\hilb{2},\Z)$ and $\q_2(a^*_i)\vac\in H^5(A\hilb{2},\Z)$ as classes concentrated on the exceptional divisor, that is, as elements of $\pi_* j_*H^*(E,\Z)$. Indeed,
 the pushforward of a class $a\otimes 1 \in H^{k}(E,\Z)$ is given by 
 $$
 \pi_* j_*(a\otimes 1) = \q_2(a)\vac \in H^{k+2}(A\hilb{n},\Z).

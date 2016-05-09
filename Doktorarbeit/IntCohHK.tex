@@ -1,8 +1,8 @@
 
-Lehn and Sorger in \cite{LehnSorger} developed an algebraic model to describe the cohomological ring structure of Hilbert schemes of points on a K3 surface. On the other hand, Qin and Wang \cite{QinWang} found a base for integral cohomology in the projective case. By combining these results, we are able to compute all cup-products in the cohomology rings of Hilbert schemes of $n$ points on a projective K3 surface with integral coefficients. 
-For $n=2$, this was done by Boissi\`ere, Nieper-Wi{\ss}kirchen and Sarti \cite{BNS}, who applied their results to automorphism groups of prime order. When $n$ is increasing, the ranks of the cohomology rings become very large, so we need the help of a computer. 
+Lehn and Sorger in~\cite{LehnSorger} developed an algebraic model to describe the cohomological ring structure of Hilbert schemes of points on a K3 surface. On the other hand, Qin and Wang~\cite{QinWang} found a base for integral cohomology in the projective case. By combining these results, we are able to compute all cup-products in the cohomology rings of Hilbert schemes of $n$ points on a projective K3 surface with integral coefficients. 
+For $n=2$, this was done by Boissi\`ere, Nieper-Wi{\ss}kirchen and Sarti~\cite{BNS}, who applied their results to automorphism groups of prime order. When $n$ is increasing, the ranks of the cohomology rings become very large, so we need the help of a computer. 
 Our goal here is to give some properties for low degrees.
-Although the case $n=3$ is the most interesting for us, our computer program allows computations for arbitrary $n$. We give some numerical results in Section \ref{CompSection}.\vspace{5pt}
+Although the case $n=3$ is the most interesting for us, our computer program allows computations for arbitrary $n$. We give some numerical results in Section~\ref{CompSection}.\vspace{5pt}
 
 \section{The combinatorial model}
 \begin{definition}
@@ -13,7 +13,7 @@ Let $\Lambda_n \defIs  \IQ[x_1,\ldots,x_n]^{S_n}$ be the graded ring of symmetri
 $\Lambda\defIs \lim\limits_{\leftarrow}\Lambda_n$ is called the ring of symmetric functions.
 Let $m_\lambda$ and $p_\lambda$ denote the monomial and the power sum symmetric functions. They are defined as follows: For a monomial $x_{i_1}^{\lambda_1}x_{i_2}^{\lambda_2}\ldots x_{i_k}^{\lambda_k}$ of total degree $n$, the (ordered) sequence of exponents $(\lambda_1,\ldots,\lambda_k)$ defines a partition $\lambda$ of $n$, which is called the shape of the monomial. Then we define $m_\lambda$ being the sum of all monomials of shape $\lambda$. For the power sums, first define $p_n \defIs  x_1^n + x_2^n + \ldots$. Then $p_\lambda \defIs  p_{\lambda_1}p_{\lambda_2}\ldots p_{\lambda_k}$.
 
-The families $(m_\lambda)_\lambda$ and $(p_\lambda)_\lambda$ form two $\IQ$-bases of $\Lambda$, so they are linearly related by $p_\lambda = \sum_{\mu} \psi_{\lambda\mu}m_\mu$. It turns out that the base change matrix $(\psi_{\lambda\mu})$ has integral entries, but its inverse $(\psi_{\mu\lambda}^{-1})$ has not. A method to determine the $(\psi_{\lambda\mu})$ is given by Lascoux in \cite[Sect. 3.7]{Lascoux}.
+The families $(m_\lambda)_\lambda$ and $(p_\lambda)_\lambda$ form two $\IQ$-bases of $\Lambda$, so they are linearly related by $p_\lambda = \sum_{\mu} \psi_{\lambda\mu}m_\mu$. It turns out that the base change matrix $(\psi_{\lambda\mu})$ has integral entries, but its inverse $(\psi_{\mu\lambda}^{-1})$ has not. A method to determine the $(\psi_{\lambda\mu})$ is given by Lascoux in~\cite[Sect. 3.7]{Lascoux}.
 \end{definition}
 
 \begin{definition}
@@ -35,17 +35,17 @@ The image of $\One$ under the composite map $\mu\circ\Delta$, denoted by $e=24x$
 
 More generally, every linear map $f: A^{\otimes k} \rightarrow A^{\otimes m}$ induces an adjoint map $g$ in the other direction that satisfies $(-1)^mB^{\otimes m}(f(x),y)= (-1)^{k} B^{\otimes k}(x,g(y))$.
 \end{definition}
-We denote by $S\hilb{n}$ the Hilbert scheme of $n$ points on $S$, \ie the classifying space of all zero-dimensional closed subschemes of length $n$. $S\hilb{0}$ consists of a single point and $S\hilb{1}=S$. Fogarty \cite[Thm.~2.4]{Fogarty} proved that the Hilbert scheme is a smooth variety.
-A theorem by Nakajima \cite{Nakajima} gives an explicit description of the vector space structure of $H^\ast(S\hilb{n},\IQ)$ in terms of creation operators
+We denote by $S\hilb{n}$ the Hilbert scheme of $n$ points on $S$, \ie the classifying space of all zero-dimensional closed subschemes of length $n$. $S\hilb{0}$ consists of a single point and $S\hilb{1}=S$. Fogarty~\cite[Thm.~2.4]{Fogarty} proved that the Hilbert scheme is a smooth variety.
+A theorem by Nakajima~\cite{Nakajima} gives an explicit description of the vector space structure of $H^\ast(S\hilb{n},\IQ)$ in terms of creation operators
 $$
 \kq_l(\beta) :  H^\ast(S\hilb{n},\IQ) \longrightarrow  H^{\ast+k+2(l-1)}(S\hilb{n+l},\IQ)
 ,$$ 
 where $\beta\in H^k(S,\IQ)$, acting on the direct sum 
 $\mathbb{H}\defIs \bigoplus_n H^\ast(S\hilb{n},\IQ)$. The operators $\kq_l(\beta)$ are linear and commute with each other. The vacuum vector $\vac$ is defined as the generator of $H^0(S\hilb{0},\IQ)\cong\IQ$. The images of $\vac$ under the polynomial algebra generated by the creation operators span $\mathbb{H}$ as a vector space. 
-Following \cite{QinWang}, we abbreviate $\kq_{l_1}(\beta)\ldots\kq_{l_k}(\beta)=:\kq_\lambda(\beta)$, where the partition $\lambda$ is composed by the $l_i$. 
+Following~\cite{QinWang}, we abbreviate $\kq_{l_1}(\beta)\ldots\kq_{l_k}(\beta)=:\kq_\lambda(\beta)$, where the partition $\lambda$ is composed by the $l_i$. 
 
 An integral basis for $H^\ast(S\hilb{n},\IZ)$ in terms of Nakajima's operators was given by Qin--Wang:
-\begin{theorem} \label{QinWangTheorem}\cite[Thm. 5.4.]{QinWang} Let $\km_{\nu,\alpha} \defIs  \sum_\rho \psi_{\nu\rho}^{-1}\,\kq_{\rho}(\alpha)$, with coefficients $ \psi_{\nu\rho}^{-1}$ as in Definition \ref{SymFun}. The classes
+\begin{theorem} \label{QinWangTheorem}\cite[Thm. 5.4.]{QinWang} Let $\km_{\nu,\alpha} \defIs  \sum_\rho \psi_{\nu\rho}^{-1}\,\kq_{\rho}(\alpha)$, with coefficients $ \psi_{\nu\rho}^{-1}$ as in Definition~\ref{SymFun}. The classes
 $$ \frac{1}{z_\lambda} \kq_\lambda(1)\kq_\mu(x)\km_{\nu^1,\alpha_1}\ldots\km_{\nu^{22},\alpha_{22}}\vac,\quad \|\lambda\| +\|\mu\| + \sum_{i=1}^{22}\|\nu^i\| = n
 $$ 
 form an integral basis for $H^\ast(S\hilb{n},\IZ)$. Here,
@@ -66,7 +66,7 @@ Let $\boldsymbol\alpha^{\boldsymbol\lambda}$ represent a class of cohomological 
 The lowest ratio between $\left\|\boldsymbol{\lambda}\right\|$ and $\deg \boldsymbol\alpha^{\boldsymbol\lambda}$ is achieved by the classes $x^{(1^m)}$, where the degree is $4m$ and the weight of $\boldsymbol{\lambda}$ is $m$. The highest ratio is achieved by the classes $1^{(2^m)}$, where both degree and weight equal $2m$. So $\frac{1}{4}\leq\frac{\left\|\boldsymbol{\lambda}\right\|}{\deg \boldsymbol\alpha^{\boldsymbol\lambda}}\leq 1$.
 \end{proof}
 \end{lemma}
-The ring structure of $H^\ast(S\hilb{n}, \IQ)$ has been studied by Lehn and Sorger in \cite{LehnSorger}, where an explicit algebraic model is constructed, which we recall briefly:
+The ring structure of $H^\ast(S\hilb{n}, \IQ)$ has been studied by Lehn and Sorger in~\cite{LehnSorger}, where an explicit algebraic model is constructed, which we recall briefly:
 \begin{definition} \label{model}\cite[Sect. 2]{LehnSorger}
 Let $\pi$ be a permutation of $n$ letters, written as a product of disjoint cycles. To each cycle we may associate an element of $A\defIs H^\ast(S,\IQ)$. This defines an element in $A^{\otimes m}$, $m$ being the number of cycles. For example, a term like $(1\,2\,3)_{\alpha_1}(4\,5)_{\alpha_2}$ may describe a permutation consisting of two cycles with associated classes $\alpha_1,\alpha_2\in A$. We interpret the cycles as the orbits of the subgroup $\left<\pi\right>\subset S_n$ generated by $\pi$. We denote the set of orbits by $\left<\pi\right>\backslash[n]$. Thus we construct a vector space $A\{S_n\}\defIs \bigoplus_{\pi\in S_n} A^{\otimes\left<\pi\right>\backslash[n]}$. 
 
@@ -75,19 +75,19 @@ $
 p_\pi:\left<\pi\right>\backslash[n] \rightarrow \left<\pi,\tau\right>\backslash[n]
 $
 induces a map $f^{\pi,\left<\pi,\tau\right>} : A^{\otimes\left<\pi\right>\backslash[n]} \rightarrow A^{\otimes\left<\pi,\tau\right>\backslash[n]}$, which multiplies the factors of an elementary tensor if the corresponding orbits are glued together.
-Denote $f_{\left<\pi,\tau\right>,\pi} $ the adjoint to this map in the sense of Definition \ref{comult}. Then the map
+Denote $f_{\left<\pi,\tau\right>,\pi} $ the adjoint to this map in the sense of Definition~\ref{comult}. Then the map
 \begin{gather*}
 m_{\pi,\tau} : A^{\otimes\left<\pi\right>\backslash[n]} \otimes A^{\otimes\left<\tau\right>\backslash[n]} \longrightarrow A^{\otimes\left<\pi\tau\right>\backslash[n]} ,  \\
 a\otimes b \longmapsto  f_{\left<\pi,\tau\right>,\pi\tau} (f^{\pi,\left<\pi,\tau\right>} (a)\cdot f^{\tau,\left<\pi,\tau\right>}(b)\cdot  e^{g(\pi,\tau)} ) 
 \end{gather*}
-defines a multiplication on $A\{S_n\}$. Here the dot means the cup product on each tensor factor and $e^{g(\pi,\tau)} \in A^{\otimes\left<\pi,\tau\right>\backslash[n]}$ is an elementary tensor that is composed by powers of the Euler class $e$: for each orbit $B \in  {\otimes\left<\pi,\tau\right>\backslash[n]}$ the exponent $g(\pi,\tau)(B)$ (so-called "graph defect", see \cite[2.6]{LehnSorger}) is given by:
+defines a multiplication on $A\{S_n\}$. Here the dot means the cup product on each tensor factor and $e^{g(\pi,\tau)} \in A^{\otimes\left<\pi,\tau\right>\backslash[n]}$ is an elementary tensor that is composed by powers of the Euler class $e$: for each orbit $B \in  {\otimes\left<\pi,\tau\right>\backslash[n]}$ the exponent $g(\pi,\tau)(B)$ (so-called "graph defect", see~\cite[2.6]{LehnSorger}) is given by:
 $$
 g(\pi,\tau)(B) = \frac{1}{2}\left( |B| +2 - |p_\pi^{-1}(\{B\})|- |p_\tau^{-1}(\{B\})| - |p_{\pi\tau}^{-1}(\{B\})|  \right).
 $$
 
 \end{definition}
 The symmetric group $S_n$ acts on $A\{S_n\}$ by conjugation, permuting the direct summands: conjugation by $\sigma\in S_n$ maps $A^{\otimes\left<\pi\right>\backslash[n]}$ to $A^{\otimes\left<\sigma\pi\sigma^{{-}1}\right>\backslash[n]}$.
-This action preserves the ring structure. Therefore the space of invariants $A\hilb{n} \defIs  \left(A\{S_n\} \right)^{S_n}$ becomes a subring. The main theorem of \cite{LehnSorger} can now be stated:
+This action preserves the ring structure. Therefore the space of invariants $A\hilb{n} \defIs  \left(A\{S_n\} \right)^{S_n}$ becomes a subring. The main theorem of~\cite{LehnSorger} can now be stated:
 \begin{theorem} \label{LSThm}\cite[Thm. 3.2.]{LehnSorger}
 The following map is an isomorphism of rings:
 \begin{align*}
@@ -97,8 +97,8 @@ H^\ast(S\hilb{n},\IQ) & \longrightarrow A\hilb{n} \\
 with $\sum_i n_i=n$ and $a =(1\,2\ldots n_1)_{\beta_1}(n_1\! +\! 1\ldots n_1\!+\! n_2)_{\beta_2}\cdots (n\!-\!n_k \ldots n)_{\beta_k}\in A\{S_n\}$.
 \end{theorem}
 
-Since $H^\text{odd}(S\hilb{n},\IZ) = 0$ and $H^\text{even}(S\hilb{n},\IZ)$ is torsion-free by \cite{Markman}, we can apply these results to $H^\ast(S\hilb{n}, \IZ)$ to determine the multiplicative structure of cohomology with integer coefficients. It turns out, that it is somehow independent of $n$. More precisely, we have the following stability theorem, by Li, Qin and Wang:
-\begin{theorem} \label{stability}\emph{(Derived from \cite[Thm.~2.1]{QinWang}).}
+Since $H^\text{odd}(S\hilb{n},\IZ) = 0$ and $H^\text{even}(S\hilb{n},\IZ)$ is torsion-free by~\cite{Markman}, we can apply these results to $H^\ast(S\hilb{n}, \IZ)$ to determine the multiplicative structure of cohomology with integer coefficients. It turns out, that it is somehow independent of $n$. More precisely, we have the following stability theorem, by Li, Qin and Wang:
+\begin{theorem} \label{stability}\emph{(Derived from~\cite[Thm.~2.1]{QinWang}).}
 Let $Q_1,\ldots,Q_s$ be products of creation operators, \ie $Q_i = \prod_j \kq_{\lambda_{i,j}}(\beta_{i,j}) $ for some partitions $\lambda_{i,j}$ and classes $\beta_{i,j}\in H^\ast(S,\IZ)$. Set $n_i \defIs  \sum_j \left\|\lambda_{i,j}\right\|$.
 Then the cup product 
 $ \prod_{i=1}^s \left(\frac{1}{(n-n_i)!} \kq_{1^{n-n_i}}(1) \,Q_i \,\vac \right)$ equals a finite linear combination of classes of the form $\frac{1}{(n-m)!}\kq_{1^{n-m}}(1)\prod_j \kq_{\mu_{j}}(\gamma_{j})\vac$, with $\gamma\in H^\ast(S,\IZ)$, $m=\sum_j\left\|\mu_j\right\|$, whose coefficients are independent of $n$. We have the upper bound $m\leq\sum_i n_i$. Moreover, $m=\sum_i n_i$ if and only if the corresponding class is $\frac{1}{(n-m)!}\kq_{1^{n-m}}(1)Q_1Q_2\ldots Q_s\vac$ with coefficient $1$.
@@ -119,7 +119,7 @@ This is a polynomial of degree $m-n_{\boldsymbol\nu}\leq n_{\boldsymbol\lambda}+
 \begin{remark}
 If $n<\left\|\boldsymbol\lambda\right\|$ or $n<\left\|\boldsymbol\mu\right\| $, one has $\boldsymbol{\alpha}^{\boldsymbol{\lambda}}=0$, resp.~$\boldsymbol{\alpha}^{\boldsymbol{\mu}}=0$. But it is still possible that $\boldsymbol{\alpha}^{\boldsymbol{\nu}}\neq 0$ in $H^*(S\hilb{n})$. It seems that in this case the polynomial $ c^{\boldsymbol{\lambda\mu}}_{\boldsymbol{\nu}}$ always becomes zero when evaluated at $n$. So the $ c^{\boldsymbol{\lambda\mu}}_{\boldsymbol{\nu}}$ seem to be universal in the sense that the above corollary holds true even without the condition $n\geq\left\|\boldsymbol\lambda\right\|,\left\|\boldsymbol\mu\right\| $.
 \end{remark}
-\begin{example}\label{example} Here are some explicit examples for illustration. See \ref{exampleSource} for how to compute them. 
+\begin{example}\label{example} Here are some explicit examples for illustration. See~\ref{exampleSource} for how to compute them. 
 \begin{enumerate} \item $
 \One^{(2,2)}\smile \alpha_i^{(2)} = -2\cdot \One^{(2)}\alpha_i^{(1)}x^{(1)} + \One^{(2,2)}\alpha_i^{(2)} + 2\cdot\One^{(2)}\alpha_i^{(3)} +\alpha_i^{(4)} $ for $i\in\{1..22\}$.
 \item Let $i,j\in\{1\ldots 22\}$. 
@@ -141,7 +141,7 @@ A combinatorial investigation yields now:
 $$
 \left(\kq_1(\alpha_i)\kq_1(\alpha_j)\kq_1(x)^k\kq_1(1)^{k+m}\vac \right)^2 = \frac{(k+m)!^2}{m!} \kq_1(x)^{2k+2}\kq_1(1)^m\vac + \text{other terms}.
 $$
-Looking at \ref{notation}, the result follows.
+Looking at~\ref{notation}, the result follows.
 \end{proof}
 \begin{theorem}\label{freeness}
 The quotient
@@ -164,7 +164,7 @@ Now, by the definition of $\psi_{\lambda\mu}$, $\kq_{1^k}(\alpha_i) = \km_{(k),\
 \begin{equation}
 \left(\alpha_i^{(1)}\right)^k  = \alpha_i^{(k)} + \text{other terms}.
 \end{equation}
-Next, we determine the coefficients of $1^{(k+1)}$ and $1^{(k,2)}$ in the expansion of $\left(1^{(2)}\right)^k$. Considering Definition \ref{model}, we observe that here the graph defect is zero and the adjoint map is trivial, so the problem reduces to combinatorics of the symmetric group: the coefficient of $1^{(k+1)}$ is the number of ways to write a $(k+1)$-cycle as a product of $k$ transpositions. A result of D\'enes \cite{Denes} states that this is $(k\!+\!1)^{k-1}$. For the $1^{(k,2)}$-coefficient, we have to choose one transposition, and write a $k$-cyle as a product of the remaining $k-1$ transpositions. The number of possibilities is therefore $k\cdot k^{k-2} = k^{k-1}$. So
+Next, we determine the coefficients of $1^{(k+1)}$ and $1^{(k,2)}$ in the expansion of $\left(1^{(2)}\right)^k$. Considering Definition~\ref{model}, we observe that here the graph defect is zero and the adjoint map is trivial, so the problem reduces to combinatorics of the symmetric group: the coefficient of $1^{(k+1)}$ is the number of ways to write a $(k+1)$-cycle as a product of $k$ transpositions. A result of D\'enes~\cite{Denes} states that this is $(k\!+\!1)^{k-1}$. For the $1^{(k,2)}$-coefficient, we have to choose one transposition, and write a $k$-cyle as a product of the remaining $k-1$ transpositions. The number of possibilities is therefore $k\cdot k^{k-2} = k^{k-1}$. So
 \begin{equation}
 \left(1^{(2)}\right)^k = (k\!+\! 1)^{k-1} \cdot 1^{(k+1)} \;+\; k^{k-1}\cdot 1^{(k,2)} \;+\; \text{other terms}.
 \end{equation}
@@ -189,7 +189,7 @@ Denote $h^k(S\hilb{n})$ the rank of $H^k(S\hilb{n},\IZ)$. We have:
 \item $h^6(S\hilb{n}) = 23,\; 2554,\; 2852,\; 2875,\; 2876$ for $n=2,3,4,5,\geq6$ resp.
 \end{itemize}
 \end{remark}
-The algebra generated by classes of degree 2 is an interesting object to study. For cohomology with complex coefficients, Verbitsky has proven in \cite{Verbitsky} that the cup product mapping from $\Sym^k H^2(S\hilb{n},\IC)$ to $H^{2k}(S\hilb{n},\IC)$ is injective for $k\leq n$. Since there is no torsion, one concludes that this also holds for integral coefficients.
+The algebra generated by classes of degree 2 is an interesting object to study. For cohomology with complex coefficients, Verbitsky has proven in~\cite{Verbitsky} that the cup product mapping from $\Sym^k H^2(S\hilb{n},\IC)$ to $H^{2k}(S\hilb{n},\IC)$ is injective for $k\leq n$. Since there is no torsion, one concludes that this also holds for integral coefficients.
 \begin{proposition} We identify $\Sym^2H^2(S\hilb{n},\IZ)$ with its image in $H^4(S\hilb{n},\IZ)$ under the cup product mapping. Then: 
 \label{p22}
 \begin{align}
@@ -201,9 +201,9 @@ The algebra generated by classes of degree 2 is an interesting object to study. 
 The 3-torsion part in (\ref{sym23}) is generated by the integral class $1^{(3)}$.
 \end{proposition}
 \begin{remark}
-The torsion in the case $n=2$ was also computed by Boissi\`{e}re, Nieper-Wi\ss kirchen and Sarti, \cite[Prop. 3]{BNS} using similar techniques.
+The torsion in the case $n=2$ was also computed by Boissi\`{e}re, Nieper-Wi\ss kirchen and Sarti,~\cite[Prop. 3]{BNS} using similar techniques.
 For all the author knows, the result for $n=3$ is new.
-The freeness result for $n\geq 4$ was already proven by Markman, \cite[Thm. 1.10]{Markman2}, using a completely different method. 
+The freeness result for $n\geq 4$ was already proven by Markman,~\cite[Thm. 1.10]{Markman2}, using a completely different method. 
 \end{remark}
 \begin{proposition} For triple products of $H^2(S\hilb{n},\IZ)$, we have:
 $$
@@ -263,7 +263,7 @@ We state now computational results for the middle cohomology group. Since $S\hil
 \end{enumerate}
 For $n$ even, $L$ is always odd. 
 \end{proposition} 
-\begin{proof}The numerical results come from an explicit calculation. For $n$ even, we always have the norm-1-vector given by Example \ref{oddWitness}, so $L$ is odd. To obtain the signature, we could equivalently use Hirzebruch's signature theorem and compute the L-genus of $S\hilb{n}$. For the signature, we need nothing but the Pontryagin numbers, which can be derived from the Chern numbers of $S\hilb{n}$. These in turn are known by Ellingsrud, G\"ottsche and Lehn, \cite[Rem. 5.5]{EGL}. 
+\begin{proof}The numerical results come from an explicit calculation. For $n$ even, we always have the norm-1-vector given by Example~\ref{oddWitness}, so $L$ is odd. To obtain the signature, we could equivalently use Hirzebruch's signature theorem and compute the L-genus of $S\hilb{n}$. For the signature, we need nothing but the Pontryagin numbers, which can be derived from the Chern numbers of $S\hilb{n}$. These in turn are known by Ellingsrud, G\"ottsche and Lehn,~\cite[Rem. 5.5]{EGL}. 
 \end{proof}
-Another test is to compute the lattice structure of $H^2(S\hilb{2},\IZ)$, with bilinear form given by $(a,b)\longmapsto \int \left(a\smile b\smile \One^{(2)}\smile \One^{(2)}\right)$. The signature of this lattice is $17$, as shown by Boissi\`ere, Nieper-Wi{\ss}kirchen and Sarti \cite[Lemma 6.9]{BNS}.
+Another test is to compute the lattice structure of $H^2(S\hilb{2},\IZ)$, with bilinear form given by $(a,b)\longmapsto \int \left(a\smile b\smile \One^{(2)}\smile \One^{(2)}\right)$. The signature of this lattice is $17$, as shown by Boissi\`ere, Nieper-Wi{\ss}kirchen and Sarti~\cite[Lemma 6.9]{BNS}.
 

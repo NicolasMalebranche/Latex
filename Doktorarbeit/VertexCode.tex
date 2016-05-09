@@ -1,7 +1,7 @@
 
 \section{Source Code for the operator model}\label{VertexCode}
 We give the source code for our tool implementing the rational cohomology of Hilbert schemes of points on surfaces using Nakajima operators. 
-We follow the notational conventions of \cite{LehnSorger}. The description given there in Section 3 allows to deduce an algorithm for operator actions on $\H$. The Chern classes of  tangent bundles of Hilbert schemes is computed with the help of the description from \cite[Section 3]{Boissiere}.
+We follow the notational conventions of~\cite{LehnSorger}. The description given there in Section 3 allows to deduce an algorithm for operator actions on $\H$. The Chern classes of  tangent bundles of Hilbert schemes is computed with the help of the description from~\cite[Section 3]{Boissiere}.
 %It is available online under \url{https://github.com/s--kapfer/HilbK3}. We used the language Haskell, compiled with the \textsc{GHC} software, version 7.6.3.
 
 In contrast to the code in the previous section, we are not restricted to K3 surfaces. Indeed, the surface may have cohomology in odd degree as well as a non-vanishing canonical class. On the other hand, the implemention of the cup product in general is slower than the model for K3 surfaces. 
@@ -10,10 +10,10 @@ In contrast to the code in the previous section, we are not restricted to K3 sur
 The main module is \verb|LS_Operators.hs|, which can be opened with ghci.
 We implemented the actions of the following operators:
 \begin{itemize}
- \item The Nakajima operators $\mathfrak p_n(a)$ and $L_n(a)$ from \cite{LehnSorger} are given by \verb|P n a| and \verb|L n a|. 
+ \item The Nakajima operators $\mathfrak p_n(a)$ and $L_n(a)$ from~\cite{LehnSorger} are given by \verb|P n a| and \verb|L n a|. 
  \item The differential operator $\partial$ is given by \verb|Del|.
- \item The multiplication operators $\G_k(a)$ from \cite{LiQinWang} related to Chern characters correspond to \verb|Ch k a|.
- \item The Chern character $\mathfrak{ch}T$ of the tangent bundle from \cite{Boissiere} in degree $k$ corresponds to \verb|ChT k|.
+ \item The multiplication operators $\G_k(a)$ from~\cite{LiQinWang} related to Chern characters correspond to \verb|Ch k a|.
+ \item The Chern character $\mathfrak{ch}T$ of the tangent bundle from~\cite{Boissiere} in degree $k$ corresponds to \verb|ChT k|.
 \end{itemize}
 \begin{example}
 To evaluate the action of a single operator product on the vacuum, use the command \verb|nakaState| to show the result in terms of Nakajima operators:
@@ -39,7 +39,7 @@ An important observation is that we do not need to know explicitly the commutato
 Indeed, every element of $\H$ can be written as the action on the vacuum of either a polynomial in Nakajima operators $\mathfrak p_n(a)$ or of a polynomial in the operators $\partial$ and $\mathfrak p_{-1}(a)$. We call the two representations \verb|nakaState| and \verb|delState|, respectively. For the action of a Nakajima operator, the first one is more appropriate, while a multiplication operator acts better on the second one (multiplication commutes with $\partial$ and the commutators with $\mathfrak p_n(a)$ are known). 
 In addition, the necessary commutation relations to switch between the two representations are known. This is the guiding philosophy for the algorithms contained in \verb|LS_Operators.hs|.
 
-The other module, \verb|LS_Frobenius.hs| contains nothing but the definition of a graded Frobenius algebra according to \cite[Section 2.1]{LehnSorger} and some instances, namely the cohomologies of K3 surfaces, complex tori and projective space $\C\mathbb P^2$.
+The other module, \verb|LS_Frobenius.hs| contains nothing but the definition of a graded Frobenius algebra according to~\cite[Section 2.1]{LehnSorger} and some instances, namely the cohomologies of K3 surfaces, complex tori and projective space $\C\mathbb P^2$.
 
 The datatype that models $\H$ is called \verb|State|. It consists of linear combinations of ordered operator products, implemented as lists of pairs, containing the product (as a list) and the scalar. 
 
