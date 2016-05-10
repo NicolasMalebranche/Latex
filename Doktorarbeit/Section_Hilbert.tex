@@ -133,6 +133,7 @@ Let us start with (\ref{adq}). This is a consequence of Theorem 4.2 of~\cite{LiQ
 Using that 
 $[\q,\nor \q_{i_0}\cdots \q_{i_k} \mal  (\Delta^k(a)) ] = \sum_{r=0}^k \delta_{i_r+1} \nor\q_{i_0}\cdots \widehat{\q}_{i_r} \cdots \q_{i_k} \mal (\tau_*(a))$, 
 we calculate:
+{\allowdisplaybreaks
 \begin{align*}
 \ad\q \frac{\q_m^{(k+1)}(a)}{m^{k+1}} 
   =\, &\frac{1}{k+2}\sum_{i_0+\ldots+i_{k+1}=m}\!\! \left[\q,\nor \q_{i_0}\cdots \q_{i_{k+1}} \mal (\tau_*(a))\right] \\
@@ -141,6 +142,7 @@ we calculate:
  & + k(k+1)\!\! \sum_{j_0+\ldots+j_{k-2}=m+1}\!\! \frac{j_0^2+\ldots+j_{k-2}^2}{24}\nor \q_{j_0}\cdots \q_{j_{k-2}} \mal (\tau_*(a\mathbf e)) \\
   =\, & (k+1)  \frac{\q_{m+1}^{(k)}(a)}{(m+1)^{k}} + \frac{k^3-k}{24}\frac{\q_{m+1}^{(k-2)}(a\mathbf e)}{(m+1)^{k-2}}.
 \end{align*}
+}
 Equation (\ref{adq'}) follows from (\ref{adq}) using the Jacobi identity: $\ad \q' = \ad [\mathfrak d,\q] = \ad \mathfrak d  \ad \q - \ad \q\ad \mathfrak d  $.
 \end{proof}
 \begin{corollary} \label{adqCorollary}
@@ -150,9 +152,9 @@ Iterated application of the above lemma gives
  \ad(\q)^s \frac{\q_{m}^{(k+s)}(a)}{m^{k+s}(k+s)!} =\frac{\q_{m+s}^{(k)}(a)}{(m+s)^kk!} + \frac{s}{24}\frac{\q_{m+s}^{(k-2)}(a\mathbf e)}{(m+s)^{k-2}(k-2)!}.
 \end{equation}
 \end{corollary}
-
-
 \begin{proposition}
+
+
 Suppose $K_Aa=0$.
 In the formal completion of $\H$ we have:
 $$
@@ -179,6 +181,7 @@ Equation (4.6) of~\cite{LehnSorger} evaluates
 %\stackrel{!}{=} \exp(\q_1(1)) \sum_{i,j}(-1)^{i+1} \frac{\mathfrak d^j}{j!}\frac{\q_i(1)}{i!i^j}\vac
 %\end{gather*}
 \end{proof}
+\clearpage
 \begin{example} 
 \begin{align}
  \G_0(a)\q^n\vac & = n\cdot \q^{n-1}\q_1(a)\vac, \\

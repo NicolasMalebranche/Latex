@@ -301,15 +301,15 @@ For $n\geq 1$, we have a trigonometric differential relation:
 \end{equation*} 
 \end{lemma}
 \begin{proof} This is straightforward.
-Firstly, we calculate $ \frac{d}{d\omega}\! \left[\sin(\omega)^j \cos(\omega)^{m-j-1}\right] = j \sin(\omega)^{j-1} \cos(\omega)^{m-j}-(m\!-\!j\!-\!1)\sin(\omega)^{j+1} \cos(\omega)^{m-j-2}$, and so
-\begin{align*}% \textstyle
+Firstly, we calculate $ \frac{d}{d\omega}\! \left[\sin(\omega)^j \cos(\omega)^{m-j-1}\right] = j \sin(\omega)^{j-1} \cos(\omega)^{m-j}-(m\!-\!j\!-\!1)\sin(\omega)^{j+1} \cos(\omega)^{m-j-2}$, and so{\allowdisplaybreaks
+\begin{align*}
 \frac{d}{d\omega} &\Big[\pol{n-1}{m-2}\big(\tan(\omega)\big)\cos(\omega)^{m-1} \Big] 
 \\&=\!\! \textstyle \sum\limits_{\substack{j=0\\ n-j\ \text{odd}}}^{n-1} \!\!\!\frac{(-1)^{\frac{n-j-1}{2}}  (n-1)!\,(m-2n)!!}{j!\,(m-n-j-1)!!\,(n-j-1)!!}\frac{d}{d\omega}\! \left[\sin(\omega)^j \cos(\omega)^{m-j-1}\right]
 \\ &=\!\!\textstyle\sum\limits_{\substack{j=0\\ n-j\ \text{even}}}^{n-2} \!\!\!\frac{(-1)^{\frac{n-j-2}{2}}(n-1)!\,(m-2n)!!}{j!\,(m-n-j-2)!!\,(n-j-2)!!}\sin(\omega)^{j} \cos(\omega)^{m-j-1} \\[-3mm]
 &\hspace{3cm}-\textstyle\sum\limits_{\substack{j=1\\ n-j\ \text{even}}}^{n}\!\!\! \frac{(-1)^{\frac{n-j}{2}}(n-1)!\,(m-2n)!!\,(m-j)}{(j-1)!\,(m-n-j)!!\,(n-j)!!}\sin(\omega)^{j} \cos(\omega)^{m-j-1} \\
 &=\!\!\textstyle\sum\limits_{\substack{j=0\\ n-j\ \text{even}}}^{n} \!\!\!\frac{(-1)^{\frac{n-j}{2}}(n-1)!\,(m-2n)!!}{j!\,(m-n-j)!!\,(n-j)!!}\underbrace{\big[(j\!-\!n)(m\!-\!n\!-\!j)-j(m\!-\!j)\big] }_{=n(n-m)}\tan(\omega)^{j} \cos(\omega)^{m-1}
 \\ &= \textstyle(n-m)\, \pol{n}{m}\big(\tan(\omega)\big)\cos(\omega)^{m-1}. \qedhere
-\end{align*} 
+\end{align*} }
 \end{proof}
 
 Our next goal is to show that the $\pol{n}{m}$, for fixed $m$, form a set of orthogonal polynomials in the sense of the above subsection. In order to apply Favard's theorem, we claim:
@@ -468,8 +468,6 @@ with the induced form $\bra\ ,\;\ket$ on $\Sym^kH^2(X,\Z)$, according to Definit
 \Big( \Sym^kH^2(X,\Z),\: c_X\!\bra\ ,\;\ket\Big) \longrightarrow \Big(H^{2k}(X,\Z),\;(\ ,\;)_X\Big).
 \end{equation}
 In general, this embedding is not primitive.
-
-From Theorem~\ref{maintheorem} and Proposition~\ref{TorsionQuotient} we deduce
 \begin{theorem}\label{FujikiDiscr}
 Let $d+1$ be the rank of $H^2(X,\Z)$ and denote $c_X$ the Fujiki constant.
 The discriminant of $\Sym^n\!H^2(X,\Z)$ is given by
@@ -486,7 +484,8 @@ C=
 \right.
 \end{gather*}
 \end{theorem}
-We get some interesting corollaries, by looking at the prime factors contained in this formula:
+This statement is deduced from Theorem~\ref{maintheorem} and Proposition~\ref{TorsionQuotient}.
+We get some interesting corollaries, by looking at the prime factors contained in the formula:
 \begin{corollary}
 Let $X$ be a compact Hyperk\"ahler manifold of complex dimension $2k$. Denote $b_2$ resp.~$d_2$ the rank and the discriminant of $H^2(X,\Z)$. Define a set of integers $Z$ by:
 $$
