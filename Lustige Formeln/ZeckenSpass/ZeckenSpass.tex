@@ -2,12 +2,15 @@
 \usepackage[T1]{fontenc}
 \usepackage[latin1]{inputenc}
 \usepackage[german]{babel}
-\usepackage{amsmath,amsthm,amssymb,amscd,color,graphicx}
+\usepackage{amsmath,amsthm,amssymb,amscd,mathtools}
   
 \theoremstyle{definition}
 \newtheorem{satz}{Satz}
 \newtheorem{aufg}{Aufgabe}
 \newtheorem{definition}{Definition}
+
+\newcommand{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\ev}{ev}
 
 %opening
 \title{Spaß mit der Zeckendorf--Darstellung}
@@ -18,11 +21,11 @@
 \maketitle
 \section{Extensionen von Ringen}
 Wir betrachten exakte Sequenzen von abelschen Gruppen der Form
-\begin{equation}
+\begin{equation} \label{exakt}
 0 \longrightarrow A \stackrel{f}{\longrightarrow} B\stackrel{g}{\longrightarrow} A \longrightarrow 0,
 \end{equation}
 wobei $A$ und $B$ beides Ringe sein sollen und $f$ ein Ringhomomorphismus. Außerdem gelte folgende Projektionsformel für alle $a\in A$, $b\in B$:
-\begin{equation}
+\begin{equation} \label{projektion}
 g\left(f(a)\cdot b\right) = a \cdot g(b).
 \end{equation}
 \begin{satz}
@@ -46,6 +49,44 @@ $$f^{-1}(J)\subset g(J).$$
 \begin{proof}
 Wähle zunächst ein $x\in B$ mit $g(x) = 1$. Sei nun $a\in f^{-1}(J)$ beliebig. Dann gilt:
 $a= a\cdot 1 = g\left(f(a)\cdot x\right) \in g(J)$, da $f(a)\in J$.
+\end{proof}
+
+\section{Formale Zeckendorf--Summen}
+Sei $Z$ die Menge der $\Z$-Linearkombinationen in den formalen Variablen $\{f_i\}_{i\in \Z}$ modulo den Relationen $f_{i+2} = f_{i+1} + f_i$. 
+Man kann sich überlegen, daß ein Element $z\in Z$ immer dargestellt werden kann als
+\begin{equation}
+z = \sum_{i} \alpha_if_i, \quad\text{wobei }\alpha_i\in\{-1,0,1\},\ \sum_{i}|\alpha_i|<\infty  
+\end{equation}
+und daß diese Darstellung eindeutig wird, wenn man noch ein paar Bedingungen mehr an die $\alpha_i$ stellt.
+
+Auf $Z$ ist eine Ringstruktur erklärt, indem man für die Multiplikation (notiert mit dem Symbol $*$) setzt:
+$$
+\left(\sum_{i} \alpha_if_i\right)\left(\sum_{j} \beta_jf_j\right) \coloneqq \sum_{i,j}\alpha_i\beta_j \fallingdotseq_{i+j}.
+$$ 
+Das neutrale Element bezüglich der Multiplikation ist $f_0$.
+\begin{satz}
+Sei $\phi$ der goldene Schnitt. Wir haben einen Ringisomorphismus 
+\begin{align*}
+\varphi : Z &\longrightarrow \Z[\phi],\\
+f_i &\longmapsto \phi^i.
+\end{align*}
+\end{satz}
+Wir haben außerdem die (additive) Evaluationsabbildung $\ev : Z \longrightarrow \Z$, die $f_i$ auf die $i$-te Fibonaccizahl schickt. 
+\begin{satz}Diese Abbildung paßt in eine kurze exakte Sequenz der Form (\ref{exakt}):
+\begin{equation}
+0 \longrightarrow \Z \stackrel{m}{\longrightarrow} Z\stackrel{\ev}{\longrightarrow} \Z \longrightarrow 0
+\end{equation}
+und erfüllt außerdem (\ref{projektion}).
+\end{satz}
+\begin{proof}
+Den Isomorphismus $\varphi$ verwendend, schreibt sich die Sequenz folgendermaßen:
+\begin{align*}
+0 \longrightarrow \Z \longrightarrow \Z[\phi] &\longrightarrow \Z \longrightarrow 0 ,\\
+1 \ & \longmapsto 0, \\
+\phi\ &\longmapsto 1.
+\end{align*}
+Man rechnet leicht nach, daß in dieser Darstellung die Projektionsformel (\ref{projektion}) erfüllt ist.
+Andererseits ist $\ev$ schon durch $\ev(f_0)=0 $ und $\ev(f_1) =1$ eindeutig bestimmt. Also stimmt $\ev$ mit der gegebenen Abbildung überein.
 \end{proof}
 
 \end{document}
