@@ -1,0 +1,51 @@
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+\usepackage[german]{babel}
+\usepackage{amsmath,amsthm,amssymb,amscd,color,graphicx}
+  
+\theoremstyle{definition}
+\newtheorem{satz}{Satz}
+\newtheorem{aufg}{Aufgabe}
+\newtheorem{definition}{Definition}
+
+%opening
+\title{Spaß mit der Zeckendorf--Darstellung}
+\author{Simon Kapfer}
+
+\begin{document}
+
+\maketitle
+\section{Extensionen von Ringen}
+Wir betrachten exakte Sequenzen von abelschen Gruppen der Form
+\begin{equation}
+0 \longrightarrow A \stackrel{f}{\longrightarrow} B\stackrel{g}{\longrightarrow} A \longrightarrow 0,
+\end{equation}
+wobei $A$ und $B$ beides Ringe sein sollen und $f$ ein Ringhomomorphismus. Außerdem gelte folgende Projektionsformel für alle $a\in A$, $b\in B$:
+\begin{equation}
+g\left(f(a)\cdot b\right) = a \cdot g(b).
+\end{equation}
+\begin{satz}
+Es gilt: $g(1) = 0$.
+\end{satz}
+\begin{proof}
+$g(1) = g\left(f(1)\cdot 1\right) = g\left(f(1)\right) =0$.
+\end{proof}
+\begin{satz}
+$g$ bildet Ideale auf Ideale ab.
+\end{satz}
+\begin{proof}
+Sei $J\subset B$ ein Ideal. Dann ist $g(J)$ eine additive Untergruppe von $A$. 
+Seien nun $a\in A$ und $b\in J$ beliebig. Dann gilt:
+$a\cdot g(b) = g\left(f(a)\cdot b \right) \in g(J)$. Also ist $g(J)\subset A$ ein Ideal.
+\end{proof}
+\begin{satz}
+Sei $J\subset B$ ein Ideal. Dann haben wir eine Inklusion von Idealen 
+$$f^{-1}(J)\subset g(J).$$
+\end{satz}
+\begin{proof}
+Wähle zunächst ein $x\in B$ mit $g(x) = 1$. Sei nun $a\in f^{-1}(J)$ beliebig. Dann gilt:
+$a= a\cdot 1 = g\left(f(a)\cdot x\right) \in g(J)$, da $f(a)\in J$.
+\end{proof}
+
+\end{document}
