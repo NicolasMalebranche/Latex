@@ -1,0 +1,73 @@
+\documentclass[11pt,a4paper,sans,english]{article}   
+\usepackage{lmodern}
+\usepackage[utf8]{inputenc}                       % if you are not using xelatex ou lualatex, replace by the encoding you are using
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage[scale=0.75,a4paper]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{parskip} % Zeilenabstand nach Absatz
+\newcommand{\hilb}[1]{^{[#1]}}
+\DeclareMathOperator{\Sym}{Sym}
+
+\usepackage{fancyheadings,lastpage}
+\pagestyle{fancyplain} % Kopf- & Fußzeile
+\chead[\fancyplain{}{}]{\fancyplain{}{Presentation of PhD thesis and future research plan}}
+\cfoot{\fancyplain{\thepage/\pageref{LastPage}}{\thepage/\pageref{LastPage}}}
+\rhead{}
+\lhead{}
+
+\title{PhD thesis and future research plan}
+\author{Simon Kapfer}
+\date{\today}
+
+\begin{document}
+\maketitle
+\thispagestyle{plain}
+
+I'm doing a PhD in Algebraic Geometry, on compact Hyperk\"ahler manifolds. My PhD advisor is Marc Nieper-Wi\ss kirchen at the University of Augsburg.
+I started in October 2013 and I'm finalising in June 2016. In 2014/15 I spent a year in Poitiers, working with Samuel Boissi\`ere. 
+
+Initially, the goal of my PhD thesis was to apply the methods in \cite{BNS} to automorphisms of Hilbert schemes of points on K3 surfaces, but as things developped, I began to focus my efforts on the cohomology with integral coefficients of Hyperk\"ahler manifolds. There are few known examples for compact Hyperk\"ahler manifolds and the list currently only includes those Hilbert schemes, the generalised Kummer varieties and two exceptional examples due to O'Grady. 
+
+In general, I tend to use computational and combinatorial methods. The algebraic structure of the cohomology of Hilbert schemes of points on surfaces has been described by \cite{LehnSorger} and \cite{LiQinWang}, using vertex algebra techniques. In the case of K3 surfaces, Lehn and Sorger \cite{LehnSorger} gave a simpler model using the structure of the symmetric group. Since the first description also applies to the study of the generalised Kummer varieties, but has the drawback of rendering the calculations more complex, I implemented both methods in a computer program. 
+The first method implementation has been published in \cite{SK1}.
+
+In recent years, people (e.g.~S.~Boissi\`ere, C.~Camere, G.~Menet, G.~Mongardi, A.~Sarti) have used lattice theoretic methods to study compact Hyperk\"ahler manifolds. For a such manifold $X$ of complex dimension $2n$, the groups $H^2(X,\mathbb{Z})$ and $H^{2n}(X,\mathbb{Z})$ both carry a lattice structure, and the quadratic form on $H^2$ can be expressed using the Poincar\'e duality form on $H^{2n}$ (this is called the Beauville--Fujiki relation). Since the symmetric power $\Sym^nH^{2n}(X,\mathbb{Z})$ injects into $H^{2n}(X,\mathbb{Z})$ via cup-product, it is natural to compare the two lattices. In my first paper \cite{SK1} I compute their quotient for some examples of Hilbert schemes, continuing an idea of \cite{BNS}. Moreover, \cite{SK2} proves a new formula for the discriminant of the lattice $\Sym^nH^{2n}(X,\mathbb{Z})$, with the help of a new family of special functions. Since that problem is purely algebraic, the result is also applicable in a much more general setting.
+
+In addition, the considerations above are useful for the study of quotients of compact Hyperk\"ahler manifolds. Most recently, I worked on generalised Kummer varieties, together with Gr\'egoire Menet. This is the last part of my PhD thesis and can further be continued in the future. The problem is to understand the integral cohomology of the generalised Kummer variety $X$ in complex dimension 4. In particular, we wanted to find an explicit $\mathbb{Z}$-basis. This was achieved partially by Hassett and Tschinkel \cite{HassettTschinkel}. Our approach is to look at the cohomology of the Hilbert scheme of three points on a complex torus, $A\hilb{3}$, because this is well-understood and the pullback along the embedding $X\longrightarrow A\hilb{3}$ allows to describe $H^*(X)$ in terms of $H^*(A\hilb{3})$. The results apply to the quotient of $X$ by a natural involution, which gives an example of a IHS manifold with singularities yielding a new Beauville--Bogomolov form. 
+
+As a future direction, one could look on how to generalise this to arbitrary dimensions. The integral cohomology of the generalised Kummer varieties is not yet understood, but applying the techniques of \cite{NTwist} to integral coefficient cohomology would be a promising method. 
+
+Nevertheless, I would like to extend my specialisation during a potential stay at the MPI. For instance, there are some problems left concerning combinatorics of the symmetric group wich are interwoven with the structure of Hilbert schemes of points on surfaces. In particular, the center of the symmetric group ring appears in the description of \cite{LehnSorger}. There is no general formula for its structure constants and it would be an interesting challenge to apply vertex algebra techniques to the problem.
+
+
+\bibliographystyle{alpha}
+\begin{thebibliography}{10}
+
+\bibitem{BNS}
+S.~Boissi\`ere, M.~Nieper-Wi{\ss}kirchen, and A.~Sarti, \emph{Smith theory and 
+  Irreducible Holomorphic Symplectic Manifolds}, Journal of Topology 6 (2013), no.~2, 361--390.
+
+\bibitem{HassettTschinkel}
+B.~Hassett and Y.~Tschinkel, \emph{ Hodge theory and Lagrangian planes on 
+  generalized Kummer fourfolds}, Moscow Math. Journal, 13, no. 1, 33-56, (2013) 
+
+\bibitem{SK1}  
+S.~Kapfer, \emph{Computing Cup-Products in integral cohomology of Hilbert schemes of points on K3 surfaces}, to appear in LMS Journal of Computation and Mathematics, arXiv:1410.8398.
+
+\bibitem{SK2}
+S.~Kapfer, \emph{Symmetric Powers of Symmetric Bilinear Forms, Homogeneous Orthogonal Polynomials on the Sphere and an Application to Compact Hyperk\"ahler Manifolds}, to appear in Communications In Contemporary Mathematics, arXiv:1507.00157.
+
+\bibitem{LehnSorger}
+M.~Lehn and C.~Sorger, \emph{The cup product of {H}ilbert schemes for {$K3$}
+  surfaces}, Invent. Math. 152 (2003), no.~2, 305--329.
+
+\bibitem{LiQinWang}
+W.~Li, Z.~Qin and W.~Wang, \emph{Vertex algebras and the cohomology ring structure of 
+  Hilbert schemes of points on surfaces}, Math. Annalen 324 (2002), 105--133.
+
+\bibitem{NTwist}
+M.~Nieper-Wi\ss kirchen, \emph{Twisted Cohomology of the Hilbert Schemes of Points on Surfaces},
+  Documenta Mathematica 14 (2009), 749--770.
+\end{thebibliography}
+
+\end{document}

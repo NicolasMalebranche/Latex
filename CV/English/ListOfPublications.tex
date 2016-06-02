@@ -1,0 +1,48 @@
+\documentclass[11pt,a4paper,sans,english]{article}   
+\usepackage{lmodern}
+\usepackage[utf8]{inputenc}                       % if you are not using xelatex ou lualatex, replace by the encoding you are using
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage[scale=0.75,a4paper]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{parskip} % Zeilenabstand nach Absatz
+\newcommand{\hilb}[1]{^{[#1]}}
+\DeclareMathOperator{\Sym}{Sym}
+
+\usepackage{fancyheadings,lastpage}
+\pagestyle{fancyplain} % Kopf- & Fußzeile
+\chead[\fancyplain{}{}]{\fancyplain{}{Presentation of PhD thesis and future research plan}}
+\cfoot{\fancyplain{\thepage/\pageref{LastPage}}{\thepage/\pageref{LastPage}}}
+\rhead{}
+\lhead{}
+
+\title{List of publications}
+\author{Simon Kapfer}
+\date{\today}
+
+\begin{document}
+\maketitle
+\thispagestyle{plain}
+
+
+\renewcommand{\section}[2]{}
+\bibliographystyle{alpha}
+\begin{thebibliography}{10}
+
+\bibitem{Kapfer2}
+Simon Kapfer, \emph{Computing cup products in integral cohomology of Hilbert schemes of points on K3 surfaces},
+  LMS J.~of Computation and Math.~\textbf{19} (2016), 78--97.
+
+\bibitem{Kapfer}
+Simon~Kapfer, \emph{Symmetric Powers of Symmetric Bilinear Forms, Homogeneous Orthogonal Polynomials 
+  on the Sphere and an Application to Compact Hyperk\"ahler Manifolds}, Commun.~Contemp.~Math.~(2016).
+
+\bibitem{Doktorarbeit}
+Simon~Kapfer, \emph{On the cohomology of irreducible holomorphically symplectic varieties}, PhD thesis, preprint 2016.
+
+\bibitem{Joint}
+Simon~Kapfer and Gr\'egoire Menet, \emph{Integral cohomology of the generalized Kummer fourfold}, preprint 2016.
+
+  
+\end{thebibliography}
+
+\end{document}
