@@ -1,0 +1,186 @@
+\documentclass[12pt,utf8,notheorems,compress,handout]{beamer}
+\usepackage{Kurier}
+\usepackage{nicefrac}
+\usepackage[english]{babel} % german
+\usepackage{amsmath,amssymb}
+\usepackage[protrusion=true,expansion=false]{microtype}
+%\usepackage[framed,amsmath,thmmarks,hyperref]{ntheorem}
+
+\usepackage{booktabs}
+\usepackage{tabto}
+\usepackage{tikz}
+\usepackage{array}
+\usepackage{textpos}
+%\usepackage[all]{xy}
+
+%\usepackage[natbib=true,style=numeric]{biblatex}
+%\usepackage[babel]{csquotes}
+%\bibliography{lit}
+
+%\usepackage{hyperref}
+
+\setlength\parskip{\medskipamount}
+\setlength\parindent{0pt}
+
+%\theoremseparator{:}
+\theoremstyle{plain}  %nonumberplain
+%\newtheorem{beh}{Behauptung}
+\newtheorem{proposition}{Proposition}
+\newtheorem{corollary}{Corollary}
+\newtheorem{question}{Question}
+\newtheorem{theorem}{Theorem}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\newtheorem{example}{Example}
+%\newtheorem{kor}{Korollar}
+%\newtheorem{satz}{Satz}
+%\newtheorem{lemma}{Lemma}
+%\newtheorem{hilfsaussage}{Hilfsaussage}
+%\theorembodyfont{\normalfont}
+\newtheorem{observation}{Observation}
+%\newtheorem{defnprop}{Definition/Proposition}
+%\newtheorem{bem}{Bemerkung}
+%\newtheorem{bsp}{Beispiel}
+%\theoremsymbol{\ensuremath{\openbox}}
+%\newtheorem{proof}{Beweis}
+%\newtheorem{defn}{Definition}
+
+\newcommand{\lra}{\longrightarrow}
+\newcommand{\lhra}{\ensuremath{\lhook\joinrel\relbar\joinrel\rightarrow}}
+\newcommand{\thlra}{\relbar\joinrel\twoheadrightarrow}
+
+\newcommand{\Z}{\mathbb{Z}}
+\renewcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Hom}{\mathrm{Hom}}
+\newcommand{\id}{\mathrm{id}}
+\newcommand{\Aut}[1]{\operatorname{Aut}(#1)}
+\newcommand{\GL}[1]{\operatorname{GL}(#1)}
+\newcommand{\freist}{\_{}\_{}}
+\newcommand{\Set}{\mathrm{Set}}
+\newcommand{\Grp}{\mathrm{Grp}}
+\newcommand{\Vect}{\mathrm{Vect}}
+\newcommand{\e}{\'{e}}
+\renewcommand{\S}{\mathfrak{S}}
+
+\def\longleadsto{\mathrel{-}\joinrel\leadsto}
+\DeclareMathOperator{\ggT}{ggT}
+\DeclareMathOperator{\Ob}{Ob}
+\newcommand{\op}{\mathrm{op}}
+
+\title{Integral cohomology of the generalized Kummer fourfold
+\author[Simon Kapfer,\ \ University of Augsburg]{Simon Kapfer\vspace{-0.5cm}}
+\institute{University of Augsburg}
+\date{Varieties with trivial canonical bundles\\B\c edlewo, 17 June 2016\vspace{0.6cm}\\
+\includegraphics[scale=0.07]{LogoInstitut}}
+
+%\usetheme{Warsaw}  %Warsaw, Berkeley?
+\usetheme{Darmstadt}
+\useoutertheme{split}
+\usecolortheme{whale}
+%\usecolortheme[named=Peach]{structure}
+\usefonttheme{serif}
+%\usepackage{palatino}
+\useinnertheme{rectangles}
+%\usepackage{bookman}
+%\setbeamercovered{transparent}
+
+\setbeamertemplate{navigation symbols}{}
+%\setbeamertemplate{footline}{}
+%\setbeamertemplate{headline}{}
+
+%\beamertemplateboldcenterframetitle
+%\setbeamerfont{frametitle}{size={\Large}}
+
+\newcommand*\oldmacro{}%
+\let\oldmacro\insertshorttitle%
+
+
+\newenvironment{changemargin}[2]{%
+  \begin{list}{}{%
+    \setlength{\topsep}{0pt}%
+    \setlength{\leftmargin}{#1}%
+    \setlength{\rightmargin}{#2}%
+    \setlength{\listparindent}{\parindent}%
+    \setlength{\itemindent}{\parindent}%
+    \setlength{\parsep}{\parskip}%
+  }%
+  \item[]}{\end{list}}
+
+\newcommand{\slogan}[1]{%
+  \begin{center}%
+    \setlength{\fboxrule}{2pt}%
+    \setlength{\fboxsep}{-3pt}%
+    {\usebeamercolor[fg]{item}\fbox{\usebeamercolor[fg]{normal
+    text}\parbox{0.9\textwidth}{\begin{center}#1\end{center}}}}%
+  \end{center}%
+}
+
+\makeatletter
+    \newenvironment{withoutheadline}{
+        \setbeamertemplate{headline}[default]
+        \def\beamer@entrycode{\vspace*{-\headheight}}
+    }{}
+\makeatother
+
+\newcommand{\hil}[1]{{\usebeamercolor[fg]{item}{#1}}}
+
+\begin{document}
+
+\setbeameroption{show notes}
+\setbeamertemplate{note page}[plain]
+\begin{withoutheadline}
+\frame{\vspace{4mm}
+\titlepage
+}
+\end{withoutheadline}
+\addtobeamertemplate{frametitle}{}{%
+\begin{textblock*}{100mm}(0.88\textwidth,-1.52cm)
+\includegraphics[scale=0.18]{UniLogoNeg}
+\end{textblock*}}
+\addtocounter{framenumber}{-1}
+\renewcommand*\insertshorttitle{%
+  \oldmacro\hfill\insertframenumber\,/\,\inserttotalframenumber\hfill}
+\section{General IHSM}
+
+\frame[t]{\frametitle{Motivation}
+Let $X$ be a IHS variety. Why should we be interested in $ H^*(X,\Z) $?
+\pause
+\begin{itemize}
+\item Comparing $ H^*(X,\Z) $ with $ H^*(X,\C) $ gives us information about $X$, e.g.\ on projectivity.
+\pause
+\item We obtain restrictions to possible automorphisms of our manifold $X$.
+\item \dots
+\end{itemize}
+\pause
+\begin{question}
+Which constructions in $H^*(X,\R/\C)$ carry over to $H^*(X,\Z)$?
+\end{question}
+}
+\frame[t]{\frametitle{Beauville--Bogomolov form}
+As an example, consider the quadratic Beauville--Bogomolov form $q_X : H^*(X,\R) \rightarrow \R$
+\pause
+\begin{theorem}[Fujiki]
+$q_X(\alpha)^m = c \int_X \alpha^{2m}$ for some $c\in\R$.
+\end{theorem}
+\pause
+\begin{corollary}
+$q_X$ can be renormalized to yield a primitive integral quadratic form: $H^*(X,\Z) \rightarrow \Z $.
+\end{corollary}
+}
+
+
+\appendix
+  \addtocounter{framenumber}{-1}
+%\backupstart
+\renewcommand*\insertshorttitle{%
+  \oldmacro\hfill}
+
+\frame[t,shrink=8]{\frametitle{References}
+%\cite{qinintegral2004}\cite{lehnsorger}\cite{gross2003calabi}\cite{boissiereniepersarti}
+\bibliographystyle{plain}
+\bibliography{bibl}
+}
+\end{document}
