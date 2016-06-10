@@ -63,6 +63,7 @@
 \newcommand{\Grp}{\mathrm{Grp}}
 \newcommand{\Vect}{\mathrm{Vect}}
 \newcommand{\e}{\'{e}}
+\newcommand{\hilb}[1]{[#1]}
 \renewcommand{\S}{\mathfrak{S}}
 
 \def\longleadsto{\mathrel{-}\joinrel\leadsto}
@@ -143,18 +144,46 @@
 \addtocounter{framenumber}{-1}
 \renewcommand*\insertshorttitle{%
   \oldmacro\hfill\insertframenumber\,/\,\inserttotalframenumber\hfill}
-\section{General IHSM}
 
+\frame[t]{\frametitle{Structure}
+%\begin{itemize}
+%\item Generalities on integral cohomology of IHS varieties
+%\begin{enumerate}
+%\item Motivation
+%\item Fujiki relation
+%\end{enumerate}
+%\pause
+%\item Cohomology of the generalized Kummer 
+%\begin{enumerate}
+%\item Definition
+%\item Link to Hilbert scheme cohomology
+%\item Torsion points
+%\item Deformations
+%\end{enumerate}
+%\end{itemize}
+\tableofcontents
+}
+
+\section{General IHSM}
+\subsection{Motivation}
 \frame[t]{\frametitle{Motivation}
-Let $X$ be a IHS variety. Why should we be interested in $ H^*(X,\Z) $?
+Let $X$ be a IHS manifold. Why should we be interested in $ H^*(X,\Z) $?
 \pause
-\begin{itemize}
-\item Comparing $ H^*(X,\Z) $ with $ H^*(X,\C) $ gives us information about $X$, e.g.\ on projectivity.
-\pause
-\item We obtain restrictions to possible automorphisms of our manifold $X$.
+Most important: Second cohomology group $H^2(X,\Z)$.
+ \begin{itemize}
+\item We have the Beauville--Bogomolov form.
+\item Local Torelli theorem
 \item \dots
 \end{itemize}
+BNS obtain results on automorphisms of finite prime order of $X=K3\hilb{2}$ by looking at the embedding
+$$
+\Sym^2 H(X,\Z) \hookrightarrow H^4(X,\Z),
+$$
+so it is useful to know the higher cohomology groups.
 \pause
+$H^*(X,\Z)$ is a deformation invariant, and all material in this talk will be, too.
+Comparing $ H^*(X,\Z) $ with $ H^*(X,\C) $ gives us information about $X$, e.g.\ on projectivity.
+This talk does not discuss the embedding  $ H^*(X,\Z) \subset H^*(X,\C) $. It is not a deformation invariant.
 \begin{question}
 Which constructions in $H^*(X,\R/\C)$ carry over to $H^*(X,\Z)$?
 \end{question}
