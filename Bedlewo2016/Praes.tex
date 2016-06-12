@@ -8,10 +8,10 @@
 
 \usepackage{booktabs}
 \usepackage{tabto}
-\usepackage{tikz}
+\usepackage{tikz-cd}
+%\usetikzlibrary{matrix,arrows,decorations.pathmorphing}
 \usepackage{array}
 \usepackage{textpos}
-%\usepackage[all]{xy}
 
 %\usepackage[natbib=true,style=numeric]{biblatex}
 %\usepackage[babel]{csquotes}
@@ -32,18 +32,9 @@
 \theoremstyle{definition}
 \newtheorem{definition}{Definition}
 \newtheorem{example}{Example}
-%\newtheorem{kor}{Korollar}
-%\newtheorem{satz}{Satz}
-%\newtheorem{lemma}{Lemma}
-%\newtheorem{hilfsaussage}{Hilfsaussage}
 %\theorembodyfont{\normalfont}
 \newtheorem{observation}{Observation}
-%\newtheorem{defnprop}{Definition/Proposition}
-%\newtheorem{bem}{Bemerkung}
-%\newtheorem{bsp}{Beispiel}
 %\theoremsymbol{\ensuremath{\openbox}}
-%\newtheorem{proof}{Beweis}
-%\newtheorem{defn}{Definition}
 
 \newcommand{\lra}{\longrightarrow}
 \newcommand{\lhra}{\ensuremath{\lhook\joinrel\relbar\joinrel\rightarrow}}
@@ -63,17 +54,18 @@
 \newcommand{\Grp}{\mathrm{Grp}}
 \newcommand{\Vect}{\mathrm{Vect}}
 \newcommand{\e}{\'{e}}
-\newcommand{\hilb}[1]{[#1]}
+\newcommand{\hilb}[1]{^{[#1]}}
+\newcommand{\kum}[1]{^{[[#1]]}}
 \renewcommand{\S}{\mathfrak{S}}
 
 \def\longleadsto{\mathrel{-}\joinrel\leadsto}
-\DeclareMathOperator{\ggT}{ggT}
+\DeclareMathOperator{\Sym}{Sym}
 \DeclareMathOperator{\Ob}{Ob}
 \newcommand{\op}{\mathrm{op}}
 
-\title{Integral cohomology of the generalized Kummer fourfold}
-\author[Simon Kapfer,\ \ University of Augsburg]{Simon Kapfer\vspace{-0.5cm}}
-\institute{University of Augsburg}
+\title{Integral cohomology of the \\generalized Kummer fourfold}
+\author[Simon Kapfer,\ \ Universit\"at Augsburg]{Simon Kapfer\vspace{-0.5cm}}
+\institute{Universit\"at Augsburg}
 \date{Varieties with trivial canonical bundles\\B\c edlewo, 17 June 2016\vspace{0.6cm}\\
 \includegraphics[scale=0.07]{LogoInstitut}}
 
@@ -188,6 +180,9 @@ This talk does not discuss the embedding  $ H^*(X,\Z) \subset H^*(X,\C) $. It is
 Which constructions in $H^*(X,\R/\C)$ carry over to $H^*(X,\Z)$?
 \end{question}
 }
+
+
+
 \frame[t]{\frametitle{Beauville--Bogomolov form}
 As an example, consider the quadratic Beauville--Bogomolov form $q_X : H^*(X,\R) \rightarrow \R$
 \pause
@@ -198,6 +193,31 @@ $q_X(\alpha)^m = c \int_X \alpha^{2m}$ for some $c\in\R$.
 \begin{corollary}
 $q_X$ can be renormalized to yield a primitive integral quadratic form: $H^*(X,\Z) \rightarrow \Z $.
 \end{corollary}
+}
+
+
+
+\frame[t]{\frametitle{The generalized Kummer variety}
+
+\begin{tikzcd}[ampersand replacement=\&]
+A\kum n
+\arrow[hook]{r}{\theta}
+\arrow{d}
+\& A\hilb n \arrow{d}{\Sigma}\\
+0 \arrow[hook]{r} \& A  
+\end{tikzcd}
+
+\begin{tikzcd}[ampersand replacement=\&]
+A\kum n
+\arrow[hook]{r}
+\arrow[hook,bend left]{rr}{\theta}
+\arrow{d}\&
+ A\times A\kum n \arrow{d}{pr_1} 
+\arrow{r}{\Theta}
+\& A\hilb n \arrow{d}{\Sigma}\\
+0 \arrow[hook]{r}
+\& A  \arrow{r}{n\cdot}  \& A  
+\end{tikzcd}
 }
 
 
