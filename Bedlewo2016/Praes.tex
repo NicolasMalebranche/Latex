@@ -1,5 +1,6 @@
-\documentclass[12pt,utf8,notheorems,compress,handout]{beamer}
+\documentclass[12pt,notheorems,compress,handout]{beamer}
 \usepackage{kurier}
+\usepackage[T1]{fontenc}
 \usepackage{nicefrac}
 \usepackage[english]{babel} % german
 \usepackage{amsmath,amssymb}
@@ -12,6 +13,7 @@
 %\usetikzlibrary{matrix,arrows,decorations.pathmorphing}
 \usepackage{array}
 \usepackage{textpos}
+
 
 %\usepackage[natbib=true,style=numeric]{biblatex}
 %\usepackage[babel]{csquotes}
@@ -41,7 +43,7 @@
 \newcommand{\thlra}{\relbar\joinrel\twoheadrightarrow}
 
 \newcommand{\Z}{\mathbb{Z}}
-\renewcommand{\C}{\mathbb{C}}
+\newcommand{\C}{\mathbb{C}}
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\Q}{\mathbb{Q}}
@@ -60,13 +62,13 @@
 
 \def\longleadsto{\mathrel{-}\joinrel\leadsto}
 \DeclareMathOperator{\Sym}{Sym}
-\DeclareMathOperator{\Ob}{Ob}
+\DeclareMathOperator{\discr}{discr}
 \newcommand{\op}{\mathrm{op}}
 
 \title{Integral cohomology of the \\generalized Kummer fourfold}
 \author[Simon Kapfer,\ \ Universit\"at Augsburg]{Simon Kapfer\vspace{-0.5cm}}
 \institute{Universit\"at Augsburg}
-\date{Varieties with trivial canonical bundles\\B\c edlewo, 17 June 2016\vspace{0.6cm}\\
+\date{Varieties with trivial canonical bundles\\B^^a6dlewo, 17 June 2016\vspace{0.6cm}\\
 \includegraphics[scale=0.07]{LogoInstitut}}
 
 %\usetheme{Warsaw}  %Warsaw, Berkeley?
@@ -137,6 +139,13 @@
 \renewcommand*\insertshorttitle{%
   \oldmacro\hfill\insertframenumber\,/\,\inserttotalframenumber\hfill}
 
+\frame{
+\vspace{20pt}
+\begin{center}
+This is joint work with Gr\'egoire Menet.
+\end{center}
+}
+
 \frame[t]{\frametitle{Structure}
 %\begin{itemize}
 %\item Generalities on integral cohomology of IHS varieties
@@ -156,17 +165,14 @@
 \tableofcontents
 }
 
-\section{General IHSM}
+\section{IHSM}
 \subsection{Motivation}
 \frame[t]{\frametitle{Motivation}
 Let $X$ be a IHS manifold. Why should we be interested in $ H^*(X,\Z) $?
 \pause
-Most important: Second cohomology group $H^2(X,\Z)$.
- \begin{itemize}
-\item We have the Beauville--Bogomolov form.
-\item Local Torelli theorem
-\item \dots
-\end{itemize}
+
+Most important: Second cohomology group $H^2(X,\Z)$.\\
+(Beauville--Bogomolov form, Torelli type theorems,  \ldots)
 BNS obtain results on automorphisms of finite prime order of $X=K3\hilb{2}$ by looking at the embedding
 $$
 \Sym^2 H(X,\Z) \hookrightarrow H^4(X,\Z),
@@ -183,6 +189,7 @@ Which constructions in $H^*(X,\R/\C)$ carry over to $H^*(X,\Z)$?
 
 
 
+
 \frame[t]{\frametitle{Beauville--Bogomolov form}
 As an example, consider the quadratic Beauville--Bogomolov form $q_X : H^*(X,\R) \rightarrow \R$
 \pause
@@ -194,11 +201,34 @@ $q_X(\alpha)^m = c \int_X \alpha^{2m}$ for some $c\in\R$.
 $q_X$ can be renormalized to yield a primitive integral quadratic form: $H^*(X,\Z) \rightarrow \Z $.
 \end{corollary}
 }
+\frame[t]{\frametitle{Discriminant formula}
 
+\begin{theorem}
+Let $d+1$ be the rank of $H^2(X,\Z)$ and denote $c_X$ the Fujiki constant.
+The discriminant of $\Sym^n\!H^2(X,\Z)$ is given by
+\begin{gather*}
+\left(\discr \left(H^2(X,\Z)\right)\right)^{\binom{d+n}{d+1}}\cdot c_X^{\binom{d+n}{d}} \cdot \prod_{i=1}^n i^{\binom{n-i+d}{d}d} 
+\cdot C, \\
+\qquad \text{with } \ 
+C=
+\left\{
+ \begin{array}{*2{l}p{5cm}}
+ \displaystyle\prod_{\substack{i=1 \\ i\ \text{odd}\\\ }}^{2n+d-1}i^{\binom{n-i+d}{d}} &\text{if }d\!+\! 1\text{ is odd}, \\
+ \displaystyle\prod_{i=1}^{n+\frac{d-1}{2}} i^{\binom{n-i+d}{d} - \binom{n-2i+d}{d}} &\text{if }d\! +\! 1\text{ is even}.
+\end{array}
+\right.
+\end{gather*}
+\end{theorem}
 
+}
 
+\section{Generalized Kummer varieties}
+\subsection{Definition}
 \frame[t]{\frametitle{The generalized Kummer variety}
-
+\begin{definition}
+Let $A$ be a complex abelian surface and $A\hilb{n}$ the Hilbert scheme of points. Denote $\Sigma : A\hilb{n}\rightarrow A$ the summation morphism. 
+Then the generalized Kummer $A\kum n$ is defined as the fiber of a point in $A$.
+\begin{center}
 \begin{tikzcd}[ampersand replacement=\&]
 A\kum n
 \arrow[hook]{r}{\theta}
@@ -206,10 +236,21 @@ A\kum n
 \& A\hilb n \arrow{d}{\Sigma}\\
 0 \arrow[hook]{r} \& A  
 \end{tikzcd}
+\end{center}
+\end{definition}
+\pause
+First objective: Collect information about
+$$
+\theta^* : H^*(A\hilb n ,\Z) \rightarrow H^*(A\kum n, \Z). 
+$$
+}
 
+\frame[t]{\frametitle{The standard diagram}
+The morphism $\theta$ fits into a pullback diagram,
+\begin{center}
 \begin{tikzcd}[ampersand replacement=\&]
 A\kum n
-\arrow[hook]{r}
+\arrow[hook]{r}{0\times \id}
 \arrow[hook,bend left]{rr}{\theta}
 \arrow{d}\&
  A\times A\kum n \arrow{d}{pr_1} 
@@ -218,7 +259,43 @@ A\kum n
 0 \arrow[hook]{r}
 \& A  \arrow{r}{n\cdot}  \& A  
 \end{tikzcd}
+\end{center}
+so that the morphism $\Theta$ is a $n^4$-fold covering.
 }
+
+\subsection{Pullback from the Hilbert scheme}
+\frame[t]{\frametitle{First properties of the pullback $\theta^*$}
+\begin{proposition}
+The kernel of $\theta^* : H^*(A\hilb n ,\Z) \rightarrow H^*(A\kum n, \Z)$
+is given by the (two-sided) ideal $\mathcal I$ in $H^*(A\hilb n,\Z) $ generated by $H^1$.
+\end{proposition}
+\pause
+\begin{proof} It suffices to work with $\Q$-coefficients.
+It is clear that $H^1$ maps to zero, so $\mathcal I  \subset \ker \theta^*$. 
+Since the morphism 
+$$
+\Theta :  A\times A\kum n \rightarrow A\hilb n
+$$
+is a covering, $\ker \theta^*$ is the annihilator of the class of $A\kum n$ in $H^*(A\hilb n,\Q)$. 
+Then one shows, that this corresponds to the ideal generated by $H^1$.
+\end{proof}
+}
+
+\frame[t]{\frametitle{Surjectivity}
+\begin{proposition}[Beauville '83]
+For, $n\geq 3$, the morphism $\theta^*: H^2(A\hilb n,\Q) \rightarrow H^2(A\kum n ,\Q)$ is surjective.
+\end{proposition}
+\pause
+\begin{proposition}[Britze?]
+The above propostion holds with integral coefficients, too.
+\end{proposition}
+\pause
+\begin{proposition}
+For $n=3$, the morphism $\theta^*: H^*(A\hilb 3,\Z) \rightarrow H^*(A\kum 3 ,\Z)$ is surjective in every degree except four.
+\end{proposition} 
+}
+
+
 
 
 \appendix
