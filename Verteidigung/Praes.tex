@@ -1,8 +1,9 @@
 \documentclass[12pt,notheorems,compress,handout]{beamer}
 \usepackage{kurier}
+\usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{nicefrac}
-\usepackage[english]{babel} % german
+\usepackage[german,english]{babel} 
 \usepackage{amsmath,amssymb,mathtools}
 \usepackage[protrusion=true,expansion=false]{microtype}
 %\usepackage[framed,amsmath,thmmarks,hyperref]{ntheorem}
@@ -67,10 +68,10 @@
 \DeclareMathOperator{\discr}{discr}
 \newcommand{\op}{\mathrm{op}}
 
-\title[Integral cohomology of $A\kum 3$]{Integral cohomology of the \\generalized Kummer fourfold}
+\title[$\Z$-Kohomologie von IHSV]{Ganzzahlige Kohomologie von irreduziblen holomorph symplektischen Varietäten}
 \author[Simon Kapfer,\ \ Universit\"at Augsburg]{Simon Kapfer\vspace{-0.5cm}}
 \institute{Universit\"at Augsburg}
-\date{Varieties with trivial canonical bundles\\B^^a6dlewo, June 17th, 2016\vspace{0.6cm}\\
+\date{29.~Juni 2016\vspace{0.6cm}\\
 \includegraphics[scale=0.07]{LogoInstitut}}
 
 %\usetheme{Warsaw}  %Warsaw, Berkeley?
@@ -133,12 +134,6 @@
 \titlepage
 }
 
-\frame{
-\vspace{20pt}
-\begin{center}
-This is joint work with Gr\'egoire Menet.
-\end{center}
-}
 \end{withoutheadline}
 
 \addtobeamertemplate{frametitle}{}{%
@@ -151,65 +146,32 @@ This is joint work with Gr\'egoire Menet.
 
 
 
-\frame[t]{\frametitle{Structure}
-%\begin{itemize}
-%\item Generalities on integral cohomology of IHS varieties
-%\begin{enumerate}
-%\item Motivation
-%\item Fujiki relation
-%\end{enumerate}
-%\pause
-%\item Cohomology of the generalized Kummer 
-%\begin{enumerate}
-%\item Definition
-%\item Link to Hilbert scheme cohomology
-%\item Torsion points
-%\item Deformations
-%\end{enumerate}
-%\end{itemize}
+\frame[t]{\frametitle{Überblick}
 \tableofcontents
 }
 
 \section{IHSM}
-\subsection{Motivation}
-\frame[t]{\frametitle{Motivation}
-Let $X$ be a IHS manifold. Why should we be interested in $ H^*(X,\Z) $?
-\pause
+\subsection{Einführung}
+\frame[t]{\frametitle{Mannigfaltigkeiten mit trivialem kanonischen Geradenbündel}
 
-Most important: Second cohomology group $H^2(X,\Z)$.\\
-(Beauville--Bogomolov form, Torelli type theorems,  \ldots)
-
-Boissi\`ere, Nieper-Wi\ss kirchen and Sarti \cite{BNS} obtain results on automorphisms of prime order of $X=K3\hilb{2}$ by looking at the embedding
-$$
-\Sym^2 H(X,\Z) \hookrightarrow H^4(X,\Z),
-$$
-so it is useful to know the higher cohomology groups.
-
-One has the impression that the higher cohomology groups control...
 }
 
-\frame[t]{\frametitle{Features}
+\frame[t]{\frametitle{IHS Mannigfaltigkeiten}
 
-$H^*(X,\Z)$ is a deformation invariant, and all material in this talk will be, too.
-I particular, we do not use the Hodge structure of $H^*(X,\C) $. It is not a deformation invariant.
-Torsion- freeness
-\begin{question}
-Which constructions in $H^*(X,\R/\C)$ carry over to $H^*(X,\Z)$?
-\end{question}
+}
+
+\frame[t]{\frametitle{Hodge-Struktur}
+
+
+}
+
+\frame[t]{\frametitle{Warum sich überhaupt für ganzzahlige Kohomologie interessieren?}
+
 
 }
 
 \subsection{BB form on symmetric power}
-\frame[t]{\frametitle{Beauville--Bogomolov form}
-As an example, consider the quadratic Beauville--Bogomolov form $q_X : H^*(X,\R) \rightarrow \R$
-\pause
-\begin{theorem}[Fujiki]
-$q_X(\alpha)^m = c \int_X \alpha^{2m}$ for some $c\in\R$.
-\end{theorem}
-\pause
-\begin{corollary}
-$q_X$ can be renormalized to yield a primitive integral quadratic form: $H^*(X,\Z) \rightarrow \Z $.
-\end{corollary}
+\frame[t]{\frametitle{Beauville--Bogomolov Form}
 
 \begin{corollary}
 The cup product realizes an embedding of lattices
@@ -219,20 +181,20 @@ $$
 \end{corollary}
 
 }
-\frame[t]{\frametitle{Discriminant formula}
+\frame[t]{\frametitle{Diskriminantenformel}
 
 \begin{theorem}
-Let $d+1$ be the rank of $H^2(X,\Z)$ and denote $c_X$ the Fujiki constant.
-The discriminant of $\Sym^n\!H^2(X,\Z)$ is given by
+Sei $d+1$ der Rang von $H^2(X,\Z)$ und sei $c_X$ die Fujiki-Konstante.
+Die Diskriminante von $\Sym^n\!H^2(X,\Z)$ ist gleich
 \begin{gather*}
 \left(\discr \left(H^2(X,\Z)\right)\right)^{\binom{d+n}{d+1}}\cdot c_X^{\binom{d+n}{d}} \cdot \prod_{i=1}^n i^{\binom{n-i+d}{d}d} 
 \cdot C, \\
-\qquad \text{with } \ 
+\qquad \text{mit } \ 
 C=
 \left\{
  \begin{array}{*2{l}p{5cm}}
- \displaystyle\prod_{\substack{i=1 \\ i\ \text{odd}\\\ }}^{2n+d-1}i^{\binom{n-i+d}{d}} &\text{if }d\!+\! 1\text{ is odd}, \\
- \displaystyle\prod_{i=1}^{n+\frac{d-1}{2}} i^{\binom{n-i+d}{d} - \binom{n-2i+d}{d}} &\text{if }d\! +\! 1\text{ is even}.
+ \displaystyle\prod_{\substack{i=1 \\ i\ \text{odd}\\\ }}^{2n+d-1}i^{\binom{n-i+d}{d}} &\text{für }d\!+\! 1\text{ ungerade}, \\
+ \displaystyle\prod_{i=1}^{n+\frac{d-1}{2}} i^{\binom{n-i+d}{d} - \binom{n-2i+d}{d}} &\text{für }d\! +\! 1\text{ gerade}.
 \end{array}
 \right.
 \end{gather*}
@@ -240,7 +202,18 @@ C=
 
 }
 
-\section{Generalized Kummer varieties}
+
+
+\section{Beispiele}
+\frame[t]{\frametitle{Die bekannten Beispiele}
+
+}
+
+
+\frame[t]{\frametitle{Was sind Hilbertschemata?}
+
+}
+
 
 
 \subsection{Definition}
