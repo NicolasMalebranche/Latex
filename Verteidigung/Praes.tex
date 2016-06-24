@@ -66,6 +66,7 @@
 
 \def\longleadsto{\mathrel{-}\joinrel\leadsto}
 \DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\PD}{PD}
 \DeclareMathOperator{\Sp}{Sp}
 \DeclareMathOperator{\discr}{discr}
 \newcommand{\op}{\mathrm{op}}
@@ -244,18 +245,53 @@ C=
 
 
 \section{Beispiele}
-\frame[t]{\frametitle{Die bekannten Beispiele}
+\frame[t,shrink=11]{\frametitle{Die bekannten Beispiele}
+Nur relativ wenige Beispiele von IHSM sind bisher bekannt:
+\begin{itemize}
+\item Hilbertschemata $K3\hilb{n}$ von Punkten auf K3 Flächen, $ n \in \N$.
+\item Verallgemeinerte Kummersche Varietäten $A\kum n$, $n\in \N$.
+\item Zwei weitere Beispiele in Dimension $6$ bzw.~$10$.
+\end{itemize}
+\pause
+Es gibt Ansätze, das Konzept IHSM in verschiedene Richtungen zu verallgemeinern:
+\begin{itemize}
+\item Virtuelle IHSM, die nur als derivierte Kategorie existieren
+\item IHS Varietäten mit Singularitäten
+\end{itemize}
 
 }
+
+
 
 
 \subsection{Hilbertschemata}
 \frame[t]{\frametitle{Was sind Hilbertschemata?}
+\begin{definition}
+Sei $X$ ein $\C$-Schema. Das Hilbertschema $X\hilb n$ von $n$ Punkten auf $X$ ist der Modulraum aller endlichen Unterschemata von $X$ der Länge $n$. 
+\end{definition}
 
 }
 
-\frame[t]{\frametitle{Nakajima-Operatoren}
 
+\frame[t,shrink=11]{\frametitle{Nakajima-Operatoren} \justifying
+Sei $\xi \subset X\hilb n\times X\times X\hilb{n+m}$ das Inzidenzschema. Dann sind die Nakajima-Operatoren $\mathfrak q_m(\alpha)$ für $\alpha\in H^*(X,\Q)$ über eine Korrespondenz definiert:
+
+\begin{center}
+\begin{tikzcd}[ampersand replacement=\&]
+
+\xi \arrow[hook]{rr} \& \&  X\hilb n\times X\times X\hilb{n+m} 
+\arrow{dl}{pr_1}
+\arrow{d}{pr_2}
+\arrow{dr}{pr_3} \\
+\& X\hilb n \& X \& X\hilb{n+m}
+
+\end{tikzcd}
+\end{center}
+\begin{align*}
+\mathfrak q_m(\alpha) : H^*(X\hilb n, \Q) &\longrightarrow H^{*+2m-2+|\alpha|}(X\hilb{n+m}, \Q) \\
+	 y &\longmapsto \PD\left( pr_{3*}\left(\xi \cap pr_1^*(y)\cdot pr_2^*(\alpha) \right)\right) 
+\end{align*}
+Mittels dieser Operatoren läßt sich jede Klasse in $H^*(X\hilb n, \Q)$ darstellen.
 }
 
 
