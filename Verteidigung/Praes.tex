@@ -3,11 +3,11 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{nicefrac}
-\usepackage[german,english]{babel} 
+\usepackage[ngerman,english]{babel} 
 \usepackage{amsmath,amssymb,mathtools}
 \usepackage[protrusion=true,expansion=false]{microtype}
 %\usepackage[framed,amsmath,thmmarks,hyperref]{ntheorem}
-
+\RequirePackage[ngerman=ngerman-x-latest]{hyphsubst}
 \usepackage{booktabs}
 \usepackage{tabto}
 \usepackage{tikz-cd}
@@ -29,15 +29,15 @@
 \theoremstyle{plain}  %nonumberplain
 %\newtheorem{beh}{Behauptung}
 \newtheorem{proposition}{Proposition}
-\newtheorem{corollary}{Corollary}
-\newtheorem{question}{Question}
+\newtheorem{korollar}{Korollar}
+\newtheorem{frage}{Frage}
 \newtheorem{theorem}{Theorem}
 \theoremstyle{definition}
 \newtheorem{definition}{Definition}
-\newtheorem{example}{Example}
-\newtheorem{remark}{Remark}
+\newtheorem{beispiel}{Beispiel}
+\newtheorem{bemerkung}{Bemerkung}
 %\theorembodyfont{\normalfont}
-\newtheorem{observation}{Observation}
+\newtheorem{satz}{Satz}
 %\theoremsymbol{\ensuremath{\openbox}}
 
 \newcommand{\lra}{\longrightarrow}
@@ -65,6 +65,7 @@
 
 \def\longleadsto{\mathrel{-}\joinrel\leadsto}
 \DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\Sp}{Sp}
 \DeclareMathOperator{\discr}{discr}
 \newcommand{\op}{\mathrm{op}}
 
@@ -125,6 +126,8 @@
 
 \newcommand{\hil}[1]{{\usebeamercolor[fg]{item}{#1}}}
 
+\hyphenation{K\"ah-ler-man-nig-fal-tig-keit Hy-per-k\"ah-ler Koh-ho-mo-lo-gie}
+
 \begin{document}
 
 \setbeameroption{show notes}
@@ -153,10 +156,29 @@
 \section{IHSM}
 \subsection{Einführung}
 \frame[t]{\frametitle{Mannigfaltigkeiten mit trivialem kanonischen Geradenbündel}
+\begin{satz}[Berger 1955]
+Jede kompakte Kählermannigfaltigkeit mit verschwindender erster Chernklasse läßt sich bis auf endliche Überlagerungen schreiben als Produkt von
+\begin{itemize}
+ \item komplexen Tori,
+ \item Calabi--Yau Mannigfaltigkeiten,
+ \item Hyperkählermannigfaltigkeiten.
+\end{itemize}
+\end{satz}
+\pause
+\begin{bemerkung}
+Die Unterscheidung erfolgt anhand der Holonomie\-grup\-pen der zugehörigen Riemannschen Metrik. Der Hyperkähler-Fall entspricht der symplektischen Gruppe $\Sp(n)$.
+\end{bemerkung}
 
 }
 
-\frame[t]{\frametitle{IHS Mannigfaltigkeiten}
+\frame[t,shrink=11]{\frametitle{IHS Mannigfaltigkeiten}
+Die quaternionale Interpretation der Holonomiegruppe $\Sp(n)$ führt auf die Existenz einer $\mathbb S^2$-Schar komplexer Strukturen, die alle mit der Metrik verträglich sind.
+Dies rechtfertigt die Bezeichnung ``Hyperkähler'' für solche Mannigfaltigkeiten.
+\pause
+\begin{beispiel}
+Die zweidimensionalen IHSM sind genau die K3 Flächen.
+\end{beispiel}
+
 
 }
 
@@ -173,12 +195,12 @@
 \subsection{BB form on symmetric power}
 \frame[t]{\frametitle{Beauville--Bogomolov Form}
 
-\begin{corollary}
+\begin{korollar}
 The cup product realizes an embedding of lattices
 $$
 \Sym^n (H^2(X,Z)) \subset H^{2n}(X,\Z).
 $$
-\end{corollary}
+\end{korollar}
 
 }
 \frame[t]{\frametitle{Diskriminantenformel}
@@ -323,9 +345,9 @@ $$
 If we define $\Pi'$ as the lattice of all classes of the form $W_{\tau'}-W_\tau$, then
 $S \perp \Pi'$.
 \end{proposition}
-\begin{remark}
+\begin{bemerkung}
 Neither $S$ nor $\Pi'$ are primitively embedded.
-\end{remark}
+\end{bemerkung}
 }
 \frame[t]{\frametitle{Primitive overlattice of $\Sym^2H^2(A\kum 3,\Z)$}
 \begin{proposition}
