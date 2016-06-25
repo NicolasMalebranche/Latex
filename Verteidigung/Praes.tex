@@ -128,7 +128,7 @@
 
 \newcommand{\hil}[1]{{\usebeamercolor[fg]{item}{#1}}}
 
-\hyphenation{K\"ah-ler-man-nig-fal-tig-keit Hy-per-k\"ah-ler Koh-ho-mo-lo-gie}
+\hyphenation{K\"ah-ler-man-nig-fal-tig-keit Hy-per-k\"ah-ler Koh-ho-mo-lo-gie Hodge-struk-tur}
 
 \begin{document}
 
@@ -158,7 +158,7 @@
 \section{IHSM}
 \subsection{Einführung}
 \frame[t]{\frametitle{Kählermannigfaltigkeiten mit trivialem kanonischen Geradenbündel}
-\begin{satz}[Berger 1955]
+\begin{satz}[Berger 1955] \justifying
 Jede kompakte Kählermannigfaltigkeit mit verschwindender erster Chernklasse läßt sich bis auf endliche Überlagerungen schreiben als Produkt von
 \begin{itemize}
  \item komplexen Tori,
@@ -176,16 +176,20 @@ Die Unterscheidung erfolgt anhand der Holonomie\-grup\-pen der zugehörigen Riem
 Die quaternionale Interpretation der Holonomiegruppe $\Sp(n)$ führt auf die Existenz einer $\mathbb S^2$-Schar komplexer Strukturen, die alle mit der Metrik verträglich sind.
 Dies rechtfertigt die Bezeichnung ``Hyperkähler'' für solche Mannigfaltigkeiten.
 \pause
+\begin{definition}
+Eine Kählermannigfaltigkeit $X$ heißt IHS (irreduzibel holomorph symplektisch), wenn sie einfach zusammenhängend ist und $H^0(X,\Omega_X^2)$ von einer nichtdegenerierten holomorphen 2-Form $\sigma$ aufgespannt wird.
+\end{definition}
+\begin{satz}
+Die IHS- und die Hyperkählereigenschaft sind äquivalent.
+\end{satz}
 \begin{beispiel}
 Die zweidimensionalen IHSM sind genau die K3 Flächen.
 \end{beispiel}
 
-
-% dim_\C \in 2\N
-
 }
 
-\frame[t]{\frametitle{Hodge-Struktur}
+\frame[t]{\frametitle{Hodge-Diamant}
+Der Hodge-Diamant einer IHSM hat folgende Gestalt:
 $$
 \begin{array}{ccccccccc}
  & & & & 1 & & &  &\\
@@ -199,32 +203,44 @@ $$
  & & & & 1 & & &  &  
 \end{array} 
 $$
-Insbesondere 
+Insbesondere ist die komplexe Dimension stets geradzahlig.
 }
 
-\frame[t]{\frametitle{Warum sich überhaupt für ganzzahlige Kohomologie interessieren?}
-% Fundamentale Bedeutung von $H^2(X,\Z)$
-% Gitterstruktur
-% lokaler Torelli
-% Automorphismen (BNS)
+\frame[t,shrink=11]{\frametitle{Warum sich überhaupt für ganzzahlige Kohomologie interessieren?}
+\begin{satz}[Beauville--Bogomolov]\justifying
+Die Gruppe $H^2(X,\Z)$ ist frei und mit einer $\Z$-wertigen nicht\-ent\-arteten quadratischen Form $q_X$ ausgestattet.
+\end{satz}\justifying
+Diese Form ist von überragender Bedeutung für die Theorie:
+\begin{itemize}
+\item Lokales Torelli-Theorem: Infinitesimale Deformationen von $X$ sind 1:1 zu Deformationen der Gitterstruktur relativ zur Hodgestruktur von $H^2(X,\Z)\subset H^*(X,\C)$
+\item Automorphismen von $X$ von endlicher Primordnung können über ihre Wirkungen auf $H^2(X,\Z)$ studiert werden
+\item Auch die höheren Kohomologiegruppen werden benötigt
+\end{itemize}
 % Quotienten (Grégoire)
 }
 
 \subsection{BB form on symmetric power}
 \frame[t]{\frametitle{Beauville--Bogomolov Form}
+Die Beauville--Bogomolov Form $q_X$ kann über ein Integral ausgedrückt werden:
+\begin{satz}[Fujiki]
+$$
+q_X(\alpha)^n = c_X \int_X \alpha^{2n},
+$$
+wobei die Fujiki-Konstante $c_X\in \mathbb R$ nur von $X$ abhängt.
+\end{satz}
 
+\pause
 \begin{korollar}
-The cup product realizes an embedding of lattices
+Wir erhalten ein Untergitter
 $$
-\Sym^n (H^2(X,Z)) \subset H^{2n}(X,\Z).
+\Sym^n (H^2(X,Z)) \subset H^{2n}(X,\Z),
 $$
+das im allgemeinen aber nicht primitiv ist.
 \end{korollar}
-
 }
 \frame[t]{\frametitle{Diskriminantenformel}
-
-\begin{theorem}
-Sei $d+1$ der Rang von $H^2(X,\Z)$ und sei $c_X$ die Fujiki-Konstante.
+\begin{theorem}\justifying
+Seien $d+1$ der Rang von $H^2(X,\Z)$ und $c_X$ die Fujiki-Konstante.
 Die Diskriminante von $\Sym^n\!H^2(X,\Z)$ ist gleich
 \begin{gather*}
 \left(\discr \left(H^2(X,\Z)\right)\right)^{\binom{d+n}{d+1}}\cdot c_X^{\binom{d+n}{d}} \cdot \prod_{i=1}^n i^{\binom{n-i+d}{d}d} 
@@ -269,7 +285,11 @@ Es gibt Ansätze, das Konzept IHSM in verschiedene Richtungen zu verallgemeinern
 \begin{definition}
 Sei $X$ ein $\C$-Schema. Das Hilbertschema $X\hilb n$ von $n$ Punkten auf $X$ ist der Modulraum aller endlichen Unterschemata von $X$ der Länge $n$. 
 \end{definition}
-
+Wichtige Fakten:
+\begin{itemize}
+\item Ist $X$ zweidimensional und nichtsingulär, so ist $X\hilb n$ $2n$-dimensional und nichtsingulär.
+\item Damit ist $X\hilb n$ eine (krepante) Auflösung der Singularitäten von $\Sym^n(X)$.
+\end{itemize}
 }
 
 
@@ -278,13 +298,11 @@ Sei $\xi \subset X\hilb n\times X\times X\hilb{n+m}$ das Inzidenzschema. Dann si
 
 \begin{center}
 \begin{tikzcd}[ampersand replacement=\&]
-
 \xi \arrow[hook]{rr} \& \&  X\hilb n\times X\times X\hilb{n+m} 
 \arrow{dl}{pr_1}
 \arrow{d}{pr_2}
 \arrow{dr}{pr_3} \\
 \& X\hilb n \& X \& X\hilb{n+m}
-
 \end{tikzcd}
 \end{center}
 \begin{align*}
