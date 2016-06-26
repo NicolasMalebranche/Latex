@@ -324,7 +324,7 @@ Mittels dieser Operatoren läßt sich jede Klasse in $H^*(X\hilb n, \Q)$ erzeuge
 }
 
 \frame[t,shrink=11]{\frametitle{Resultate über $H^*(K3\hilb{n},\Z)$}
-\begin{beispiel}[Boissi\`ere--Nieper-Wißkrichen--Sarti]
+\begin{beispiel}[Boissi\`ere--Nieper-Wißkrichen--Sarti \cite{BNS}]
 $$
 \frac{H^4(K3\hilb{2},\Z)}{\Sym^2 H^2(K3\hilb{2},\Z)}  \cong \left(\frac{\Z}{2\Z}\right)^{\oplus 23} \oplus \frac{\Z}{5\Z}
 $$
@@ -426,42 +426,35 @@ Insbesondere ist also $\Sym^2H^2(A\kum 3,\Z) \subset \theta^*(H^4(A\hilb 3,\Z))$
 }
 
 
-
-\subsection{Middle cohomology}
-\frame[t]{\frametitle{On middle cohomology}
-\begin{itemize}
-\item The rank of $H^4(A\kum 3,\Z)$ is $108$.
-\item Rank of $S\coloneqq\Sym^2H^2(A\kum 3,\Z)=28$.
-\end{itemize}
-How to get the complementary lattice of rank $80$?
+\frame[t]{\frametitle{Weitere Klassen mittleren Grades}
+\begin{proposition}[Hassett und Tschinkel]
+Die Brian\c con Schemata mit Träger an einem $3$-Torsionspunkt $\tau \in A[3]$ liefern $81$ weitere Klassen $W_\tau \in H^4(A\kum 3,\Z)$, die zusammen mit den schon betrachteten ganz $ H^4(A\kum 3,\Q)$ aufspannen.
+\end{proposition}
+Darüber bestimmen Hassett und Tschinkel einige zusätzliche Klassen in $ H^4(A\kum 3,\Q)$.
 \pause
-\begin{proposition}[Hassett, Tschinkel]
-For $\tau\in A$ a point of $3$-torsion, the Brian\c con subscheme of $\tau$ gives rise to a class $W_\tau \in H^4(A\kum n,\Z)$ with intersection property
-$$
-W_\tau^2= 3.
-$$
-If we define $\Pi'$ as the lattice of all classes of the form $W_{\tau'}-W_\tau$, then
-$S \perp \Pi'$.
+\begin{proposition}[mit Gr.~Menet]
+Durch die Wirkung der Monodromiegruppe $\Sp A[3] \rtimes A[3]$ auf diese zusätzliche Klassen erhält man eine Basis $ H^4(A\kum 3,\Z)$ .
 \end{proposition}
-\begin{bemerkung}
-Neither $S$ nor $\Pi'$ are primitively embedded.
-\end{bemerkung}
+
 }
 
-\frame[t]{\frametitle{More divisible classes}
-\begin{proposition}[Hassett, Tschinkel]
-Suppose $A$ is a Jacobian of some curve. Let $\Lambda \subset A[3]$ be a non-isotropic plane with respect to the Weil pairing and $\tau_0\in A[3]\backslash \Lambda$. Then
-$
-\sum_{\tau\in\Lambda} W_\tau - W_{\tau+\tau_0}
-$
-is a class divisible by three.
-\end{proposition}
-The monodromy group of $A$ acts on $A[3]$, preserving the Weil pairing (thus as a symplectic group). Another group action is given by translation. We get an induced action on $W_\tau$.
-\begin{proposition}
-The orbit of the above class spans a sublattice of $\Pi'$ of classes divisible by $3$ of rank $20$. 
-\end{proposition}
-We get a primitive overlattice of $\Pi'$.
+\framebox[t,shrink=11]{\frametitle{Anwendung auf Quotienten}
+
+Die Abbildung $-\id$ auf $A$ induziert eine Involution $\iota$ auf $A\kum 3$, welche (gem.~Tari) eine K3-Fläche und $36$ Punkte fixiert.
+Sei 
+$$
+K' \longrightarrow A\kum 3 / \iota
+$$
+die Aufblasung der K3-Fläche im Quotienten.
+\begin{satz}[Menet]
+Es ist $K'$ eine irreduzible symplektische V-Mannigfaltigkeit mit Singularitäten von Kodimension vier. Der Isomorphietyp des Beauville--Bogomolov-Gitters $H^2(K',\Z)$ ist $U(3)^{3}\oplus\left(
+\begin{array}{cc}
+-5 & -4\\
+-4 & -5 
+\end{array} \right)$, und die Fujiki-Konstante $c_{K'}$ ist gleich $8$.
+\end{satz}
 }
+
 
 \appendix
 
