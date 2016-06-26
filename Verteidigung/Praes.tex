@@ -33,12 +33,14 @@
 \newtheorem{korollar}{Korollar}
 \newtheorem{frage}{Frage}
 \newtheorem{theorem}{Theorem}
+\newtheorem{satz}{Satz}
+\newtheorem{vermutung}{Vermutung}
 \theoremstyle{definition}
 \newtheorem{definition}{Definition}
 \newtheorem{beispiel}{Beispiel}
 \newtheorem{bemerkung}{Bemerkung}
+\newtheorem{beweis}{Beweis}
 %\theorembodyfont{\normalfont}
-\newtheorem{satz}{Satz}
 %\theoremsymbol{\ensuremath{\openbox}}
 
 \newcommand{\lra}{\longrightarrow}
@@ -62,6 +64,7 @@
 \newcommand{\hilb}[1]{^{[#1]}}
 \newcommand{\kum}[1]{^{[[#1]]}}
 \DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\supp}{supp}
 \renewcommand{\S}{\mathfrak{S}}
 
 \def\longleadsto{\mathrel{-}\joinrel\leadsto}
@@ -71,7 +74,7 @@
 \DeclareMathOperator{\discr}{discr}
 \newcommand{\op}{\mathrm{op}}
 
-\title[$\Z$-Kohomologie von IHSV]{Ganzzahlige Kohomologie von irreduziblen holomorph symplektischen Varietäten}
+\title[Ganzzahlige Kohomologie von IHS Varietäten]{Ganzzahlige Kohomologie von irreduziblen holomorph symplektischen Varietäten}
 \author[Simon Kapfer,\ \ Universit\"at Augsburg]{Simon Kapfer\vspace{-0.5cm}}
 \institute{Universit\"at Augsburg}
 \date{29.~Juni 2016\vspace{0.6cm}\\
@@ -212,7 +215,7 @@ Die Gruppe $H^2(X,\Z)$ ist frei und mit einer $\Z$-wertigen nicht\-ent\-arteten 
 \end{satz}\justifying
 Diese Form ist von überragender Bedeutung für die Theorie:
 \begin{itemize}
-\item Lokales Torelli-Theorem: Infinitesimale Deformationen von $X$ sind 1:1 zu Deformationen der Gitterstruktur relativ zur Hodgestruktur von $H^2(X,\Z)\subset H^*(X,\C)$
+\item Lokales Torelli-Theorem: Infinitesimale Deformationen von $X$ entsprechen einer bestimmten Klasse von infinitesimalen Deformationen der Gitterstruktur relativ zur Hodgestruktur von $H^2(X,\Z)\subset H^*(X,\C)$
 \item Automorphismen von $X$ von endlicher Primordnung können über ihre Wirkungen auf $H^2(X,\Z)$ studiert werden
 \item Auch die höheren Kohomologiegruppen werden benötigt
 \end{itemize}
@@ -282,23 +285,25 @@ Es gibt Ansätze, das Konzept IHSM in verschiedene Richtungen zu verallgemeinern
 
 \subsection{Hilbertschemata}
 \frame[t]{\frametitle{Was sind Hilbertschemata?}
-\begin{definition}
+\begin{definition}[oder zumindest eine Idee davon]
 Sei $X$ ein $\C$-Schema. Das Hilbertschema $X\hilb n$ von $n$ Punkten auf $X$ ist der Modulraum aller endlichen Unterschemata von $X$ der Länge $n$. 
 \end{definition}
 Wichtige Fakten:
 \begin{itemize}
 \item Ist $X$ zweidimensional und nichtsingulär, so ist $X\hilb n$ $2n$-dimensional und nichtsingulär.
 \item Damit ist $X\hilb n$ eine (krepante) Auflösung der Singularitäten von $\Sym^n(X)$.
+\item Es existiert eine gute Beschreibung der Kohomologie durch Nakajima-Operatoren.
 \end{itemize}
 }
 
 
 \frame[t,shrink=11]{\frametitle{Nakajima-Operatoren} \justifying
-Sei $\xi \subset X\hilb n\times X\times X\hilb{n+m}$ das Inzidenzschema. Dann sind die Nakajima-Operatoren $\mathfrak q_m(\alpha)$ für $\alpha\in H^*(X,\Q)$ über eine Korrespondenz definiert:
+Sei $\Xi \subset X\hilb n\times X\times X\hilb{n+m}$ das Inzidenzschema $\{(\xi_1,x,\xi_2)\;|\; \xi_1\subset\xi_2,\allowbreak \supp(\xi_2\backslash\xi_1) = x\}$.
+Dann sind die Nakajima-Operatoren $\mathfrak q_m(\alpha)$ für $\alpha\in H^*(X,\Q)$ über eine Korrespondenz definiert:
 
 \begin{center}
 \begin{tikzcd}[ampersand replacement=\&]
-\xi \arrow[hook]{rr} \& \&  X\hilb n\times X\times X\hilb{n+m} 
+\Xi \arrow[hook]{rr} \& \&  X\hilb n\times X\times X\hilb{n+m} 
 \arrow{dl}{pr_1}
 \arrow{d}{pr_2}
 \arrow{dr}{pr_3} \\
@@ -307,9 +312,9 @@ Sei $\xi \subset X\hilb n\times X\times X\hilb{n+m}$ das Inzidenzschema. Dann si
 \end{center}
 \begin{align*}
 \mathfrak q_m(\alpha) : H^*(X\hilb n, \Q) &\longrightarrow H^{*+2m-2+|\alpha|}(X\hilb{n+m}, \Q) \\
-	 y &\longmapsto \PD\left( pr_{3*}\left(\xi \cap pr_1^*(y)\cdot pr_2^*(\alpha) \right)\right) 
+	 y &\longmapsto \PD\left( pr_{3*}\left(\Xi \cap pr_1^*(y)\cdot pr_2^*(\alpha) \right)\right) 
 \end{align*}
-Mittels dieser Operatoren läßt sich jede Klasse in $H^*(X\hilb n, \Q)$ darstellen.
+Mittels dieser Operatoren läßt sich jede Klasse in $H^*(X\hilb n, \Q)$ erzeugen.
 }
 
 
@@ -318,17 +323,34 @@ Mittels dieser Operatoren läßt sich jede Klasse in $H^*(X\hilb n, \Q)$ darstel
 % effektive Algorithmen
 }
 
-\frame[t]{\frametitle{Resultate über $H^*(K3\hilb{n},\Z)$}
-
+\frame[t,shrink=11]{\frametitle{Resultate über $H^*(K3\hilb{n},\Z)$}
+\begin{beispiel}[Boissi\`ere--Nieper-Wißkrichen--Sarti]
+$$
+\frac{H^4(K3\hilb{2},\Z)}{\Sym^2 H^2(K3\hilb{2},\Z)}  \cong \left(\frac{\Z}{2\Z}\right)^{\oplus 23} \oplus \frac{\Z}{5\Z}
+$$
+\end{beispiel}
+\begin{beispiel}[]
+$$
+\frac{H^6(K3\hilb{3},\Z)}{\Sym^3 H^2(K3\hilb{3},\Z)}  \cong \Z^{\oplus 254} \oplus\left(\frac{\Z}{3\Z}\right)^{\oplus 230} \oplus \left(\frac{\Z}{36\Z}\right)^{\oplus 22} \oplus \frac{\Z}{72\Z}
+$$
+\end{beispiel}
+\begin{satz}
+Für alle $n\geq k+2$ ist der Quotient
+$$
+ \frac{H^{2k}(K3\hilb{n},\Z)}{\Sym^k H^{2}(K3\hilb{n},\Z)}
+$$
+ein freier $\Z$-Modul.
+\end{satz}
 }
 
 \subsection[Verallg.~Kummersche]{Verallgemeinerte Kummersche Varietäten}
 
-\frame[t]{\frametitle{The generalized Kummer variety}
-\begin{definition}
-Let $A$ be a complex abelian surface and $A\hilb{n}$ the Hilbert scheme of points. Denote $\Sigma : A\hilb{n}\rightarrow A$ the summation morphism. 
-Then the generalized Kummer $A\kum n$ is defined as the fiber of a point in $A$.
+\frame[t]{\frametitle{Verallgemeinerte Kummer-Varietäten}
+\begin{definition}\justifying
+Sei $A$ ein zweidimensionaler komplexer Torus und $A\hilb{n}$ das Hilbertschema. Bezeichne $\Sigma : A\hilb{n}\rightarrow A$ die Summationsabbildung. Dies ist eine Faserung über $A$ und 
+die verallgemeinerte Kummersche Varietät $A\kum n$ ist dann definiert als Faser eines Punktes (und daher von Dimension $2n-2$).
 \begin{center}
+\vspace{-4pt}
 \begin{tikzcd}[ampersand replacement=\&]
 A\kum n
 \arrow[hook]{r}{\theta}
@@ -339,14 +361,13 @@ A\kum n
 \end{center}
 \end{definition}
 \pause
-First objective: Collect information about
-$$
-\theta^* : H^*(A\hilb n ,\Z) \rightarrow H^*(A\kum n, \Z). 
-$$
+\begin{beispiel}
+Für $n=2$ erhält man eine K3-Fläche.
+\end{beispiel}
 }
 
-\frame[t]{\frametitle{The standard diagram}
-The morphism $\theta$ fits into a pullback diagram,
+\frame[t,shrink=12]{\frametitle{Ein etwas größeres Diagramm}
+Der Morphismus $\theta$ paßt in ein etwas größeres Faserdiagramm:
 \begin{center}
 \begin{tikzcd}[ampersand replacement=\&]
 A\kum n
@@ -360,58 +381,50 @@ A\kum n
 \& A  \arrow{r}{n\cdot}  \& A  
 \end{tikzcd}
 \end{center}
-so that the morphism $\Theta$ is a $n^4$-fold covering.
+wobei der Mophismus $\Theta$ eine $n^4$-fache Überlagerung wird.
 
-Two ingredients to determine $H^*(A\kum 3,\Z)$:
+\pause
+Zwei Zutaten, um $H^*(A\kum 3,\Z)$ zu bestimmen:
 \begin{itemize}
-\item Hilbert scheme cohomology and $\theta$
-\item Extra classes supported at torsion points of $A$
+\item Kohomologie der Hilbertschemata und Rückzug entlang $\theta$
+\item Ein paar zusätzliche Klassen mit Träger an den $3$-Torsionspunkten von $A$
 \end{itemize}
 }
 
-\subsection{Pullback from the Hilbert scheme}
-\frame[t]{\frametitle{First properties of the pullback $\theta^*$}
-\begin{proposition}
-The kernel of $\theta^* : H^*(A\hilb n ,\Z) \rightarrow H^*(A\kum n, \Z)$
-is given by the (two-sided) ideal $\mathcal I$ in $H^*(A\hilb n,\Z) $ generated by $H^1$.
-\end{proposition}
+\frame[t]{\frametitle{Rückzug vom Hilbertschema}
+\begin{satz}
+Der Kern von $\theta^* : H^*(A\hilb n ,\Z) \rightarrow H^*(A\kum n, \Z)$
+ist das (zweiseitige) Ideal $\mathcal I$ in $H^*(A\hilb n,\Z) $ erzeugt von $H^1$.
+\end{satz}
 \pause
-\begin{proof} It suffices to work with $\Q$-coefficients.
-It is clear that $H^1$ maps to zero, so $\mathcal I  \subset \ker \theta^*$. 
-Since the morphism 
+\begin{beweis} Es genügt, $\Q$-Koeffizienten zu betrachten.
+Klarerweise wird $H^1$ auf Null abgebildet, also $\mathcal I  \subset \ker \theta^*$. 
+Weil nun der Morphismus 
 $$
 \Theta :  A\times A\kum n \rightarrow A\hilb n
 $$
-is a covering, $\ker \theta^*$ is the annihilator of the class of $A\kum n$ in $H^*(A\hilb n,\Q)$. 
-Then one shows, that this corresponds to the ideal generated by $H^1$.
-\end{proof}
+eine endliche Überlagerung ist, muß $\ker \theta^*$ der Annihilator der Klasse $A\kum n$ in $H^*(A\hilb n,\Q)$ sein. 
+Dann kann man zeigen, daß dies gleich dem Ideal erzeugt von $H^1$ ist. \qed
+\end{beweis}
 }
 
-\frame[t]{\frametitle{Surjectivity}
-\begin{proposition}[Beauville]
-For, $n\geq 3$, the morphism $\theta^*: H^2(A\hilb n,\C) \rightarrow H^2(A\kum n ,\C)$ is surjective.
-\end{proposition}
+\frame[t]{\frametitle{Zur Surjektivität des Rückzugs}
+\begin{satz}
+Für $n=3$ ist $\theta^* : H^*(A\hilb n ,\Z) \rightarrow H^*(A\kum n, \Z)$ surjektiv in allen Graden außer dem mittleren. Dort ist das Bild von $\theta^*$ ein primitives Untergitter von Kodimension $n^4-1$.
+\end{satz}
 \pause
-\begin{proposition}[Britze?]
-The above propostion holds with integral coefficients, too.
-\end{proposition}
-Let us now turn to the special case $n=3$.
-}
-
-\frame[t]{\frametitle{Surjectivity}
+\begin{vermutung}
+Obiger Satz gilt für alle $n$, die Primzahlen sind.
+\end{vermutung}
+\pause
 \begin{proposition}
-For $n=3$, the morphism $\theta^*: H^*(A\hilb 3,\Z) \rightarrow H^*(A\kum 3 ,\Z)$ is surjective in every degree except four.
-\end{proposition} 
-
-Idea of proof: 
-\begin{itemize}
-\item Check that $\im \theta^*$ has the right rank
-\item Find a basis of $H^*(A\hilb 3,\Z)$ (using Nakajima operators)
-\item Calculate the intersection lattice on $\im \theta^*$ and observe that it is unimodular
-\end{itemize}
-\pause
-It remains to understand $H^4(A\kum 3,\Z)$.
+$$
+\frac{H^4(A\kum 3,\Z)}{\Sym^2H^2(A\kum 3,\Z)} \cong \Z^{\oplus 80}\oplus \left(\frac{\Z}{2\Z}\right)^{\oplus 7} \oplus \left(\frac{\Z}{3\Z}\right)^{\oplus 8}
+$$
+\end{proposition}
+Insbesondere ist also $\Sym^2H^2(A\kum 3,\Z) \subset \theta^*(H^4(A\hilb 3,\Z))$ ein Untergitter von vollem Rang.
 }
+
 
 
 \subsection{Middle cohomology}
@@ -434,17 +447,6 @@ $S \perp \Pi'$.
 Neither $S$ nor $\Pi'$ are primitively embedded.
 \end{bemerkung}
 }
-\frame[t]{\frametitle{Primitive overlattice of $\Sym^2H^2(A\kum 3,\Z)$}
-\begin{proposition}
-The primitive overlattice of $S$ is given by the image of $\theta^*$.
-Moreover,
-$$
-\frac{\theta^*(H^4(A\hilb 3,\Z))}{\Sym^2H^2(A\kum 3,\Z)} \cong \left(\frac{\Z}{2\Z}\right)^{\oplus 7} \oplus \left(\frac{\Z}{3\Z}\right)^{\oplus 8}
-$$
-and the discriminant of $\theta^*(H^4(A\hilb 3,\Z))$ is $3^{22}$.
-\end{proposition}
-
-}
 
 \frame[t]{\frametitle{More divisible classes}
 \begin{proposition}[Hassett, Tschinkel]
@@ -461,14 +463,19 @@ The orbit of the above class spans a sublattice of $\Pi'$ of classes divisible b
 We get a primitive overlattice of $\Pi'$.
 }
 
-
 \appendix
+
+\frame[t]{\frametitle{Das Ende des Vortrags}
+\vspace{64pt}
+\slogan{Danke für eure Aufmerksamkeit!}
+}
+
   \addtocounter{framenumber}{-1}
 %\backupstart
 \renewcommand*\insertshorttitle{%
   \oldmacro\hfill}
 
-\frame[t,shrink=8]{\frametitle{References}
+\frame[t,shrink=8]{\frametitle{Zum Weiterlesen}
 %\cite{qinintegral2004}\cite{lehnsorger}\cite{gross2003calabi}\cite{boissiereniepersarti}
 \bibliographystyle{plain}
 \bibliography{bibl}
