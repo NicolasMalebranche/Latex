@@ -158,7 +158,7 @@
 \tableofcontents
 }
 
-\section{IHSM}
+\section{IHS Mannigfaltigkeiten}
 \subsection{Einführung}
 \frame[t]{\frametitle{Kählermannigfaltigkeiten mit trivialem kanonischen Geradenbündel}
 \begin{satz}[Berger 1955] \justifying
@@ -209,6 +209,7 @@ $$
 Insbesondere ist die komplexe Dimension stets geradzahlig.
 }
 
+\subsection{Beauville--Bogomolov Form}
 \frame[t,shrink=11]{\frametitle{Warum sich überhaupt für ganzzahlige Kohomologie interessieren?}
 \begin{satz}[Beauville--Bogomolov]\justifying
 Die Gruppe $H^2(X,\Z)$ ist frei und mit einer $\Z$-wertigen nicht\-ent\-arteten quadratischen Form $q_X$ ausgestattet.
@@ -222,7 +223,7 @@ Diese Form ist von überragender Bedeutung für die Theorie:
 % Quotienten (Grégoire)
 }
 
-\subsection{BB form on symmetric power}
+
 \frame[t]{\frametitle{Beauville--Bogomolov Form}
 Die Beauville--Bogomolov Form $q_X$ kann über ein Integral ausgedrückt werden:
 \begin{satz}[Fujiki]
@@ -241,6 +242,7 @@ $$
 das im allgemeinen aber nicht primitiv ist.
 \end{korollar}
 }
+\subsection{Diskriminantenformel}
 \frame[t]{\frametitle{Diskriminantenformel}
 \begin{theorem}\justifying
 Seien $d+1$ der Rang von $H^2(X,\Z)$ und $c_X$ die Fujiki-Konstante.
@@ -267,15 +269,17 @@ C=
 \frame[t,shrink=11]{\frametitle{Die bekannten Beispiele}
 Nur relativ wenige Beispiele von IHSM sind bisher bekannt:
 \begin{itemize}
-\item Hilbertschemata $K3\hilb{n}$ von Punkten auf K3 Flächen, $ n \in \N$.
-\item Verallgemeinerte Kummersche Varietäten $A\kum n$, $n\in \N$.
-\item Zwei weitere Beispiele in Dimension $6$ bzw.~$10$.
+\item Hilbertschemata $K3\hilb{n}$ von Punkten auf K3 Flächen, $ n \in \N$,
+\item verallgemeinerte Kummersche Varietäten $A\kum n$, $n\in \N$,
+\item zwei weitere Beispiele in Dimension $6$ bzw.~$10$,
 \end{itemize}
+beziehungsweise deren Deformationsklassen.
+
 \pause
 Es gibt Ansätze, das Konzept IHSM in verschiedene Richtungen zu verallgemeinern:
 \begin{itemize}
 \item Virtuelle IHSM, die nur als derivierte Kategorie existieren
-\item IHS Varietäten mit Singularitäten
+\item IS Varietäten mit Singularitäten
 \end{itemize}
 
 }
@@ -283,7 +287,7 @@ Es gibt Ansätze, das Konzept IHSM in verschiedene Richtungen zu verallgemeinern
 
 
 
-\subsection{Hilbertschemata}
+\subsection[Hilbertschemata]{Hilbertschemata von Punkten auf Flächen}
 \frame[t]{\frametitle{Was sind Hilbertschemata?}
 \begin{definition}[oder zumindest eine Idee davon]
 Sei $X$ ein $\C$-Schema. Das Hilbertschema $X\hilb n$ von $n$ Punkten auf $X$ ist der Modulraum aller endlichen Unterschemata von $X$ der Länge $n$. 
@@ -318,12 +322,25 @@ Mittels dieser Operatoren läßt sich jede Klasse in $H^*(X\hilb n, \Q)$ erzeuge
 }
 
 
-\frame[t]{\frametitle{Cup-Produkte}
-
-% effektive Algorithmen
+\frame[t,shrink=13]{\frametitle{Cup-Produkte}
+Es gibt effektive Algorithmen, um Multiplikationen in $H^*(X\hilb n, \Q)$ durch Nakajima--Operatoren auszudrücken \cite{lehnsorger}.
+Falls $K_X=0$, erhält man elegante Beschreibungen
+\begin{itemize}
+ \item mit dem Gruppenring der Permutationen (Lehn, Sorger)
+ \item oder mittels W-Algebren (Li, Qin und Wang).
+\end{itemize}
+\begin{bemerkung}
+Bei den von uns betrachteten Beispielen ist $H^*(X\hilb n, \Z)$ torsionsfrei, daher genügt es, mit $\Q$-Koeffizienten zu rechnen.
+\end{bemerkung}
+Falls $X$ eine K3-Fläche ist, so ist $X\hilb n$ eine IHSM.
+Von besonderem Interesse sind Produkte von Grad-2-Klassen und man studiert die durch das Cup-Produkt gegebene Einbettung
+$$
+\Sym^kH^2(X\hilb n,\Z) \subset H^{2k}(X\hilb n,\Z),
+$$
+etwa, um Aussagen über Automorphismen zu treffen.
 }
 
-\frame[t,shrink=11]{\frametitle{Resultate über $H^*(K3\hilb{n},\Z)$}
+\frame[t,shrink=8]{\frametitle{Resultate über $H^*(K3\hilb{n},\Z)$}
 \begin{beispiel}[Boissi\`ere--Nieper-Wißkrichen--Sarti \cite{BNS}]
 $$
 \frac{H^4(K3\hilb{2},\Z)}{\Sym^2 H^2(K3\hilb{2},\Z)}  \cong \left(\frac{\Z}{2\Z}\right)^{\oplus 23} \oplus \frac{\Z}{5\Z}
@@ -343,7 +360,7 @@ ein freier $\Z$-Modul.
 \end{satz}
 }
 
-\subsection[Verallg.~Kummersche]{Verallgemeinerte Kummersche Varietäten}
+\subsection[Verallgemeinerte Kummersche]{Verallgemeinerte Kummersche Varietäten}
 
 \frame[t]{\frametitle{Verallgemeinerte Kummer-Varietäten}
 \begin{definition}\justifying
@@ -430,15 +447,16 @@ Insbesondere ist also $\Sym^2H^2(A\kum 3,\Z) \subset \theta^*(H^4(A\hilb 3,\Z))$
 \begin{proposition}[Hassett und Tschinkel]
 Die Brian\c con Schemata mit Träger an einem $3$-Torsionspunkt $\tau \in A[3]$ liefern $81$ weitere Klassen $W_\tau \in H^4(A\kum 3,\Z)$, die zusammen mit den schon betrachteten ganz $ H^4(A\kum 3,\Q)$ aufspannen.
 \end{proposition}
-Darüber bestimmen Hassett und Tschinkel einige zusätzliche Klassen in $ H^4(A\kum 3,\Q)$.
+Darüber hinaus bestimmen Hassett und Tschinkel einige zusätzliche Klassen in $ H^4(A\kum 3,\Q)$.
 \pause
 \begin{proposition}[mit Gr.~Menet]
-Durch die Wirkung der Monodromiegruppe $\Sp A[3] \rtimes A[3]$ auf diese zusätzliche Klassen erhält man eine Basis $ H^4(A\kum 3,\Z)$ .
+Durch die Wirkung der Monodromiegruppe $\Sp A[3] \rtimes A[3]$ auf diese zusätzliche Klassen erhält man eine Basis von $ H^4(A\kum 3,\Z)$ .
 \end{proposition}
 
 }
 
-\framebox[t,shrink=11]{\frametitle{Anwendung auf Quotienten}
+\section[Singuläres]{Singuläre IS Varietäten}
+\frame[t,shrink=11]{\frametitle{Anwendung auf Quotienten}
 
 Die Abbildung $-\id$ auf $A$ induziert eine Involution $\iota$ auf $A\kum 3$, welche (gem.~Tari) eine K3-Fläche und $36$ Punkte fixiert.
 Sei 
