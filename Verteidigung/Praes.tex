@@ -1,4 +1,4 @@
-\documentclass[12pt,notheorems,compress,handout,ngerman]{beamer}
+\documentclass[12pt,notheorems,compress,ngerman]{beamer}
 \usepackage[ngerman,english]{babel} 
 \usepackage{ragged2e}
 \usepackage{kurier}
@@ -161,7 +161,7 @@
 \section{IHS Mannigfaltigkeiten}
 \subsection{Einführung}
 \frame[t]{\frametitle{Kählermannigfaltigkeiten mit trivialem kanonischen Geradenbündel}
-\begin{satz}[Berger 1955] \justifying
+\begin{satz}[Beauville--Bogomolov] \justifying
 Jede kompakte Kählermannigfaltigkeit mit verschwindender erster Chernklasse läßt sich bis auf endliche Überlagerungen schreiben als Produkt von
 \begin{itemize}
  \item komplexen Tori,
@@ -182,7 +182,8 @@ Dies rechtfertigt die Bezeichnung ``Hyperkähler'' für solche Mannigfaltigkeite
 \begin{definition}
 Eine Kählermannigfaltigkeit $X$ heißt IHS (irreduzibel holomorph symplektisch), wenn sie einfach zusammenhängend ist und $H^0(X,\Omega_X^2)$ von einer nichtdegenerierten holomorphen 2-Form $\sigma$ aufgespannt wird.
 \end{definition}
-\begin{satz}
+\pause
+\begin{satz}[Beauville]
 Die IHS- und die Hyperkählereigenschaft sind äquivalent.
 \end{satz}
 \begin{beispiel}
@@ -216,9 +217,14 @@ Die Gruppe $H^2(X,\Z)$ ist frei und mit einer $\Z$-wertigen nicht\-ent\-arteten 
 \end{satz}\justifying
 Diese Form ist von überragender Bedeutung für die Theorie:
 \begin{itemize}
-\item Lokales Torelli-Theorem: Infinitesimale Deformationen von $X$ entsprechen einer bestimmten Klasse von infinitesimalen Deformationen der Gitterstruktur relativ zur Hodgestruktur von $H^2(X,\Z)\subset H^*(X,\C)$
+\pause
+\item Lokales Torelli-Theorem: Infinitesimale Deformationen von $X$ entsprechen einer bestimmten Klasse von infinitesimalen Deformationen der Gitterstruktur relativ zur Hodgestruktur von $H^2(X,\Z)\subset H^2(X,\C)$
+\pause
 \item Automorphismen von $X$ von endlicher Primordnung können über ihre Wirkungen auf $H^2(X,\Z)$ studiert werden
+\pause
 \item Auch die höheren Kohomologiegruppen werden benötigt
+\pause
+\item Anwendungen auf singuläre IS Varietäten
 \end{itemize}
 % Quotienten (Grégoire)
 }
@@ -269,8 +275,11 @@ C=
 \frame[t,shrink=11]{\frametitle{Die bekannten Beispiele}
 Nur relativ wenige Beispiele von IHSM sind bisher bekannt:
 \begin{itemize}
+\pause
 \item Hilbertschemata $K3\hilb{n}$ von Punkten auf K3 Flächen, $ n \in \N$,
+\pause
 \item verallgemeinerte Kummersche Varietäten $A\kum n$, $n\in \N$,
+\pause
 \item zwei weitere Beispiele in Dimension $6$ bzw.~$10$,
 \end{itemize}
 beziehungsweise deren Deformationsklassen.
@@ -279,7 +288,7 @@ beziehungsweise deren Deformationsklassen.
 Es gibt Ansätze, das Konzept IHSM in verschiedene Richtungen zu verallgemeinern:
 \begin{itemize}
 \item Virtuelle IHSM, die nur als derivierte Kategorie existieren
-\item IS Varietäten mit Singularitäten
+\item IS Varietäten mit Singularitäten \cite{menet}
 \end{itemize}
 
 }
@@ -292,10 +301,13 @@ Es gibt Ansätze, das Konzept IHSM in verschiedene Richtungen zu verallgemeinern
 \begin{definition}[oder zumindest eine Idee davon]
 Sei $X$ ein $\C$-Schema. Das Hilbertschema $X\hilb n$ von $n$ Punkten auf $X$ ist der Modulraum aller endlichen Unterschemata von $X$ der Länge $n$. 
 \end{definition}
+\pause
 Wichtige Fakten:
 \begin{itemize}
 \item Ist $X$ zweidimensional und nichtsingulär, so ist $X\hilb n$ $2n$-dimensional und nichtsingulär.
-\item Damit ist $X\hilb n$ eine (krepante) Auflösung der Singularitäten von $\Sym^n(X)$.
+\pause
+\item Damit ist $X\hilb n$ eine Auflösung der Singularitäten von $\Sym^n(X)$.
+\pause
 \item Es existiert eine gute Beschreibung der Kohomologie durch Nakajima-Operatoren.
 \end{itemize}
 }
@@ -304,7 +316,7 @@ Wichtige Fakten:
 \frame[t,shrink=11]{\frametitle{Nakajima-Operatoren} \justifying
 Sei $\Xi \subset X\hilb n\times X\times X\hilb{n+m}$ das Inzidenzschema $\{(\xi_1,x,\xi_2)\;|\; \xi_1\subset\xi_2,\allowbreak \supp(\xi_2\backslash\xi_1) = x\}$.
 Dann sind die Nakajima-Operatoren $\mathfrak q_m(\alpha)$ für $\alpha\in H^*(X,\Q)$ über eine Korrespondenz definiert:
-
+\pause
 \begin{center}
 \begin{tikzcd}[ampersand replacement=\&]
 \Xi \arrow[hook]{rr} \& \&  X\hilb n\times X\times X\hilb{n+m} 
@@ -329,10 +341,12 @@ Falls $K_X=0$, erhält man elegante Beschreibungen
  \item mit dem Gruppenring der Permutationen (Lehn, Sorger)
  \item oder mittels W-Algebren (Li, Qin und Wang).
 \end{itemize}
+\pause
 \begin{bemerkung}
 Bei den von uns betrachteten Beispielen ist $H^*(X\hilb n, \Z)$ torsionsfrei, daher genügt es, mit $\Q$-Koeffizienten zu rechnen.
 \end{bemerkung}
 Falls $X$ eine K3-Fläche ist, so ist $X\hilb n$ eine IHSM.
+\pause
 Von besonderem Interesse sind Produkte von Grad-2-Klassen und man studiert die durch das Cup-Produkt gegebene Einbettung
 $$
 \Sym^kH^2(X\hilb n,\Z) \subset H^{2k}(X\hilb n,\Z),
@@ -346,11 +360,13 @@ $$
 \frac{H^4(K3\hilb{2},\Z)}{\Sym^2 H^2(K3\hilb{2},\Z)}  \cong \left(\frac{\Z}{2\Z}\right)^{\oplus 23} \oplus \frac{\Z}{5\Z}
 $$
 \end{beispiel}
+\pause
 \begin{beispiel}[]
 $$
 \frac{H^6(K3\hilb{3},\Z)}{\Sym^3 H^2(K3\hilb{3},\Z)}  \cong \Z^{\oplus 254} \oplus\left(\frac{\Z}{3\Z}\right)^{\oplus 230} \oplus \left(\frac{\Z}{36\Z}\right)^{\oplus 22} \oplus \frac{\Z}{72\Z}
 $$
 \end{beispiel}
+\pause
 \begin{satz}
 Für alle $n\geq k+2$ ist der Quotient
 $$
@@ -404,6 +420,7 @@ wobei der Mophismus $\Theta$ eine $n^4$-fache Überlagerung wird.
 Zwei Zutaten, um $H^*(A\kum 3,\Z)$ zu bestimmen:
 \begin{itemize}
 \item Kohomologie der Hilbertschemata und Rückzug entlang $\theta$
+\pause
 \item Ein paar zusätzliche Klassen mit Träger an den $3$-Torsionspunkten von $A$
 \end{itemize}
 }
@@ -411,7 +428,7 @@ Zwei Zutaten, um $H^*(A\kum 3,\Z)$ zu bestimmen:
 \frame[t]{\frametitle{Rückzug vom Hilbertschema}
 \begin{satz}
 Der Kern von $\theta^* : H^*(A\hilb n ,\Z) \rightarrow H^*(A\kum n, \Z)$
-ist das (zweiseitige) Ideal $\mathcal I$ in $H^*(A\hilb n,\Z) $ erzeugt von $H^1$.
+ist das (zweiseitige) Ideal $\mathcal I$ in $H^*(A\hilb n,\Z) $ erzeugt von $H^1(A\hilb n,\Z) $.
 \end{satz}
 \pause
 \begin{beweis} Es genügt, $\Q$-Koeffizienten zu betrachten.
@@ -464,6 +481,7 @@ $$
 K' \longrightarrow A\kum 3 / \iota
 $$
 die Aufblasung der K3-Fläche im Quotienten.
+\pause
 \begin{satz}[Menet]
 Es ist $K'$ eine irreduzible symplektische V-Mannigfaltigkeit mit Singularitäten von Kodimension vier. Der Isomorphietyp des Beauville--Bogomolov-Gitters $H^2(K',\Z)$ ist $U(3)^{3}\oplus\left(
 \begin{array}{cc}
@@ -478,7 +496,7 @@ Es ist $K'$ eine irreduzible symplektische V-Mannigfaltigkeit mit Singularitäte
 
 \frame[t]{\frametitle{Das Ende des Vortrags}
 \vspace{64pt}
-\slogan{Danke für eure Aufmerksamkeit!}
+\slogan{Danke, daß ihr da seid!!}
 }
 
   \addtocounter{framenumber}{-1}
