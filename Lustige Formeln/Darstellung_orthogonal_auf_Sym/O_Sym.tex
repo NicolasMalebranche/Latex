@@ -1,0 +1,83 @@
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+\usepackage[german]{babel}
+\usepackage{amsmath,amsthm,amssymb,amscd,mathtools}
+  
+\theoremstyle{definition}
+\newtheorem{satz}{Satz}
+\newtheorem{lemma}{Lemma}
+\newtheorem{aufg}{Aufgabe}
+\newtheorem{definition}{Definition}
+
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\renewcommand{\H}{\mathcal{H}}
+\newcommand{\bra}{\left<\!\!\!\:\left<}
+\newcommand{\ket}{\right>\!\!\!\:\right>}
+\DeclareMathOperator{\Sym}{Sym}
+
+%opening
+\title{Darstellungen der orthogonalen Gruppe auf homogenen Polynomen}
+\author{Simon Kapfer}
+
+\begin{document}
+
+\maketitle
+\section{Darstellungen über $\R$}
+\begin{definition}
+Wir betrachten einen endlich-dimensionalen Vektorraum $V$ über $\R$, versehen mit einem Skalarprodukt $(\ ,\ )$ und definieren so die orthogonale Gruppe $O(V)$ als Menge derjenigen linearen Endomorphismen von $V$, die das Skalarprodukt erhalten. Sei $x_1,\ldots, x_d \in V$ eine Orthonormalbasis.
+\end{definition}
+\begin{definition}
+Auf $V^{\otimes n}$ wirkt $O(V)$ diagonal: Für $U\in O(V)$ haben wir 
+$$
+U(v_1\otimes\cdots\otimes v_n) = U(v_1)\otimes\cdots \otimes U(v_n). 
+$$
+Diese Wirkung kommutiert mit Vertauschungen der Tensorfaktoren und ergibt also eine Wirkung auf $\Sym^n(V)$. Diesen Raum können wir mit den Polynomen in $x_i$ identifizieren, welche homogen vom Grad $n$ sind: $\Sym^n(V) = \R[x_1,\ldots,x_d]_n$.
+\end{definition}
+\begin{aufg}\label{eins}
+Was sind die möglichen symmetrischen Bilinearformen auf $\Sym^n(V)$, bezüglich derer die Wirkung von $O(V)$ orthogonal bleibt?
+\end{aufg}
+\begin{lemma}
+Sei $B$ eine $O(V)$-invariante symmetrische Bilinearform auf $S$. Dann ist $\ker B = \{s\in S\,|\, B(s, \_ ) =0\}$ ein $O(V)$-invarianter Untervektorraum von $S$.
+\end{lemma}
+\begin{satz}\label{DarstellungLink}
+Solche symmetrischen Bilinearformen bilden einen Vektorraum, dessen Dimension gleich der Anzahl irreduzibler $O(V)$-Darstellungen in $\Sym^n(V)$ ist.
+\end{satz}
+\begin{proof}
+Sei $S= S_1\oplus S_2$ eine Zerlegung von Darstellungen. Sind nun $B_1$ auf $S_1$ und $B_2$ auf $S_2$ $O(V)$-invariante Bilinearformen, so ergibt jede Linearkombination 
+\[
+ B = \alpha_1 B_1 \oplus \alpha_2 B_2
+\]
+eine $O(V)$-invariante Form auf $S$.
+
+Seien umgekehrt $B_1$, $B_2$ $O(V)$-invariante Formen auf $S$. Dann existiert eine Affinkombination $B = \alpha B_1 + (1-\alpha) B_2$, welche entartet ist. Dies kann man sich klar machen, indem man die zugehörigen Gramschen Matrizen betrachtet, denn jede Gerade in $\R^{m\times m}$ schneidet das Nullstellengebilde der Determinante. Nach dem obigen Lemma ist $\ker B$ eine Teildarstellung von $S$, welche aufgrund der Entartung mehr als nur die Null umfaßt. Falls $S$ jetzt irreduzibel ist, muß $\ker B =S$ gelten. Das bedeutet aber, daß $B_1$ und $B_2$ linear abhängig sind.
+\end{proof}
+\begin{satz} \cite[Sect.~7]{DaiXu}
+ Sei $\H_n^d \subset  \R[x_1,\ldots,x_d]_n$ die Menge der harmonischen Polynome und sei $r^2= x_1^2+\ldots +x_d^2$ der Radius zum Quadrat. Dann ist 
+ \begin{equation}\label{HZerlegung}
+ \R[x_1,\ldots,x_d]_n = \H_n^d \oplus r^2 \H_{n-2}^d \oplus r^4  \H_{n-4}^d \oplus \ldots
+ \end{equation}
+eine Zerlegung in irreduzible $O(V)$-Darstellungen.
+\end{satz}
+
+Damit dürfte Aufgabe \ref{eins} wohl weitgehend gelöst sein.
+
+\section{Über $\Z$}
+Die Frage wird etwas komplizierter, wenn wir mit ganzzahligen Koeffizienten arbeiten. Ersetzen wir also $V$ durch einen freien $\Z$-Modul, können wir die gleiche Frage nach den kompatiblen symmetrischen Bilinearformen auf $\Z[x_1,\ldots,x_d]_n$ stellen. Die Antwort wird wahrscheinlich nicht viel anders als in Satz \ref{DarstellungLink} sein, nur haben wir das Problem, daß Gleichung (\ref{HZerlegung}) nicht mehr gilt. Vielmehr haben wir
+\[
+  \Z[x_1,\ldots,x_d]_n \supset \H_n^d \oplus r^2 \H_{n-2}^d \oplus r^4  \H_{n-4}^d \oplus \ldots,
+\]
+wobei hier natürlich nur harmonische Polynome mit ganzzahligen Koeffizienten betrachtet werden.
+
+
+\bibliographystyle{plain}
+\begin{thebibliography}{}
+\bibitem{DaiXu}
+{Dai}, F. and {Xu}, Y., \emph{Spherical Harmonics},
+arXiv 1304.2585.
+\end{thebibliography}
+
+
+
+\end{document}
