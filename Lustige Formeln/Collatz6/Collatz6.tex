@@ -1,0 +1,58 @@
+\documentclass[]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+\usepackage[german]{babel}
+\usepackage{amsmath,amsthm,amssymb,amscd,color,graphicx}
+  
+\theoremstyle{remark}
+\newtheorem{satz}{Satz}
+\newtheorem{aufg}{Aufgabe}
+\newtheorem{definition}{Definition}
+
+%opening
+\title{Die Collatzsche Funktion zur Basis $6$}
+\author{Simon Kapfer}
+
+\begin{document}
+
+\maketitle
+\begin{definition}
+Bezeichne mit $B_i$, $i=0,1$ den von rechts wirkenden Operator $x\mapsto 2x+i$, mit $T_j$, $j=0,1,2$ den Operator $x\mapsto 3x+j$. Angewandt auf $0$, entspricht ein Produkt von $B_i$ der Binärdarstellung einer Zahl, ein Produkt von $T_j$ der Darstellung einer Zahl zur Basis $3$. Eine Darstellung mit abwechselnden $B_i$ und $T_j$ kann als zur Basis $6$ gehörig interpretiert werden.
+\end{definition}
+Es gelten folgende Vertauschungsregeln:
+\begin{equation*}
+\begin{array}{r|c|c|c|c|c|c}
+ &B_0T_0&B_0T_1&B_0T_2&B_1T_0&B_1T_1&B_1T_2\\ 
+=&T_0B_0&T_0B_1&T_1B_0&T_1B_1&T_2B_0&T_2B_1
+\end{array}
+\end{equation*}
+\begin{definition}
+Ein Collatz-Feld ist eine Funktion $f : \mathbb{Z}^2 \supset U \rightarrow \{B_0,B_1,T_0,T_1,T_2\}$ mit folgenden Eigenschaften:
+\begin{enumerate}
+\item Wenn $(m,n)\in U$, dann auch $(m,n+1)\in U $ und $(m+1,n+1)\in U$.
+\item $f(m,n) \in \{B_0,B_1\}$, falls $m+n$ ungerade und $f(m,n) \in \{T_0,T_1,T_2\}$, falls $m+n$ gerade.
+\item $f(m,n+1)f(m,n) = f(m+1,n+1)f(m+1,n)$, falls $m+n$ gerade. Insbesondere $f(m+1,n)\in U$.
+\item $f(m,n) \in \{B_0,T_0\} $ für $n\gg 0$.
+\item Aus $f(m,n) =B_0$ und $(m,n-1)\notin U$ folgt $(m+1,n)\notin U$.
+\item Aus $f(m,n) =B_1$ und $(m,n-1)\notin U$ folgt $(m+1,n)\in U$ und $f(m+1,n)=T_2$.
+\end{enumerate}
+\end{definition}
+\begin{satz}Umrechnung der Basen. Sei $m+n$ gerade und $f$ ein Collatz-Feld.
+\begin{enumerate}
+\item Angewandt auf $0$, ist \\
+$\ldots f(m-2,n+2)f(m-1,n+1)f(m,n) = \ldots f(m,n+2)f(m,n+1)f(m,n)$.
+\item Definiere $g(0)=0,\ g(1) = 1,\ g(3)=0,\ g(4)=1$. Definiere $\tilde{g}(T_j,T_k) = B_{g(j+k)}$ und $\tilde f (m,n) = \tilde g(f(m+1,n+1),f(m,n))$. Dann gilt, angewandt auf $0$:\\
+$\ldots \tilde f(m+2,n+2)\tilde f(m+1,n+1)\tilde f(m,n) = \ldots f(m,n+2)f(m,n+1)f(m,n)$.
+\end{enumerate}
+Man kann eine Zahl so in den Basen $2$, $3$, und $6$ lesen.
+\end{satz}
+\begin{proof}
+Nach Induktion und weil $f(m,n) \in \{B_0,T_0\} $ für $n\gg 0$ genügt es zu zeigen, dass 
+\begin{enumerate}
+\item $\ldots f(m-1,n+2)f(m-1,n+1)f(m,n) = \ldots f(m,n+2)f(m,n+1)f(m,n)$.
+\item $\ldots f(m+1,n+2)f(m+1,n+1)\tilde f(m,n) = \ldots f(m,n+2)f(m,n+1)f(m,n)$.
+\end{enumerate}
+Das folgt aber aus der Definition.
+\end{proof}
+
+\end{document}
