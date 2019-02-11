@@ -1,0 +1,63 @@
+Wissenswertes zu Lie-Algebren
+-----------------------------------------------------------
+-----------------------------------------------------------
+    in logischer Reihenfolge
+  
+    von Simon
+
+  
+a Idee und Beispiele
+---------------------------------------
+->  Untersuche Familien linearer Operatoren mit interessanten Kommutatoren.
+
+   - x, d/dx, 1 als Operatoren auf glatten Funktionen  (Heisenberg-Algebra)
+   - Erzeuger und Vernichter  (Affine Lie-Algebra?)
+   - Derivationen, z. B. Vektorfelder auf Mnf, Witt-Algebra, ...
+   - Laplaceoperator, Multiplikation mit r^2, n + Summe[x_i d/dx^i], 
+     auf glatten Funktionen in n Variablen  (sl(2))
+     Zufällig identisch mit spurfreien 2x2 Matrizen
+     Zufällig identisch mit Witt-Subalgebra [-1, 0, 1]
+   - Infinitesimale Rotationen in 3d  (so(3))
+     Identisch mit Kreuzprodukt
+   
+->  Betrachtung der Kommutatoren führt auf die abstrakte Definition einer Lie-Algebra.
+   - [X, X] = 0: klar
+   - Jacobi-Identität: Nicht so klar, benötigt Motivation. 
+     Interpretationen: 1) ad ist Lie-Algebrenhomomorphismus 
+         2) als Leibnizregel: ad_X ist eine Derivation
+         3) [X,[Y,Z]] zyklisch. {Zusammenhang mit S_3 Permutationen?}
+     Gegenbeispiel für was, wo Jacobi-Identität verletzt wird?
+     Für echte Kommutatoren hält sie.
+     
+    (Übung: Isomorphismen der dreidimensionalen Beispiele oben)
+
+
+b Konstruktionen
+---------------------------------------
+->  Lie-Algebren Modul bzw. Darstellung
+->  ad stellt Lie-Algebra auf sich selber dar
+->  Ideale, Radikale
+->  "derived series"
+->  "central series"
+
+     
+c Beziehung Operatoralgebren <-> Lie-Algebren
+---------------------------------------
+->  Poincaré Birkhoff Witt: Jede Lie-Algebra kommt von Kommutatoren
+->  Exponentialfunktion kommutiert mit Ad
+    Beziehung Lie-Gruppen <-> Lie-Algebren
+     
+
+d Endliche Dimension und Nilpotenz
+---------------------------------------
+->  Killing Form
+->  Satz von Engel: Nilpotenz impliziert Ad-Nilpotenz
+->  Levi-Zerlegung
+->  Satz von Lie (aber nur über alg. abg. Körper)
+
+
+e Halbeinfache Lie-Algebren
+---------------------------------------
+->  Cartan-Zerlegung
+->  Charaktere
+->  Dynkin Diagramme 
