@@ -46,6 +46,7 @@ c Beziehung Operatoralgebren <-> Lie-Algebren
 ->  Poincaré Birkhoff Witt: Jede Lie-Algebra kommt von Kommutatoren
 ->  Exponentialfunktion kommutiert mit Ad
     Beziehung Lie-Gruppen <-> Lie-Algebren
+->  Jede endlichdimensionale Lie-Algebra ist Unteralgebra einer GL(n) (Satz von Ado)
      
 
 d Endliche Dimension und Nilpotenz
@@ -53,7 +54,8 @@ d Endliche Dimension und Nilpotenz
 ->  Killing Form
 ->  Satz von Engel: Nilpotenz impliziert Ad-Nilpotenz
 ->  Levi-Zerlegung
-->  Satz von Lie (aber nur über alg. abg. Körper)
+->  Satz von Lie (aber nur über alg. abg. Körper): 
+    Jede auflösbare Lie-Algebra ist isomorph zu einer Algebra oberer Dreiecksmatrizen
 
 
 e Halbeinfache Lie-Algebren
