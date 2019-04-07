@@ -194,7 +194,7 @@ Let $$S':=\left\{\left.\xi\in A^{[2]}\right|\ \Supp \xi=\left\{x,-2x\right\},\ x
 The surface $S'$ is isomorphic to $\widetilde{A}$, which we define as the blow-up of $A$ in $A[3]$.
 We consider $r:\widetilde{A^{[2]}}\rightarrow A^{[2]}$ the blow-up of $A^{[2]}$ in $S'$.
 We denote $$\Sigma_\tau:=r^{-1}\left(\left\{\left.\xi\in A^{[2]}\right|\ \Supp \xi=\left\{\tau\right\}\right\}\right).$$
-The surfaces $\Sigma_\tau$ are Hirzebruch surfaces.
+The surfaces $\Sigma_\tau$ are Hirzebruch surfaces \textbf{r\'ef\'erence?}.
 We also consider 
 $$\widetilde{\mathcal{W}}:=\widetilde{A^{[2]}}\smallsetminus \bigcup_{\tau\in A[3]}\Sigma_\tau.$$
 We have:
@@ -217,7 +217,7 @@ $$\pi:\widetilde{\mathcal{W}}\rightarrow U.$$
 Hence if we prove that $H^3(\widetilde{\mathcal{W}},\Z)$ and $H^5(\widetilde{\mathcal{W}},\Z)$ are torsion free, Lemma \ref{2torsion} will be proven by \cite[Theorem 5.4 ]{Transfers}.
 
 We know that $H^*(A^{[2]},\Z)$ is torsion free from \cite[Theorem 2.2]{Totaro}. 
-Then we deduce from \cite[Theorem 7.31]{Voisin} (or from \cite[Theorem 4.1]{Li} which more general) that:
+Then we deduce from \cite[Theorem 7.31]{Voisin} (or from \cite[Theorem 4.1]{Li} which is more general) that:
 \begin{equation}
 \tors H^*(\widetilde{A^{[2]}},\Z)=0.
 \label{torsionEcla}
@@ -230,7 +230,7 @@ Now we consider the following exact sequence:
 .}
 \label{exact2}
 \end{equation}
-By thom's isomorphism:
+By Thom's isomorphism:
 $$H^k(\widetilde{A^{[2]}},\widetilde{\mathcal{W}},\Z)\simeq \bigoplus_{\tau\in A[3]} H^{k-4}(\Sigma_\tau,\Z).$$
 Since $\Sigma_\tau$ is an Hirzebruch surface, $H^3(\widetilde{A^{[2]}},\widetilde{\mathcal{W}},\Z)=H^5(\widetilde{A^{[2]}},\widetilde{\mathcal{W}},\Z)=0$
 and $H^{4}(\widetilde{A^{[2]}},\widetilde{\mathcal{W}},\Z)$, $H^{6}(\widetilde{A^{[2]}},\widetilde{\mathcal{W}},\Z)$ are torsion free. 
@@ -246,7 +246,7 @@ The groups $H^3(\widetilde{V}/\mathfrak{A}_3,\Z)$ and $H^5(\widetilde{V}/\mathfr
 The first step is to prove that $H^3(V/\mathfrak{A}_3,\Z)$ and $H^5(V/\mathfrak{A}_3,\Z)$ are torsion free.
 Since the action of $\mathfrak{A}_3$ on $V$ is free, it can be realized using the equivariant cohomology as explained in \cite[Section 4]{Lol}.
 The computation of the equivariant cohomology can be done using the Boissière--Sarti--Nieper-Wisskirchen invariants defined in \cite[Section 2]{SmithTh}. 
-We recall their definition in our specific case. Let $T$ a $3$-torsion-free $\Z$-module of finite rank equipped with linear action of $\mathfrak{A}_3=\left\langle \sigma_{1,2,3}\right\rangle$. 
+We recall their definition in our specific case. Let $T$ be a $3$-torsion-free $\Z$-module of finite rank equipped with linear action of $\mathfrak{A}_3=\left\langle \sigma_{1,2,3}\right\rangle$. 
 We consider the action of $\mathfrak{A}_3$ on $T\otimes\mathbb{F}_3$. Then the matrix of the endomorphism $\sigma_{1,2,3}$ on $T\otimes\mathbb{F}_3$ admits a Jordan normal form.  
 %Let $p$ be a prime number, 
 %$T$ a $p$-torsion-free $\Z$-module of finite rank and $G=\left\langle g\right\rangle$ a group of prime order $p$ acting linearly on $T$.
@@ -335,11 +335,13 @@ Moreover:
 \end{proof}
 We are now ready to prove Lemma \ref{last}.
 \begin{proof}[Proof of Lemma \ref{last}]
-Since we have an isomorphism $H^k(A\times A,\Z)\simeq H^k(V,\Z)$ for all $k\leq 6$. The invariants of $A\times A$ and $V$ coincides: $\ell_q^k(V)=\ell_q^k(A\times A)$ for all $q\in \left\{1,2,3\right\}$ and $k\leq 6$. 
+Since we have an isomorphism $H^k(A\times A,\Z)\simeq H^k(V,\Z)$ for all $k\leq 6$, the invariants of $A\times A$ and $V$ coincide: $\ell_q^k(V)=\ell_q^k(A\times A)$ for all $q\in \left\{1,2,3\right\}$ and $k\leq 6$. 
 Hence by \cite[Corollary 4.2]{Lol} and Proposition \ref{AA}, we have: $H^{p}(\mathfrak{A}_3,H^q(V,\Z))=0$ for all $p+q=3$, $p\neq 0$, and $p+q=5$, $p\neq 0$.
+
 Since $\mathfrak{A}_3$ acts freely on $V$, the spectral sequence of equivariant cohomology provides that $H^3(V/\mathfrak{A}_3,\Z)$ and $H^5(V/\mathfrak{A}_3,\Z)$ are torsion free. 
 Moreover $\widetilde{V}/\mathfrak{A}_3$ is obtained from $V/\mathfrak{A}_3$ by blowing-up the image $\overline{\Delta}$ of $\Delta$ in $V/\mathfrak{A}_3$. 
 Since $V/\mathfrak{A}_3$ and $\overline{\Delta}$ are smooth, by  \cite[Theorem 4.1]{Li}:
+\textbf{Le th\'eor\`eme cit\'e donne une suite exacte concise, sans degr\'es cohomologiques...}  
 $$\tors H^3(\widetilde{V}/\mathfrak{A}_3,\Z)=\tors H^3(V/\mathfrak{A}_3,\Z)=0,$$ and 
 $$\tors H^5(\widetilde{V}/\mathfrak{A}_3,\Z)=\tors H^5(V/\mathfrak{A}_3,\Z)\oplus \tors H^1(\overline{\Delta},\Z)=0.$$
 \end{proof}
