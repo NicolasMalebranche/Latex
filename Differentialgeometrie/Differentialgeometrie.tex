@@ -1,0 +1,101 @@
+\documentclass[12pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+\usepackage[german]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts} 
+\usepackage{graphicx}
+\usepackage{hyperref}
+\newcommand*{\R}{\ensuremath{\mathbb{R}}}
+\newcommand*{\diff}[1]{\ensuremath{\frac{\partial}{\partial #1}}}
+\newcommand*{\ddiff}[1]{\ensuremath{\frac{\partial^2}{\partial #1 ^2}}}
+
+\title{Differentialgeometrie}
+\author{Simon Kapfer}
+\date{10. Januar 2022}
+
+\begin{document}
+\maketitle
+\section{Koordinatentransformationen}
+\subsection{Polarkoordinaten}
+\begin{align*}
+E: \R^2 &\longrightarrow \R^2\\
+(r,\phi) &\longmapsto (r\cos\phi, r\sin\phi)
+\end{align*}
+$E$ ist surjektiv, diffbar, eingeschr\"ankt auf den Streifen
+$$
+\R^{>0}\times (-\pi,\pi) \longrightarrow \R^2 \setminus \{(x,0), x \leq 0\} 
+$$
+ein Diffeomorphismus auf die geschlitzte Ebene mit Umkehrung 
+$$
+L : (x,y) \longmapsto \left(\sqrt{x^2+y^2},\ \left\{
+\begin{array}{cl}
+\arctan(\frac{y}{x}), & x>0\\
+\arctan(\frac{y}{x})+ \frac{\pi}{2}, & x<0, y>0\\
+\arctan(\frac{y}{x})-\frac{\pi}{2}, & x<0, y<0\\
+\frac{\pi}{2} , & x=0, y>0\\
+-\frac{\pi}{2} , & x=0, y<0
+\end{array}
+\right\}\right).
+$$
+Differentiale / Jacobi-Matrizen:
+\begin{align*}
+& DE: & \R^2 &\longrightarrow \R^{2\times 2}\\
+& & (r,\phi) &\longmapsto \left(
+\begin{array}{cc}
+\cos\phi & -r\sin\phi\\
+\sin\phi & r \cos\phi
+\end{array}
+\right)\\\\
+& DL: & \R^2 \setminus \{(x,0), x \leq 0\}  &\longrightarrow \R^{2\times 2}\\ 
+& & (x,y) &\longmapsto\left(
+\begin{array}{cc}
+\frac{x}{\sqrt{x^2+y^2}} & \frac{y}{\sqrt{x^2+y^2}}\\
+\frac{-y}{x^2+y^2} & \frac{x}{x^2+y^2}
+\end{array}
+\right)
+\end{align*}
+$DE$ hat vollen Rang f\"ur $r\neq 0$ und $DL$ ist fortsetzbar auf $\R^2\setminus 0$.
+Die lokalen Umkehrungen sind:
+\begin{align*}
+\left(DL\right)^{-1} &= DE\circ L: & (x,y) &\longmapsto  \left(
+\begin{array}{cc}
+\cos\left(\arctan(\frac{y}{x})\right)& -\sqrt{x^2+y^2}\sin\left(\arctan(\frac{y}{x})\right)\\
+\sin\left(\arctan(\frac{y}{x})\right)& \sqrt{x^2+y^2}\cos\left(\arctan(\frac{y}{x})\right)
+\end{array}
+\right) \\
+\left(DE\right)^{-1} &= DL\circ E: & (r,\phi) &\longmapsto  \left(
+\begin{array}{cc}
+\cos\phi& \sin\phi\\
+-\frac{\sin\phi}{r} & \frac{\cos\phi}{r}
+\end{array}
+\right) 
+\end{align*}
+\subsection{Pushforward und Pullback}
+\begin{align*}
+\diff{r}E^*f &= \diff{r} f(r\cos\phi, r\sin\phi) = f_1 \cos\phi + f_2\sin\phi \\
+\left(E_*\diff{r}\right) &= \cos\phi \diff{x} + \sin\phi\diff{y} = \frac{x}{\sqrt{x^2+y^2}}\diff{x}+ \frac{y}{\sqrt{x^2+y^2}}\diff{y}
+\end{align*}
+Pullback von Funktionen geht anhand beliebiger Morphismen.
+Pushforward von Differentialoperatoren geht offensichtlich nur dort, wo $E$ ein Diffeo-morphismus ist (siehe die Wurzel im Nenner), sonst unklar, was das Ergebnis sein soll. 
+Wenn der Morphismus nicht injektiv ist, ist unklar, was das Ergebnis auf dem Bild sein soll, wenn er nicht surjektiv ist, fehlt was, um ein komplettes Vektorfeld zu erhalten.
+Richtungsableitungen an einzelnen Punkten hingegen kann man beliebig nach vorne schieben. Offensichtlich gilt f\"ur eine Richtungsableitung $A$ die Projektionsformel:
+$$
+E^*\left((E_*A)f\right) = A(E^* f).
+$$
+H\"ohere Ableitungen gehen im Prinzip genauso, nur die Kompatibilit\"at mit der Komposition von Differentialoperatoren ist kaputt:
+\begin{align*}
+E_*\left. \ddiff{r}\right|_p &= \cos^2\phi\ddiff{x} + 2 \sin\phi\cos\phi \diff{x}\diff{y} + \sin^2 \phi \ddiff{y}
+\\
+&= \left.\left(E_*\diff{r}\right)^2\right|_p - \left. \frac{\sin^2\phi\cos\phi}{r}\diff{x} \right|_p + \left. \frac{\sin\phi\cos^2\phi}{r}\diff{y}\right|_p 
+\end{align*}
+Gradienten (Richtung des steilsten Anstiegs) sind auch inkompatibel mit Koordinatentransformationen:
+$$
+E_*\left(\nabla E_* x\right) = E_*\left(r\cos\phi\right) = E_*\left[\begin{array}{c} \cos\phi\\-r\sin\phi\end{array}\right]= \left[\begin{array}{c} 
+\cos^2\phi +r^2\sin^2\phi\\
+(1-r^2) \sin\phi\cos\phi
+\end{array}\right] 
+\neq \left[\begin{array}{c}1\\0\end{array}\right]
+$$
+Nur wenn die Jacobische der Transformation orthogonal ist (hier dort, wo $r=0$ ist), bleibt der Gradient erhalten.
+\end{document}
